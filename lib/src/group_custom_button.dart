@@ -6,16 +6,15 @@ class GroupCustomButton extends StatelessWidget {
     @required this.onPressed,
     @required this.text,
     @required this.isSelected,
-    this.selectedTextStyle = _defaultSelectedTextStyle,
-    this.unselectedTextStyle = _defaultUnselectedTextStyle,
-    this.size,
-    this.selectedColor = Colors.green,
-    this.unselectedColor = Colors.white,
-    this.selectedBorderColor = Colors.green,
-    this.unselectedBorderColor = Colors.transparent,
+    this.selectedTextStyle,
+    this.unselectedTextStyle,
+    this.selectedColor,
+    this.unselectedColor,
+    this.selectedBorderColor,
+    this.unselectedBorderColor,
     this.borderRadius,
-    this.selectedShadow = _defaultShadow,
-    this.unselectedShadow = _defaultShadow,
+    this.selectedShadow,
+    this.unselectedShadow,
   }) : super(key: key);
 
   final String text;
@@ -23,7 +22,6 @@ class GroupCustomButton extends StatelessWidget {
   final bool isSelected;
   final TextStyle selectedTextStyle;
   final TextStyle unselectedTextStyle;
-  final double size;
   final Color selectedColor;
   final Color unselectedColor;
   final Color selectedBorderColor;
@@ -35,14 +33,11 @@ class GroupCustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: size == null ? MediaQuery.of(context).size.height * 0.045 : size,
-      width:
-          size == null ? MediaQuery.of(context).size.height * 0.11 : size * 3.5,
       decoration: BoxDecoration(
         borderRadius: borderRadius ?? BorderRadius.circular(30.0),
         boxShadow: isSelected
-            ? selectedShadow ?? unselectedShadow ?? _defaultShadow
-            : unselectedShadow ?? selectedShadow ?? _defaultShadow,
+            ? selectedShadow ?? unselectedShadow
+            : unselectedShadow ?? selectedShadow,
       ),
       child: RaisedButton(
         elevation: 0,
@@ -55,7 +50,9 @@ class GroupCustomButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
           side: BorderSide(
-              color: isSelected ? selectedBorderColor : unselectedBorderColor),
+              color: isSelected
+                  ? selectedBorderColor ?? Colors.transparent
+                  : unselectedBorderColor ?? Colors.transparent),
         ),
         focusColor: selectedColor,
         splashColor: selectedColor,
@@ -63,21 +60,4 @@ class GroupCustomButton extends StatelessWidget {
       ),
     );
   }
-
-  static const _defaultShadow = const <BoxShadow>[
-    BoxShadow(
-      color: Colors.black12,
-      blurRadius: 20.0,
-      spreadRadius: 2.0,
-      offset: Offset(
-        0.0,
-        3.0,
-      ),
-    )
-  ];
-
-  static const _defaultSelectedTextStyle =
-      TextStyle(fontSize: 14, color: Colors.white);
-  static const _defaultUnselectedTextStyle =
-      TextStyle(fontSize: 14, color: Colors.black);
 }
