@@ -12,5 +12,7 @@ class GroupButtonBloc extends ChangeNotifier {
 
   void selectButton(int index) {
     _selectedIndex = index;
+    print(index);
+    notifyListeners();
   }
 }

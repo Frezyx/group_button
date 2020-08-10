@@ -34,48 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: GroupButton(
           spacing: 10,
-          buttons: [
-            GroupCustomButton(
-              onPressed: () => print("sss"),
-              isSelected: true,
-              text: "12:00",
-            ),
-            GroupCustomButton(
-              onPressed: () => print("sss"),
-              isSelected: true,
-              text: "12:00",
-            ),
-            GroupCustomButton(
-              onPressed: () => print("sss"),
-              isSelected: true,
-              text: "12:00",
-            ),
-            GroupCustomButton(
-              onPressed: () => print("sss"),
-              isSelected: true,
-              text: "12:00",
-            ),
-            GroupCustomButton(
-              onPressed: () => print("sss"),
-              isSelected: true,
-              text: "12:00",
-            ),
-            GroupCustomButton(
-              onPressed: () => print("sss"),
-              isSelected: true,
-              text: "12:00",
-            ),
-            GroupCustomButton(
-              onPressed: () => print("sss"),
-              isSelected: true,
-              text: "12:00",
-            ),
-            GroupCustomButton(
-              onPressed: () => print("sss"),
-              isSelected: true,
-              text: "12:00",
-            ),
-          ],
+          buttons: ["12:00", "13:00", "14:30"],
         ),
       ),
       floatingActionButton: FloatingActionButton(

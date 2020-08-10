@@ -16,7 +16,7 @@ class GroupButton extends StatelessWidget {
   }) : super(key: key);
 
   final Axis direction;
-  final List<Widget> buttons;
+  final List<String> buttons;
   final double spacing;
 
   @override

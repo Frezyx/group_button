@@ -6,10 +6,13 @@ class GroupCustomButton extends StatelessWidget {
     @required this.onPressed,
     @required this.text,
     @required this.isSelected,
-    this.textStyle = const TextStyle(fontSize: 14),
+    this.selectedTextStyle = _defaultSelectedTextStyle,
+    this.unselectedTextStyle = _defaultUnselectedTextStyle,
     this.size,
     this.selectedColor = Colors.green,
     this.unselectedColor = Colors.white,
+    this.selectedBorderColor = Colors.green,
+    this.unselectedBorderColor = Colors.transparent,
     this.borderRadius,
     this.selectedShadow = _defaultShadow,
     this.unselectedShadow = _defaultShadow,
@@ -18,10 +21,13 @@ class GroupCustomButton extends StatelessWidget {
   final String text;
   final Function onPressed;
   final bool isSelected;
-  final TextStyle textStyle;
+  final TextStyle selectedTextStyle;
+  final TextStyle unselectedTextStyle;
   final double size;
   final Color selectedColor;
   final Color unselectedColor;
+  final Color selectedBorderColor;
+  final Color unselectedBorderColor;
   final BorderRadius borderRadius;
   final List<BoxShadow> selectedShadow;
   final List<BoxShadow> unselectedShadow;
@@ -43,13 +49,13 @@ class GroupCustomButton extends StatelessWidget {
         color: isSelected ? selectedColor : unselectedColor,
         child: Text(
           text,
-          style: textStyle,
+          style: isSelected ? selectedTextStyle : unselectedTextStyle,
         ),
         onPressed: onPressed,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
           side: BorderSide(
-              color: isSelected ? Colors.transparent : selectedColor),
+              color: isSelected ? selectedBorderColor : unselectedBorderColor),
         ),
         focusColor: selectedColor,
         splashColor: selectedColor,
@@ -57,16 +63,21 @@ class GroupCustomButton extends StatelessWidget {
       ),
     );
   }
-}
 
-const _defaultShadow = const <BoxShadow>[
-  BoxShadow(
-    color: Colors.black12,
-    blurRadius: 20.0,
-    spreadRadius: 2.0,
-    offset: Offset(
-      0.0,
-      3.0,
-    ),
-  )
-];
+  static const _defaultShadow = const <BoxShadow>[
+    BoxShadow(
+      color: Colors.black12,
+      blurRadius: 20.0,
+      spreadRadius: 2.0,
+      offset: Offset(
+        0.0,
+        3.0,
+      ),
+    )
+  ];
+
+  static const _defaultSelectedTextStyle =
+      TextStyle(fontSize: 14, color: Colors.white);
+  static const _defaultUnselectedTextStyle =
+      TextStyle(fontSize: 14, color: Colors.black);
+}

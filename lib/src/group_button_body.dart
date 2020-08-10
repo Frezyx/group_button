@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../group_buttons.dart';
 import 'blocs/group_button_bloc.dart';
 
 class GroupButtonBody extends StatelessWidget {
@@ -13,7 +14,7 @@ class GroupButtonBody extends StatelessWidget {
 
   final Axis direction;
   final double spacing;
-  final List<Widget> buttons;
+  final List<String> buttons;
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +27,16 @@ class GroupButtonBody extends StatelessWidget {
     );
   }
 
-  _buildButtonsList(List<Widget> buttons, GroupButtonBloc bloc) {
-    List<InkWell> rebuildedButtons = [];
+  _buildButtonsList(List<String> buttons, GroupButtonBloc bloc) {
+    List<GroupCustomButton> rebuildedButtons = [];
     for (var i = 0; i < buttons.length; i++) {
-      InkWell rebuidedButton = InkWell(
-        child: buttons[i],
-        onTap: () => bloc.selectButton(i),
+      GroupCustomButton rebuidedButton = GroupCustomButton(
+        text: buttons[i],
+        onPressed: () => bloc.selectButton(i),
+        isSelected: i == bloc.selectedIndex,
       );
       rebuildedButtons.add(rebuidedButton);
     }
-    return buttons;
+    return rebuildedButtons;
   }
 }
