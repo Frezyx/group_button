@@ -1,8 +1,8 @@
 name: group_button
 description: Flutter custom widget to display a group of buttons
-version: 0.1.0
-author:
-homepage:
+version: 1.0.0
+author: youngfrezyx@gmail.com
+homepage: https://github.com/Frezyx/group_button
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

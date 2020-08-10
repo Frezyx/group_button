@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -33,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("group_button 0.1.0"),
+          title: Text("group_button 1.0.0"),
           bottom: TabBar(
             tabs: [
               Tab(icon: buildRadioTabIcon()),
@@ -88,19 +89,22 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.all(10.0),
               child: Center(
                 child: GroupButton(
-                  spacing: 15,
+                  spacing: 5,
                   isRadio: false,
                   direction: direction,
                   onSelected: (index, isSelected) => print(
                       '$index button is ${isSelected ? 'selected' : 'unselected'}'),
                   buttons: [
-                    "Burger",
-                    "Sandwiches",
-                    "Salad",
-                    "Carbonara",
-                    "Meat",
-                    "French fries",
-                    "Carbonated beverage"
+                    "Dart",
+                    "Kotlin",
+                    "Java",
+                    "Swift",
+                    "Objective-C",
+                    "Python",
+                    "JS",
+                    "C#",
+                    "C",
+                    "C++"
                   ],
                   selectedTextStyle: TextStyle(
                     fontWeight: FontWeight.w600,

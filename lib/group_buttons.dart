@@ -5,9 +5,55 @@ import 'src/blocs/group_button_bloc.dart';
 import 'src/group_button_body.dart';
 import 'package:provider/provider.dart';
 
-export 'src/group_custom_button.dart';
-
 class GroupButton extends StatelessWidget {
+  /// [String] list that will be displayed on buttons in the [GroupButton]
+  final List<String> buttons;
+
+  /// Callback [Function] works by clicking on a group element
+  ///
+  /// Return int [index] of selected button and [isSelected] if [isRadio] = false
+  final Function(int, bool) onSelected;
+
+  /// bool variable for switching between modes [ChackBox] and [Radio]
+  ///
+  /// if the [isRadio] = true, only one button can be selected
+  /// if the [isRadio] = false, you can select several at once
+  final bool isRadio;
+
+  /// The direction of arrangement of the buttons in [GroupButton]
+  final Axis direction;
+
+  /// The spacing between buttons inside [GroupButton]
+  final double spacing;
+
+  /// [TextStyle] of text of selected button(s)
+  final TextStyle selectedTextStyle;
+
+  /// [TextStyle] of text of unselected buttons
+  final TextStyle unselectedTextStyle;
+
+  /// background [Color] of selected button(s)
+  final Color selectedColor;
+
+  /// background [Color] of  unselected buttons
+  final Color unselectedColor;
+
+  /// border [Color] of selected button(s)
+  final Color selectedBorderColor;
+
+  /// border [Color] of  unselected buttons
+  final Color unselectedBorderColor;
+
+  /// [BorderRadius] of  buttons
+  /// How much the button will be rounded
+  final BorderRadius borderRadius;
+
+  /// list of selected button(s) [BoxShadow]
+  final List<BoxShadow> selectedShadow;
+
+  /// list of unselected buttons [BoxShadow]
+  final List<BoxShadow> unselectedShadow;
+
   const GroupButton({
     Key key,
     @required this.buttons,
@@ -25,21 +71,6 @@ class GroupButton extends StatelessWidget {
     this.selectedShadow = _defaultShadow,
     this.unselectedShadow = _defaultShadow,
   }) : super(key: key);
-
-  final List<String> buttons;
-  final Function(int, bool) onSelected;
-  final bool isRadio;
-  final Axis direction;
-  final double spacing;
-  final TextStyle selectedTextStyle;
-  final TextStyle unselectedTextStyle;
-  final Color selectedColor;
-  final Color unselectedColor;
-  final Color selectedBorderColor;
-  final Color unselectedBorderColor;
-  final BorderRadius borderRadius;
-  final List<BoxShadow> selectedShadow;
-  final List<BoxShadow> unselectedShadow;
 
   @override
   Widget build(BuildContext context) {
