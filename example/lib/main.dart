@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:group_button/group_button.dart';
+import 'package:group_button/group_buttons.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,7 +31,53 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("group_button 0.1.0"),
       ),
-      body: GroupButton(),
+      body: Center(
+        child: GroupButton(
+          spacing: 10,
+          buttons: [
+            GroupCustomButton(
+              onPressed: () => print("sss"),
+              isSelected: true,
+              text: "12:00",
+            ),
+            GroupCustomButton(
+              onPressed: () => print("sss"),
+              isSelected: true,
+              text: "12:00",
+            ),
+            GroupCustomButton(
+              onPressed: () => print("sss"),
+              isSelected: true,
+              text: "12:00",
+            ),
+            GroupCustomButton(
+              onPressed: () => print("sss"),
+              isSelected: true,
+              text: "12:00",
+            ),
+            GroupCustomButton(
+              onPressed: () => print("sss"),
+              isSelected: true,
+              text: "12:00",
+            ),
+            GroupCustomButton(
+              onPressed: () => print("sss"),
+              isSelected: true,
+              text: "12:00",
+            ),
+            GroupCustomButton(
+              onPressed: () => print("sss"),
+              isSelected: true,
+              text: "12:00",
+            ),
+            GroupCustomButton(
+              onPressed: () => print("sss"),
+              isSelected: true,
+              text: "12:00",
+            ),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => print("Change visability"),
         child: Icon(Icons.refresh),
