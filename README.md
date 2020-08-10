@@ -1,14 +1,96 @@
 # group_button
 
-Flutter custom widget to display a group of buttons
+Flutter custom widget to display a group of buttons <br>
+[pub package](https://pub.dev/packages/group_button)
+
+
+<img src="https://github.com/Frezyx/group_button/blob/master/example/rep_files/preview.gif?raw=true" width="270">
 
 ## Getting Started
+Follow these steps to use this package
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+### Add dependency
 
-For help getting started with Flutter, view our 
+```yaml
+dependencies:
+  group_button: ^1.0.0 #latest version
+```
+
+### Add import package
+
+```dart
+import 'package:group_button/group_buttons.dart';
+```
+
+### Easy to use
+Simple example of use GroupButton<br>
+Put this code in your project at an screen and learn how it works 😊
+
+```dart
+GroupButton(
+    isRadio: false,
+    spacing: 10,
+    onSelected: (index, isSelected) => print('$index button is selected'),
+    buttons: ["12:00", "13:00", "14:30", "18:00", "19:00", "21:40"],
+)
+```
+
+### Customize
+
+In order to customize your buttons inside *GroupButton* you can use code below</br>
+This code includes *all* the fields used in *GroupButton*
+
+```dart
+GroupButton(
+    spacing: 5,
+    isRadio: false,
+    direction: Axis.horizontal,
+    onSelected: (index, isSelected) =>
+          print('$index button is ${isSelected ? 'selected' : 'unselected'}'),
+    buttons: ["Dart","Kotlin","Java","Swift","Objective-C","Python","JS"],
+    selectedTextStyle: TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: 16,
+        color: Colors.red,
+    ),
+    unselectedTextStyle: TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: 14,
+        color: Colors.grey[600],
+    ),
+    selectedColor: Colors.white,
+    unselectedColor: Colors.grey[300],
+    selectedBorderColor: Colors.red,
+    unselectedBorderColor: Colors.grey[500],
+    borderRadius: BorderRadius.circular(5.0),
+    selectedShadow: <BoxShadow>[BoxShadow(color: Colors.transparent)],
+    unselectedShadow: <BoxShadow>[BoxShadow(color: Colors.transparent)],
+)
+```
+
+### Attributes
+
+| Attribute  | Annotation |
+| ------------- | ------------- |
+| onSelected | [String] list that will be displayed on buttons in the [GroupButton] |
+| Content Cell  | Callback [Function] works by clicking on a group element <br> Return int [index] of selected button and [isSelected] if [isRadio] = false |
+| isRadio | bool variable for switching between modes [ChackBox] and [Radio]<br>if the [isRadio] = true, only one button can be selected<br>if the [isRadio] = false, you can select several at once |
+| direction | The direction of arrangement of the buttons in [GroupButton] |
+| spacing | The spacing between buttons inside [GroupButton] |
+| selectedTextStyle | [TextStyle] of text of selected button(s) |
+| unselectedTextStyle | [TextStyle] of text of unselected buttons |
+| selectedColor | background [Color] of selected button(s) |
+| unselectedColor | background [Color] of  unselected buttons |
+| selectedBorderColor | border [Color] of selected button(s) |
+| unselectedBorderColor | border [Color] of  unselected buttons |
+| borderRadius | [BorderRadius] of  buttons<br>How much the button will be rounded |
+| selectedShadow | list of selected button(s) [BoxShadow] |
+| unselectedShadow| list of unselected buttons [BoxShadow] |
+
+
+
+For help getting started with 😍 Flutter, view
 [online documentation](https://flutter.dev/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
+
+
