@@ -1,8 +1,8 @@
 # group_button
 
-Flutter custom widget to display a group of buttons <br>
+Flutter custom widget to make a group buttons.<br>
+Included Radio and CheckBox buttons models.<br>
 [pub package](https://pub.dev/packages/group_button)
-
 
 <img src="https://github.com/Frezyx/group_button/blob/master/example/rep_files/preview.gif?raw=true" width="270">
 
@@ -13,13 +13,13 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^1.0.0 #latest version
+  group_button: ^1.0.1 #latest version
 ```
 
 ### Add import package
 
 ```dart
-import 'package:group_button/group_buttons.dart';
+import 'package:group_button/group_button.dart';
 ```
 
 ### Easy to use

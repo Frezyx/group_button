@@ -1,6 +1,6 @@
 name: group_button
-description: Flutter custom widget to display a group of buttons
-version: 1.0.0
+description: Flutter custom widget to make a group buttons. Included Radio and CheckBox buttons.
+version: 1.0.1
 author: youngfrezyx@gmail.com
 homepage: https://github.com/Frezyx/group_button
 

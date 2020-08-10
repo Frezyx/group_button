@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:group_button/group_buttons.dart';
+import 'package:group_button/group_button.dart';
 import 'utils.dart';
 
 void main() {
@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("group_button 1.0.0"),
+          title: Text("group_button 1.0.1"),
           bottom: TabBar(
             tabs: [
               Tab(icon: buildRadioTabIcon()),
