@@ -1,0 +1,14 @@
+language: dart
+dist: xenial
+addons:
+  apt:
+    packages:
+      - lib32stdc++6
+install:
+  - git clone https://github.com/flutter/flutter.git -b stable
+  - ./flutter/bin/flutter doctor
+script:
+  - ./flutter/bin/flutter test
+cache:
+  directories:
+    - $HOME/.pub-cache
