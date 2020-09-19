@@ -1,40 +1,17 @@
+env:
+  - FLUTTER_GITHUB="https://github.com/flutter/flutter.git"
+
 language: dart
+
 dart:
   - stable
-os:
-  - linux
-sudo: false
-addons:
-  # chrome: stable
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test # you need this source to get the right version of libstdc++6
-    packages:
-      - libstdc++6
-      #- fonts-droid-fallback
+
+dart_task:
+  - dartfmt
+
 install:
-  - echo 'Avoid default Travis CI install step' # this is to avoid an error with pub in Travis
-before_script:
-  - cd ..
-  - git clone https://github.com/flutter/flutter.git
-  - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
-  - flutter doctor
-  # - pub global activate flutter_plugin_tools
+  - git clone $FLUTTER_GITHUB -b stable
+
 script:
-  - cd $TRAVIS_BUILD_DIR
-  - flutter packages get
-  - flutter analyze --no-pub --no-current-package lib
-  # - flutter test
-  - flutter packages pub publish
-before_deploy:
-  - chmod +x ./.travis/publish.sh # giving execution permissions to this file to avoid error 127.
-  - mv ./.travis ../
-deploy:
-  provider: script
-  skip_cleanup: true
-  script: "../.travis/publish.sh"
-  on:
-    tags: true
-cache:
-  directories:
-    - $HOME/.pub-cache
+  - ./flutter/bin/flutter doctor
+  - ./flutter/bin/flutter test
