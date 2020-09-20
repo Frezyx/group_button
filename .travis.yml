@@ -1,14 +1,14 @@
+env:
+    - FLUTTER_GITHUB="https://github.com/flutter/flutter.git"
+
 language: dart
-dist: xenial
-addons:
-  apt:
-    packages:
-      - lib32stdc++6
+dart:
+    - stable
+dart_task:
+    - dartfmt
 install:
-  - git clone https://github.com/flutter/flutter.git -b stable
-  - ./flutter/bin/flutter doctor
+    - git clone $FLUTTER_GITHUB -b stable
+
 script:
-  - ./flutter/bin/flutter test
-cache:
-  directories:
-    - $HOME/.pub-cache 
+  - ./flutter/bin/flutter doctor
+  - ./flutter/bin/flutter test 
