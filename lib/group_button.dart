@@ -9,6 +9,9 @@ class GroupButton extends StatelessWidget {
   /// [String] list that will be displayed on buttons in the [GroupButton]
   final List<String> buttons;
 
+  /// [String] buttons that will selected initially.
+  final List<String> selectedButtons;
+
   /// Callback [Function] works by clicking on a group element
   ///
   /// Return int [index] of selected button and [isSelected] if [isRadio] = false
@@ -58,6 +61,7 @@ class GroupButton extends StatelessWidget {
     Key key,
     @required this.buttons,
     @required this.onSelected,
+    this.selectedButtons,
     this.isRadio = true,
     this.direction,
     this.spacing,
@@ -78,6 +82,7 @@ class GroupButton extends StatelessWidget {
       create: (_) => GroupButtonBloc(),
       child: GroupButtonBody(
         buttons: buttons,
+        selectedButtons: selectedButtons,
         onSelected: onSelected,
         isRadio: isRadio,
         direction: direction,
