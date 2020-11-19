@@ -25,4 +25,19 @@ class GroupButtonBloc extends ChangeNotifier {
     }
     notifyListeners();
   }
+
+  bool _initializedSelection = false;
+
+  void initializeSelection(List<String> buttons, List<String> selectedButtons) {
+    if (_initializedSelection) return;
+    _initializedSelection = true;
+    if (selectedButtons == null) return;
+
+    for (var i = 0; i < buttons.length; i++) {
+      if (selectedButtons.contains(buttons[i])) {
+        _selectedIndexes[i] = true;
+        _selectedIndex = i;
+      }
+    }
+  }
 }

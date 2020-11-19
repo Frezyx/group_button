@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     "19:00",
                     "21:40",
                   ],
+                  selectedButtons: ["14:30"],
                 ),
               ),
             ),
@@ -81,6 +82,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     "Meat",
                     "French fries",
                     "Carbonated beverage"
+                  ],
+                  selectedButtons: [
+                    "Salad",
+                    "Carbonara",
                   ],
                 ),
               ),
