@@ -15,7 +15,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^1.0.2 #latest version
+  group_button: ^1.1.0 #latest version
 ```
 
 ### Add import package
@@ -50,6 +50,7 @@ GroupButton(
     onSelected: (index, isSelected) =>
           print('$index button is ${isSelected ? 'selected' : 'unselected'}'),
     buttons: ["Dart","Kotlin","Java","Swift","Objective-C","Python","JS"],
+    selectedButtons: ["Dart","Kotlin"],
     selectedTextStyle: TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: 16,
@@ -74,8 +75,9 @@ GroupButton(
 
 | Attribute  | Annotation |
 | ------------- | ------------- |
-| onSelected | [String] list that will be displayed on buttons in the [GroupButton] |
-| Content Cell  | Callback [Function] works by clicking on a group element <br> Return int [index] of selected button and [isSelected] if [isRadio] = false |
+| buttons | [String] list that will be displayed on buttons in the [GroupButton] |
+| selectedButtons | [String] list that will be set initial selected buttons in the [GroupButton] |
+| onSelected  | Callback [Function] works by clicking on a group element <br> Return int [index] of selected button and [isSelected] if [isRadio] = false |
 | isRadio | bool variable for switching between modes [ChackBox] and [Radio]<br>if the [isRadio] = true, only one button can be selected<br>if the [isRadio] = false, you can select several at once |
 | direction | The direction of arrangement of the buttons in [GroupButton] |
 | spacing | The spacing between buttons inside [GroupButton] |
