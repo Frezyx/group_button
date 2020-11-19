@@ -9,7 +9,7 @@ class GroupButton extends StatelessWidget {
   /// [String] list that will be displayed on buttons in the [GroupButton]
   final List<String> buttons;
 
-  /// [String] buttons that will selected initially.
+  /// [String] buttons that is selected initially.
   final List<String> selectedButtons;
 
   /// Callback [Function] works by clicking on a group element
@@ -74,7 +74,10 @@ class GroupButton extends StatelessWidget {
     this.borderRadius,
     this.selectedShadow = _defaultShadow,
     this.unselectedShadow = _defaultShadow,
-  }) : super(key: key);
+  })  : assert(
+            !isRadio || selectedButtons == null || selectedButtons.length <= 1,
+            "When isRadio=true, selectedButtons can't contain multiple buttons."),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
