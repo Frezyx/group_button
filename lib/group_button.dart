@@ -1,9 +1,10 @@
 library group_button;
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'src/blocs/group_button_bloc.dart';
 import 'src/group_button_body.dart';
-import 'package:provider/provider.dart';
 
 class GroupButton extends StatelessWidget {
   /// [String] list that will be displayed on buttons in the [GroupButton]
@@ -103,7 +104,7 @@ class GroupButton extends StatelessWidget {
     );
   }
 
-  static const _defaultShadow = const <BoxShadow>[
+  static const _defaultShadow = <BoxShadow>[
     BoxShadow(
       color: Color.fromARGB(18, 18, 18, 20),
       blurRadius: 25.0,

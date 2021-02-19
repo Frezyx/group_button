@@ -34,29 +34,25 @@ class GroupCustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: borderRadius ?? BorderRadius.circular(30.0),
-        boxShadow: isSelected
-            ? selectedShadow ?? unselectedShadow
-            : unselectedShadow ?? selectedShadow,
+        borderRadius: borderRadius ?? BorderRadius.circular(30),
+        boxShadow: isSelected ? selectedShadow : unselectedShadow,
       ),
       child: RaisedButton(
         elevation: 0,
         color: isSelected ? selectedColor : unselectedColor,
-        child: Text(
-          text,
-          style: isSelected ? selectedTextStyle : unselectedTextStyle,
-        ),
         onPressed: onPressed,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
+          borderRadius: borderRadius ?? BorderRadius.circular(30),
           side: BorderSide(
-              color: isSelected
-                  ? selectedBorderColor ?? Colors.transparent
-                  : unselectedBorderColor ?? Colors.transparent),
+              color: isSelected ? selectedBorderColor : unselectedBorderColor),
         ),
         focusColor: selectedColor,
         splashColor: selectedColor,
         highlightColor: selectedColor,
+        child: Text(
+          text,
+          style: isSelected ? selectedTextStyle : unselectedTextStyle,
+        ),
       ),
     );
   }

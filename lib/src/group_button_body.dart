@@ -19,9 +19,9 @@ class GroupButtonBody extends StatelessWidget {
     this.unselectedColor,
     this.selectedBorderColor,
     this.unselectedBorderColor,
-    this.borderRadius,
-    this.selectedShadow,
-    this.unselectedShadow,
+    this.borderRadius = BorderRadius.zero,
+    this.selectedShadow = const [],
+    this.unselectedShadow = const [],
   }) : super(key: key);
 
   final List<String> buttons;
@@ -62,7 +62,9 @@ class GroupButtonBody extends StatelessWidget {
   }
 
   List<GroupCustomButton> _buildButtonsList(
-      List<String> buttons, GroupButtonBloc bloc) {
+    List<String> buttons,
+    GroupButtonBloc bloc,
+  ) {
     final rebuildedButtons = <GroupCustomButton>[];
     for (var i = 0; i < buttons.length; i++) {
       final rebuidedButton = GroupCustomButton(

@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 class GroupButtonBloc extends ChangeNotifier {
   int _selectedIndex = 0;
 
-  Map<int, bool> _selectedIndexes = {};
+  final Map<int, bool> _selectedIndexes = {};
 
   int get selectedIndex => _selectedIndex;
 
@@ -14,14 +14,16 @@ class GroupButtonBloc extends ChangeNotifier {
 
   Map<int, bool> get selectedIndexes => _selectedIndexes;
 
+  // ignore: avoid_positional_boolean_parameters
   void selectButton(int index, bool isRadio) {
-    if (isRadio)
+    if (isRadio) {
       _selectedIndex = index;
-    else {
-      if (!_selectedIndexes.containsKey(index))
+    } else {
+      if (!_selectedIndexes.containsKey(index)) {
         _selectedIndexes[index] = true;
-      else
+      } else {
         _selectedIndexes[index] = !_selectedIndexes[index];
+      }
     }
     notifyListeners();
   }
