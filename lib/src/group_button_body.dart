@@ -8,6 +8,7 @@ class GroupButtonBody extends StatelessWidget {
   const GroupButtonBody({
     Key key,
     @required this.buttons,
+    this.selectedButtons,
     @required this.onSelected,
     this.isRadio,
     this.direction,
@@ -24,6 +25,7 @@ class GroupButtonBody extends StatelessWidget {
   }) : super(key: key);
 
   final List<String> buttons;
+  final List<String> selectedButtons;
   final Function(int, bool) onSelected;
   final bool isRadio;
   final Axis direction;
@@ -41,6 +43,9 @@ class GroupButtonBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = Provider.of<GroupButtonBloc>(context);
+
+    bloc.initializeSelection(buttons, selectedButtons);
+
     return Wrap(
       direction: direction ?? Axis.horizontal,
       spacing: spacing,

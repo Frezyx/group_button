@@ -1,3 +1,11 @@
+## 1.1.0 - 2020-10-19.
+
+* Added ability to set initially selected buttons
+
+## 1.0.2 - 2020-08-11.
+
+* Create travis & codemagic QA
+
 ## 1.0.1 - 2020-08-11.
 
 * Fix dart analyzer issues, errors and remarks
