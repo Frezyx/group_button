@@ -18,7 +18,7 @@ class GroupCustomButton extends StatelessWidget {
   }) : super(key: key);
 
   final String text;
-  final Function onPressed;
+  final void Function() onPressed;
   final bool isSelected;
   final TextStyle selectedTextStyle;
   final TextStyle unselectedTextStyle;
