@@ -76,8 +76,9 @@ class GroupButton extends StatelessWidget {
     this.selectedShadow = _defaultShadow,
     this.unselectedShadow = _defaultShadow,
   })  : assert(
-            !isRadio || selectedButtons == null || selectedButtons.length <= 1,
-            "When isRadio=true, selectedButtons can't contain multiple buttons."),
+          !isRadio || selectedButtons == null || selectedButtons.length <= 1,
+          "When isRadio=true, selectedButtons can't contain multiple buttons.",
+        ),
         super(key: key);
 
   @override

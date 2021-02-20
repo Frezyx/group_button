@@ -1,3 +1,8 @@
+## 1.1.1 - 2021-02-20.
+
+* Refactor code
+* Add lint package
+
 ## 1.1.0 - 2020-10-19.
 
 * Added ability to set initially selected buttons
