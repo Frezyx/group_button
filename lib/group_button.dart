@@ -1,9 +1,10 @@
 library group_button;
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'src/blocs/group_button_bloc.dart';
 import 'src/group_button_body.dart';
-import 'package:provider/provider.dart';
 
 class GroupButton extends StatelessWidget {
   /// [String] list that will be displayed on buttons in the [GroupButton]
@@ -75,8 +76,9 @@ class GroupButton extends StatelessWidget {
     this.selectedShadow = _defaultShadow,
     this.unselectedShadow = _defaultShadow,
   })  : assert(
-            !isRadio || selectedButtons == null || selectedButtons.length <= 1,
-            "When isRadio=true, selectedButtons can't contain multiple buttons."),
+          !isRadio || selectedButtons == null || selectedButtons.length <= 1,
+          "When isRadio=true, selectedButtons can't contain multiple buttons.",
+        ),
         super(key: key);
 
   @override
@@ -103,7 +105,7 @@ class GroupButton extends StatelessWidget {
     );
   }
 
-  static const _defaultShadow = const <BoxShadow>[
+  static const _defaultShadow = <BoxShadow>[
     BoxShadow(
       color: Color.fromARGB(18, 18, 18, 20),
       blurRadius: 25.0,

@@ -19,9 +19,9 @@ class GroupButtonBody extends StatelessWidget {
     this.unselectedColor,
     this.selectedBorderColor,
     this.unselectedBorderColor,
-    this.borderRadius,
-    this.selectedShadow,
-    this.unselectedShadow,
+    this.borderRadius = BorderRadius.zero,
+    this.selectedShadow = const [],
+    this.unselectedShadow = const [],
   }) : super(key: key);
 
   final List<String> buttons;
@@ -54,17 +54,20 @@ class GroupButtonBody extends StatelessWidget {
     );
   }
 
-  _getCond(int i, GroupButtonBloc bloc) {
+  bool _getCond(int i, GroupButtonBloc bloc) {
     return isRadio
         ? i == bloc.selectedIndex
         : bloc.selectedIndexes.containsKey(i) &&
             bloc.selectedIndexes[i] == true;
   }
 
-  _buildButtonsList(List<String> buttons, GroupButtonBloc bloc) {
-    List<GroupCustomButton> rebuildedButtons = [];
+  List<GroupCustomButton> _buildButtonsList(
+    List<String> buttons,
+    GroupButtonBloc bloc,
+  ) {
+    final rebuildedButtons = <GroupCustomButton>[];
     for (var i = 0; i < buttons.length; i++) {
-      GroupCustomButton rebuidedButton = GroupCustomButton(
+      final rebuidedButton = GroupCustomButton(
         text: buttons[i],
         onPressed: () {
           bloc.selectButton(i, isRadio);

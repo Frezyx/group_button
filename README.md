@@ -15,7 +15,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^1.1.0 #latest version
+  group_button: ^1.1.1 #latest version
 ```
 
 ### Add import package

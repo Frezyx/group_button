@@ -1,6 +1,6 @@
 name: group_button
 description: Flutter custom widget to make a group buttons. Included Radio and CheckBox buttons.
-version: 1.1.0
+version: 1.1.1
 author: youngfrezyx@gmail.com
 homepage: https://github.com/Frezyx/group_button
 
@@ -15,6 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  lint: ^1.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

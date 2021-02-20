@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
-import 'utils.dart';
 
 void main() {
   runApp(MyApp());
@@ -34,12 +33,12 @@ class _MyHomePageState extends State<MyHomePage> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("group_button 1.1.0"),
+          title: Text("group_button 1.1.1"),
           bottom: TabBar(
             tabs: [
-              Tab(icon: buildRadioTabIcon()),
-              Tab(icon: buildCheckTabIcon()),
-              Tab(icon: buildCustomTabIcon()),
+              Tab(icon: _buildRadioTabIcon()),
+              Tab(icon: _buildCheckTabIcon()),
+              Tab(icon: _buildCustomTabIcon()),
             ],
           ),
         ),
@@ -145,6 +144,36 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Icon(Icons.refresh),
         ),
       ),
+    );
+  }
+
+  Row _buildRadioTabIcon() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Icon(Icons.radio_button_unchecked, size: 20),
+        Text("Radio"),
+      ],
+    );
+  }
+
+  Row _buildCheckTabIcon() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Icon(Icons.check_box, size: 20),
+        Text("Check"),
+      ],
+    );
+  }
+
+  Row _buildCustomTabIcon() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Icon(Icons.palette, size: 20),
+        Text("Custom"),
+      ],
     );
   }
 }
