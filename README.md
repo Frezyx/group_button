@@ -1,6 +1,7 @@
 # group_button
 
 [![Build Status](https://travis-ci.com/Frezyx/group_button.svg?branch=master)](https://travis-ci.com/Frezyx/group_button) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Pub](https://img.shields.io/pub/v/group_button.svg)](https://pub.dartlang.org/packages/group_button)
+![Stars](https://img.shields.io/github/stars/Frezyx/group_button?style=social)
 
 Flutter custom widget to make a group buttons.<br>
 Included Radio and CheckBox buttons models.<br>
