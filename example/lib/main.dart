@@ -131,6 +131,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   unselectedShadow: <BoxShadow>[
                     BoxShadow(color: Colors.transparent)
                   ],
+                  buttonHeight: 30,
+                  buttonWidth: 120,
                 ),
               ),
             ),

@@ -15,6 +15,8 @@ class GroupCustomButton extends StatelessWidget {
     this.borderRadius,
     this.selectedShadow,
     this.unselectedShadow,
+    this.height,
+    this.width,
   }) : super(key: key);
 
   final String text;
@@ -29,10 +31,14 @@ class GroupCustomButton extends StatelessWidget {
   final BorderRadius borderRadius;
   final List<BoxShadow> selectedShadow;
   final List<BoxShadow> unselectedShadow;
+  final double height;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: height,
+      width: width,
       decoration: BoxDecoration(
         borderRadius: borderRadius ?? BorderRadius.circular(30),
         boxShadow: isSelected ? selectedShadow : unselectedShadow,
