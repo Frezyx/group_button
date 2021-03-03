@@ -1,3 +1,7 @@
+## 1.2.0 - 2021-03-03.
+
+* Add width and height fields for buttons
+
 ## 1.1.1 - 2021-02-20.
 
 * Refactor code
