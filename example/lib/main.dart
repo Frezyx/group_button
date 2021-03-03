@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("group_button 1.1.1"),
+          title: Text("group_button 1.2.0"),
           bottom: TabBar(
             tabs: [
               Tab(icon: _buildRadioTabIcon()),
@@ -131,6 +131,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   unselectedShadow: <BoxShadow>[
                     BoxShadow(color: Colors.transparent)
                   ],
+                  buttonHeight: 30,
+                  buttonWidth: 120,
                 ),
               ),
             ),

@@ -22,6 +22,8 @@ class GroupButtonBody extends StatelessWidget {
     this.borderRadius = BorderRadius.zero,
     this.selectedShadow = const [],
     this.unselectedShadow = const [],
+    this.buttonWidth,
+    this.buttonHeigth,
   }) : super(key: key);
 
   final List<String> buttons;
@@ -39,6 +41,8 @@ class GroupButtonBody extends StatelessWidget {
   final BorderRadius borderRadius;
   final List<BoxShadow> selectedShadow;
   final List<BoxShadow> unselectedShadow;
+  final double buttonWidth;
+  final double buttonHeigth;
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +90,8 @@ class GroupButtonBody extends StatelessWidget {
         borderRadius: borderRadius,
         selectedShadow: selectedShadow,
         unselectedShadow: unselectedShadow,
+        height: buttonHeigth,
+        width: buttonWidth,
       );
       rebuildedButtons.add(rebuidedButton);
     }
