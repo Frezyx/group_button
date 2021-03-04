@@ -43,19 +43,22 @@ class GroupCustomButton extends StatelessWidget {
         borderRadius: borderRadius ?? BorderRadius.circular(30),
         boxShadow: isSelected ? selectedShadow : unselectedShadow,
       ),
-      child: RaisedButton(
-        elevation: 0,
-        color: isSelected ? selectedColor : unselectedColor,
+      child: ElevatedButton(
         onPressed: onPressed,
-        shape: RoundedRectangleBorder(
-          borderRadius: borderRadius ?? BorderRadius.circular(30),
-          side: BorderSide(
-            color: isSelected ? selectedBorderColor : unselectedBorderColor,
+        style: ButtonStyle(
+          elevation: MaterialStateProperty.all<double>(0.0),
+          backgroundColor: isSelected
+              ? MaterialStateProperty.all<Color>(selectedColor)
+              : MaterialStateProperty.all<Color>(unselectedColor),
+          shape: MaterialStateProperty.all<OutlinedBorder>(
+            RoundedRectangleBorder(
+              borderRadius: borderRadius ?? BorderRadius.circular(30),
+              side: BorderSide(
+                color: isSelected ? selectedBorderColor : unselectedBorderColor,
+              ),
+            ),
           ),
         ),
-        focusColor: selectedColor,
-        splashColor: selectedColor,
-        highlightColor: selectedColor,
         child: Text(
           text,
           style: isSelected ? selectedTextStyle : unselectedTextStyle,
