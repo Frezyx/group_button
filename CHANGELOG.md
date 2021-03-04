@@ -1,3 +1,7 @@
+## 1.3.0 - 2021-03-04.
+
+*  Migrate from using RaisedButton to ElevatedButton
+
 ## 1.2.0 - 2021-03-03.
 
 * Add width and height fields for buttons
