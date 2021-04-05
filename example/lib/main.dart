@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("group_button 2.0.0+1"),
+          title: Text("group_button 2.1.0"),
           bottom: TabBar(
             tabs: [
               Tab(icon: _buildRadioTabIcon()),
@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     "19:00",
                     "21:40",
                   ],
-                  selectedButtons: ["14:30"],
+                  selectedButtons: ["18:00"],
                 ),
               ),
             ),

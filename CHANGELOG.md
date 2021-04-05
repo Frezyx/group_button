@@ -1,3 +1,7 @@
+## 2.1.0 - 2021-04-06
+
+*  Add ability for using radio mode without an selected buttons
+
 ## 2.0.0+1 - 2021-04-06
 
 *  Fix static analysis issues
