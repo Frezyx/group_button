@@ -6,10 +6,10 @@ import 'group_custom_button.dart';
 
 class GroupButtonBody extends StatelessWidget {
   const GroupButtonBody({
-    Key key,
-    @required this.buttons,
+    Key? key,
+    required this.buttons,
     this.selectedButtons,
-    @required this.onSelected,
+    required this.onSelected,
     this.isRadio,
     this.direction,
     this.spacing,
@@ -27,22 +27,22 @@ class GroupButtonBody extends StatelessWidget {
   }) : super(key: key);
 
   final List<String> buttons;
-  final List<String> selectedButtons;
+  final List<String>? selectedButtons;
   final Function(int, bool) onSelected;
-  final bool isRadio;
-  final Axis direction;
-  final double spacing;
-  final TextStyle selectedTextStyle;
-  final TextStyle unselectedTextStyle;
-  final Color selectedColor;
-  final Color unselectedColor;
-  final Color selectedBorderColor;
-  final Color unselectedBorderColor;
-  final BorderRadius borderRadius;
+  final bool? isRadio;
+  final Axis? direction;
+  final double? spacing;
+  final TextStyle? selectedTextStyle;
+  final TextStyle? unselectedTextStyle;
+  final Color? selectedColor;
+  final Color? unselectedColor;
+  final Color? selectedBorderColor;
+  final Color? unselectedBorderColor;
+  final BorderRadius? borderRadius;
   final List<BoxShadow> selectedShadow;
   final List<BoxShadow> unselectedShadow;
-  final double buttonWidth;
-  final double buttonHeigth;
+  final double? buttonWidth;
+  final double? buttonHeigth;
 
   @override
   Widget build(BuildContext context) {
@@ -52,14 +52,14 @@ class GroupButtonBody extends StatelessWidget {
 
     return Wrap(
       direction: direction ?? Axis.horizontal,
-      spacing: spacing,
-      runSpacing: spacing,
+      spacing: spacing!,
+      runSpacing: spacing!,
       children: _buildButtonsList(buttons, bloc),
     );
   }
 
   bool _getCond(int i, GroupButtonBloc bloc) {
-    return isRadio
+    return isRadio!
         ? i == bloc.selectedIndex
         : bloc.selectedIndexes.containsKey(i) &&
             bloc.selectedIndexes[i] == true;
@@ -74,7 +74,7 @@ class GroupButtonBody extends StatelessWidget {
       final rebuidedButton = GroupCustomButton(
         text: buttons[i],
         onPressed: () {
-          bloc.selectButton(i, isRadio);
+          bloc.selectButton(i, isRadio!);
           onSelected(
             i,
             _getCond(i, bloc),

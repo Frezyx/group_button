@@ -11,7 +11,7 @@ class GroupButton extends StatelessWidget {
   final List<String> buttons;
 
   /// [String] buttons that is selected initially.
-  final List<String> selectedButtons;
+  final List<String>? selectedButtons;
 
   /// Callback [Function] works by clicking on a group element
   ///
@@ -25,10 +25,10 @@ class GroupButton extends StatelessWidget {
   final bool isRadio;
 
   /// The direction of arrangement of the buttons in [GroupButton]
-  final Axis direction;
+  final Axis? direction;
 
   /// The spacing between buttons inside [GroupButton]
-  final double spacing;
+  final double? spacing;
 
   /// [TextStyle] of text of selected button(s)
   final TextStyle selectedTextStyle;
@@ -50,7 +50,7 @@ class GroupButton extends StatelessWidget {
 
   /// [BorderRadius] of  buttons
   /// How much the button will be rounded
-  final BorderRadius borderRadius;
+  final BorderRadius? borderRadius;
 
   /// list of selected button(s) [BoxShadow]
   final List<BoxShadow> selectedShadow;
@@ -59,15 +59,15 @@ class GroupButton extends StatelessWidget {
   final List<BoxShadow> unselectedShadow;
 
   /// Height of Group button
-  final double buttonHeight;
+  final double? buttonHeight;
 
   /// Width of group button
-  final double buttonWidth;
+  final double? buttonWidth;
 
   const GroupButton({
-    Key key,
-    @required this.buttons,
-    @required this.onSelected,
+    Key? key,
+    required this.buttons,
+    required this.onSelected,
     this.selectedButtons,
     this.isRadio = true,
     this.direction,
