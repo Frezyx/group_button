@@ -1,5 +1,9 @@
 ## 1.3.0 - 2021-03-04.
 
+*  Migrate to null-safety [commit](https://github.com/Frezyx/group_button/pull/13/commits/fb7fd02c97bd6e27dc83f125cb6749e3ef467397)
+
+## 1.3.0 - 2021-03-04.
+
 *  Migrate from using RaisedButton to ElevatedButton
 
 ## 1.2.0 - 2021-03-03.
