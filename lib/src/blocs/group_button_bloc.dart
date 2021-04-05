@@ -22,7 +22,7 @@ class GroupButtonBloc extends ChangeNotifier {
       if (!_selectedIndexes.containsKey(index)) {
         _selectedIndexes[index] = true;
       } else {
-        _selectedIndexes[index] = !_selectedIndexes[index];
+        _selectedIndexes[index] = !_selectedIndexes[index]!;
       }
     }
     notifyListeners();
@@ -30,7 +30,7 @@ class GroupButtonBloc extends ChangeNotifier {
 
   bool _initializedSelection = false;
 
-  void initializeSelection(List<String> buttons, List<String> selectedButtons) {
+  void initializeSelection(List<String> buttons, List<String>? selectedButtons) {
     if (_initializedSelection) return;
     _initializedSelection = true;
     if (selectedButtons == null) return;
