@@ -54,7 +54,8 @@ class GroupCustomButton extends StatelessWidget {
             RoundedRectangleBorder(
               borderRadius: borderRadius ?? BorderRadius.circular(30),
               side: BorderSide(
-                color: isSelected ? selectedBorderColor! : unselectedBorderColor!,
+                color:
+                    isSelected ? selectedBorderColor! : unselectedBorderColor!,
               ),
             ),
           ),
