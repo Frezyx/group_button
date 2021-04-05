@@ -1,3 +1,7 @@
+## 2.0.0+1 - 2021-04-06
+
+*  Fix static analysis issues
+
 ## 2.0.0 - 2021-04-06
 
 *  Migrate to null-safety [commit](https://github.com/Frezyx/group_button/pull/13/commits/fb7fd02c97bd6e27dc83f125cb6749e3ef467397)
