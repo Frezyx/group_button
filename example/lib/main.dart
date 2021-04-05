@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     "19:00",
                     "21:40",
                   ],
-                  selectedButtons: ["14:30"],
+                  selectedButtons: ["18:00"],
                 ),
               ),
             ),
