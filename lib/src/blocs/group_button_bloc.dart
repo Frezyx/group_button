@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 
 class GroupButtonBloc extends ChangeNotifier {
-  int _selectedIndex = 0;
+  int? _selectedIndex;
 
   final Map<int, bool> _selectedIndexes = {};
 
-  int get selectedIndex => _selectedIndex;
+  int? get selectedIndex => _selectedIndex;
 
-  set selectedIndex(int val) {
+  set selectedIndex(int? val) {
     _selectedIndex = val;
     notifyListeners();
   }
@@ -34,7 +34,10 @@ class GroupButtonBloc extends ChangeNotifier {
       List<String> buttons, List<String>? selectedButtons) {
     if (_initializedSelection) return;
     _initializedSelection = true;
-    if (selectedButtons == null) return;
+
+    if (selectedButtons == null) {
+      return;
+    }
 
     for (var i = 0; i < buttons.length; i++) {
       if (selectedButtons.contains(buttons[i])) {
