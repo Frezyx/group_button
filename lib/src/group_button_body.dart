@@ -12,7 +12,7 @@ class GroupButtonBody extends StatelessWidget {
     required this.onSelected,
     this.isRadio,
     this.direction,
-    this.spacing,
+    this.spacing = 0.0,
     this.selectedTextStyle,
     this.unselectedTextStyle,
     this.selectedColor,
@@ -31,7 +31,7 @@ class GroupButtonBody extends StatelessWidget {
   final Function(int, bool) onSelected;
   final bool? isRadio;
   final Axis? direction;
-  final double? spacing;
+  final double spacing;
   final TextStyle? selectedTextStyle;
   final TextStyle? unselectedTextStyle;
   final Color? selectedColor;
@@ -52,8 +52,8 @@ class GroupButtonBody extends StatelessWidget {
 
     return Wrap(
       direction: direction ?? Axis.horizontal,
-      spacing: spacing!,
-      runSpacing: spacing!,
+      spacing: spacing,
+      runSpacing: spacing,
       children: _buildButtonsList(buttons, bloc),
     );
   }
