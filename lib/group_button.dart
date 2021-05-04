@@ -28,7 +28,7 @@ class GroupButton extends StatelessWidget {
   final Axis? direction;
 
   /// The spacing between buttons inside [GroupButton]
-  final double? spacing;
+  final double spacing;
 
   /// [TextStyle] of text of selected button(s)
   final TextStyle selectedTextStyle;
@@ -71,7 +71,7 @@ class GroupButton extends StatelessWidget {
     this.selectedButtons,
     this.isRadio = true,
     this.direction,
-    this.spacing,
+    this.spacing = 0,
     this.selectedTextStyle = _defaultSelectedTextStyle,
     this.unselectedTextStyle = _defaultUnselectedTextStyle,
     this.selectedColor = _defaultSelectedColor,

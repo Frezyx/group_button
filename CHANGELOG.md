@@ -1,3 +1,7 @@
+## 2.1.1 - 2021-05-04
+
+*  Fix spacing error issue
+
 ## 2.1.0 - 2021-04-06
 
 *  Add ability for using radio mode without an selected buttons
