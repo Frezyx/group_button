@@ -16,7 +16,7 @@ class GroupButton extends StatelessWidget {
   /// Callback [Function] works by clicking on a group element
   ///
   /// Return int [index] of selected button and [isSelected] if [isRadio] = false
-  final Function(int, bool) onSelected;
+  final Function(int index, bool isSelected) onSelected;
 
   /// bool variable for switching between modes [ChackBox] and [Radio]
   ///
