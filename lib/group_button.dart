@@ -78,7 +78,7 @@ class GroupButton extends StatelessWidget {
     this.unselectedColor = _defaultUnselectedColor,
     this.selectedBorderColor = Colors.transparent,
     this.unselectedBorderColor = Colors.transparent,
-    this.borderRadius,
+    this.borderRadius = BorderRadius.zero,
     this.selectedShadow = _defaultShadow,
     this.unselectedShadow = _defaultShadow,
     this.buttonHeight,
