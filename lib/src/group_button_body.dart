@@ -17,8 +17,8 @@ class GroupButtonBody extends StatelessWidget {
     this.unselectedTextStyle,
     this.selectedColor,
     this.unselectedColor,
-    this.selectedBorderColor,
-    this.unselectedBorderColor,
+    required this.selectedBorderColor,
+    required this.unselectedBorderColor,
     this.borderRadius = BorderRadius.zero,
     this.selectedShadow = const [],
     this.unselectedShadow = const [],
@@ -36,8 +36,8 @@ class GroupButtonBody extends StatelessWidget {
   final TextStyle? unselectedTextStyle;
   final Color? selectedColor;
   final Color? unselectedColor;
-  final Color? selectedBorderColor;
-  final Color? unselectedBorderColor;
+  final Color selectedBorderColor;
+  final Color unselectedBorderColor;
   final BorderRadius? borderRadius;
   final List<BoxShadow> selectedShadow;
   final List<BoxShadow> unselectedShadow;
