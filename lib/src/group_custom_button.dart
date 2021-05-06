@@ -10,8 +10,8 @@ class GroupCustomButton extends StatelessWidget {
     this.unselectedTextStyle,
     this.selectedColor,
     this.unselectedColor,
-    this.selectedBorderColor,
-    this.unselectedBorderColor,
+    required this.selectedBorderColor,
+    required this.unselectedBorderColor,
     this.borderRadius,
     this.selectedShadow,
     this.unselectedShadow,
@@ -26,8 +26,8 @@ class GroupCustomButton extends StatelessWidget {
   final TextStyle? unselectedTextStyle;
   final Color? selectedColor;
   final Color? unselectedColor;
-  final Color? selectedBorderColor;
-  final Color? unselectedBorderColor;
+  final Color selectedBorderColor;
+  final Color unselectedBorderColor;
   final BorderRadius? borderRadius;
   final List<BoxShadow>? selectedShadow;
   final List<BoxShadow>? unselectedShadow;
@@ -54,8 +54,7 @@ class GroupCustomButton extends StatelessWidget {
             RoundedRectangleBorder(
               borderRadius: borderRadius ?? BorderRadius.circular(30),
               side: BorderSide(
-                color:
-                    isSelected ? selectedBorderColor! : unselectedBorderColor!,
+                color: isSelected ? selectedBorderColor : unselectedBorderColor,
               ),
             ),
           ),
