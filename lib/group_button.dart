@@ -10,6 +10,9 @@ class GroupButton extends StatelessWidget {
   /// [String] list that will be displayed on buttons in the [GroupButton]
   final List<String> buttons;
 
+  /// [String] list that will be displayed on buttons in the [GroupButton]
+  final List<String> images;
+
   /// [String] buttons that is selected initially.
   final List<String>? selectedButtons;
 
@@ -67,6 +70,7 @@ class GroupButton extends StatelessWidget {
   const GroupButton({
     Key? key,
     required this.buttons,
+    required this.images,
     required this.onSelected,
     this.selectedButtons,
     this.isRadio = true,
@@ -95,6 +99,7 @@ class GroupButton extends StatelessWidget {
       create: (_) => GroupButtonBloc(),
       child: GroupButtonBody(
         buttons: buttons,
+        images:images,
         selectedButtons: selectedButtons,
         onSelected: onSelected,
         isRadio: isRadio,
@@ -130,8 +135,8 @@ class GroupButton extends StatelessWidget {
   static const _defaultSelectedTextStyle =
       TextStyle(fontSize: 14, color: Colors.white);
   static const _defaultUnselectedTextStyle =
-      TextStyle(fontSize: 14, color: Colors.black);
+      TextStyle(fontSize: 14, color: Color(0xFF227c76));
 
-  static const Color _defaultSelectedColor = Colors.green;
+  static const Color _defaultSelectedColor = Color(0xFF227c76);
   static const Color _defaultUnselectedColor = Colors.white;
 }
