@@ -8,6 +8,7 @@ class GroupButtonBody extends StatelessWidget {
   const GroupButtonBody({
     Key? key,
     required this.buttons,
+    required this.images,
     this.selectedButtons,
     required this.onSelected,
     this.isRadio,
@@ -27,6 +28,7 @@ class GroupButtonBody extends StatelessWidget {
   }) : super(key: key);
 
   final List<String> buttons;
+  final List<String> images;
   final List<String>? selectedButtons;
   final Function(int, bool) onSelected;
   final bool? isRadio;
@@ -54,7 +56,7 @@ class GroupButtonBody extends StatelessWidget {
       direction: direction ?? Axis.horizontal,
       spacing: spacing,
       runSpacing: spacing,
-      children: _buildButtonsList(buttons, bloc),
+      children: _buildButtonsList(buttons,images, bloc),
     );
   }
 
@@ -67,12 +69,14 @@ class GroupButtonBody extends StatelessWidget {
 
   List<GroupCustomButton> _buildButtonsList(
     List<String> buttons,
+    List<String> images,
     GroupButtonBloc bloc,
   ) {
     final rebuildedButtons = <GroupCustomButton>[];
     for (var i = 0; i < buttons.length; i++) {
       final rebuidedButton = GroupCustomButton(
         text: buttons[i],
+        image:images[i],
         onPressed: () {
           bloc.selectButton(i, isRadio!);
           onSelected(
