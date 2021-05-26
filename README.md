@@ -8,7 +8,7 @@ Included Radio and CheckBox buttons models.<br>
 [pub package](https://pub.dev/packages/group_button)
 
 <img src="https://github.com/Frezyx/group_button/blob/master/example/rep_files/preview.gif?raw=true" width="270">
-<img src="https://github.com/Frezyx/group_button/blob/master/example/rep_files/snap.png?raw=true" width="270">
+<img src="https://github.com/nodemov/group_button/raw/master/example/rep_files/snap.png" width="270">
 
 ## Getting Started
 Follow these steps to use this package
