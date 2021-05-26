@@ -5,6 +5,7 @@ class GroupCustomButton extends StatelessWidget {
     Key? key,
     required this.onPressed,
     required this.text,
+    required this.image,
     required this.isSelected,
     this.selectedTextStyle,
     this.unselectedTextStyle,
@@ -20,6 +21,7 @@ class GroupCustomButton extends StatelessWidget {
   }) : super(key: key);
 
   final String text;
+  final String image;
   final void Function() onPressed;
   final bool isSelected;
   final TextStyle? selectedTextStyle;
@@ -36,6 +38,7 @@ class GroupCustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(image.toString());
     return Container(
       height: height,
       width: width,
@@ -45,24 +48,33 @@ class GroupCustomButton extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: onPressed,
-        style: ButtonStyle(
-          elevation: MaterialStateProperty.all<double>(0.0),
-          backgroundColor: isSelected
-              ? MaterialStateProperty.all<Color?>(selectedColor)
-              : MaterialStateProperty.all<Color?>(unselectedColor),
-          shape: MaterialStateProperty.all<OutlinedBorder>(
-            RoundedRectangleBorder(
-              borderRadius: borderRadius ?? BorderRadius.circular(30),
-              side: BorderSide(
-                color: isSelected ? selectedBorderColor : unselectedBorderColor,
-              ),
-            ),
+        style: ElevatedButton.styleFrom(
+          side: BorderSide(
+            color: isSelected ? selectedBorderColor : unselectedBorderColor,
           ),
+          elevation: 0.0,
+          primary: isSelected ? selectedColor : unselectedColor,
+          minimumSize: Size.zero, // <-- Add this
+          padding: EdgeInsets.zero, // <-- and this
         ),
-        child: Text(
-          text,
-          style: isSelected ? selectedTextStyle : unselectedTextStyle,
-        ),
+        // child: Text(
+        //   text,
+        //   style: isSelected ? selectedTextStyle : unselectedTextStyle,
+        // ),
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              new Text(
+                '    $text',
+                style: isSelected ? selectedTextStyle : unselectedTextStyle,
+              ),
+              new Image.asset(
+                image,
+                width: 145,
+                height: 49,
+              ),
+            ]),
       ),
     );
   }
