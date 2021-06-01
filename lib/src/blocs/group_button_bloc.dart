@@ -14,8 +14,7 @@ class GroupButtonBloc extends ChangeNotifier {
 
   Map<int, bool> get selectedIndexes => _selectedIndexes;
 
-  // ignore: avoid_positional_boolean_parameters
-  void selectButton(int index, bool isRadio) {
+  void selectButton(int index, {required bool isRadio}) {
     if (isRadio) {
       _selectedIndex = index;
     } else {

@@ -10,7 +10,7 @@ class GroupButtonBody extends StatelessWidget {
     required this.buttons,
     this.selectedButtons,
     required this.onSelected,
-    this.isRadio,
+    this.isRadio = false,
     this.direction,
     this.spacing = 0.0,
     this.selectedTextStyle,
@@ -29,7 +29,7 @@ class GroupButtonBody extends StatelessWidget {
   final List<String> buttons;
   final List<String>? selectedButtons;
   final Function(int, bool) onSelected;
-  final bool? isRadio;
+  final bool isRadio;
   final Axis? direction;
   final double spacing;
   final TextStyle? selectedTextStyle;
@@ -59,7 +59,7 @@ class GroupButtonBody extends StatelessWidget {
   }
 
   bool _getCond(int i, GroupButtonBloc bloc) {
-    return isRadio!
+    return isRadio
         ? i == bloc.selectedIndex
         : bloc.selectedIndexes.containsKey(i) &&
             bloc.selectedIndexes[i] == true;
@@ -74,7 +74,7 @@ class GroupButtonBody extends StatelessWidget {
       final rebuidedButton = GroupCustomButton(
         text: buttons[i],
         onPressed: () {
-          bloc.selectButton(i, isRadio!);
+          bloc.selectButton(i, isRadio: isRadio);
           onSelected(
             i,
             _getCond(i, bloc),
