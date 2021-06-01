@@ -54,6 +54,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   @override
   void initState() {
     if (widget.selectedButtons != null && widget.selectedButtons!.isNotEmpty) {
+      // ignore: avoid_function_literals_in_foreach_calls
       widget.selectedButtons!.forEach((e) {
         _selectedIndexes[e] = true;
       });
