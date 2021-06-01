@@ -74,15 +74,15 @@ class GroupButton extends StatelessWidget {
     this.isRadio = true,
     this.direction,
     this.spacing = 0,
-    this.selectedTextStyle = _defaultSelectedTextStyle,
-    this.unselectedTextStyle = _defaultUnselectedTextStyle,
-    this.selectedColor = _defaultSelectedColor,
-    this.unselectedColor = _defaultUnselectedColor,
+    this.selectedTextStyle = _kDefaultSelectedTextStyle,
+    this.unselectedTextStyle = _kDefaultUnselectedTextStyle,
+    this.selectedColor = _kDefaultSelectedColor,
+    this.unselectedColor = _kDefaultUnselectedColor,
     this.selectedBorderColor = Colors.transparent,
     this.unselectedBorderColor = Colors.transparent,
     this.borderRadius = BorderRadius.zero,
-    this.selectedShadow = _defaultShadow,
-    this.unselectedShadow = _defaultShadow,
+    this.selectedShadow = _kDefaultShadow,
+    this.unselectedShadow = _kDefaultShadow,
     this.buttonHeight,
     this.buttonWidth,
     this.selectedButton,
@@ -116,7 +116,7 @@ class GroupButton extends StatelessWidget {
     );
   }
 
-  static const _defaultShadow = <BoxShadow>[
+  static const _kDefaultShadow = <BoxShadow>[
     BoxShadow(
       color: Color.fromARGB(18, 18, 18, 20),
       blurRadius: 25.0,
@@ -128,11 +128,11 @@ class GroupButton extends StatelessWidget {
     )
   ];
 
-  static const _defaultSelectedTextStyle =
+  static const _kDefaultSelectedTextStyle =
       TextStyle(fontSize: 14, color: Colors.white);
-  static const _defaultUnselectedTextStyle =
+  static const _kDefaultUnselectedTextStyle =
       TextStyle(fontSize: 14, color: Colors.black);
 
-  static const Color _defaultSelectedColor = Colors.green;
-  static const Color _defaultUnselectedColor = Colors.white;
+  static const Color _kDefaultSelectedColor = Colors.green;
+  static const Color _kDefaultUnselectedColor = Colors.white;
 }
