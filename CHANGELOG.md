@@ -1,4 +1,11 @@
-## 2.1.1 - 2021-05-04
+## 2.2.0 - 2021-06-01
+
+* Remove provider dependency
+* Fix fields passing for widget
+* Update selectedButtons field (Now int like index)
+* Add selectedButton field for radio type
+
+## 2.1.2 - 2021-05-04
 
 *  Fix selectedBorderColor not working exception
 
