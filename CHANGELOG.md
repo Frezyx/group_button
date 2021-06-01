@@ -1,4 +1,4 @@
-## 2.2.0 - 2021-05-04
+## 2.2.0 - 2021-06-01
 
 * Remove provider dependency
 * Fix fields passing for widget
