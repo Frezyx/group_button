@@ -6,6 +6,7 @@ class GroupButtonBody extends StatefulWidget {
     Key? key,
     required this.buttons,
     this.selectedButtons,
+    this.selectedButton,
     required this.onSelected,
     this.isRadio = false,
     this.direction,
@@ -24,7 +25,8 @@ class GroupButtonBody extends StatefulWidget {
   }) : super(key: key);
 
   final List<String> buttons;
-  final List<String>? selectedButtons;
+  final List<int>? selectedButtons;
+  final int? selectedButton;
   final Function(int, bool) onSelected;
   final bool isRadio;
   final Axis? direction;
@@ -48,6 +50,20 @@ class GroupButtonBody extends StatefulWidget {
 class _GroupButtonBodyState extends State<GroupButtonBody> {
   var _selectedIndex = 0;
   final Map<int, bool> _selectedIndexes = {};
+
+  @override
+  void initState() {
+    if (widget.selectedButtons != null && widget.selectedButtons!.isNotEmpty) {
+      widget.selectedButtons!.forEach((e) {
+        _selectedIndexes[e] = true;
+      });
+      setState(() {});
+    }
+    if (widget.selectedButton != null) {
+      setState(() => _selectedIndex = widget.selectedButton!);
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
