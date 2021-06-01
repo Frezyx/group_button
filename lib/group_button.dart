@@ -1,9 +1,6 @@
 library group_button;
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import 'src/blocs/group_button_bloc.dart';
 import 'src/group_button_body.dart';
 
 class GroupButton extends StatelessWidget {
@@ -91,27 +88,24 @@ class GroupButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<GroupButtonBloc>(
-      create: (_) => GroupButtonBloc(),
-      child: GroupButtonBody(
-        buttons: buttons,
-        selectedButtons: selectedButtons,
-        onSelected: onSelected,
-        isRadio: isRadio,
-        direction: direction,
-        spacing: spacing,
-        selectedTextStyle: selectedTextStyle,
-        unselectedTextStyle: unselectedTextStyle,
-        selectedColor: selectedColor,
-        unselectedColor: unselectedColor,
-        selectedBorderColor: selectedBorderColor,
-        unselectedBorderColor: unselectedBorderColor,
-        borderRadius: borderRadius,
-        selectedShadow: selectedShadow,
-        unselectedShadow: unselectedShadow,
-        buttonWidth: buttonWidth,
-        buttonHeigth: buttonHeight,
-      ),
+    return GroupButtonBody(
+      buttons: buttons,
+      selectedButtons: selectedButtons,
+      onSelected: onSelected,
+      isRadio: isRadio,
+      direction: direction,
+      spacing: spacing,
+      selectedTextStyle: selectedTextStyle,
+      unselectedTextStyle: unselectedTextStyle,
+      selectedColor: selectedColor,
+      unselectedColor: unselectedColor,
+      selectedBorderColor: selectedBorderColor,
+      unselectedBorderColor: unselectedBorderColor,
+      borderRadius: borderRadius,
+      selectedShadow: selectedShadow,
+      unselectedShadow: unselectedShadow,
+      buttonWidth: buttonWidth,
+      buttonHeigth: buttonHeight,
     );
   }
 

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import 'blocs/group_button_bloc.dart';
 import 'group_custom_button.dart';
 
-class GroupButtonBody extends StatelessWidget {
+class GroupButtonBody extends StatefulWidget {
   const GroupButtonBody({
     Key? key,
     required this.buttons,
@@ -45,56 +42,70 @@ class GroupButtonBody extends StatelessWidget {
   final double? buttonHeigth;
 
   @override
+  _GroupButtonBodyState createState() => _GroupButtonBodyState();
+}
+
+class _GroupButtonBodyState extends State<GroupButtonBody> {
+  var _selectedIndex = 0;
+  final Map<int, bool> _selectedIndexes = {};
+
+  @override
   Widget build(BuildContext context) {
-    final bloc = Provider.of<GroupButtonBloc>(context);
-
-    bloc.initializeSelection(buttons, selectedButtons);
-
     return Wrap(
-      direction: direction ?? Axis.horizontal,
-      spacing: spacing,
-      runSpacing: spacing,
-      children: _buildButtonsList(buttons, bloc),
+      direction: widget.direction ?? Axis.horizontal,
+      spacing: widget.spacing,
+      runSpacing: widget.spacing,
+      children: _buildButtonsList(widget.buttons),
     );
   }
 
-  bool _getCond(int i, GroupButtonBloc bloc) {
-    return isRadio
-        ? i == bloc.selectedIndex
-        : bloc.selectedIndexes.containsKey(i) &&
-            bloc.selectedIndexes[i] == true;
+  bool _getCond(int i) {
+    return widget.isRadio
+        ? i == _selectedIndex
+        : _selectedIndexes.containsKey(i) && _selectedIndexes[i] == true;
   }
 
   List<GroupCustomButton> _buildButtonsList(
     List<String> buttons,
-    GroupButtonBloc bloc,
   ) {
     final rebuildedButtons = <GroupCustomButton>[];
     for (var i = 0; i < buttons.length; i++) {
       final rebuidedButton = GroupCustomButton(
         text: buttons[i],
         onPressed: () {
-          bloc.selectButton(i, isRadio: isRadio);
-          onSelected(
+          _selectButton(i);
+          widget.onSelected(
             i,
-            _getCond(i, bloc),
+            _getCond(i),
           );
         },
-        isSelected: _getCond(i, bloc),
-        selectedTextStyle: selectedTextStyle,
-        unselectedTextStyle: unselectedTextStyle,
-        selectedColor: selectedColor,
-        unselectedColor: unselectedColor,
-        selectedBorderColor: selectedBorderColor,
-        unselectedBorderColor: unselectedBorderColor,
-        borderRadius: borderRadius,
-        selectedShadow: selectedShadow,
-        unselectedShadow: unselectedShadow,
-        height: buttonHeigth,
-        width: buttonWidth,
+        isSelected: _getCond(i),
+        selectedTextStyle: widget.selectedTextStyle,
+        unselectedTextStyle: widget.unselectedTextStyle,
+        selectedColor: widget.selectedColor,
+        unselectedColor: widget.unselectedColor,
+        selectedBorderColor: widget.selectedBorderColor,
+        unselectedBorderColor: widget.unselectedBorderColor,
+        borderRadius: widget.borderRadius,
+        selectedShadow: widget.selectedShadow,
+        unselectedShadow: widget.unselectedShadow,
+        height: widget.buttonHeigth,
+        width: widget.buttonWidth,
       );
       rebuildedButtons.add(rebuidedButton);
     }
     return rebuildedButtons;
+  }
+
+  void _selectButton(int i) {
+    if (widget.isRadio) {
+      setState(() => _selectedIndex = i);
+    } else {
+      if (_selectedIndexes.containsKey(i)) {
+        setState(() => _selectedIndexes[i] = !_selectedIndexes[i]!);
+      } else {
+        setState(() => _selectedIndexes[i] = true);
+      }
+    }
   }
 }
