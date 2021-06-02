@@ -16,7 +16,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^2.2.0 #latest version
+  group_button: ^2.2.1 #latest version
 ```
 
 ### Add import package
@@ -51,7 +51,7 @@ GroupButton(
     onSelected: (index, isSelected) =>
           print('$index button is ${isSelected ? 'selected' : 'unselected'}'),
     buttons: ["Dart","Kotlin","Java","Swift","Objective-C","Python","JS"],
-    selectedButtons: [0, 1], /// [List<int>] after 2.2.0 version 
+    selectedButtons: [0, 1], /// [List<int>] after 2.2.1 version 
     selectedTextStyle: TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: 16,

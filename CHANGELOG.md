@@ -1,3 +1,7 @@
+## 2.2.1 - 2021-06-01
+
+* Update examples in README.md 
+
 ## 2.2.0 - 2021-06-01
 
 * Remove provider dependency
