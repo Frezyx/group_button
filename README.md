@@ -51,7 +51,7 @@ GroupButton(
     onSelected: (index, isSelected) =>
           print('$index button is ${isSelected ? 'selected' : 'unselected'}'),
     buttons: ["Dart","Kotlin","Java","Swift","Objective-C","Python","JS"],
-    selectedButtons: ["Dart","Kotlin"],
+    selectedButtons: [0, 1], /// [List<int>] after 2.2.0 version 
     selectedTextStyle: TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: 16,
@@ -77,7 +77,8 @@ GroupButton(
 | Attribute  | Annotation |
 | ------------- | ------------- |
 | buttons | [String] list that will be displayed on buttons in the [GroupButton] |
-| selectedButtons | [String] list that will be set initial selected buttons in the [GroupButton] |
+| selectedButtons | [List<int>] that will be set initial selected buttons in the [GroupButton] when [isRadio] is false|
+| selectedButton | [int] that will be set initial selected button in the [GroupButton] when [isRadio] is true|
 | onSelected  | Callback [Function] works by clicking on a group element <br> Return int [index] of selected button and [isSelected] if [isRadio] = false |
 | isRadio | bool variable for switching between modes [ChackBox] and [Radio]<br>if the [isRadio] = true, only one button can be selected<br>if the [isRadio] = false, you can select several at once |
 | direction | The direction of arrangement of the buttons in [GroupButton] |
