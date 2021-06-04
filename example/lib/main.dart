@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(GroupButtonApp());
 }
 
-class MyApp extends StatelessWidget {
+class GroupButtonApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,17 +14,17 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      home: HomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   Axis direction = Axis.horizontal;
 
   @override
