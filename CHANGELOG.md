@@ -1,3 +1,7 @@
+## 2.2.2 - 2021-06-05
+
+* Create example with using provider as state-manager 
+
 ## 2.2.1 - 2021-06-01
 
 * Update examples in README.md 

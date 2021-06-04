@@ -16,7 +16,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^2.2.1 #latest version
+  group_button: ^2.2.2 #latest version
 ```
 
 ### Add import package
@@ -71,6 +71,12 @@ GroupButton(
     unselectedShadow: <BoxShadow>[BoxShadow(color: Colors.transparent)],
 )
 ```
+
+### Examples
+
+You can check more examples of using this package [here](https://github.com/Frezyx/group_button/tree/create-provider-example/example/lib)
+
+<br>
 
 ### Attributes
 
