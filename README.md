@@ -72,6 +72,12 @@ GroupButton(
 )
 ```
 
+### Examples
+
+You can check more examples of using this package [here](https://github.com/Frezyx/group_button/tree/create-provider-example/example/lib)
+
+<br>
+
 ### Attributes
 
 | Attribute  | Annotation |
