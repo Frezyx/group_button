@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:example/examples/provider_example/ui/app.dart';
 import 'package:group_button/group_button.dart';
+
+/// You can use [GroupButtonProviderApp] example
+/// using this package with state - managment package like provider
 
 void main() {
   runApp(GroupButtonApp());
