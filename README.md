@@ -16,7 +16,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^2.2.1 #latest version
+  group_button: ^2.2.2 #latest version
 ```
 
 ### Add import package
