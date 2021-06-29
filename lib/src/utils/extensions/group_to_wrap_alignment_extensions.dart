@@ -1,35 +1,36 @@
-part of 'extensions.dart';
+import 'package:flutter/material.dart';
+import 'package:group_button/src/utils/utils.dart';
 
 /// Make [MainAxisAlignment] from [MainGroupAlignment]
-extension GroupToMainAxis on MainGroupAlignment {
-  MainAxisAlignment toMainAxis() {
+extension GroupToMainWrap on MainGroupAlignment {
+  WrapAlignment toWrap() {
     switch (this) {
       case MainGroupAlignment.center:
-        return MainAxisAlignment.center;
+        return WrapAlignment.center;
       case MainGroupAlignment.end:
-        return MainAxisAlignment.end;
+        return WrapAlignment.end;
       case MainGroupAlignment.start:
-        return MainAxisAlignment.start;
+        return WrapAlignment.start;
       case MainGroupAlignment.spaceAround:
-        return MainAxisAlignment.spaceAround;
+        return WrapAlignment.spaceAround;
       case MainGroupAlignment.spaceBetween:
-        return MainAxisAlignment.spaceBetween;
+        return WrapAlignment.spaceBetween;
       case MainGroupAlignment.spaceEvenly:
-        return MainAxisAlignment.spaceEvenly;
+        return WrapAlignment.spaceEvenly;
     }
   }
 }
 
 /// Make [CrossAxisAlignment] from [CrossGroupAlignment]
 extension GroupToRunWrap on CrossGroupAlignment {
-  CrossAxisAlignment toCrossAxis() {
+  WrapCrossAlignment toWrapp() {
     switch (this) {
       case CrossGroupAlignment.center:
-        return CrossAxisAlignment.center;
+        return WrapCrossAlignment.center;
       case CrossGroupAlignment.end:
-        return CrossAxisAlignment.end;
+        return WrapCrossAlignment.end;
       case CrossGroupAlignment.start:
-        return CrossAxisAlignment.start;
+        return WrapCrossAlignment.start;
     }
   }
 }

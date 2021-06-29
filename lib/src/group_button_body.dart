@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:group_button/src/utils/utils.dart';
 import 'group_custom_button.dart';
 
 class GroupButtonBody extends StatefulWidget {
@@ -22,8 +23,8 @@ class GroupButtonBody extends StatefulWidget {
     this.unselectedShadow = const [],
     this.buttonWidth,
     this.buttonHeigth,
-    this.crossAxisAlignment = WrapCrossAlignment.start,
-    this.runAlignment = WrapAlignment.spaceAround,
+    this.crossGropAlignment = CrossGroupAlignment.start,
+    this.mainGroupAlignment = MainGroupAlignment.spaceAround,
   }) : super(key: key);
 
   final List<String> buttons;
@@ -44,8 +45,8 @@ class GroupButtonBody extends StatefulWidget {
   final List<BoxShadow> unselectedShadow;
   final double? buttonWidth;
   final double? buttonHeigth;
-  final WrapCrossAlignment crossAxisAlignment;
-  final WrapAlignment runAlignment;
+  final CrossGroupAlignment crossGropAlignment;
+  final MainGroupAlignment mainGroupAlignment;
 
   @override
   _GroupButtonBodyState createState() => _GroupButtonBodyState();
@@ -76,8 +77,8 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
       direction: widget.direction ?? Axis.horizontal,
       spacing: widget.spacing,
       runSpacing: widget.spacing,
-      crossAxisAlignment: widget.crossAxisAlignment,
-      runAlignment: widget.runAlignment,
+      crossAxisAlignment: widget.crossGropAlignment.toWrapp(),
+      runAlignment: widget.mainGroupAlignment.toWrap(),
       children: _buildButtonsList(widget.buttons),
     );
   }
