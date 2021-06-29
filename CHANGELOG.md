@@ -1,3 +1,9 @@
+## 2.3.0
+
+ - **FEAT**: implement `mainGroupAlignment` field for placed buttons in the main axis in a layout.
+ - **FEAT**: implement `crossGroupAlignment` field for placed buttons along the cross axis in a layout.
+
+
 ## 2.2.2 - 2021-06-05
 
 * Create example with using provider as state-manager 

@@ -1,9 +1,42 @@
 library group_button;
 
 import 'package:flutter/material.dart';
+
 import 'src/group_button_body.dart';
+import 'src/utils/utils.dart';
+
+export 'src/utils/utils.dart';
 
 class GroupButton extends StatelessWidget {
+  const GroupButton({
+    Key? key,
+    required this.buttons,
+    required this.onSelected,
+    this.selectedButtons,
+    this.isRadio = true,
+    this.direction,
+    this.spacing = 0,
+    this.selectedTextStyle = _kDefaultSelectedTextStyle,
+    this.unselectedTextStyle = _kDefaultUnselectedTextStyle,
+    this.selectedColor = _kDefaultSelectedColor,
+    this.unselectedColor = _kDefaultUnselectedColor,
+    this.selectedBorderColor = Colors.transparent,
+    this.unselectedBorderColor = Colors.transparent,
+    this.borderRadius = BorderRadius.zero,
+    this.selectedShadow = _kDefaultShadow,
+    this.unselectedShadow = _kDefaultShadow,
+    this.buttonHeight,
+    this.buttonWidth,
+    this.selectedButton,
+    this.mainGroupAlignment = MainGroupAlignment.center,
+    this.crossGroupAlignment = CrossGroupAlignment.center,
+  })  : assert(
+          (isRadio && selectedButtons == null) ||
+              (!isRadio && selectedButton == null),
+          "You can use selectedButton field for isRadio [true] and selectedButtons field with isadio [false]",
+        ),
+        super(key: key);
+
   /// [String] list that will be displayed on buttons in the [GroupButton]
   final List<String> buttons;
 
@@ -66,31 +99,11 @@ class GroupButton extends StatelessWidget {
   /// Width of group button
   final double? buttonWidth;
 
-  const GroupButton({
-    Key? key,
-    required this.buttons,
-    required this.onSelected,
-    this.selectedButtons,
-    this.isRadio = true,
-    this.direction,
-    this.spacing = 0,
-    this.selectedTextStyle = _kDefaultSelectedTextStyle,
-    this.unselectedTextStyle = _kDefaultUnselectedTextStyle,
-    this.selectedColor = _kDefaultSelectedColor,
-    this.unselectedColor = _kDefaultUnselectedColor,
-    this.selectedBorderColor = Colors.transparent,
-    this.unselectedBorderColor = Colors.transparent,
-    this.borderRadius = BorderRadius.zero,
-    this.selectedShadow = _kDefaultShadow,
-    this.unselectedShadow = _kDefaultShadow,
-    this.buttonHeight,
-    this.buttonWidth,
-    this.selectedButton,
-  })  : assert(
-            (isRadio && selectedButtons == null) ||
-                (!isRadio && selectedButton == null),
-            "You can use selectedButton field for isRadio [true] and selectedButtons field with isadio [false]"),
-        super(key: key);
+  /// How the buttons should be placed in the main axis in a layout
+  final MainGroupAlignment mainGroupAlignment;
+
+  /// How the buttons should be placed along the cross axis in a layout
+  final CrossGroupAlignment crossGroupAlignment;
 
   @override
   Widget build(BuildContext context) {
@@ -113,6 +126,8 @@ class GroupButton extends StatelessWidget {
       unselectedShadow: unselectedShadow,
       buttonWidth: buttonWidth,
       buttonHeigth: buttonHeight,
+      mainGroupAlignment: mainGroupAlignment,
+      crossGroupAlignment: crossGroupAlignment,
     );
   }
 

@@ -16,7 +16,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^2.2.2 #latest version
+  group_button: ^2.3.0 #latest version
 ```
 
 ### Add import package
@@ -98,6 +98,8 @@ You can check more examples of using this package [here](https://github.com/Frez
 | borderRadius | [BorderRadius] of  buttons<br>How much the button will be rounded |
 | selectedShadow | list of selected button(s) [BoxShadow] |
 | unselectedShadow| list of unselected buttons [BoxShadow] |
+| mainGroupAlignment| How the buttons should be placed in the main axis in a layout [MainGroupAlignment] |
+| crossGroupAlignment| How the buttons should be placed along the cross axis in a layout [CrossGroupAlignment] |
 
 
 
