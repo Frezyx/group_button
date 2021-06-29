@@ -23,7 +23,7 @@ class GroupButtonBody extends StatefulWidget {
     this.buttonWidth,
     this.buttonHeigth,
     this.crossAxisAlignment = WrapCrossAlignment.start,
-    this.runAlignment = WrapAlignment.start,
+    this.runAlignment = WrapAlignment.spaceAround,
   }) : super(key: key);
 
   final List<String> buttons;
