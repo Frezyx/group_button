@@ -4,6 +4,33 @@ import 'package:flutter/material.dart';
 import 'src/group_button_body.dart';
 
 class GroupButton extends StatelessWidget {
+  const GroupButton({
+    Key? key,
+    required this.buttons,
+    required this.onSelected,
+    this.selectedButtons,
+    this.isRadio = true,
+    this.direction,
+    this.spacing = 0,
+    this.selectedTextStyle = _kDefaultSelectedTextStyle,
+    this.unselectedTextStyle = _kDefaultUnselectedTextStyle,
+    this.selectedColor = _kDefaultSelectedColor,
+    this.unselectedColor = _kDefaultUnselectedColor,
+    this.selectedBorderColor = Colors.transparent,
+    this.unselectedBorderColor = Colors.transparent,
+    this.borderRadius = BorderRadius.zero,
+    this.selectedShadow = _kDefaultShadow,
+    this.unselectedShadow = _kDefaultShadow,
+    this.buttonHeight,
+    this.buttonWidth,
+    this.selectedButton,
+  })  : assert(
+          (isRadio && selectedButtons == null) ||
+              (!isRadio && selectedButton == null),
+          "You can use selectedButton field for isRadio [true] and selectedButtons field with isadio [false]",
+        ),
+        super(key: key);
+
   /// [String] list that will be displayed on buttons in the [GroupButton]
   final List<String> buttons;
 
@@ -65,32 +92,6 @@ class GroupButton extends StatelessWidget {
 
   /// Width of group button
   final double? buttonWidth;
-
-  const GroupButton({
-    Key? key,
-    required this.buttons,
-    required this.onSelected,
-    this.selectedButtons,
-    this.isRadio = true,
-    this.direction,
-    this.spacing = 0,
-    this.selectedTextStyle = _kDefaultSelectedTextStyle,
-    this.unselectedTextStyle = _kDefaultUnselectedTextStyle,
-    this.selectedColor = _kDefaultSelectedColor,
-    this.unselectedColor = _kDefaultUnselectedColor,
-    this.selectedBorderColor = Colors.transparent,
-    this.unselectedBorderColor = Colors.transparent,
-    this.borderRadius = BorderRadius.zero,
-    this.selectedShadow = _kDefaultShadow,
-    this.unselectedShadow = _kDefaultShadow,
-    this.buttonHeight,
-    this.buttonWidth,
-    this.selectedButton,
-  })  : assert(
-            (isRadio && selectedButtons == null) ||
-                (!isRadio && selectedButton == null),
-            "You can use selectedButton field for isRadio [true] and selectedButtons field with isadio [false]"),
-        super(key: key);
 
   @override
   Widget build(BuildContext context) {
