@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/src/utils/utils.dart';
 
-/// Make [MainAxisAlignment] from [MainGroupAlignment]
+/// Make [WrapAlignment] from [MainGroupAlignment]
 extension GroupToMainWrap on MainGroupAlignment {
   WrapAlignment toWrap() {
     switch (this) {
@@ -21,7 +21,7 @@ extension GroupToMainWrap on MainGroupAlignment {
   }
 }
 
-/// Make [CrossAxisAlignment] from [CrossGroupAlignment]
+/// Make [WrapCrossAlignment] from [CrossGroupAlignment]
 extension GroupToRunWrap on CrossGroupAlignment {
   WrapCrossAlignment toWrapp() {
     switch (this) {

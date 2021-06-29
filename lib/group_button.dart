@@ -99,8 +99,10 @@ class GroupButton extends StatelessWidget {
   /// Width of group button
   final double? buttonWidth;
 
+  /// How the buttons should be placed in the main axis in a layout
   final MainGroupAlignment mainGroupAlignment;
 
+  /// How the buttons should be placed along the cross axis in a layout
   final CrossGroupAlignment crossGroupAlignment;
 
   @override
