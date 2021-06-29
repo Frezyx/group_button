@@ -1,7 +1,11 @@
 library group_button;
 
 import 'package:flutter/material.dart';
+
 import 'src/group_button_body.dart';
+import 'src/utils/utils.dart';
+
+export 'src/utils/utils.dart';
 
 class GroupButton extends StatelessWidget {
   const GroupButton({
@@ -24,6 +28,8 @@ class GroupButton extends StatelessWidget {
     this.buttonHeight,
     this.buttonWidth,
     this.selectedButton,
+    this.mainGroupAlignment = MainGroupAlignment.spaceAround,
+    this.crossGroupAlignment = CrossGroupAlignment.start,
   })  : assert(
           (isRadio && selectedButtons == null) ||
               (!isRadio && selectedButton == null),
@@ -93,6 +99,10 @@ class GroupButton extends StatelessWidget {
   /// Width of group button
   final double? buttonWidth;
 
+  final MainGroupAlignment mainGroupAlignment;
+
+  final CrossGroupAlignment crossGroupAlignment;
+
   @override
   Widget build(BuildContext context) {
     return GroupButtonBody(
@@ -114,6 +124,8 @@ class GroupButton extends StatelessWidget {
       unselectedShadow: unselectedShadow,
       buttonWidth: buttonWidth,
       buttonHeigth: buttonHeight,
+      mainGroupAlignment: mainGroupAlignment,
+      crossGroupAlignment: crossGroupAlignment,
     );
   }
 

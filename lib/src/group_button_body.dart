@@ -23,8 +23,8 @@ class GroupButtonBody extends StatefulWidget {
     this.unselectedShadow = const [],
     this.buttonWidth,
     this.buttonHeigth,
-    this.crossGropAlignment = CrossGroupAlignment.start,
     this.mainGroupAlignment = MainGroupAlignment.spaceAround,
+    this.crossGroupAlignment = CrossGroupAlignment.start,
   }) : super(key: key);
 
   final List<String> buttons;
@@ -45,8 +45,9 @@ class GroupButtonBody extends StatefulWidget {
   final List<BoxShadow> unselectedShadow;
   final double? buttonWidth;
   final double? buttonHeigth;
-  final CrossGroupAlignment crossGropAlignment;
+
   final MainGroupAlignment mainGroupAlignment;
+  final CrossGroupAlignment crossGroupAlignment;
 
   @override
   _GroupButtonBodyState createState() => _GroupButtonBodyState();
@@ -77,7 +78,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
       direction: widget.direction ?? Axis.horizontal,
       spacing: widget.spacing,
       runSpacing: widget.spacing,
-      crossAxisAlignment: widget.crossGropAlignment.toWrapp(),
+      crossAxisAlignment: widget.crossGroupAlignment.toWrapp(),
       runAlignment: widget.mainGroupAlignment.toWrap(),
       children: _buildButtonsList(widget.buttons),
     );

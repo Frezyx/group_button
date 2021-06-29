@@ -135,7 +135,9 @@ class _HomePageState extends State<HomePage> {
                   BoxShadow(color: Colors.transparent)
                 ],
                 buttonHeight: 30,
-                buttonWidth: 120,
+                buttonWidth: 115,
+                mainGroupAlignment: MainGroupAlignment.start,
+                crossGroupAlignment: CrossGroupAlignment.center,
               ),
             ),
           ],
