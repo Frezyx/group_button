@@ -28,8 +28,8 @@ class GroupButton extends StatelessWidget {
     this.buttonHeight,
     this.buttonWidth,
     this.selectedButton,
-    this.mainGroupAlignment = MainGroupAlignment.spaceAround,
-    this.crossGroupAlignment = CrossGroupAlignment.start,
+    this.mainGroupAlignment = MainGroupAlignment.center,
+    this.crossGroupAlignment = CrossGroupAlignment.center,
   })  : assert(
           (isRadio && selectedButtons == null) ||
               (!isRadio && selectedButton == null),

@@ -6,9 +6,11 @@ class GroupButtonBody extends StatefulWidget {
   const GroupButtonBody({
     Key? key,
     required this.buttons,
+    required this.onSelected,
+    required this.selectedBorderColor,
+    required this.unselectedBorderColor,
     this.selectedButtons,
     this.selectedButton,
-    required this.onSelected,
     this.isRadio = false,
     this.direction,
     this.spacing = 0.0,
@@ -16,15 +18,13 @@ class GroupButtonBody extends StatefulWidget {
     this.unselectedTextStyle,
     this.selectedColor,
     this.unselectedColor,
-    required this.selectedBorderColor,
-    required this.unselectedBorderColor,
     this.borderRadius = BorderRadius.zero,
     this.selectedShadow = const [],
     this.unselectedShadow = const [],
     this.buttonWidth,
     this.buttonHeigth,
-    this.mainGroupAlignment = MainGroupAlignment.spaceAround,
-    this.crossGroupAlignment = CrossGroupAlignment.start,
+    this.mainGroupAlignment = MainGroupAlignment.center,
+    this.crossGroupAlignment = CrossGroupAlignment.center,
   }) : super(key: key);
 
   final List<String> buttons;
