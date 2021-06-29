@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("group_button 2.2.2"),
+          title: Text("group_button 2.3.0"),
           bottom: TabBar(
             tabs: [
               Tab(icon: _buildRadioTabIcon()),
