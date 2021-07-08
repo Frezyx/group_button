@@ -25,6 +25,7 @@ class GroupButtonBody extends StatefulWidget {
     this.buttonHeigth,
     this.mainGroupAlignment = MainGroupAlignment.center,
     this.crossGroupAlignment = CrossGroupAlignment.center,
+    this.groupRunAlignment = GroupRunAlignment.center,
   }) : super(key: key);
 
   final List<String> buttons;
@@ -48,7 +49,7 @@ class GroupButtonBody extends StatefulWidget {
 
   final MainGroupAlignment mainGroupAlignment;
   final CrossGroupAlignment crossGroupAlignment;
-
+  final GroupRunAlignment groupRunAlignment;
   @override
   _GroupButtonBodyState createState() => _GroupButtonBodyState();
 }
@@ -78,8 +79,9 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
       direction: widget.direction ?? Axis.horizontal,
       spacing: widget.spacing,
       runSpacing: widget.spacing,
-      crossAxisAlignment: widget.crossGroupAlignment.toWrapp(),
-      runAlignment: widget.mainGroupAlignment.toWrap(),
+      crossAxisAlignment: widget.crossGroupAlignment.toWrap(),
+      runAlignment: widget.groupRunAlignment.toWrap(),
+      alignment: widget.mainGroupAlignment.toWrap(),
       children: _buildButtonsList(widget.buttons),
     );
   }

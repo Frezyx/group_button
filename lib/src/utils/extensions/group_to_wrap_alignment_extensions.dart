@@ -22,8 +22,8 @@ extension GroupToMainWrap on MainGroupAlignment {
 }
 
 /// Make [WrapCrossAlignment] from [CrossGroupAlignment]
-extension GroupToRunWrap on CrossGroupAlignment {
-  WrapCrossAlignment toWrapp() {
+extension GroupToCrossWrap on CrossGroupAlignment {
+  WrapCrossAlignment toWrap() {
     switch (this) {
       case CrossGroupAlignment.center:
         return WrapCrossAlignment.center;
@@ -31,6 +31,26 @@ extension GroupToRunWrap on CrossGroupAlignment {
         return WrapCrossAlignment.end;
       case CrossGroupAlignment.start:
         return WrapCrossAlignment.start;
+    }
+  }
+}
+
+/// Make [WrapAlignment] from [GroupRunAlignment]
+extension GroupToRunWrap on GroupRunAlignment {
+  WrapAlignment toWrap() {
+    switch (this) {
+      case GroupRunAlignment.center:
+        return WrapAlignment.center;
+      case GroupRunAlignment.end:
+        return WrapAlignment.end;
+      case GroupRunAlignment.start:
+        return WrapAlignment.start;
+      case GroupRunAlignment.spaceAround:
+        return WrapAlignment.spaceAround;
+      case GroupRunAlignment.spaceBetween:
+        return WrapAlignment.spaceBetween;
+      case GroupRunAlignment.spaceEvenly:
+        return WrapAlignment.spaceEvenly;
     }
   }
 }
