@@ -100,7 +100,7 @@ You can check more examples of using this package [here](https://github.com/Frez
 | unselectedShadow| list of unselected buttons [BoxShadow] |
 | mainGroupAlignment| How the buttons should be placed in the main axis in a layout [MainGroupAlignment] |
 | crossGroupAlignment| How the buttons should be placed along the cross axis in a layout [CrossGroupAlignment] |
-| crossGroupRunAlignment| How the button runs themselves should be placed the cross axis in a layout [CrossGroupRunAlignment] |
+| groupRunAlignment| How the button runs themselves should be placed the cross axis in a layout [GroupRunAlignment] |
 
 
 For help getting started with 😍 Flutter, view

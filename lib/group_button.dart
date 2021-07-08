@@ -30,7 +30,7 @@ class GroupButton extends StatelessWidget {
     this.selectedButton,
     this.mainGroupAlignment = MainGroupAlignment.center,
     this.crossGroupAlignment = CrossGroupAlignment.center,
-    this.crossGroupRunAlignment = CrossGroupRunAlignment.center,
+    this.groupRunAlignment = GroupRunAlignment.center,
   })  : assert(
           (isRadio && selectedButtons == null) ||
               (!isRadio && selectedButton == null),
@@ -107,7 +107,7 @@ class GroupButton extends StatelessWidget {
   final CrossGroupAlignment crossGroupAlignment;
 
   /// How the button runs themselves should be placed along the cross axis in a layout
-  final CrossGroupRunAlignment crossGroupRunAlignment;
+  final GroupRunAlignment groupRunAlignment;
   @override
   Widget build(BuildContext context) {
     return GroupButtonBody(
@@ -131,7 +131,7 @@ class GroupButton extends StatelessWidget {
       buttonHeigth: buttonHeight,
       mainGroupAlignment: mainGroupAlignment,
       crossGroupAlignment: crossGroupAlignment,
-      crossGroupRunAlignment:crossGroupRunAlignment
+      groupRunAlignment:groupRunAlignment
     );
   }
 

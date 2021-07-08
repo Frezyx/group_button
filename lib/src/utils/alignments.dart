@@ -16,7 +16,7 @@ enum CrossGroupAlignment {
 }
 
 /// How the button runs themselves should be placed the cross axis in a layout
-enum CrossGroupRunAlignment {
+enum GroupRunAlignment {
   start,
   end,
   center,

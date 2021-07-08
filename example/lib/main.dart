@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                 buttonWidth: 115,
                 mainGroupAlignment: MainGroupAlignment.center,
                 crossGroupAlignment: CrossGroupAlignment.center,
-                crossGroupRunAlignment: CrossGroupRunAlignment.spaceEvenly,
+                groupRunAlignment: GroupRunAlignment.spaceEvenly,
               ),
             ),
           ],
