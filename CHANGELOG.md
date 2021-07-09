@@ -1,3 +1,7 @@
+## 2.4.1
+
+ - **FIX**: fix static analysis issues
+
 ## 2.4.0
 
  - **FEAT**: implement `runGroupAlignment` field for placed buttons runs themselves along the cross axis in a layout.
