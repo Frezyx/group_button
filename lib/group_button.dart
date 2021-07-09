@@ -111,28 +111,27 @@ class GroupButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GroupButtonBody(
-      buttons: buttons,
-      selectedButtons: selectedButtons,
-      selectedButton: selectedButton,
-      onSelected: onSelected,
-      isRadio: isRadio,
-      direction: direction,
-      spacing: spacing,
-      selectedTextStyle: selectedTextStyle,
-      unselectedTextStyle: unselectedTextStyle,
-      selectedColor: selectedColor,
-      unselectedColor: unselectedColor,
-      selectedBorderColor: selectedBorderColor,
-      unselectedBorderColor: unselectedBorderColor,
-      borderRadius: borderRadius,
-      selectedShadow: selectedShadow,
-      unselectedShadow: unselectedShadow,
-      buttonWidth: buttonWidth,
-      buttonHeigth: buttonHeight,
-      mainGroupAlignment: mainGroupAlignment,
-      crossGroupAlignment: crossGroupAlignment,
-      groupRunAlignment:groupRunAlignment
-    );
+        buttons: buttons,
+        selectedButtons: selectedButtons,
+        selectedButton: selectedButton,
+        onSelected: onSelected,
+        isRadio: isRadio,
+        direction: direction,
+        spacing: spacing,
+        selectedTextStyle: selectedTextStyle,
+        unselectedTextStyle: unselectedTextStyle,
+        selectedColor: selectedColor,
+        unselectedColor: unselectedColor,
+        selectedBorderColor: selectedBorderColor,
+        unselectedBorderColor: unselectedBorderColor,
+        borderRadius: borderRadius,
+        selectedShadow: selectedShadow,
+        unselectedShadow: unselectedShadow,
+        buttonWidth: buttonWidth,
+        buttonHeigth: buttonHeight,
+        mainGroupAlignment: mainGroupAlignment,
+        crossGroupAlignment: crossGroupAlignment,
+        groupRunAlignment: groupRunAlignment);
   }
 
   static const _kDefaultShadow = <BoxShadow>[
