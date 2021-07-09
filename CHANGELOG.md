@@ -1,3 +1,6 @@
+## 2.4.0
+
+ - **FEAT**: implement `runGroupAlignment` field for placed buttons runs themselves along the cross axis in a layout.
 ## 2.3.0
 
  - **FEAT**: implement `mainGroupAlignment` field for placed buttons in the main axis in a layout.
