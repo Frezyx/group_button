@@ -52,28 +52,8 @@ class _HomePageState extends State<HomePage> {
               children: [
                 _buildRadioExample(GroupingType.column),
                 _buildRadioExample(GroupingType.wrapp),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Center(
-                    child: GroupButton(
-                      spacing: 15,
-                      isRadio: false,
-                      direction: direction,
-                      onSelected: (index, isSelected) => print(
-                          '$index button is ${isSelected ? 'selected' : 'unselected'}'),
-                      buttons: [
-                        "Burger",
-                        "Sandwiches",
-                        "Salad",
-                        "Carbonara",
-                        "Meat",
-                        "French fries",
-                        "Carbonated beverage"
-                      ],
-                      selectedButtons: [2, 3],
-                    ),
-                  ),
-                ),
+                _buildCheckboxExample(GroupingType.column),
+                _buildCheckboxExample(GroupingType.wrapp),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: GroupButton(
@@ -133,6 +113,32 @@ class _HomePageState extends State<HomePage> {
               direction == Axis.horizontal ? Axis.vertical : Axis.horizontal;
         }),
         child: Icon(Icons.refresh),
+      ),
+    );
+  }
+
+  Padding _buildCheckboxExample(GroupingType groupingType) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Center(
+        child: GroupButton(
+          spacing: 15,
+          isRadio: false,
+          groupingType: groupingType,
+          direction: direction,
+          onSelected: (index, isSelected) => print(
+              '$index button is ${isSelected ? 'selected' : 'unselected'}'),
+          buttons: [
+            "Burger",
+            "Sandwiches",
+            "Salad",
+            "Carbonara",
+            "Meat",
+            "French fries",
+            "Carbonated beverage"
+          ],
+          selectedButtons: [2, 3],
+        ),
       ),
     );
   }
