@@ -125,18 +125,21 @@ class _ExampleState extends State<_Example> {
         direction: direction,
         onSelected: (index, isSelected) =>
             print('$index button is ${isSelected ? 'selected' : 'unselected'}'),
-        buttons: [
-          "Dart",
-          "Kotlin",
-          "Java",
-          "Swift",
-          "Objective-C",
-          "Python",
-          "JS",
-          "C#",
-          "C",
-          "C++"
-        ],
+        buttons: _getSizedButtonsByGroupingType(
+          [
+            "Dart",
+            "Kotlin",
+            "Java",
+            "Swift",
+            "Objective-C",
+            "Python",
+            "JS",
+            "C#",
+            "C",
+            "C++"
+          ],
+          groupingType,
+        ),
         selectedTextStyle: TextStyle(
           fontWeight: FontWeight.w600,
           fontSize: 16,
@@ -174,19 +177,31 @@ class _ExampleState extends State<_Example> {
           direction: direction,
           onSelected: (index, isSelected) => print(
               '$index button is ${isSelected ? 'selected' : 'unselected'}'),
-          buttons: [
-            "Burger",
-            "Sandwiches",
-            "Salad",
-            "Carbonara",
-            "Meat",
-            "French fries",
-            "Carbonated beverage"
-          ],
+          buttons: _getSizedButtonsByGroupingType(
+            [
+              "Burger",
+              "Sandwiches",
+              "Salad",
+              "Carbonara",
+              "Meat",
+              "French fries",
+              "Carbonated beverage"
+            ],
+            groupingType,
+          ),
           selectedButtons: [2, 3],
         ),
       ),
     );
+  }
+
+  List<String> _getSizedButtonsByGroupingType(
+      List<String> buttons, GroupingType groupingType) {
+    if (groupingType == GroupingType.row) {
+      buttons = buttons.getRange(0, 2).toList();
+    }
+
+    return buttons;
   }
 
   Padding _buildRadioExample(GroupingType groupingType) {
@@ -198,14 +213,17 @@ class _ExampleState extends State<_Example> {
           direction: direction,
           groupingType: groupingType,
           onSelected: (index, isSelected) => print('$index button is selected'),
-          buttons: [
-            "12:00",
-            "13:00",
-            "14:30",
-            "18:00",
-            "19:00",
-            "21:40",
-          ],
+          buttons: _getSizedButtonsByGroupingType(
+            [
+              "12:00",
+              "13:00",
+              "14:30",
+              "18:00",
+              "19:00",
+              "21:40",
+            ],
+            groupingType,
+          ),
           selectedButton: 5,
         ),
       ),
