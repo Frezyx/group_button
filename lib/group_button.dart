@@ -14,6 +14,7 @@ class GroupButton extends StatelessWidget {
     required this.onSelected,
     this.selectedButtons,
     this.isRadio = true,
+    this.groupingType = GroupingType.wrapp,
     this.direction,
     this.spacing = 0,
     this.selectedTextStyle = _kDefaultSelectedTextStyle,
@@ -108,6 +109,10 @@ class GroupButton extends StatelessWidget {
 
   /// How the button runs themselves should be placed along the cross axis in a layout
   final GroupRunAlignment groupRunAlignment;
+
+  /// The field is responsible for how the buttons will be grouped
+  final GroupingType groupingType;
+
   @override
   Widget build(BuildContext context) {
     return GroupButtonBody(
