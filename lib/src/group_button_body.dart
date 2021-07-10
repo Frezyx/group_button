@@ -115,12 +115,12 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         : _selectedIndexes.containsKey(i) && _selectedIndexes[i] == true;
   }
 
-  List<GroupCustomButton> _buildButtonsList(
+  List<Widget> _buildButtonsList(
     List<String> buttons,
   ) {
-    final rebuildedButtons = <GroupCustomButton>[];
+    final rebuildedButtons = <Widget>[];
     for (var i = 0; i < buttons.length; i++) {
-      final rebuidedButton = GroupCustomButton(
+      Widget rebuidedButton = GroupCustomButton(
         text: buttons[i],
         onPressed: () {
           _selectButton(i);
@@ -142,6 +142,14 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         height: widget.buttonHeigth,
         width: widget.buttonWidth,
       );
+
+      if (widget.groupingType == GroupingType.row) {
+        rebuidedButton = Padding(
+          padding: EdgeInsets.symmetric(horizontal: widget.spacing),
+          child: rebuidedButton,
+        );
+      }
+
       rebuildedButtons.add(rebuidedButton);
     }
     return rebuildedButtons;
