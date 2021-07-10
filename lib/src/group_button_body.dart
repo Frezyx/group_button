@@ -9,6 +9,7 @@ class GroupButtonBody extends StatefulWidget {
     required this.onSelected,
     required this.selectedBorderColor,
     required this.unselectedBorderColor,
+    required this.groupingType,
     this.selectedButtons,
     this.selectedButton,
     this.isRadio = false,
@@ -47,6 +48,7 @@ class GroupButtonBody extends StatefulWidget {
   final double? buttonWidth;
   final double? buttonHeigth;
 
+  final GroupingType groupingType;
   final MainGroupAlignment mainGroupAlignment;
   final CrossGroupAlignment crossGroupAlignment;
   final GroupRunAlignment groupRunAlignment;
@@ -75,15 +77,22 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      direction: widget.direction ?? Axis.horizontal,
-      spacing: widget.spacing,
-      runSpacing: widget.spacing,
-      crossAxisAlignment: widget.crossGroupAlignment.toWrap(),
-      runAlignment: widget.groupRunAlignment.toWrap(),
-      alignment: widget.mainGroupAlignment.toWrap(),
-      children: _buildButtonsList(widget.buttons),
-    );
+    return _buildBodyByGroupingType();
+  }
+
+  Widget _buildBodyByGroupingType() {
+    if (widget.groupingType == GroupingType.wrapp) {
+      return Wrap(
+        direction: widget.direction ?? Axis.horizontal,
+        spacing: widget.spacing,
+        runSpacing: widget.spacing,
+        crossAxisAlignment: widget.crossGroupAlignment.toWrap(),
+        runAlignment: widget.groupRunAlignment.toWrap(),
+        alignment: widget.mainGroupAlignment.toWrap(),
+        children: _buildButtonsList(widget.buttons),
+      );
+    }
+    return SizedBox();
   }
 
   bool _getCond(int i) {
