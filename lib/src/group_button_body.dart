@@ -82,6 +82,12 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
 
   Widget _buildBodyByGroupingType() {
     switch (widget.groupingType) {
+      case GroupingType.row:
+        return Row(
+          mainAxisAlignment: widget.mainGroupAlignment.toAxis(),
+          crossAxisAlignment: widget.crossGroupAlignment.toAxis(),
+          children: _buildButtonsList(widget.buttons),
+        );
       case GroupingType.column:
         return Column(
           mainAxisAlignment: widget.mainGroupAlignment.toAxis(),
