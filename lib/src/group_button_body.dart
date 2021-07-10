@@ -81,18 +81,26 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   }
 
   Widget _buildBodyByGroupingType() {
-    if (widget.groupingType == GroupingType.wrapp) {
-      return Wrap(
-        direction: widget.direction ?? Axis.horizontal,
-        spacing: widget.spacing,
-        runSpacing: widget.spacing,
-        crossAxisAlignment: widget.crossGroupAlignment.toWrap(),
-        runAlignment: widget.groupRunAlignment.toWrap(),
-        alignment: widget.mainGroupAlignment.toWrap(),
-        children: _buildButtonsList(widget.buttons),
-      );
+    switch (widget.groupingType) {
+      case GroupingType.column:
+        return Column(
+          mainAxisAlignment: widget.mainGroupAlignment.toAxis(),
+          crossAxisAlignment: widget.crossGroupAlignment.toAxis(),
+          children: _buildButtonsList(widget.buttons),
+        );
+
+      case GroupingType.wrapp:
+      default:
+        return Wrap(
+          direction: widget.direction ?? Axis.horizontal,
+          spacing: widget.spacing,
+          runSpacing: widget.spacing,
+          crossAxisAlignment: widget.crossGroupAlignment.toWrap(),
+          runAlignment: widget.groupRunAlignment.toWrap(),
+          alignment: widget.mainGroupAlignment.toWrap(),
+          children: _buildButtonsList(widget.buttons),
+        );
     }
-    return SizedBox();
   }
 
   bool _getCond(int i) {
