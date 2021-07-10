@@ -143,11 +143,20 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         width: widget.buttonWidth,
       );
 
-      if (widget.groupingType == GroupingType.row) {
-        rebuidedButton = Padding(
-          padding: EdgeInsets.symmetric(horizontal: widget.spacing),
-          child: rebuidedButton,
-        );
+      /// Padding adding
+      /// when groupingType is row or column
+      if (widget.spacing != 0.0) {
+        if (widget.groupingType == GroupingType.row) {
+          rebuidedButton = Padding(
+            padding: EdgeInsets.symmetric(horizontal: widget.spacing),
+            child: rebuidedButton,
+          );
+        } else if (widget.groupingType == GroupingType.column) {
+          rebuidedButton = Padding(
+            padding: EdgeInsets.symmetric(vertical: widget.spacing),
+            child: rebuidedButton,
+          );
+        }
       }
 
       rebuildedButtons.add(rebuidedButton);

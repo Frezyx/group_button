@@ -23,6 +23,11 @@ class _Example extends StatefulWidget {
 class _ExampleState extends State<_Example> {
   Axis direction = Axis.horizontal;
 
+  var _selectedGroupingType = 0;
+  var _selectedButtonType = 0;
+
+  final _pageController = PageController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,40 +42,41 @@ class _ExampleState extends State<_Example> {
             mainAxisSize: MainAxisSize.min,
             children: [
               GroupButton(
-                spacing: 10,
-                groupingType: GroupingType.row,
-                buttons: [
-                  "Radio",
-                  "CheckBox",
-                  "Custom",
-                ],
-                onSelected: (i, selected) {},
-              ),
-              GroupButton(
-                spacing: 10,
+                spacing: 7.5,
+                mainGroupAlignment: MainGroupAlignment.start,
                 groupingType: GroupingType.row,
                 buttons: [
                   "Wrap",
                   "Column",
                   "Row",
                 ],
-                onSelected: (i, selected) {},
+                onSelected: (i, selected) {
+                  setState(() => _selectedGroupingType = i);
+                },
+              ),
+              GroupButton(
+                spacing: 7.5,
+                mainGroupAlignment: MainGroupAlignment.start,
+                groupingType: GroupingType.row,
+                buttons: [
+                  "Radio",
+                  "CheckBox",
+                  "Custom",
+                ],
+                onSelected: (i, selected) {
+                  _pageController.animateToPage(
+                    i,
+                    duration: Duration(milliseconds: 200),
+                    curve: Curves.easeIn,
+                  );
+                },
               ),
             ],
           ),
           Expanded(
             child: PageView(
-              children: [
-                _buildRadioExample(GroupingType.column),
-                _buildRadioExample(GroupingType.row),
-                _buildRadioExample(GroupingType.wrapp),
-                _buildCheckboxExample(GroupingType.column),
-                _buildCheckboxExample(GroupingType.row),
-                _buildCheckboxExample(GroupingType.wrapp),
-                _buildCustomExample(GroupingType.column),
-                _buildCustomExample(GroupingType.row),
-                _buildCustomExample(GroupingType.wrapp),
-              ],
+              controller: _pageController,
+              children: _getSelectedPagesGroup(),
             ),
           ),
         ],
@@ -83,6 +89,30 @@ class _ExampleState extends State<_Example> {
         child: Icon(Icons.refresh),
       ),
     );
+  }
+
+  List<Widget> _getSelectedPagesGroup() {
+    switch (_selectedGroupingType) {
+      case 1:
+        return [
+          _buildRadioExample(GroupingType.column),
+          _buildCheckboxExample(GroupingType.column),
+          _buildCustomExample(GroupingType.column),
+        ];
+      case 2:
+        return [
+          _buildRadioExample(GroupingType.row),
+          _buildCheckboxExample(GroupingType.row),
+          _buildCustomExample(GroupingType.row),
+        ];
+      case 0:
+      default:
+        return [
+          _buildRadioExample(GroupingType.wrapp),
+          _buildCheckboxExample(GroupingType.wrapp),
+          _buildCustomExample(GroupingType.wrapp),
+        ];
+    }
   }
 
   Padding _buildCustomExample(GroupingType groupingType) {
