@@ -51,10 +51,13 @@ class _HomePageState extends State<HomePage> {
             child: PageView(
               children: [
                 _buildRadioExample(GroupingType.column),
+                _buildRadioExample(GroupingType.row),
                 _buildRadioExample(GroupingType.wrapp),
                 _buildCheckboxExample(GroupingType.column),
+                _buildCheckboxExample(GroupingType.row),
                 _buildCheckboxExample(GroupingType.wrapp),
                 _buildCustomExample(GroupingType.column),
+                _buildCustomExample(GroupingType.row),
                 _buildCustomExample(GroupingType.wrapp),
               ],
             ),
