@@ -7,7 +7,7 @@ Flutter custom widget to make a group buttons.<br>
 Included Radio and CheckBox buttons models.<br>
 [pub package](https://pub.dev/packages/group_button)
 
-<img src="https://github.com/Frezyx/group_button/blob/master/example/rep_files/preview.gif?raw=true" width="270">
+<img src="example/rep_files/extended_preview.gif?raw=true" width="270">
 
 ## Getting Started
 Follow these steps to use this package
