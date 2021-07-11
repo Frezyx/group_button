@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
+part 'radio_example_part.dart';
+part 'checkbox_example_part.dart';
+part 'custom_example_part.dart';
+
 class GroupButtonExtendedExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -115,148 +119,12 @@ class _ExampleState extends State<_Example> {
     }
   }
 
-  Padding _buildCustomExample(GroupingType groupingType) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: GroupButton(
-        spacing: 5,
-        isRadio: false,
-        groupingType: groupingType,
-        direction: direction,
-        onSelected: (index, isSelected) =>
-            print('$index button is ${isSelected ? 'selected' : 'unselected'}'),
-        buttons: _getSizedButtonsByGroupingType(
-          [
-            "Dart",
-            "Kotlin",
-            "Java",
-            "Swift",
-            "Objective-C",
-            "Python",
-            "JS",
-            "C#",
-            "C",
-            "C++"
-          ],
-          groupingType,
-        ),
-        selectedTextStyle: TextStyle(
-          fontWeight: FontWeight.w600,
-          fontSize: 16,
-          color: Colors.red,
-        ),
-        unselectedTextStyle: TextStyle(
-          fontWeight: FontWeight.w600,
-          fontSize: 14,
-          color: Colors.grey[600],
-        ),
-        selectedColor: Colors.white,
-        unselectedColor: Colors.grey[300],
-        selectedBorderColor: Colors.red,
-        unselectedBorderColor: Colors.grey[500],
-        borderRadius: BorderRadius.circular(5.0),
-        selectedShadow: <BoxShadow>[BoxShadow(color: Colors.transparent)],
-        unselectedShadow: <BoxShadow>[BoxShadow(color: Colors.transparent)],
-        buttonHeight: 30,
-        buttonWidth: 115,
-        mainGroupAlignment: MainGroupAlignment.center,
-        crossGroupAlignment: CrossGroupAlignment.center,
-        groupRunAlignment: GroupRunAlignment.spaceEvenly,
-      ),
-    );
-  }
+  // List<String> _getSizedButtonsByGroupingType(
+  //     List<String> buttons, GroupingType groupingType) {
+  //   if (groupingType == GroupingType.row) {
+  //     buttons = buttons.getRange(0, 2).toList();
+  //   }
 
-  Padding _buildCheckboxExample(GroupingType groupingType) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Center(
-        child: GroupButton(
-          spacing: 15,
-          isRadio: false,
-          groupingType: groupingType,
-          direction: direction,
-          onSelected: (index, isSelected) => print(
-              '$index button is ${isSelected ? 'selected' : 'unselected'}'),
-          buttons: _getSizedButtonsByGroupingType(
-            [
-              "Burger",
-              "Sandwiches",
-              "Salad",
-              "Carbonara",
-              "Meat",
-              "French fries",
-              "Carbonated beverage"
-            ],
-            groupingType,
-          ),
-          selectedButtons: [2, 3],
-        ),
-      ),
-    );
-  }
-
-  List<String> _getSizedButtonsByGroupingType(
-      List<String> buttons, GroupingType groupingType) {
-    if (groupingType == GroupingType.row) {
-      buttons = buttons.getRange(0, 2).toList();
-    }
-
-    return buttons;
-  }
-
-  Padding _buildRadioExample(GroupingType groupingType) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Center(
-        child: GroupButton(
-          spacing: 10,
-          direction: direction,
-          groupingType: groupingType,
-          onSelected: (index, isSelected) => print('$index button is selected'),
-          buttons: _getSizedButtonsByGroupingType(
-            [
-              "12:00",
-              "13:00",
-              "14:30",
-              "18:00",
-              "19:00",
-              "21:40",
-            ],
-            groupingType,
-          ),
-          selectedButton: 5,
-        ),
-      ),
-    );
-  }
-
-  Row _buildRadioTabIcon() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Icon(Icons.radio_button_unchecked, size: 20),
-        Text("Radio"),
-      ],
-    );
-  }
-
-  Row _buildCheckTabIcon() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Icon(Icons.check_box, size: 20),
-        Text("Check"),
-      ],
-    );
-  }
-
-  Row _buildCustomTabIcon() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Icon(Icons.palette, size: 20),
-        Text("Custom"),
-      ],
-    );
-  }
+  //   return buttons;
+  // }
 }
