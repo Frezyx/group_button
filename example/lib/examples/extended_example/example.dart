@@ -109,7 +109,7 @@ class _ExampleState extends State<_Example> {
       mainGroupAlignment: MainGroupAlignment.start,
       groupingType: GroupingType.row,
       buttons: [
-        "group_button: 2.4.1",
+        "group_button: 3.0.0",
       ],
       selectedTextStyle: TextStyle(
         color: Colors.white,
