@@ -1,6 +1,6 @@
 part of 'example.dart';
 
-Widget _buildCheckboxExample(GroupingType groupingType) {
+Widget _buildCheckboxExample(GroupingType groupingType, {Axis direction}) {
   return ScrollIjector(
     groupingType: groupingType,
     child: Padding(
@@ -10,7 +10,7 @@ Widget _buildCheckboxExample(GroupingType groupingType) {
           spacing: 15,
           isRadio: false,
           groupingType: groupingType,
-          // direction: direction,
+          direction: direction,
           onSelected: (index, isSelected) => print(
               '$index button is ${isSelected ? 'selected' : 'unselected'}'),
           buttons: [

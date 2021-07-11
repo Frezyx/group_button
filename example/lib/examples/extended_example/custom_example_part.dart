@@ -1,6 +1,6 @@
 part of 'example.dart';
 
-Widget _buildCustomExample(GroupingType groupingType) {
+Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
   return ScrollIjector(
     groupingType: groupingType,
     child: Padding(
@@ -9,7 +9,7 @@ Widget _buildCustomExample(GroupingType groupingType) {
         spacing: 5,
         isRadio: false,
         groupingType: groupingType,
-        // direction: direction,
+        direction: direction,
         onSelected: (index, isSelected) =>
             print('$index button is ${isSelected ? 'selected' : 'unselected'}'),
         buttons: [

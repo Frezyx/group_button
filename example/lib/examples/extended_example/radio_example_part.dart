@@ -1,6 +1,6 @@
 part of 'example.dart';
 
-Widget _buildRadioExample(GroupingType groupingType) {
+Widget _buildRadioExample(GroupingType groupingType, {Axis direction}) {
   return ScrollIjector(
     groupingType: groupingType,
     child: Padding(
@@ -8,7 +8,7 @@ Widget _buildRadioExample(GroupingType groupingType) {
       child: Center(
         child: GroupButton(
           spacing: 10,
-          // direction: direction,
+          direction: direction,
           groupingType: groupingType,
           onSelected: (index, isSelected) => print('$index button is selected'),
           buttons: [

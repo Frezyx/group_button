@@ -33,7 +33,6 @@ class _Example extends StatefulWidget {
 
 class _ExampleState extends State<_Example> {
   Axis direction = Axis.horizontal;
-
   var _selectedGroupingType = 0;
 
   final _pageController = PageController();
@@ -138,9 +137,9 @@ class _ExampleState extends State<_Example> {
       case 0:
       default:
         return [
-          _buildRadioExample(GroupingType.wrapp),
-          _buildCheckboxExample(GroupingType.wrapp),
-          _buildCustomExample(GroupingType.wrapp),
+          _buildRadioExample(GroupingType.wrapp, direction: direction),
+          _buildCheckboxExample(GroupingType.wrapp, direction: direction),
+          _buildCustomExample(GroupingType.wrapp, direction: direction),
         ];
     }
   }
