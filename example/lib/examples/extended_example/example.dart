@@ -35,7 +35,6 @@ class _ExampleState extends State<_Example> {
   Axis direction = Axis.horizontal;
 
   var _selectedGroupingType = 0;
-  var _selectedButtonType = 0;
 
   final _pageController = PageController();
 
