@@ -45,7 +45,7 @@ Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
         buttonWidth: 115,
         mainGroupAlignment: MainGroupAlignment.center,
         crossGroupAlignment: CrossGroupAlignment.center,
-        groupRunAlignment: GroupRunAlignment.spaceEvenly,
+        groupRunAlignment: GroupRunAlignment.center,
       ),
     ),
   );

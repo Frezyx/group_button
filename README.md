@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-<img src="example/rep_files/extended_preview.gif?raw=true" width="270">
+<img src="example/rep_files/preview.gif?raw=true" width="270">
 <p>
 
 ## Getting Started
