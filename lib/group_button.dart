@@ -19,8 +19,8 @@ class GroupButton extends StatelessWidget {
     this.spacing = 0,
     this.selectedTextStyle = _kDefaultSelectedTextStyle,
     this.unselectedTextStyle = _kDefaultUnselectedTextStyle,
-    this.selectedColor = _kDefaultSelectedColor,
-    this.unselectedColor = _kDefaultUnselectedColor,
+    this.selectedColor,
+    this.unselectedColor,
     this.selectedBorderColor,
     this.unselectedBorderColor,
     this.borderRadius,
@@ -68,16 +68,16 @@ class GroupButton extends StatelessWidget {
   final double spacing;
 
   /// [TextStyle] of text of selected button(s)
-  final TextStyle selectedTextStyle;
+  final TextStyle? selectedTextStyle;
 
   /// [TextStyle] of text of unselected buttons
-  final TextStyle unselectedTextStyle;
+  final TextStyle? unselectedTextStyle;
 
   /// background [Color] of selected button(s)
-  final Color selectedColor;
+  final Color? selectedColor;
 
   /// background [Color] of  unselected buttons
-  final Color unselectedColor;
+  final Color? unselectedColor;
 
   /// border [Color] of selected button(s)
   final Color? selectedBorderColor;

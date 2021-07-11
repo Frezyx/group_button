@@ -13,6 +13,12 @@ class GroupButtonExtendedExample extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
+        buttonTheme: ButtonThemeData(
+          colorScheme: Theme.of(context).buttonTheme.colorScheme.copyWith(
+                primary: Colors.green,
+                secondary: Colors.white,
+              ),
+        ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: _Example(),

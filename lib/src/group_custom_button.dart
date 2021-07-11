@@ -36,6 +36,7 @@ class GroupCustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
       height: height,
       width: width,
@@ -47,9 +48,7 @@ class GroupCustomButton extends StatelessWidget {
         onPressed: onPressed,
         style: ButtonStyle(
           elevation: MaterialStateProperty.all<double>(0.0),
-          backgroundColor: isSelected
-              ? MaterialStateProperty.all<Color?>(selectedColor)
-              : MaterialStateProperty.all<Color?>(unselectedColor),
+          backgroundColor: _getBackGroundColor(theme),
           shape: _buildShape(),
         ),
         child: Text(
@@ -58,6 +57,23 @@ class GroupCustomButton extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  MaterialStateProperty<Color?> _getBackGroundColor(ThemeData theme) {
+    final themePrimaryColor = theme.buttonTheme.colorScheme?.primary;
+    //TODO: implement
+    // final themeSecondaryColor = theme.buttonTheme.colorScheme?.secondary;
+
+    Color? selectedColorBuffer = selectedColor;
+    Color? unselectedColorBuffer = unselectedColor;
+
+    selectedColorBuffer ??= themePrimaryColor;
+    selectedColorBuffer ??= Colors.black;
+
+    unselectedColorBuffer ??= Colors.white;
+
+    final color = isSelected ? selectedColorBuffer : unselectedColorBuffer;
+    return MaterialStateProperty.all<Color?>(color);
   }
 
   MaterialStateProperty<OutlinedBorder>? _buildShape() {
