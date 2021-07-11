@@ -36,63 +36,83 @@ class _ExampleState extends State<_Example> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("group_button 2.4.1"),
-      ),
-      body: Column(
-        children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              GroupButton(
-                spacing: 7.5,
-                mainGroupAlignment: MainGroupAlignment.start,
-                groupingType: GroupingType.row,
-                buttons: [
-                  "Wrap",
-                  "Column",
-                  "Row",
-                ],
-                onSelected: (i, selected) {
-                  setState(() => _selectedGroupingType = i);
-                },
-              ),
-              GroupButton(
-                spacing: 7.5,
-                mainGroupAlignment: MainGroupAlignment.start,
-                groupingType: GroupingType.row,
-                buttons: [
-                  "Radio",
-                  "CheckBox",
-                  "Custom",
-                ],
-                onSelected: (i, selected) {
-                  _pageController.animateToPage(
-                    i,
-                    duration: Duration(milliseconds: 200),
-                    curve: Curves.easeIn,
-                  );
-                },
-              ),
-            ],
-          ),
-          Expanded(
-            child: PageView(
-              controller: _pageController,
-              children: _getSelectedPagesGroup(),
+      body: SafeArea(
+        child: Column(
+          children: [
+            _buildTitle(),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                GroupButton(
+                  spacing: 7.5,
+                  mainGroupAlignment: MainGroupAlignment.start,
+                  groupingType: GroupingType.row,
+                  buttons: [
+                    "Wrap",
+                    "Column",
+                    "Row",
+                  ],
+                  onSelected: (i, selected) {
+                    setState(() => _selectedGroupingType = i);
+                  },
+                ),
+                GroupButton(
+                  spacing: 7.5,
+                  mainGroupAlignment: MainGroupAlignment.start,
+                  groupingType: GroupingType.row,
+                  buttons: [
+                    "Radio",
+                    "CheckBox",
+                    "Custom",
+                  ],
+                  onSelected: (i, selected) {
+                    _pageController.animateToPage(
+                      i,
+                      duration: Duration(milliseconds: 200),
+                      curve: Curves.easeIn,
+                    );
+                  },
+                ),
+              ],
             ),
-          ),
-        ],
+            Expanded(
+              child: PageView(
+                controller: _pageController,
+                children: _getSelectedPagesGroup(),
+              ),
+            ),
+          ],
+        ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => setState(() {
-          direction =
-              direction == Axis.horizontal ? Axis.vertical : Axis.horizontal;
-        }),
-        child: Icon(Icons.refresh),
+      floatingActionButton: _selectedGroupingType == 0
+          ? FloatingActionButton(
+              onPressed: () => setState(() {
+                direction = direction == Axis.horizontal
+                    ? Axis.vertical
+                    : Axis.horizontal;
+              }),
+              child: Icon(Icons.refresh),
+            )
+          : null,
+    );
+  }
+
+  GroupButton _buildTitle() {
+    return GroupButton(
+      spacing: 7.5,
+      mainGroupAlignment: MainGroupAlignment.start,
+      groupingType: GroupingType.row,
+      buttons: [
+        "group_button: 2.4.1",
+      ],
+      selectedTextStyle: TextStyle(
+        color: Colors.white,
+        fontSize: 20.0,
+        fontWeight: FontWeight.w600,
       ),
+      onSelected: (_, __) {},
     );
   }
 
@@ -119,13 +139,4 @@ class _ExampleState extends State<_Example> {
         ];
     }
   }
-
-  // List<String> _getSizedButtonsByGroupingType(
-  //     List<String> buttons, GroupingType groupingType) {
-  //   if (groupingType == GroupingType.row) {
-  //     buttons = buttons.getRange(0, 2).toList();
-  //   }
-
-  //   return buttons;
-  // }
 }
