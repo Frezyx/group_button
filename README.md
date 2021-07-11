@@ -1,13 +1,25 @@
-# group_button
+<p align="center">
+  <img src="example/rep_files/logo.gif?raw=true" width="300px">
+</p>
+<h2 align="center">Flutter widget to create a group of buttons fast</h2>
+<p align="center">
+  Included Radio and CheckBox buttons models with custom groping types.
+</p>
+<br>
 
-[![Build Status](https://travis-ci.com/Frezyx/group_button.svg?branch=master)](https://travis-ci.com/Frezyx/group_button) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Pub](https://img.shields.io/pub/v/group_button.svg)](https://pub.dartlang.org/packages/group_button)
-![Stars](https://img.shields.io/github/stars/Frezyx/group_button?style=social)
+<p align="center">
+<a href="https://travis-ci.com/Frezyx/group_button"><img src="https://travis-ci.com/Frezyx/group_button.svg?branch=master" alt="Build info"></a>
+<a href="https://pub.dev/packages/group_button"><img src="https://img.shields.io/pub/v/group_button.svg" alt="Pub"></a>
+<a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/likes" alt="Pub likes"></a>
+<a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/popularity" alt="Pub popularity"></a>
+<a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/pub%20points" alt="Pub points"></a>
+<a href="https://github.com/Frezyx/group_button"><img src="https://img.shields.io/github/stars/Frezyx/group_button.svg?style=flat&logo=github&label=stars" alt="Star on Github"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+</p>
 
-Flutter custom widget to make a group buttons.<br>
-Included Radio and CheckBox buttons models.<br>
-[pub package](https://pub.dev/packages/group_button)
-
+<p align="center">
 <img src="example/rep_files/extended_preview.gif?raw=true" width="270">
+<p>
 
 ## Getting Started
 Follow these steps to use this package
