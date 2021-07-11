@@ -7,8 +7,8 @@ class GroupButtonBody extends StatefulWidget {
     Key? key,
     required this.buttons,
     required this.onSelected,
-    required this.selectedBorderColor,
-    required this.unselectedBorderColor,
+    this.selectedBorderColor,
+    this.unselectedBorderColor,
     required this.groupingType,
     this.selectedButtons,
     this.selectedButton,
@@ -40,8 +40,8 @@ class GroupButtonBody extends StatefulWidget {
   final TextStyle? unselectedTextStyle;
   final Color? selectedColor;
   final Color? unselectedColor;
-  final Color selectedBorderColor;
-  final Color unselectedBorderColor;
+  final Color? selectedBorderColor;
+  final Color? unselectedBorderColor;
   final BorderRadius? borderRadius;
   final List<BoxShadow> selectedShadow;
   final List<BoxShadow> unselectedShadow;

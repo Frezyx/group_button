@@ -21,9 +21,9 @@ class GroupButton extends StatelessWidget {
     this.unselectedTextStyle = _kDefaultUnselectedTextStyle,
     this.selectedColor = _kDefaultSelectedColor,
     this.unselectedColor = _kDefaultUnselectedColor,
-    this.selectedBorderColor = Colors.transparent,
-    this.unselectedBorderColor = Colors.transparent,
-    this.borderRadius = BorderRadius.zero,
+    this.selectedBorderColor,
+    this.unselectedBorderColor,
+    this.borderRadius,
     this.selectedShadow = _kDefaultShadow,
     this.unselectedShadow = _kDefaultShadow,
     this.buttonHeight,
@@ -80,10 +80,10 @@ class GroupButton extends StatelessWidget {
   final Color unselectedColor;
 
   /// border [Color] of selected button(s)
-  final Color selectedBorderColor;
+  final Color? selectedBorderColor;
 
   /// border [Color] of  unselected buttons
-  final Color unselectedBorderColor;
+  final Color? unselectedBorderColor;
 
   /// [BorderRadius] of  buttons
   /// How much the button will be rounded
