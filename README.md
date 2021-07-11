@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="example/rep_files/logo.gif?raw=true" width="300px">
+  <img src="example/rep_files/logo.gif?raw=true" width="500px">
 </p>
 <h2 align="center">Flutter widget to create a group of buttons fast</h2>
 <p align="center">
