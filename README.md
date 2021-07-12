@@ -114,6 +114,7 @@ You can check more examples of using this package [here](https://github.com/Frez
 | borderRadius | [BorderRadius] of  buttons<br>How much the button will be rounded |
 | selectedShadow | list of selected button(s) [BoxShadow] |
 | unselectedShadow| list of unselected buttons [BoxShadow] |
+| groupingType| The field is responsible for how the buttons will be grouped [GroupingType] |
 | mainGroupAlignment| How the buttons should be placed in the main axis in a layout [MainGroupAlignment] |
 | crossGroupAlignment| How the buttons should be placed along the cross axis in a layout [CrossGroupAlignment] |
 | groupRunAlignment| How the button runs themselves should be placed the cross axis in a layout [GroupRunAlignment] |
