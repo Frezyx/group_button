@@ -1,9 +1,11 @@
-<p align="center">
+<div align="center">
   <img src="example/rep_files/logo.gif?raw=true" width="500px">
-</p>
-<h2 align="center">Flutter widget to create a group of buttons fast</h2>
+</div>
+<h2 align="center">Flutter widget to create a group of buttons fast 🚀</h2>
 <p align="center">
-  Included Radio and CheckBox buttons models with custom groping types.
+   Included Radio and CheckBox buttons models with custom groping types 🤤
+   <br>
+   <span style="font-size: 0.9em"> Show some ❤️ and <a href="https://github.com/Frezyx/group_button">star the repo</a> to support the project! </span>
 </p>
 <br>
 
