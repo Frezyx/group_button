@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 import 'package:provider/provider.dart';
 
-class GroupButtonProviderApp extends StatelessWidget {
+class GroupButtonProviderExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
