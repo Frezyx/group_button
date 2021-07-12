@@ -21,9 +21,14 @@
   <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/pub%20points" alt="Pub points"></a>
 </p>
 
-<p align="center">
+| ![Image](example/rep_files/extended_example.gif?raw=true) | ![Image](example/rep_files/styles_example.gif?raw=true) | ![Image](example/rep_files/ex1.jpg) | ![Image](example/rep_files/ex2.jpg) | 
+| :------------: | :------------: | :------------: | :------------: |
+
+<!-- <p align="center">
 <img src="example/rep_files/ext_preview.gif?raw=true" width="270">
-<p>
+<img src="example/rep_files/ext_preview.gif?raw=true" width="270">
+<img src="example/rep_files/ext_preview.gif?raw=true" width="270">
+<p> -->
 
 ## Getting Started
 Follow these steps to use this package
