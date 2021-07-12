@@ -95,7 +95,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
           children: _buildButtonsList(widget.buttons),
         );
 
-      case GroupingType.wrapp:
+      case GroupingType.wrap:
       default:
         return Wrap(
           direction: widget.direction ?? Axis.horizontal,

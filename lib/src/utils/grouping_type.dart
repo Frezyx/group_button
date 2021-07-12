@@ -1,5 +1,5 @@
 enum GroupingType {
-  wrapp,
+  wrap,
   column,
   row,
 }

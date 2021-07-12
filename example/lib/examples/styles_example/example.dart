@@ -39,7 +39,7 @@ class StylesExample extends StatelessWidget {
                     ],
                     selectedShadow: [],
                     unselectedShadow: [],
-                    groupingType: GroupingType.wrapp,
+                    groupingType: GroupingType.wrap,
                     unselectedColor: Colors.grey[300],
                     unselectedTextStyle: TextStyle(
                       color: Colors.grey[600],
@@ -47,7 +47,7 @@ class StylesExample extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                     onSelected: (i, selected) {},
                   ),
-                  groupingType: GroupingType.wrapp,
+                  groupingType: GroupingType.wrap,
                 ),
                 ScrollIjector(
                   child: GroupButton(
@@ -63,7 +63,7 @@ class StylesExample extends StatelessWidget {
                     ],
                     selectedShadow: [],
                     unselectedShadow: [],
-                    groupingType: GroupingType.wrapp,
+                    groupingType: GroupingType.wrap,
                     isRadio: false,
                     selectedButtons: [1, 3, 4],
                     selectedColor: Colors.black,
@@ -73,7 +73,7 @@ class StylesExample extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4),
                     onSelected: (i, selected) {},
                   ),
-                  groupingType: GroupingType.wrapp,
+                  groupingType: GroupingType.wrap,
                 ),
                 ScrollIjector(
                   child: GroupButton(
@@ -91,7 +91,7 @@ class StylesExample extends StatelessWidget {
                     selectedButtons: [0, 4, 6],
                     selectedShadow: [],
                     unselectedShadow: [],
-                    groupingType: GroupingType.wrapp,
+                    groupingType: GroupingType.wrap,
                     selectedTextStyle: TextStyle(
                       fontSize: 20,
                       color: Colors.pink[900],
@@ -105,7 +105,7 @@ class StylesExample extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                     onSelected: (i, selected) {},
                   ),
-                  groupingType: GroupingType.wrapp,
+                  groupingType: GroupingType.wrap,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -133,7 +133,7 @@ class StylesExample extends StatelessWidget {
                           blurRadius: 20,
                         )
                       ],
-                      groupingType: GroupingType.wrapp,
+                      groupingType: GroupingType.wrap,
                       isRadio: false,
                       selectedButtons: [1, 3, 4],
                       unselectedBorderColor: Colors.grey[400],
@@ -144,7 +144,7 @@ class StylesExample extends StatelessWidget {
                       selectedColor: Colors.pink,
                       onSelected: (i, selected) {},
                     ),
-                    groupingType: GroupingType.wrapp,
+                    groupingType: GroupingType.wrap,
                   ),
                 ),
               ],

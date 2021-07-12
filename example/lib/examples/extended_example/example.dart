@@ -137,9 +137,9 @@ class _ExampleState extends State<_Example> {
       case 0:
       default:
         return [
-          _buildRadioExample(GroupingType.wrapp, direction: direction),
-          _buildCheckboxExample(GroupingType.wrapp, direction: direction),
-          _buildCustomExample(GroupingType.wrapp, direction: direction),
+          _buildRadioExample(GroupingType.wrap, direction: direction),
+          _buildCheckboxExample(GroupingType.wrap, direction: direction),
+          _buildCustomExample(GroupingType.wrap, direction: direction),
         ];
     }
   }

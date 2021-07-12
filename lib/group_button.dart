@@ -14,7 +14,7 @@ class GroupButton extends StatelessWidget {
     required this.onSelected,
     this.selectedButtons,
     this.isRadio = true,
-    this.groupingType = GroupingType.wrapp,
+    this.groupingType = GroupingType.wrap,
     this.direction,
     this.spacing = 0,
     this.selectedTextStyle = _kDefaultSelectedTextStyle,
