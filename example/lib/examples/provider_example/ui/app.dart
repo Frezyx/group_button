@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage>
       length: _eProvider.exercise.questions.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("GroupButton & Provider"),
+          title: const Text("GroupButton & Provider"),
           bottom: _buildTabBar(_eProvider),
         ),
         body: _buildTabBarView(_eProvider, size),
@@ -54,25 +54,24 @@ class _HomePageState extends State<HomePage>
             (q) => Padding(
               padding: const EdgeInsets.all(40.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Column(
                     children: [
                       Text(
                         q.title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 24,
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       GroupButton(
                         spacing: 15,
                         isRadio: false,
                         onSelected: (index, isSelected) {
-                          print(
+                          debugPrint(
                               '$index button is ${isSelected ? 'selected' : 'unselected'}');
-                          _eProvider.updateAnswer(index, isSelected);
+                          _eProvider.updateAnswer(index, value: isSelected);
                         },
                         selectedColor: Colors.blue,
                         buttons: q.answerTitles,
@@ -97,7 +96,7 @@ class _HomePageState extends State<HomePage>
                           ),
                         );
                       },
-                      child: Text('Check'),
+                      child: const Text('Check'),
                     ),
                   ),
                 ],

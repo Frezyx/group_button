@@ -9,7 +9,7 @@ class StylesExample extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             'group_button: 3.0.0',
             style: TextStyle(
               color: Colors.black,
@@ -22,13 +22,13 @@ class StylesExample extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ScrollIjector(
+                  groupingType: GroupingType.wrap,
                   child: GroupButton(
                     spacing: 10,
-                    buttons: [
+                    buttons: const [
                       '12:00',
                       '13:00',
                       '14:00',
@@ -37,9 +37,8 @@ class StylesExample extends StatelessWidget {
                       '17:00',
                       '18:00',
                     ],
-                    selectedShadow: [],
-                    unselectedShadow: [],
-                    groupingType: GroupingType.wrap,
+                    selectedShadow: const [],
+                    unselectedShadow: const [],
                     unselectedColor: Colors.grey[300],
                     unselectedTextStyle: TextStyle(
                       color: Colors.grey[600],
@@ -47,12 +46,12 @@ class StylesExample extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                     onSelected: (i, selected) {},
                   ),
-                  groupingType: GroupingType.wrap,
                 ),
                 ScrollIjector(
+                  groupingType: GroupingType.wrap,
                   child: GroupButton(
                     spacing: 10,
-                    buttons: [
+                    buttons: const [
                       '12:00',
                       '13:00',
                       '14:00',
@@ -61,24 +60,23 @@ class StylesExample extends StatelessWidget {
                       '17:00',
                       '18:00',
                     ],
-                    selectedShadow: [],
-                    unselectedShadow: [],
-                    groupingType: GroupingType.wrap,
+                    selectedShadow: const [],
+                    unselectedShadow: const [],
                     isRadio: false,
-                    selectedButtons: [1, 3, 4],
+                    selectedButtons: const [1, 3, 4],
                     selectedColor: Colors.black,
-                    selectedTextStyle: TextStyle(
+                    selectedTextStyle: const TextStyle(
                       fontWeight: FontWeight.w900,
                     ),
                     borderRadius: BorderRadius.circular(4),
                     onSelected: (i, selected) {},
                   ),
-                  groupingType: GroupingType.wrap,
                 ),
                 ScrollIjector(
+                  groupingType: GroupingType.wrap,
                   child: GroupButton(
                     spacing: 5,
-                    buttons: [
+                    buttons: const [
                       '12:00',
                       '13:00',
                       '14:00',
@@ -88,10 +86,9 @@ class StylesExample extends StatelessWidget {
                       '18:00',
                     ],
                     isRadio: false,
-                    selectedButtons: [0, 4, 6],
-                    selectedShadow: [],
-                    unselectedShadow: [],
-                    groupingType: GroupingType.wrap,
+                    selectedButtons: const [0, 4, 6],
+                    selectedShadow: const [],
+                    unselectedShadow: const [],
                     selectedTextStyle: TextStyle(
                       fontSize: 20,
                       color: Colors.pink[900],
@@ -105,14 +102,14 @@ class StylesExample extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                     onSelected: (i, selected) {},
                   ),
-                  groupingType: GroupingType.wrap,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ScrollIjector(
+                    groupingType: GroupingType.wrap,
                     child: GroupButton(
                       spacing: 10,
-                      buttons: [
+                      buttons: const [
                         '12:00',
                         '13:00',
                         '14:00',
@@ -133,18 +130,16 @@ class StylesExample extends StatelessWidget {
                           blurRadius: 20,
                         )
                       ],
-                      groupingType: GroupingType.wrap,
                       isRadio: false,
-                      selectedButtons: [1, 3, 4],
+                      selectedButtons: const [1, 3, 4],
                       unselectedBorderColor: Colors.grey[400],
                       selectedBorderColor: Colors.pink,
-                      unselectedTextStyle: TextStyle(
+                      unselectedTextStyle: const TextStyle(
                         color: Colors.grey,
                       ),
                       selectedColor: Colors.pink,
                       onSelected: (i, selected) {},
                     ),
-                    groupingType: GroupingType.wrap,
                   ),
                 ),
               ],

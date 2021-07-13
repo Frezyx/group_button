@@ -26,10 +26,19 @@ class CommonExample extends StatelessWidget {
         body: Center(
           child: GroupButton(
             spacing: 10,
-            buttons: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
-            groupingType: GroupingType.wrap,
+            buttons: const [
+              '12:00',
+              '13:00',
+              '14:00',
+              '15:00',
+              '16:00',
+              '17:00',
+              '18:00',
+              '19:00',
+              '20:00'
+            ],
             borderRadius: BorderRadius.circular(30),
-            onSelected: (i, selected) => print('Button #$i selected'),
+            onSelected: (i, selected) => debugPrint('Button #$i selected'),
           ),
         ),
       ),

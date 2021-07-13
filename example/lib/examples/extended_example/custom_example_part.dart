@@ -10,9 +10,9 @@ Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
         isRadio: false,
         groupingType: groupingType,
         direction: direction,
-        onSelected: (index, isSelected) =>
-            print('$index button is ${isSelected ? 'selected' : 'unselected'}'),
-        buttons: [
+        onSelected: (index, isSelected) => debugPrint(
+            '$index button is ${isSelected ? 'selected' : 'unselected'}'),
+        buttons: const [
           "Dart",
           "Kotlin",
           "Java",
@@ -24,7 +24,7 @@ Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
           "C",
           "C++"
         ],
-        selectedTextStyle: TextStyle(
+        selectedTextStyle: const TextStyle(
           fontWeight: FontWeight.w600,
           fontSize: 16,
           color: Colors.red,
@@ -39,13 +39,12 @@ Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
         selectedBorderColor: Colors.red,
         unselectedBorderColor: Colors.grey[500],
         borderRadius: BorderRadius.circular(5.0),
-        selectedShadow: <BoxShadow>[BoxShadow(color: Colors.transparent)],
-        unselectedShadow: <BoxShadow>[BoxShadow(color: Colors.transparent)],
+        selectedShadow: const <BoxShadow>[BoxShadow(color: Colors.transparent)],
+        unselectedShadow: const <BoxShadow>[
+          BoxShadow(color: Colors.transparent)
+        ],
         buttonHeight: 30,
         buttonWidth: 115,
-        mainGroupAlignment: MainGroupAlignment.center,
-        crossGroupAlignment: CrossGroupAlignment.center,
-        groupRunAlignment: GroupRunAlignment.center,
       ),
     ),
   );

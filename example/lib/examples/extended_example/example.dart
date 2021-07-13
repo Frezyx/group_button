@@ -45,7 +45,6 @@ class _ExampleState extends State<_Example> {
           children: [
             _buildTitle(),
             Column(
-              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -53,7 +52,7 @@ class _ExampleState extends State<_Example> {
                   spacing: 7.5,
                   mainGroupAlignment: MainGroupAlignment.start,
                   groupingType: GroupingType.row,
-                  buttons: [
+                  buttons: const [
                     "Wrap",
                     "Column",
                     "Row",
@@ -66,7 +65,7 @@ class _ExampleState extends State<_Example> {
                   spacing: 7.5,
                   mainGroupAlignment: MainGroupAlignment.start,
                   groupingType: GroupingType.row,
-                  buttons: [
+                  buttons: const [
                     "Radio",
                     "CheckBox",
                     "Custom",
@@ -74,7 +73,7 @@ class _ExampleState extends State<_Example> {
                   onSelected: (i, selected) {
                     _pageController.animateToPage(
                       i,
-                      duration: Duration(milliseconds: 200),
+                      duration: const Duration(milliseconds: 200),
                       curve: Curves.easeIn,
                     );
                   },
@@ -97,7 +96,7 @@ class _ExampleState extends State<_Example> {
                     ? Axis.vertical
                     : Axis.horizontal;
               }),
-              child: Icon(Icons.refresh),
+              child: const Icon(Icons.refresh),
             )
           : null,
     );
@@ -108,10 +107,10 @@ class _ExampleState extends State<_Example> {
       spacing: 7.5,
       mainGroupAlignment: MainGroupAlignment.start,
       groupingType: GroupingType.row,
-      buttons: [
+      buttons: const [
         "group_button: 3.0.0",
       ],
-      selectedTextStyle: TextStyle(
+      selectedTextStyle: const TextStyle(
         color: Colors.white,
         fontSize: 20.0,
         fontWeight: FontWeight.w600,

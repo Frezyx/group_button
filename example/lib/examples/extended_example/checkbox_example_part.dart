@@ -11,16 +11,16 @@ Widget _buildCheckboxExample(GroupingType groupingType, {Axis direction}) {
           isRadio: false,
           groupingType: groupingType,
           direction: direction,
-          selectedShadow: [],
-          unselectedShadow: [],
+          selectedShadow: const [],
+          unselectedShadow: const [],
           unselectedBorderColor: Colors.green,
-          unselectedTextStyle: TextStyle(
+          unselectedTextStyle: const TextStyle(
             color: Colors.green,
           ),
           borderRadius: BorderRadius.circular(30),
-          onSelected: (index, isSelected) => print(
+          onSelected: (index, isSelected) => debugPrint(
               '$index button is ${isSelected ? 'selected' : 'unselected'}'),
-          buttons: [
+          buttons: const [
             "Burger",
             "Sandwiches",
             "Salad",
@@ -29,7 +29,7 @@ Widget _buildCheckboxExample(GroupingType groupingType, {Axis direction}) {
             "French fries",
             "Carbonated beverage"
           ],
-          selectedButtons: [2, 3],
+          selectedButtons: const [2, 3],
         ),
       ),
     ),
