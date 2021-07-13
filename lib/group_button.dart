@@ -14,15 +14,16 @@ class GroupButton extends StatelessWidget {
     required this.onSelected,
     this.selectedButtons,
     this.isRadio = true,
+    this.groupingType = GroupingType.wrap,
     this.direction,
     this.spacing = 0,
     this.selectedTextStyle = _kDefaultSelectedTextStyle,
     this.unselectedTextStyle = _kDefaultUnselectedTextStyle,
-    this.selectedColor = _kDefaultSelectedColor,
-    this.unselectedColor = _kDefaultUnselectedColor,
-    this.selectedBorderColor = Colors.transparent,
-    this.unselectedBorderColor = Colors.transparent,
-    this.borderRadius = BorderRadius.zero,
+    this.selectedColor,
+    this.unselectedColor,
+    this.selectedBorderColor,
+    this.unselectedBorderColor,
+    this.borderRadius,
     this.selectedShadow = _kDefaultShadow,
     this.unselectedShadow = _kDefaultShadow,
     this.buttonHeight,
@@ -67,22 +68,22 @@ class GroupButton extends StatelessWidget {
   final double spacing;
 
   /// [TextStyle] of text of selected button(s)
-  final TextStyle selectedTextStyle;
+  final TextStyle? selectedTextStyle;
 
   /// [TextStyle] of text of unselected buttons
-  final TextStyle unselectedTextStyle;
+  final TextStyle? unselectedTextStyle;
 
   /// background [Color] of selected button(s)
-  final Color selectedColor;
+  final Color? selectedColor;
 
   /// background [Color] of  unselected buttons
-  final Color unselectedColor;
+  final Color? unselectedColor;
 
   /// border [Color] of selected button(s)
-  final Color selectedBorderColor;
+  final Color? selectedBorderColor;
 
   /// border [Color] of  unselected buttons
-  final Color unselectedBorderColor;
+  final Color? unselectedBorderColor;
 
   /// [BorderRadius] of  buttons
   /// How much the button will be rounded
@@ -108,30 +109,36 @@ class GroupButton extends StatelessWidget {
 
   /// How the button runs themselves should be placed along the cross axis in a layout
   final GroupRunAlignment groupRunAlignment;
+
+  /// The field is responsible for how the buttons will be grouped
+  final GroupingType groupingType;
+
   @override
   Widget build(BuildContext context) {
     return GroupButtonBody(
-        buttons: buttons,
-        selectedButtons: selectedButtons,
-        selectedButton: selectedButton,
-        onSelected: onSelected,
-        isRadio: isRadio,
-        direction: direction,
-        spacing: spacing,
-        selectedTextStyle: selectedTextStyle,
-        unselectedTextStyle: unselectedTextStyle,
-        selectedColor: selectedColor,
-        unselectedColor: unselectedColor,
-        selectedBorderColor: selectedBorderColor,
-        unselectedBorderColor: unselectedBorderColor,
-        borderRadius: borderRadius,
-        selectedShadow: selectedShadow,
-        unselectedShadow: unselectedShadow,
-        buttonWidth: buttonWidth,
-        buttonHeigth: buttonHeight,
-        mainGroupAlignment: mainGroupAlignment,
-        crossGroupAlignment: crossGroupAlignment,
-        groupRunAlignment: groupRunAlignment);
+      buttons: buttons,
+      selectedButtons: selectedButtons,
+      selectedButton: selectedButton,
+      onSelected: onSelected,
+      isRadio: isRadio,
+      direction: direction,
+      spacing: spacing,
+      selectedTextStyle: selectedTextStyle,
+      unselectedTextStyle: unselectedTextStyle,
+      selectedColor: selectedColor,
+      unselectedColor: unselectedColor,
+      selectedBorderColor: selectedBorderColor,
+      unselectedBorderColor: unselectedBorderColor,
+      borderRadius: borderRadius,
+      selectedShadow: selectedShadow,
+      unselectedShadow: unselectedShadow,
+      buttonWidth: buttonWidth,
+      buttonHeigth: buttonHeight,
+      mainGroupAlignment: mainGroupAlignment,
+      crossGroupAlignment: crossGroupAlignment,
+      groupRunAlignment: groupRunAlignment,
+      groupingType: groupingType,
+    );
   }
 
   static const _kDefaultShadow = <BoxShadow>[
@@ -150,7 +157,4 @@ class GroupButton extends StatelessWidget {
       TextStyle(fontSize: 14, color: Colors.white);
   static const _kDefaultUnselectedTextStyle =
       TextStyle(fontSize: 14, color: Colors.black);
-
-  static const Color _kDefaultSelectedColor = Colors.green;
-  static const Color _kDefaultUnselectedColor = Colors.white;
 }

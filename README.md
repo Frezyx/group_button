@@ -1,13 +1,29 @@
-# group_button
+<div align="center">
+  <img src="example/rep_files/logo.png" width="500px">
+</div>
+<h2 align="center">Flutter widget to create a group of buttons fast 🚀</h2>
+<p align="center">
+   Included Radio and CheckBox buttons models with custom groping types 🤤
+   <br>
+   <span style="font-size: 0.9em"> Show some ❤️ and <a href="https://github.com/Frezyx/group_button">star the repo</a> to support the project! </span>
+</p>
+<br>
 
-[![Build Status](https://travis-ci.com/Frezyx/group_button.svg?branch=master)](https://travis-ci.com/Frezyx/group_button) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Pub](https://img.shields.io/pub/v/group_button.svg)](https://pub.dartlang.org/packages/group_button)
-![Stars](https://img.shields.io/github/stars/Frezyx/group_button?style=social)
+<p align="center">
+  <a href="https://travis-ci.com/Frezyx/group_button"><img src="https://travis-ci.com/Frezyx/group_button.svg?branch=master" alt="Build info"></a>
+  <a href="https://pub.dev/packages/group_button"><img src="https://img.shields.io/pub/v/group_button.svg" alt="Pub"></a>
+  <a href="https://github.com/Frezyx/group_button"><img src="https://img.shields.io/github/stars/Frezyx/group_button.svg?style=flat&logo=github&label=stars" alt="Star on Github"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+</p>
+<p align="center">
+  <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/likes" alt="Pub likes"></a>
+  <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/popularity" alt="Pub popularity"></a>
+  <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/pub%20points" alt="Pub points"></a>
+</p>
 
-Flutter custom widget to make a group buttons.<br>
-Included Radio and CheckBox buttons models.<br>
-[pub package](https://pub.dev/packages/group_button)
+| ![Image](example/rep_files/ex2.jpg) | ![Image](example/rep_files/ex3.jpg) | ![Image](example/rep_files/ex1.jpg) | 
+| :------------: | :------------: | :------------: |
 
-<img src="https://github.com/Frezyx/group_button/blob/master/example/rep_files/preview.gif?raw=true" width="270">
 
 ## Getting Started
 Follow these steps to use this package
@@ -16,7 +32,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^2.4.1 #latest version
+  group_button: ^3.0.0 #latest version
 ```
 
 ### Add import package
@@ -98,6 +114,7 @@ You can check more examples of using this package [here](https://github.com/Frez
 | borderRadius | [BorderRadius] of  buttons<br>How much the button will be rounded |
 | selectedShadow | list of selected button(s) [BoxShadow] |
 | unselectedShadow| list of unselected buttons [BoxShadow] |
+| groupingType| The field is responsible for how the buttons will be grouped [GroupingType] |
 | mainGroupAlignment| How the buttons should be placed in the main axis in a layout [MainGroupAlignment] |
 | crossGroupAlignment| How the buttons should be placed along the cross axis in a layout [CrossGroupAlignment] |
 | groupRunAlignment| How the button runs themselves should be placed the cross axis in a layout [GroupRunAlignment] |

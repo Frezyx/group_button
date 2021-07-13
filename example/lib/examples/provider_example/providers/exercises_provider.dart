@@ -3,7 +3,7 @@ import 'package:example/examples/provider_example/models/question.dart';
 import 'package:flutter/material.dart';
 
 class ExarcisesProvider extends ChangeNotifier {
-  var _exercise = Exercise(
+  var _exercise = const Exercise(
     questions: [
       Question(
         'Wich numbers less then 3?',
@@ -22,20 +22,20 @@ class ExarcisesProvider extends ChangeNotifier {
   var _selectedIndex = 0;
 
   Exercise get exercise => _exercise;
-  void set exercise(Exercise val) {
+  set exercise(Exercise val) {
     _exercise = val;
     notifyListeners();
   }
 
   int get selectedIndex => _selectedIndex;
-  void set selectedIndex(int val) {
+  set selectedIndex(int val) {
     _selectedIndex = val;
-    print(_selectedIndex);
+    debugPrint('$_selectedIndex');
     notifyListeners();
   }
 
-  void updateAnswer(int index, bool value) {
-    _exercise.updateAnswer(_selectedIndex, index, value);
+  void updateAnswer(int index, {bool value}) {
+    _exercise.updateAnswer(_selectedIndex, index, value: value);
     notifyListeners();
   }
 

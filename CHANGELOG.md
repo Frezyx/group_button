@@ -1,3 +1,9 @@
+## 3.0.0
+ - **BREAKING**: Implement groupingType field to make different 
+    grouping types like Wrap, Column, Row
+ - **FEAT**: Remove default values of styling fields for delegate this to theme
+ - refactoring: Make some internal refactoring
+
 ## 2.4.1
 
  - **FIX**: fix static analysis issues

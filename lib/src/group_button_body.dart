@@ -7,8 +7,9 @@ class GroupButtonBody extends StatefulWidget {
     Key? key,
     required this.buttons,
     required this.onSelected,
-    required this.selectedBorderColor,
-    required this.unselectedBorderColor,
+    this.selectedBorderColor,
+    this.unselectedBorderColor,
+    required this.groupingType,
     this.selectedButtons,
     this.selectedButton,
     this.isRadio = false,
@@ -39,14 +40,15 @@ class GroupButtonBody extends StatefulWidget {
   final TextStyle? unselectedTextStyle;
   final Color? selectedColor;
   final Color? unselectedColor;
-  final Color selectedBorderColor;
-  final Color unselectedBorderColor;
+  final Color? selectedBorderColor;
+  final Color? unselectedBorderColor;
   final BorderRadius? borderRadius;
   final List<BoxShadow> selectedShadow;
   final List<BoxShadow> unselectedShadow;
   final double? buttonWidth;
   final double? buttonHeigth;
 
+  final GroupingType groupingType;
   final MainGroupAlignment mainGroupAlignment;
   final CrossGroupAlignment crossGroupAlignment;
   final GroupRunAlignment groupRunAlignment;
@@ -75,15 +77,36 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      direction: widget.direction ?? Axis.horizontal,
-      spacing: widget.spacing,
-      runSpacing: widget.spacing,
-      crossAxisAlignment: widget.crossGroupAlignment.toWrap(),
-      runAlignment: widget.groupRunAlignment.toWrap(),
-      alignment: widget.mainGroupAlignment.toWrap(),
-      children: _buildButtonsList(widget.buttons),
-    );
+    return _buildBodyByGroupingType();
+  }
+
+  Widget _buildBodyByGroupingType() {
+    switch (widget.groupingType) {
+      case GroupingType.row:
+        return Row(
+          mainAxisAlignment: widget.mainGroupAlignment.toAxis(),
+          crossAxisAlignment: widget.crossGroupAlignment.toAxis(),
+          children: _buildButtonsList(widget.buttons),
+        );
+      case GroupingType.column:
+        return Column(
+          mainAxisAlignment: widget.mainGroupAlignment.toAxis(),
+          crossAxisAlignment: widget.crossGroupAlignment.toAxis(),
+          children: _buildButtonsList(widget.buttons),
+        );
+
+      case GroupingType.wrap:
+      default:
+        return Wrap(
+          direction: widget.direction ?? Axis.horizontal,
+          spacing: widget.spacing,
+          runSpacing: widget.spacing,
+          crossAxisAlignment: widget.crossGroupAlignment.toWrap(),
+          runAlignment: widget.groupRunAlignment.toWrap(),
+          alignment: widget.mainGroupAlignment.toWrap(),
+          children: _buildButtonsList(widget.buttons),
+        );
+    }
   }
 
   bool _getCond(int i) {
@@ -92,12 +115,12 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         : _selectedIndexes.containsKey(i) && _selectedIndexes[i] == true;
   }
 
-  List<GroupCustomButton> _buildButtonsList(
+  List<Widget> _buildButtonsList(
     List<String> buttons,
   ) {
-    final rebuildedButtons = <GroupCustomButton>[];
+    final rebuildedButtons = <Widget>[];
     for (var i = 0; i < buttons.length; i++) {
-      final rebuidedButton = GroupCustomButton(
+      Widget rebuidedButton = GroupCustomButton(
         text: buttons[i],
         onPressed: () {
           _selectButton(i);
@@ -119,6 +142,23 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         height: widget.buttonHeigth,
         width: widget.buttonWidth,
       );
+
+      /// Padding adding
+      /// when groupingType is row or column
+      if (widget.spacing != 0.0) {
+        if (widget.groupingType == GroupingType.row) {
+          rebuidedButton = Padding(
+            padding: EdgeInsets.symmetric(horizontal: widget.spacing),
+            child: rebuidedButton,
+          );
+        } else if (widget.groupingType == GroupingType.column) {
+          rebuidedButton = Padding(
+            padding: EdgeInsets.symmetric(vertical: widget.spacing),
+            child: rebuidedButton,
+          );
+        }
+      }
+
       rebuildedButtons.add(rebuidedButton);
     }
     return rebuildedButtons;
