@@ -157,7 +157,4 @@ class GroupButton extends StatelessWidget {
       TextStyle(fontSize: 14, color: Colors.white);
   static const _kDefaultUnselectedTextStyle =
       TextStyle(fontSize: 14, color: Colors.black);
-
-  static const Color _kDefaultSelectedColor = Colors.green;
-  static const Color _kDefaultUnselectedColor = Colors.white;
 }
