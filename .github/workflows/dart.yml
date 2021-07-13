@@ -27,7 +27,3 @@ jobs:
       - run: flutter analyze
       - run: flutter test
 
-      
-      - name: Dart/Flutter Package Analyzer
-        uses: axel-op/dart-package-analyzer@v3
-
