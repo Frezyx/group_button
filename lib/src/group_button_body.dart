@@ -70,7 +70,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
       setState(() {});
     }
     if (widget.selectedButton != null) {
-      setState(() => _selectedIndex = widget.selectedButton!);
+      setState(() => _selectedIndex = widget.selectedButton);
     }
     super.initState();
   }
