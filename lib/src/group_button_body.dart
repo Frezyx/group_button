@@ -57,7 +57,7 @@ class GroupButtonBody extends StatefulWidget {
 }
 
 class _GroupButtonBodyState extends State<GroupButtonBody> {
-  var _selectedIndex = 0;
+  int _selectedIndex;
   final Map<int, bool> _selectedIndexes = {};
 
   @override
