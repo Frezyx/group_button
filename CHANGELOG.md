@@ -1,3 +1,7 @@
+## 3.0.1
+ - **FIX**: Remove initial selected button from original widget 
+            initialization
+
 ## 3.0.0+1
  - **FIX**: fix app logo link
 ## 3.0.0
