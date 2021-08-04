@@ -1,3 +1,8 @@
+## 3.1.0
+ - **FEAT**: Add runSpacing field !
+             When [groupingType] is [GroupingType.wrap] this field sets Wrap [runSpacing]
+ - **BREAKING**: Now spacing field is not sets GroupButton items vertical spacing
+
 ## 3.0.1
  - **FIX**: Remove initial selected button from original widget 
             initialization
