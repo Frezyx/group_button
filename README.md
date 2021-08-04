@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="example/rep_files/logo.png" width="500px">
+  <img src="https://github.com/Frezyx/group_button/blob/master/example/rep_files/logo.png?raw=true" width="500px">
 </div>
 <h2 align="center">Flutter widget to create a group of buttons fast 🚀</h2>
 <p align="center">
@@ -32,7 +32,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^3.0.0 #latest version
+  group_button: ^3.0.1 #latest version
 ```
 
 ### Add import package

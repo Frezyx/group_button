@@ -59,7 +59,7 @@ class GroupButtonBody extends StatefulWidget {
 }
 
 class _GroupButtonBodyState extends State<GroupButtonBody> {
-  var _selectedIndex = 0;
+  int? _selectedIndex;
   final Map<int, bool> _selectedIndexes = {};
 
   @override
@@ -72,7 +72,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
       setState(() {});
     }
     if (widget.selectedButton != null) {
-      setState(() => _selectedIndex = widget.selectedButton!);
+      setState(() => _selectedIndex = widget.selectedButton);
     }
     super.initState();
   }
