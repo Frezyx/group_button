@@ -10,7 +10,7 @@ class StylesExample extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text(
-            'group_button: 3.0.1',
+            'group_button: 3.1.0',
             style: TextStyle(
               color: Colors.black,
             ),

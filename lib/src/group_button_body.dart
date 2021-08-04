@@ -15,6 +15,7 @@ class GroupButtonBody extends StatefulWidget {
     this.isRadio = false,
     this.direction,
     this.spacing = 0.0,
+    this.runSpacing = 0.0,
     this.selectedTextStyle,
     this.unselectedTextStyle,
     this.selectedColor,
@@ -36,6 +37,7 @@ class GroupButtonBody extends StatefulWidget {
   final bool isRadio;
   final Axis? direction;
   final double spacing;
+  final double runSpacing;
   final TextStyle? selectedTextStyle;
   final TextStyle? unselectedTextStyle;
   final Color? selectedColor;
@@ -100,7 +102,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         return Wrap(
           direction: widget.direction ?? Axis.horizontal,
           spacing: widget.spacing,
-          runSpacing: widget.spacing,
+          runSpacing: widget.runSpacing,
           crossAxisAlignment: widget.crossGroupAlignment.toWrap(),
           runAlignment: widget.groupRunAlignment.toWrap(),
           alignment: widget.mainGroupAlignment.toWrap(),
