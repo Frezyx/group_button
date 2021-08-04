@@ -105,6 +105,7 @@ You can check more examples of using this package [here](https://github.com/Frez
 | isRadio | bool variable for switching between modes [ChackBox] and [Radio]<br>if the [isRadio] = true, only one button can be selected<br>if the [isRadio] = false, you can select several at once |
 | direction | The direction of arrangement of the buttons in [GroupButton] |
 | spacing | The spacing between buttons inside [GroupButton] |
+| runSpacing | When [groupingType] is [GroupingType.wrap] this field sets Wrap [runSpacing] |
 | selectedTextStyle | [TextStyle] of text of selected button(s) |
 | unselectedTextStyle | [TextStyle] of text of unselected buttons |
 | selectedColor | background [Color] of selected button(s) |

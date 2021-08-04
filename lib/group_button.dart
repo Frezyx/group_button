@@ -128,6 +128,7 @@ class GroupButton extends StatelessWidget {
       isRadio: isRadio,
       direction: direction,
       spacing: spacing,
+      runSpacing: runSpacing,
       selectedTextStyle: selectedTextStyle,
       unselectedTextStyle: unselectedTextStyle,
       selectedColor: selectedColor,
