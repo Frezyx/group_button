@@ -28,6 +28,7 @@ class GroupButtonBody extends StatefulWidget {
     this.mainGroupAlignment = MainGroupAlignment.center,
     this.crossGroupAlignment = CrossGroupAlignment.center,
     this.groupRunAlignment = GroupRunAlignment.center,
+    this.textAlign,
   }) : super(key: key);
 
   final List<String> buttons;
@@ -54,6 +55,8 @@ class GroupButtonBody extends StatefulWidget {
   final MainGroupAlignment mainGroupAlignment;
   final CrossGroupAlignment crossGroupAlignment;
   final GroupRunAlignment groupRunAlignment;
+
+  final TextAlign? textAlign;
   @override
   _GroupButtonBodyState createState() => _GroupButtonBodyState();
 }

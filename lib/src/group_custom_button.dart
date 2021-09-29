@@ -17,6 +17,7 @@ class GroupCustomButton extends StatelessWidget {
     this.unselectedShadow,
     this.height,
     this.width,
+    this.textAlign = TextAlign.left,
   }) : super(key: key);
 
   final String text;
@@ -33,6 +34,7 @@ class GroupCustomButton extends StatelessWidget {
   final List<BoxShadow>? unselectedShadow;
   final double? height;
   final double? width;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +55,7 @@ class GroupCustomButton extends StatelessWidget {
         ),
         child: Text(
           text,
+          textAlign: textAlign,
           style: isSelected ? selectedTextStyle : unselectedTextStyle,
         ),
       ),
