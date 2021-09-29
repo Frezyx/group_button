@@ -17,8 +17,11 @@ class GroupCustomButton extends StatelessWidget {
     this.unselectedShadow,
     this.height,
     this.width,
-    this.textAlign = TextAlign.left,
-  }) : super(key: key);
+    TextAlign? textAlign,
+    EdgeInsets? textPadding,
+  })  : textAlign = textAlign ?? TextAlign.left,
+        textPadding = textPadding ?? EdgeInsets.zero,
+        super(key: key);
 
   final String text;
   final void Function() onPressed;
@@ -35,6 +38,7 @@ class GroupCustomButton extends StatelessWidget {
   final double? height;
   final double? width;
   final TextAlign textAlign;
+  final EdgeInsets textPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +57,13 @@ class GroupCustomButton extends StatelessWidget {
           backgroundColor: _getBackGroundColor(theme),
           shape: _buildShape(),
         ),
-        child: Text(
-          text,
-          textAlign: textAlign,
-          style: isSelected ? selectedTextStyle : unselectedTextStyle,
+        child: Padding(
+          padding: textPadding,
+          child: Text(
+            text,
+            textAlign: textAlign,
+            style: isSelected ? selectedTextStyle : unselectedTextStyle,
+          ),
         ),
       ),
     );

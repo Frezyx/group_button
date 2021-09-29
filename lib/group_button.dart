@@ -34,12 +34,16 @@ class GroupButton extends StatelessWidget {
     this.crossGroupAlignment = CrossGroupAlignment.center,
     this.groupRunAlignment = GroupRunAlignment.center,
     this.textAlign,
+    this.textPadding,
   })  : assert(
           (isRadio && selectedButtons == null) ||
               (!isRadio && selectedButton == null),
           "You can use selectedButton field for isRadio [true] and selectedButtons field with isadio [false]",
         ),
         super(key: key);
+
+  /// [EdgeInsets] the text alignment to use in the buttons for the [GroupButton]
+  final EdgeInsets? textPadding;
 
   /// [TextAlign] the text alignment to use in the buttons for the [GroupButton]
   final TextAlign? textAlign;
@@ -148,6 +152,8 @@ class GroupButton extends StatelessWidget {
       crossGroupAlignment: crossGroupAlignment,
       groupRunAlignment: groupRunAlignment,
       groupingType: groupingType,
+      textAlign: textAlign,
+      textPadding: textPadding,
     );
   }
 

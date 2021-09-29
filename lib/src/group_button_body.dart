@@ -29,6 +29,7 @@ class GroupButtonBody extends StatefulWidget {
     this.crossGroupAlignment = CrossGroupAlignment.center,
     this.groupRunAlignment = GroupRunAlignment.center,
     this.textAlign,
+    this.textPadding,
   }) : super(key: key);
 
   final List<String> buttons;
@@ -57,6 +58,7 @@ class GroupButtonBody extends StatefulWidget {
   final GroupRunAlignment groupRunAlignment;
 
   final TextAlign? textAlign;
+  final EdgeInsets? textPadding;
   @override
   _GroupButtonBodyState createState() => _GroupButtonBodyState();
 }
@@ -146,6 +148,8 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         unselectedShadow: widget.unselectedShadow,
         height: widget.buttonHeigth,
         width: widget.buttonWidth,
+        textAlign: widget.textAlign,
+        textPadding: widget.textPadding,
       );
 
       /// Padding adding
