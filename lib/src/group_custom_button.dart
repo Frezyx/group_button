@@ -17,11 +17,9 @@ class GroupCustomButton extends StatelessWidget {
     this.unselectedShadow,
     this.height,
     this.width,
-    TextAlign? textAlign,
-    EdgeInsets? textPadding,
-  })  : textAlign = textAlign ?? TextAlign.left,
-        textPadding = textPadding ?? EdgeInsets.zero,
-        super(key: key);
+    required this.textAlign,
+    required this.textPadding,
+  }) : super(key: key);
 
   final String text;
   final void Function() onPressed;
