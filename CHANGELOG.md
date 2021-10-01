@@ -1,3 +1,7 @@
+## 3.2.0
+ - **FEAT**: Add [textAlign](https://github.com/Frezyx/group_button/blob/master/lib/group_button.dart#:~:text=///%20%5BTextAlign%5D%20The%20buttons,final%20TextAlign%20textAlign%3B) field
+ - **FEAT**: Add [textPadding](https://github.com/Frezyx/group_button/blob/master/lib/group_button.dart#:~:text=///%20%5BEdgeInsets%5D%20The%20inner,final%20EdgeInsets%20textPadding%3B) field
+
 ## 3.1.0
  - **FEAT**: Add runSpacing field !
              When [groupingType] is [GroupingType.wrap] this field sets Wrap [runSpacing]

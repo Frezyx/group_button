@@ -108,7 +108,7 @@ class _ExampleState extends State<_Example> {
       mainGroupAlignment: MainGroupAlignment.start,
       groupingType: GroupingType.row,
       buttons: const [
-        "group_button: 3.1.0",
+        "group_button: 3.2.0",
       ],
       selectedTextStyle: const TextStyle(
         color: Colors.white,
