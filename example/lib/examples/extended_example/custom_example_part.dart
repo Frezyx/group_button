@@ -11,7 +11,8 @@ Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
         groupingType: groupingType,
         direction: direction,
         onSelected: (index, isSelected) => debugPrint(
-            '$index button is ${isSelected ? 'selected' : 'unselected'}'),
+          '$index button is ${isSelected ? 'selected' : 'unselected'}',
+        ),
         buttons: const [
           "Dart",
           "Kotlin",

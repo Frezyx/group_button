@@ -19,7 +19,8 @@ Widget _buildCheckboxExample(GroupingType groupingType, {Axis direction}) {
           ),
           borderRadius: BorderRadius.circular(30),
           onSelected: (index, isSelected) => debugPrint(
-              '$index button is ${isSelected ? 'selected' : 'unselected'}'),
+            '$index button is ${isSelected ? 'selected' : 'unselected'}',
+          ),
           buttons: const [
             "Burger",
             "Sandwiches",

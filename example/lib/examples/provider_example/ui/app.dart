@@ -70,7 +70,8 @@ class _HomePageState extends State<HomePage>
                         isRadio: false,
                         onSelected: (index, isSelected) {
                           debugPrint(
-                              '$index button is ${isSelected ? 'selected' : 'unselected'}');
+                            '$index button is ${isSelected ? 'selected' : 'unselected'}',
+                          );
                           _eProvider.updateAnswer(index, value: isSelected);
                         },
                         selectedColor: Colors.blue,
