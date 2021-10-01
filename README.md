@@ -119,9 +119,8 @@ You can check more examples of using this package [here](https://github.com/Frez
 | mainGroupAlignment| How the buttons should be placed in the main axis in a layout [MainGroupAlignment] |
 | crossGroupAlignment| How the buttons should be placed along the cross axis in a layout [CrossGroupAlignment] |
 | groupRunAlignment| How the button runs themselves should be placed the cross axis in a layout [GroupRunAlignment] |
-| groupRunAlignment| How the button runs themselves should be placed the cross axis in a layout [GroupRunAlignment] |
-| textAlign| The buttons text alignment to use in the buttons for the [GroupButton] |
-| textPadding| The inner padding of buttons to use in the buttons for the [GroupButton] |
+| textAlign| The buttons text alignment [GroupButton] |
+| textPadding| The inner padding of buttons [GroupButton] |
 
 
 For help getting started with 😍 Flutter, view

@@ -42,10 +42,10 @@ class GroupButton extends StatelessWidget {
         ),
         super(key: key);
 
-  /// [EdgeInsets] The inner padding of buttons to use in the buttons for the [GroupButton]
+  /// [EdgeInsets] The inner padding of buttons [GroupButton]
   final EdgeInsets textPadding;
 
-  /// [TextAlign] The buttons text alignment to use in the buttons for the [GroupButton]
+  /// [TextAlign] The buttons text alignment [GroupButton]
   final TextAlign textAlign;
 
   /// [String] list that will be displayed on buttons in the [GroupButton]
