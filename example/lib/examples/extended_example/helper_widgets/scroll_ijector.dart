@@ -4,8 +4,8 @@ import 'package:group_button/group_button.dart';
 class ScrollIjector extends StatelessWidget {
   const ScrollIjector({
     Key key,
-    @required this.child,
-    @required this.groupingType,
+    this.child,
+    this.groupingType,
   }) : super(key: key);
 
   final Widget child;
