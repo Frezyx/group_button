@@ -8,36 +8,37 @@ import 'src/utils/utils.dart';
 export 'src/utils/utils.dart';
 
 class GroupButton extends StatelessWidget {
-  const GroupButton({
-    Key? key,
-    required this.buttons,
-    required this.onSelected,
-    this.selectedButtons,
-    this.isRadio = true,
-    this.groupingType = GroupingType.wrap,
-    this.direction,
-    this.spacing = 0,
-    this.runSpacing = 0,
-    this.selectedTextStyle = _kDefaultSelectedTextStyle,
-    this.unselectedTextStyle = _kDefaultUnselectedTextStyle,
-    this.selectedColor,
-    this.unselectedColor,
-    this.selectedBorderColor,
-    this.unselectedBorderColor,
-    this.borderRadius,
-    this.selectedShadow = _kDefaultShadow,
-    this.unselectedShadow = _kDefaultShadow,
-    this.buttonHeight,
-    this.buttonWidth,
-    this.selectedButton,
-    this.mainGroupAlignment = MainGroupAlignment.center,
-    this.crossGroupAlignment = CrossGroupAlignment.center,
-    this.groupRunAlignment = GroupRunAlignment.center,
-    this.textAlign = TextAlign.left,
-    this.textPadding = EdgeInsets.zero,
-  })  : assert(
-          (isRadio && selectedButtons == null) ||
-              (!isRadio && selectedButton == null),
+  const GroupButton(
+      {Key? key,
+      required this.buttons,
+      required this.onSelected,
+      this.selectedButtons,
+      this.isRadio = true,
+      this.groupingType = GroupingType.wrap,
+      this.direction,
+      this.spacing = 0,
+      this.runSpacing = 0,
+      this.selectedTextStyle = _kDefaultSelectedTextStyle,
+      this.unselectedTextStyle = _kDefaultUnselectedTextStyle,
+      this.selectedColor,
+      this.unselectedColor,
+      this.selectedBorderColor,
+      this.unselectedBorderColor,
+      this.borderRadius,
+      this.selectedShadow = _kDefaultShadow,
+      this.unselectedShadow = _kDefaultShadow,
+      this.buttonHeight,
+      this.buttonWidth,
+      this.selectedButton,
+      this.mainGroupAlignment = MainGroupAlignment.center,
+      this.crossGroupAlignment = CrossGroupAlignment.center,
+      this.groupRunAlignment = GroupRunAlignment.center,
+      this.textAlign = TextAlign.left,
+      this.textPadding = EdgeInsets.zero,
+      this.alignment,
+      this.elevation})
+      : assert(
+          (isRadio && selectedButtons == null) || (!isRadio && selectedButton == null),
           "You can use selectedButton field for isRadio [true] and selectedButtons field with isadio [false]",
         ),
         super(key: key);
@@ -47,6 +48,12 @@ class GroupButton extends StatelessWidget {
 
   /// [TextAlign] The buttons text alignment [GroupButton]
   final TextAlign textAlign;
+
+  /// [Alignment] Text position inside the buttons in case [buttonWidth] or [buttonHeight] defined.
+  final AlignmentGeometry? alignment;
+
+  /// [double] The buttons' elevation.
+  final double? elevation;
 
   /// [String] list that will be displayed on buttons in the [GroupButton]
   final List<String> buttons;
@@ -154,6 +161,8 @@ class GroupButton extends StatelessWidget {
       groupingType: groupingType,
       textAlign: textAlign,
       textPadding: textPadding,
+      alignment: alignment,
+      elevation: elevation,
     );
   }
 
@@ -169,8 +178,6 @@ class GroupButton extends StatelessWidget {
     )
   ];
 
-  static const _kDefaultSelectedTextStyle =
-      TextStyle(fontSize: 14, color: Colors.white);
-  static const _kDefaultUnselectedTextStyle =
-      TextStyle(fontSize: 14, color: Colors.black);
+  static const _kDefaultSelectedTextStyle = TextStyle(fontSize: 14, color: Colors.white);
+  static const _kDefaultUnselectedTextStyle = TextStyle(fontSize: 14, color: Colors.black);
 }

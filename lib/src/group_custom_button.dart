@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 
 class GroupCustomButton extends StatelessWidget {
-  const GroupCustomButton({
-    Key? key,
-    required this.onPressed,
-    required this.text,
-    required this.isSelected,
-    this.selectedBorderColor,
-    this.unselectedBorderColor,
-    this.selectedTextStyle,
-    this.unselectedTextStyle,
-    this.selectedColor,
-    this.unselectedColor,
-    this.borderRadius,
-    this.selectedShadow,
-    this.unselectedShadow,
-    this.height,
-    this.width,
-    required this.textAlign,
-    required this.textPadding,
-  }) : super(key: key);
+  const GroupCustomButton(
+      {Key? key,
+      required this.onPressed,
+      required this.text,
+      required this.isSelected,
+      this.selectedBorderColor,
+      this.unselectedBorderColor,
+      this.selectedTextStyle,
+      this.unselectedTextStyle,
+      this.selectedColor,
+      this.unselectedColor,
+      this.borderRadius,
+      this.selectedShadow,
+      this.unselectedShadow,
+      this.height,
+      this.width,
+      required this.textAlign,
+      required this.textPadding,
+      this.alignment,
+      this.elevation})
+      : super(key: key);
 
   final String text;
   final void Function() onPressed;
@@ -37,6 +39,8 @@ class GroupCustomButton extends StatelessWidget {
   final double? width;
   final TextAlign textAlign;
   final EdgeInsets textPadding;
+  final AlignmentGeometry? alignment;
+  final double? elevation;
 
   @override
   Widget build(BuildContext context) {
@@ -50,10 +54,12 @@ class GroupCustomButton extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: onPressed,
-        style: ButtonStyle(
-          elevation: MaterialStateProperty.all<double>(0.0),
-          backgroundColor: _getBackGroundColor(theme),
+        style: ElevatedButton.styleFrom(
+          elevation: elevation ?? 0.0,
+          primary: _getBackGroundColor(theme),
           shape: _buildShape(),
+          padding: (width != null || height != null) ? EdgeInsets.zero : null,
+          alignment: (width != null || height != null) ? alignment : null,
         ),
         child: Padding(
           padding: textPadding,
@@ -67,7 +73,7 @@ class GroupCustomButton extends StatelessWidget {
     );
   }
 
-  MaterialStateProperty<Color?> _getBackGroundColor(ThemeData theme) {
+  Color? _getBackGroundColor(ThemeData theme) {
     final themePrimaryColor = theme.buttonTheme.colorScheme?.primary;
     //TODO: implement
     // final themeSecondaryColor = theme.buttonTheme.colorScheme?.secondary;
@@ -81,25 +87,19 @@ class GroupCustomButton extends StatelessWidget {
     unselectedColorBuffer ??= Colors.white;
 
     final color = isSelected ? selectedColorBuffer : unselectedColorBuffer;
-    return MaterialStateProperty.all<Color?>(color);
+    return color;
   }
 
-  MaterialStateProperty<OutlinedBorder>? _buildShape() {
-    final color = isSelected
-        ? selectedBorderColor ?? unselectedBorderColor
-        : unselectedBorderColor;
+  OutlinedBorder? _buildShape() {
+    final color = isSelected ? selectedBorderColor ?? unselectedBorderColor : unselectedBorderColor;
     if (borderRadius != null) {
-      return MaterialStateProperty.all<OutlinedBorder>(
-        RoundedRectangleBorder(
-          borderRadius: borderRadius!,
-          side: buildBorderSide(color),
-        ),
+      return RoundedRectangleBorder(
+        borderRadius: borderRadius!,
+        side: buildBorderSide(color),
       );
     } else {
-      return MaterialStateProperty.all<OutlinedBorder>(
-        RoundedRectangleBorder(
-          side: buildBorderSide(color),
-        ),
+      return RoundedRectangleBorder(
+        side: buildBorderSide(color),
       );
     }
   }

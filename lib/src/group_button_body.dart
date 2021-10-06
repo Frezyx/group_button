@@ -1,36 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/src/utils/utils.dart';
+
 import 'group_custom_button.dart';
 
 class GroupButtonBody extends StatefulWidget {
-  const GroupButtonBody({
-    Key? key,
-    required this.buttons,
-    required this.onSelected,
-    this.selectedBorderColor,
-    this.unselectedBorderColor,
-    required this.groupingType,
-    this.selectedButtons,
-    this.selectedButton,
-    this.isRadio = false,
-    this.direction,
-    this.spacing = 0.0,
-    this.runSpacing = 0.0,
-    this.selectedTextStyle,
-    this.unselectedTextStyle,
-    this.selectedColor,
-    this.unselectedColor,
-    this.borderRadius = BorderRadius.zero,
-    this.selectedShadow = const [],
-    this.unselectedShadow = const [],
-    this.buttonWidth,
-    this.buttonHeigth,
-    this.mainGroupAlignment = MainGroupAlignment.center,
-    this.crossGroupAlignment = CrossGroupAlignment.center,
-    this.groupRunAlignment = GroupRunAlignment.center,
-    required this.textAlign,
-    required this.textPadding,
-  }) : super(key: key);
+  const GroupButtonBody(
+      {Key? key,
+      required this.buttons,
+      required this.onSelected,
+      this.selectedBorderColor,
+      this.unselectedBorderColor,
+      required this.groupingType,
+      this.selectedButtons,
+      this.selectedButton,
+      this.isRadio = false,
+      this.direction,
+      this.spacing = 0.0,
+      this.runSpacing = 0.0,
+      this.selectedTextStyle,
+      this.unselectedTextStyle,
+      this.selectedColor,
+      this.unselectedColor,
+      this.borderRadius = BorderRadius.zero,
+      this.selectedShadow = const [],
+      this.unselectedShadow = const [],
+      this.buttonWidth,
+      this.buttonHeigth,
+      this.mainGroupAlignment = MainGroupAlignment.center,
+      this.crossGroupAlignment = CrossGroupAlignment.center,
+      this.groupRunAlignment = GroupRunAlignment.center,
+      required this.textAlign,
+      required this.textPadding,
+      this.alignment,
+      this.elevation})
+      : super(key: key);
 
   final List<String> buttons;
   final List<int>? selectedButtons;
@@ -59,6 +62,9 @@ class GroupButtonBody extends StatefulWidget {
 
   final TextAlign textAlign;
   final EdgeInsets textPadding;
+  final AlignmentGeometry? alignment;
+  final double? elevation;
+
   @override
   _GroupButtonBodyState createState() => _GroupButtonBodyState();
 }
@@ -117,9 +123,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   }
 
   bool _getCond(int i) {
-    return widget.isRadio
-        ? i == _selectedIndex
-        : _selectedIndexes.containsKey(i) && _selectedIndexes[i] == true;
+    return widget.isRadio ? i == _selectedIndex : _selectedIndexes.containsKey(i) && _selectedIndexes[i] == true;
   }
 
   List<Widget> _buildButtonsList(
@@ -150,6 +154,8 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         width: widget.buttonWidth,
         textAlign: widget.textAlign,
         textPadding: widget.textPadding,
+        alignment: widget.alignment,
+        elevation: widget.elevation,
       );
 
       /// Padding adding
