@@ -24,7 +24,7 @@ class GroupCustomButton extends StatelessWidget {
       : super(key: key);
 
   final String text;
-  final void Function() onPressed;
+  final void Function()? onPressed;
   final bool isSelected;
   final TextStyle? selectedTextStyle;
   final TextStyle? unselectedTextStyle;
@@ -42,6 +42,8 @@ class GroupCustomButton extends StatelessWidget {
   final AlignmentGeometry? alignment;
   final double? elevation;
 
+  bool get isEnabled => onPressed != null;
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -50,7 +52,11 @@ class GroupCustomButton extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
         borderRadius: borderRadius ?? BorderRadius.circular(30),
-        boxShadow: isSelected ? selectedShadow : unselectedShadow,
+        boxShadow: isSelected
+            ? selectedShadow
+            : isEnabled
+                ? unselectedShadow
+                : null,
       ),
       child: ElevatedButton(
         onPressed: onPressed,
@@ -66,7 +72,11 @@ class GroupCustomButton extends StatelessWidget {
           child: Text(
             text,
             textAlign: textAlign,
-            style: isSelected ? selectedTextStyle : unselectedTextStyle,
+            style: isSelected
+                ? selectedTextStyle
+                : isEnabled
+                    ? unselectedTextStyle
+                    : null,
           ),
         ),
       ),
@@ -86,12 +96,20 @@ class GroupCustomButton extends StatelessWidget {
 
     unselectedColorBuffer ??= Colors.white;
 
-    final color = isSelected ? selectedColorBuffer : unselectedColorBuffer;
+    final color = isSelected
+        ? selectedColorBuffer
+        : isEnabled
+            ? unselectedColorBuffer
+            : null;
     return color;
   }
 
   OutlinedBorder? _buildShape() {
-    final color = isSelected ? selectedBorderColor ?? unselectedBorderColor : unselectedBorderColor;
+    final color = isSelected
+        ? selectedBorderColor ?? unselectedBorderColor
+        : isEnabled
+            ? unselectedBorderColor
+            : null;
     if (borderRadius != null) {
       return RoundedRectangleBorder(
         borderRadius: borderRadius!,

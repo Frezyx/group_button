@@ -11,6 +11,7 @@ class GroupButtonBody extends StatefulWidget {
       this.selectedBorderColor,
       this.unselectedBorderColor,
       required this.groupingType,
+      this.disabledButtons,
       this.selectedButtons,
       this.selectedButton,
       this.isRadio = false,
@@ -36,6 +37,7 @@ class GroupButtonBody extends StatefulWidget {
       : super(key: key);
 
   final List<String> buttons;
+  final List<int>? disabledButtons;
   final List<int>? selectedButtons;
   final int? selectedButton;
   final Function(int, bool) onSelected;
@@ -75,17 +77,23 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
 
   @override
   void initState() {
+    super.initState();
     if (widget.selectedButtons != null && widget.selectedButtons!.isNotEmpty) {
+      bool changed = false;
       // ignore: avoid_function_literals_in_foreach_calls
       widget.selectedButtons!.forEach((e) {
-        _selectedIndexes[e] = true;
+        if (!(widget.disabledButtons?.contains(e) ?? false)) {
+          changed = true;
+          _selectedIndexes[e] = true;
+        }
       });
-      setState(() {});
+      if (changed) setState(() {});
     }
     if (widget.selectedButton != null) {
-      setState(() => _selectedIndex = widget.selectedButton);
+      if (!(widget.disabledButtons?.contains(widget.selectedButton) ?? false)) {
+        setState(() => _selectedIndex = widget.selectedButton);
+      }
     }
-    super.initState();
   }
 
   @override
@@ -133,13 +141,12 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
     for (var i = 0; i < buttons.length; i++) {
       Widget rebuidedButton = GroupCustomButton(
         text: buttons[i],
-        onPressed: () {
-          _selectButton(i);
-          widget.onSelected(
-            i,
-            _getCond(i),
-          );
-        },
+        onPressed: (widget.disabledButtons?.contains(i) ?? false)
+            ? null
+            : () {
+                _selectButton(i);
+                widget.onSelected(i, _getCond(i));
+              },
         isSelected: _getCond(i),
         selectedTextStyle: widget.selectedTextStyle,
         unselectedTextStyle: widget.unselectedTextStyle,
