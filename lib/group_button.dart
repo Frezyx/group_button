@@ -12,6 +12,7 @@ class GroupButton extends StatelessWidget {
     Key? key,
     required this.buttons,
     required this.onSelected,
+    this.controller,
     this.selectedButtons,
     this.isRadio = true,
     this.groupingType = GroupingType.wrap,
@@ -41,6 +42,9 @@ class GroupButton extends StatelessWidget {
           "You can use selectedButton field for isRadio [true] and selectedButtons field with isadio [false]",
         ),
         super(key: key);
+
+  /// Group Button Controller
+  final GroupButtonController? controller;
 
   /// [EdgeInsets] The inner padding of buttons [GroupButton]
   final EdgeInsets textPadding;
@@ -130,6 +134,7 @@ class GroupButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GroupButtonBody(
       buttons: buttons,
+      controller: controller,
       selectedButtons: selectedButtons,
       selectedButton: selectedButton,
       onSelected: onSelected,

@@ -7,6 +7,7 @@ class GroupButtonBody extends StatefulWidget {
     Key? key,
     required this.buttons,
     required this.onSelected,
+    this.controller,
     this.selectedBorderColor,
     this.unselectedBorderColor,
     required this.groupingType,
@@ -32,6 +33,7 @@ class GroupButtonBody extends StatefulWidget {
     required this.textPadding,
   }) : super(key: key);
 
+  final GroupButtonController? controller;
   final List<String> buttons;
   final List<int>? selectedButtons;
   final int? selectedButton;
@@ -75,9 +77,32 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         _selectedIndexes[e] = true;
       });
       setState(() {});
+      if (widget.controller != null) {
+        widget.controller!.selectedIndexes = widget.selectedButtons!;
+      }
     }
     if (widget.selectedButton != null) {
+      if (widget.controller != null) {
+        widget.controller!.selectedIndex = widget.selectedButton!;
+      }
       setState(() => _selectedIndex = widget.selectedButton);
+    }
+    if (widget.controller != null) {
+      widget.controller!.addListener(() {
+        if (widget.controller!.selectedIndex != _selectedIndex) {
+          setState(() {
+            _selectedIndex = widget.controller!.selectedIndex;
+          });
+        }
+        // ignore: avoid_function_literals_in_foreach_calls
+        widget.controller!.selectedIndexes.forEach((i) {
+          if (_selectedIndexes.containsKey(i)) {
+            setState(() => _selectedIndexes[i] = !_selectedIndexes[i]!);
+          } else {
+            setState(() => _selectedIndexes[i] = true);
+          }
+        });
+      });
     }
     super.initState();
   }
@@ -176,7 +201,17 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   void _selectButton(int i) {
     if (widget.isRadio) {
       setState(() => _selectedIndex = i);
+      if (widget.controller != null) {
+        widget.controller!.selectedIndex = i;
+      }
     } else {
+      if (widget.controller != null) {
+        if (widget.controller!.selectedIndexes.contains(i)) {
+          widget.controller!.selectedIndexes.remove(i);
+        } else {
+          widget.controller!.selectedIndexes.add(i);
+        }
+      }
       if (_selectedIndexes.containsKey(i)) {
         setState(() => _selectedIndexes[i] = !_selectedIndexes[i]!);
       } else {
