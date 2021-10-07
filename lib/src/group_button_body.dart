@@ -4,37 +4,37 @@ import 'package:group_button/src/utils/utils.dart';
 import 'group_custom_button.dart';
 
 class GroupButtonBody extends StatefulWidget {
-  const GroupButtonBody(
-      {Key? key,
-      required this.buttons,
-      required this.onSelected,
-      this.selectedBorderColor,
-      this.unselectedBorderColor,
-      required this.groupingType,
-      this.disabledButtons,
-      this.selectedButtons,
-      this.selectedButton,
-      this.isRadio = false,
-      this.direction,
-      this.spacing = 0.0,
-      this.runSpacing = 0.0,
-      this.selectedTextStyle,
-      this.unselectedTextStyle,
-      this.selectedColor,
-      this.unselectedColor,
-      this.borderRadius = BorderRadius.zero,
-      this.selectedShadow = const [],
-      this.unselectedShadow = const [],
-      this.buttonWidth,
-      this.buttonHeigth,
-      this.mainGroupAlignment = MainGroupAlignment.center,
-      this.crossGroupAlignment = CrossGroupAlignment.center,
-      this.groupRunAlignment = GroupRunAlignment.center,
-      required this.textAlign,
-      required this.textPadding,
-      this.alignment,
-      this.elevation})
-      : super(key: key);
+  const GroupButtonBody({
+    Key? key,
+    required this.buttons,
+    required this.onSelected,
+    this.selectedBorderColor,
+    this.unselectedBorderColor,
+    required this.groupingType,
+    this.disabledButtons,
+    this.selectedButtons,
+    this.selectedButton,
+    this.isRadio = false,
+    this.direction,
+    this.spacing = 0.0,
+    this.runSpacing = 0.0,
+    this.selectedTextStyle,
+    this.unselectedTextStyle,
+    this.selectedColor,
+    this.unselectedColor,
+    this.borderRadius = BorderRadius.zero,
+    this.selectedShadow = const [],
+    this.unselectedShadow = const [],
+    this.buttonWidth,
+    this.buttonHeigth,
+    this.mainGroupAlignment = MainGroupAlignment.center,
+    this.crossGroupAlignment = CrossGroupAlignment.center,
+    this.groupRunAlignment = GroupRunAlignment.center,
+    required this.textAlign,
+    required this.textPadding,
+    this.alignment,
+    this.elevation,
+  }) : super(key: key);
 
   final List<String> buttons;
   final List<int>? disabledButtons;
@@ -79,19 +79,16 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   void initState() {
     super.initState();
     if (widget.selectedButtons != null && widget.selectedButtons!.isNotEmpty) {
-      bool changed = false;
       // ignore: avoid_function_literals_in_foreach_calls
       widget.selectedButtons!.forEach((e) {
         if (!(widget.disabledButtons?.contains(e) ?? false)) {
-          changed = true;
           _selectedIndexes[e] = true;
         }
       });
-      if (changed) setState(() {});
     }
     if (widget.selectedButton != null) {
       if (!(widget.disabledButtons?.contains(widget.selectedButton) ?? false)) {
-        setState(() => _selectedIndex = widget.selectedButton);
+        _selectedIndex = widget.selectedButton;
       }
     }
   }

@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 
 class GroupCustomButton extends StatelessWidget {
-  const GroupCustomButton(
-      {Key? key,
-      required this.onPressed,
-      required this.text,
-      required this.isSelected,
-      this.selectedBorderColor,
-      this.unselectedBorderColor,
-      this.selectedTextStyle,
-      this.unselectedTextStyle,
-      this.selectedColor,
-      this.unselectedColor,
-      this.borderRadius,
-      this.selectedShadow,
-      this.unselectedShadow,
-      this.height,
-      this.width,
-      required this.textAlign,
-      required this.textPadding,
-      this.alignment,
-      this.elevation})
-      : super(key: key);
+  const GroupCustomButton({
+    Key? key,
+    required this.onPressed,
+    required this.text,
+    required this.isSelected,
+    this.selectedBorderColor,
+    this.unselectedBorderColor,
+    this.selectedTextStyle,
+    this.unselectedTextStyle,
+    this.selectedColor,
+    this.unselectedColor,
+    this.borderRadius,
+    this.selectedShadow,
+    this.unselectedShadow,
+    this.height,
+    this.width,
+    required this.textAlign,
+    required this.textPadding,
+    this.alignment,
+    this.elevation,
+  }) : super(key: key);
 
   final String text;
   final void Function()? onPressed;
@@ -44,6 +44,24 @@ class GroupCustomButton extends StatelessWidget {
 
   bool get isEnabled => onPressed != null;
 
+  List<BoxShadow>? get _boxShadow => isSelected
+      ? selectedShadow
+      : isEnabled
+          ? unselectedShadow
+          : null;
+
+  TextStyle? get _textStyle => isSelected
+      ? selectedTextStyle
+      : isEnabled
+          ? unselectedTextStyle
+          : null;
+
+  Color? get _borderColor => isSelected
+      ? selectedBorderColor ?? unselectedBorderColor
+      : isEnabled
+          ? unselectedBorderColor
+          : null;
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -52,11 +70,7 @@ class GroupCustomButton extends StatelessWidget {
       width: width,
       decoration: BoxDecoration(
         borderRadius: borderRadius ?? BorderRadius.circular(30),
-        boxShadow: isSelected
-            ? selectedShadow
-            : isEnabled
-                ? unselectedShadow
-                : null,
+        boxShadow: _boxShadow,
       ),
       child: ElevatedButton(
         onPressed: onPressed,
@@ -72,11 +86,7 @@ class GroupCustomButton extends StatelessWidget {
           child: Text(
             text,
             textAlign: textAlign,
-            style: isSelected
-                ? selectedTextStyle
-                : isEnabled
-                    ? unselectedTextStyle
-                    : null,
+            style: _textStyle,
           ),
         ),
       ),
@@ -105,11 +115,7 @@ class GroupCustomButton extends StatelessWidget {
   }
 
   OutlinedBorder? _buildShape() {
-    final color = isSelected
-        ? selectedBorderColor ?? unselectedBorderColor
-        : isEnabled
-            ? unselectedBorderColor
-            : null;
+    final color = _borderColor;
     if (borderRadius != null) {
       return RoundedRectangleBorder(
         borderRadius: borderRadius!,
