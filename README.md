@@ -125,6 +125,15 @@ You can check more examples of using this package [here](https://github.com/Frez
 | elevation| [double] The buttons' elevation |
 | disabledButtons| [int] button ids that are disabled |
 
+<br>
+<div align="center" >
+  <p>Thanks to all contributors of this package</p>
+  <a href="https://github.com/Frezyx/group_button/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=Frezyx/group_button" />
+  </a>
+</div>
+<br>
+
 For help getting started with 😍 Flutter, view
 [online documentation](https://flutter.dev/docs), which offers tutorials, 
 samples, guidance on mobile development, and a full API reference.
