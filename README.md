@@ -121,7 +121,9 @@ You can check more examples of using this package [here](https://github.com/Frez
 | groupRunAlignment| How the button runs themselves should be placed the cross axis in a layout [GroupRunAlignment] |
 | textAlign| The buttons text alignment [GroupButton] |
 | textPadding| The inner padding of buttons [GroupButton] |
-
+| alignment| [AlignmentGeometry] Text position inside the buttons in case [buttonWidth] or [buttonHeight] defined |
+| elevation| [double] The buttons' elevation |
+| disabledButtons| [int] button ids that are disabled |
 
 For help getting started with 😍 Flutter, view
 [online documentation](https://flutter.dev/docs), which offers tutorials, 
