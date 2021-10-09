@@ -1,3 +1,10 @@
+## 3.3.0
+ - **FEAT**: Add [alignment](https://github.com/Frezyx/group_button/blob/master/lib/group_button.dart#:~:text=///%20%5BAlignment%5D%20Text%20position,final%20AlignmentGeometry%3F%20alignment%3B) field
+ - **FEAT**: Add [elevation](https://github.com/Frezyx/group_button/blob/master/lib/group_button.dart#:~:text=///%20%5Bdouble%5D%20The%20buttons,final%20double%3F%20elevation%3B) field
+ - **FEAT**: Add [disabledButtons](https://github.com/Frezyx/group_button/blob/master/lib/group_button.dart#:~:text=///%20%5Bint%5D%20button%20ids,List%3Cint%3E%3F%20disabledButtons%3B) field
+
+ Thanks for [slavap](https://github.com/slavap)
+
 ## 3.2.0
  - **FEAT**: Add [textAlign](https://github.com/Frezyx/group_button/blob/master/lib/group_button.dart#:~:text=///%20%5BTextAlign%5D%20The%20buttons,final%20TextAlign%20textAlign%3B) field
  - **FEAT**: Add [textPadding](https://github.com/Frezyx/group_button/blob/master/lib/group_button.dart#:~:text=///%20%5BEdgeInsets%5D%20The%20inner,final%20EdgeInsets%20textPadding%3B) field
