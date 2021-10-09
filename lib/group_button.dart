@@ -13,6 +13,7 @@ class GroupButton extends StatelessWidget {
     required this.buttons,
     required this.onSelected,
     this.controller,
+    this.disabledButtons,
     this.selectedButtons,
     this.isRadio = true,
     this.groupingType = GroupingType.wrap,
@@ -36,10 +37,11 @@ class GroupButton extends StatelessWidget {
     this.groupRunAlignment = GroupRunAlignment.center,
     this.textAlign = TextAlign.left,
     this.textPadding = EdgeInsets.zero,
+    this.alignment,
+    this.elevation,
   })  : assert(
-          (isRadio && selectedButtons == null) ||
-              (!isRadio && selectedButton == null),
-          "You can use selectedButton field for isRadio [true] and selectedButtons field with isadio [false]",
+          (isRadio && selectedButtons == null) || (!isRadio && selectedButton == null),
+          "You can use selectedButton field for isRadio [true] and selectedButtons field with isRadio [false]",
         ),
         super(key: key);
 
@@ -52,8 +54,17 @@ class GroupButton extends StatelessWidget {
   /// [TextAlign] The buttons text alignment [GroupButton]
   final TextAlign textAlign;
 
+  /// [Alignment] Text position inside the buttons in case [buttonWidth] or [buttonHeight] defined.
+  final AlignmentGeometry? alignment;
+
+  /// [double] The buttons' elevation.
+  final double? elevation;
+
   /// [String] list that will be displayed on buttons in the [GroupButton]
   final List<String> buttons;
+
+  /// [int] button ids that are disabled.
+  final List<int>? disabledButtons;
 
   /// [int] button ids that is selected initially.
   /// /// Using when [isRadio] is false
@@ -135,6 +146,7 @@ class GroupButton extends StatelessWidget {
     return GroupButtonBody(
       buttons: buttons,
       controller: controller,
+      disabledButtons: disabledButtons,
       selectedButtons: selectedButtons,
       selectedButton: selectedButton,
       onSelected: onSelected,
@@ -159,6 +171,8 @@ class GroupButton extends StatelessWidget {
       groupingType: groupingType,
       textAlign: textAlign,
       textPadding: textPadding,
+      alignment: alignment,
+      elevation: elevation,
     );
   }
 
@@ -174,8 +188,6 @@ class GroupButton extends StatelessWidget {
     )
   ];
 
-  static const _kDefaultSelectedTextStyle =
-      TextStyle(fontSize: 14, color: Colors.white);
-  static const _kDefaultUnselectedTextStyle =
-      TextStyle(fontSize: 14, color: Colors.black);
+  static const _kDefaultSelectedTextStyle = TextStyle(fontSize: 14, color: Colors.white);
+  static const _kDefaultUnselectedTextStyle = TextStyle(fontSize: 14, color: Colors.black);
 }

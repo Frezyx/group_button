@@ -32,7 +32,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^3.2.0 #latest version
+  group_button: ^3.3.0 #latest version
 ```
 
 ### Add import package
@@ -121,7 +121,18 @@ You can check more examples of using this package [here](https://github.com/Frez
 | groupRunAlignment| How the button runs themselves should be placed the cross axis in a layout [GroupRunAlignment] |
 | textAlign| The buttons text alignment [GroupButton] |
 | textPadding| The inner padding of buttons [GroupButton] |
+| alignment| [AlignmentGeometry] Text position inside the buttons in case [buttonWidth] or [buttonHeight] defined |
+| elevation| [double] The buttons' elevation |
+| disabledButtons| [int] button ids that are disabled |
 
+<br>
+<div align="center" >
+  <p>Thanks to all contributors of this package</p>
+  <a href="https://github.com/Frezyx/group_button/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=Frezyx/group_button" />
+  </a>
+</div>
+<br>
 
 For help getting started with 😍 Flutter, view
 [online documentation](https://flutter.dev/docs), which offers tutorials, 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/src/utils/utils.dart';
+
 import 'group_custom_button.dart';
 
 class GroupButtonBody extends StatefulWidget {
@@ -11,6 +12,7 @@ class GroupButtonBody extends StatefulWidget {
     this.selectedBorderColor,
     this.unselectedBorderColor,
     required this.groupingType,
+    this.disabledButtons,
     this.selectedButtons,
     this.selectedButton,
     this.isRadio = false,
@@ -31,10 +33,13 @@ class GroupButtonBody extends StatefulWidget {
     this.groupRunAlignment = GroupRunAlignment.center,
     required this.textAlign,
     required this.textPadding,
+    this.alignment,
+    this.elevation,
   }) : super(key: key);
 
   final GroupButtonController? controller;
   final List<String> buttons;
+  final List<int>? disabledButtons;
   final List<int>? selectedButtons;
   final int? selectedButton;
   final Function(int, bool) onSelected;
@@ -61,6 +66,9 @@ class GroupButtonBody extends StatefulWidget {
 
   final TextAlign textAlign;
   final EdgeInsets textPadding;
+  final AlignmentGeometry? alignment;
+  final double? elevation;
+
   @override
   _GroupButtonBodyState createState() => _GroupButtonBodyState();
 }
@@ -71,10 +79,13 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
 
   @override
   void initState() {
+    super.initState();
     if (widget.selectedButtons != null && widget.selectedButtons!.isNotEmpty) {
       // ignore: avoid_function_literals_in_foreach_calls
       widget.selectedButtons!.forEach((e) {
-        _selectedIndexes[e] = true;
+        if (!(widget.disabledButtons?.contains(e) ?? false)) {
+          _selectedIndexes[e] = true;
+        }
       });
       setState(() {});
       if (widget.controller != null) {
@@ -105,7 +116,11 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         });
       });
     }
-    super.initState();
+    if (widget.selectedButton != null) {
+      if (!(widget.disabledButtons?.contains(widget.selectedButton) ?? false)) {
+        _selectedIndex = widget.selectedButton;
+      }
+    }
   }
 
   @override
@@ -143,9 +158,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   }
 
   bool _getCond(int i) {
-    return widget.isRadio
-        ? i == _selectedIndex
-        : _selectedIndexes.containsKey(i) && _selectedIndexes[i] == true;
+    return widget.isRadio ? i == _selectedIndex : _selectedIndexes.containsKey(i) && _selectedIndexes[i] == true;
   }
 
   List<Widget> _buildButtonsList(
@@ -155,13 +168,12 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
     for (var i = 0; i < buttons.length; i++) {
       Widget rebuidedButton = GroupCustomButton(
         text: buttons[i],
-        onPressed: () {
-          _selectButton(i);
-          widget.onSelected(
-            i,
-            _getCond(i),
-          );
-        },
+        onPressed: (widget.disabledButtons?.contains(i) ?? false)
+            ? null
+            : () {
+                _selectButton(i);
+                widget.onSelected(i, _getCond(i));
+              },
         isSelected: _getCond(i),
         selectedTextStyle: widget.selectedTextStyle,
         unselectedTextStyle: widget.unselectedTextStyle,
@@ -176,6 +188,8 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         width: widget.buttonWidth,
         textAlign: widget.textAlign,
         textPadding: widget.textPadding,
+        alignment: widget.alignment,
+        elevation: widget.elevation,
       );
 
       /// Padding adding
