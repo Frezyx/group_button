@@ -21,11 +21,12 @@ class CommonExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Builder(
-          builder: (context) => Scaffold(
-            body: SafeArea(
-              child: Column(children: [
+      debugShowCheckedModeBanner: false,
+      home: Builder(
+        builder: (context) => Scaffold(
+          body: SafeArea(
+            child: Column(
+              children: [
                 Row(
                   children: [
                     TextButton(
@@ -33,10 +34,11 @@ class CommonExample extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => StylesExample()),
+                              builder: (context) => StylesExample(),
+                            ),
                           );
                         },
-                        child: const Text('Styles Example'))
+                        child: const Text('Styles Example')),
                   ],
                 ),
                 Center(
@@ -58,9 +60,11 @@ class CommonExample extends StatelessWidget {
                         debugPrint('Button #$i selected'),
                   ),
                 ),
-              ]),
+              ],
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -94,13 +94,14 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
             _selectedIndex = widget.controller!.selectedIndex;
           });
         }
+        final Map<int, bool> cacheMap = {};
         // ignore: avoid_function_literals_in_foreach_calls
         widget.controller!.selectedIndexes.forEach((i) {
-          if (_selectedIndexes.containsKey(i)) {
-            setState(() => _selectedIndexes[i] = !_selectedIndexes[i]!);
-          } else {
-            setState(() => _selectedIndexes[i] = true);
-          }
+          cacheMap[i] = true;
+        });
+        _selectedIndexes.clear();
+        setState(() {
+          _selectedIndexes.addAll(cacheMap);
         });
       });
     }
