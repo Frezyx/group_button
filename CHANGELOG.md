@@ -1,3 +1,6 @@
+## 3.3.1
+ - **FIX**: fix static analysis issues
+
 ## 3.3.0
  - **FEAT**: Add [alignment](https://github.com/Frezyx/group_button/blob/master/lib/group_button.dart#:~:text=///%20%5BAlignment%5D%20Text%20position,final%20AlignmentGeometry%3F%20alignment%3B) field
  - **FEAT**: Add [elevation](https://github.com/Frezyx/group_button/blob/master/lib/group_button.dart#:~:text=///%20%5Bdouble%5D%20The%20buttons,final%20double%3F%20elevation%3B) field
