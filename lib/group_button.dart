@@ -39,7 +39,8 @@ class GroupButton extends StatelessWidget {
     this.alignment,
     this.elevation,
   })  : assert(
-          (isRadio && selectedButtons == null) || (!isRadio && selectedButton == null),
+          (isRadio && selectedButtons == null) ||
+              (!isRadio && selectedButton == null),
           "You can use selectedButton field for isRadio [true] and selectedButtons field with isRadio [false]",
         ),
         super(key: key);
@@ -183,6 +184,8 @@ class GroupButton extends StatelessWidget {
     )
   ];
 
-  static const _kDefaultSelectedTextStyle = TextStyle(fontSize: 14, color: Colors.white);
-  static const _kDefaultUnselectedTextStyle = TextStyle(fontSize: 14, color: Colors.black);
+  static const _kDefaultSelectedTextStyle =
+      TextStyle(fontSize: 14, color: Colors.white);
+  static const _kDefaultUnselectedTextStyle =
+      TextStyle(fontSize: 14, color: Colors.black);
 }

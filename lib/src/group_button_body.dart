@@ -128,7 +128,9 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   }
 
   bool _getCond(int i) {
-    return widget.isRadio ? i == _selectedIndex : _selectedIndexes.containsKey(i) && _selectedIndexes[i] == true;
+    return widget.isRadio
+        ? i == _selectedIndex
+        : _selectedIndexes.containsKey(i) && _selectedIndexes[i] == true;
   }
 
   List<Widget> _buildButtonsList(
