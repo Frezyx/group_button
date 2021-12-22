@@ -27,7 +27,6 @@ class StylesExample extends StatelessWidget {
                 ScrollIjector(
                   groupingType: GroupingType.wrap,
                   child: GroupButton(
-                    spacing: 10,
                     buttons: const [
                       '12:00',
                       '13:00',
@@ -50,7 +49,6 @@ class StylesExample extends StatelessWidget {
                 ScrollIjector(
                   groupingType: GroupingType.wrap,
                   child: GroupButton(
-                    spacing: 10,
                     buttons: const [
                       '12:00',
                       '13:00',
@@ -108,7 +106,6 @@ class StylesExample extends StatelessWidget {
                   child: ScrollIjector(
                     groupingType: GroupingType.wrap,
                     child: GroupButton(
-                      spacing: 10,
                       buttons: const [
                         '12:00',
                         '13:00',

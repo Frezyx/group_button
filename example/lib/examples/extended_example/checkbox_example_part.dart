@@ -7,7 +7,6 @@ Widget _buildCheckboxExample(GroupingType groupingType, {Axis direction}) {
       padding: const EdgeInsets.all(10.0),
       child: Center(
         child: GroupButton(
-          spacing: 10,
           isRadio: false,
           groupingType: groupingType,
           direction: direction,
