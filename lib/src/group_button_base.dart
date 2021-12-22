@@ -39,6 +39,10 @@ class GroupButton extends StatelessWidget {
         ),
         super(key: key);
 
+  /// Build group button for choising one button
+  ///
+  /// Selection callback [Function(int index) onSelected]
+  /// calling only when button is seletced
   factory GroupButton.radio({
     required List<String> buttons,
     required Function(int index) onSelected,
@@ -72,6 +76,68 @@ class GroupButton extends StatelessWidget {
         disabledButtons: disabledButtons,
         selectedButton: selectedButton,
         onSelected: (index, _) => onSelected(index),
+        direction: direction,
+        spacing: spacing,
+        runSpacing: runSpacing,
+        selectedTextStyle: selectedTextStyle,
+        unselectedTextStyle: unselectedTextStyle,
+        selectedColor: selectedColor,
+        unselectedColor: unselectedColor,
+        selectedBorderColor: selectedBorderColor,
+        unselectedBorderColor: unselectedBorderColor,
+        borderRadius: borderRadius,
+        selectedShadow: selectedShadow,
+        unselectedShadow: unselectedShadow,
+        buttonWidth: buttonWidth,
+        buttonHeight: buttonHeight,
+        mainGroupAlignment: mainGroupAlignment,
+        crossGroupAlignment: crossGroupAlignment,
+        groupRunAlignment: groupRunAlignment,
+        groupingType: groupingType,
+        textAlign: textAlign,
+        textPadding: textPadding,
+        alignment: alignment,
+        elevation: elevation,
+      );
+
+  /// Build group button for choising several
+  ///
+  /// Selection callback [Function(int index, bool selected) onSelected]
+  /// calling when button
+  /// is seletced or unselected with [bool selected] field
+  factory GroupButton.checkbox({
+    required List<String> buttons,
+    required Function(int index, bool selected) onSelected,
+    EdgeInsets textPadding = EdgeInsets.zero,
+    TextAlign textAlign = TextAlign.left,
+    AlignmentGeometry? alignment,
+    double? elevation,
+    List<int>? disabledButtons,
+    List<int>? selectedButtons,
+    Axis? direction,
+    double spacing = 10,
+    double runSpacing = 0,
+    TextStyle? selectedTextStyle = _kDefaultSelectedTextStyle,
+    TextStyle? unselectedTextStyle = _kDefaultUnselectedTextStyle,
+    Color? selectedColor,
+    Color? unselectedColor,
+    Color? selectedBorderColor,
+    Color? unselectedBorderColor,
+    BorderRadius? borderRadius,
+    List<BoxShadow> selectedShadow = _kDefaultShadow,
+    List<BoxShadow> unselectedShadow = _kDefaultShadow,
+    double? buttonWidth,
+    double? buttonHeight,
+    MainGroupAlignment mainGroupAlignment = MainGroupAlignment.center,
+    CrossGroupAlignment crossGroupAlignment = CrossGroupAlignment.center,
+    GroupRunAlignment groupRunAlignment = GroupRunAlignment.center,
+    GroupingType groupingType = GroupingType.wrap,
+  }) =>
+      GroupButton(
+        buttons: buttons,
+        disabledButtons: disabledButtons,
+        selectedButtons: selectedButtons,
+        onSelected: onSelected,
         direction: direction,
         spacing: spacing,
         runSpacing: runSpacing,
