@@ -134,6 +134,7 @@ class GroupButton extends StatelessWidget {
     GroupingType groupingType = GroupingType.wrap,
   }) =>
       GroupButton(
+        isRadio: false,
         buttons: buttons,
         disabledButtons: disabledButtons,
         selectedButtons: selectedButtons,
