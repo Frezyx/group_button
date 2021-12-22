@@ -24,21 +24,9 @@ class CommonExample extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: GroupButton(
-            spacing: 10,
-            buttons: const [
-              '12:00',
-              '13:00',
-              '14:00',
-              '15:00',
-              '16:00',
-              '17:00',
-              '18:00',
-              '19:00',
-              '20:00'
-            ],
-            borderRadius: BorderRadius.circular(30),
-            onSelected: (i, selected) => debugPrint('Button #$i selected'),
+          child: GroupButton.radio(
+            buttons: List.generate(40, (i) => '$i'),
+            onSelected: (i) => debugPrint('Button #$i selected'),
           ),
         ),
       ),
