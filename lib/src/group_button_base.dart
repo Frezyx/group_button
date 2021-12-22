@@ -47,7 +47,6 @@ class GroupButton extends StatelessWidget {
     AlignmentGeometry? alignment,
     double? elevation,
     List<int>? disabledButtons,
-    List<int>? selectedButtons,
     int? selectedButton,
     Axis? direction,
     double spacing = 10,
@@ -71,7 +70,6 @@ class GroupButton extends StatelessWidget {
       GroupButton(
         buttons: buttons,
         disabledButtons: disabledButtons,
-        selectedButtons: selectedButtons,
         selectedButton: selectedButton,
         onSelected: (index, _) => onSelected(index),
         direction: direction,
