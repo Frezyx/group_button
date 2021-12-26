@@ -26,41 +26,44 @@ class CommonExample extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: GroupButton.radio(
+          child: GroupButton.checkbox(
             controller: controller,
             buttons: List.generate(40, (i) => '$i'),
-            onSelected: (i) => debugPrint('Button #$i selected'),
-            selectedButton: 1,
+            onSelected: (i, selected) => debugPrint('Button #$i $selected'),
+            selectedButtons: const [11, 12, 33, 24, 25, 36],
           ),
         ),
-        floatingActionButton: Container(
+        bottomNavigationBar: Container(
           height: 100,
           decoration: BoxDecoration(
             color: Theme.of(context).cardColor,
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 'Managed by controller',
                 style: Theme.of(context).textTheme.headline6,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
-                    onPressed: () => controller.setSelectedIndex(0),
-                    child: const Text('Choise 0'),
+                    onPressed: () =>
+                        controller.toggleSelectedIndexes([0, 1, 2, 3, 4]),
+                    child: const Text('Select line'),
                   ),
                   const SizedBox(width: 10),
                   ElevatedButton(
-                    onPressed: () => controller.setSelectedIndex(1),
-                    child: const Text('Choise 1'),
+                    onPressed: () =>
+                        controller.toggleSelectedIndexes([0, 1, 2, 3, 4]),
+                    child: const Text('Toggle line'),
                   ),
                   const SizedBox(width: 10),
                   ElevatedButton(
-                    onPressed: () => controller.setSelectedIndex(3),
-                    child: const Text('Choise 3'),
+                    onPressed: () =>
+                        controller.toggleSelectedIndexes([0, 1, 2, 3, 4]),
+                    child: const Text('Uelect line'),
                   ),
                 ],
               ),
