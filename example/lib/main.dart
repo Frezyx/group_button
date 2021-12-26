@@ -18,6 +18,8 @@ void main() {
 }
 
 class CommonExample extends StatelessWidget {
+  final controller = GroupButtonController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

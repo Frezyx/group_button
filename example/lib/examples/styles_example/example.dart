@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
 class StylesExample extends StatelessWidget {
+  final GroupButtonController controller = GroupButtonController();
+  final GroupButtonController controller2 = GroupButtonController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,6 +29,8 @@ class StylesExample extends StatelessWidget {
                 ScrollIjector(
                   groupingType: GroupingType.wrap,
                   child: GroupButton(
+                    controller: controller,
+                    spacing: 10,
                     buttons: const [
                       '12:00',
                       '13:00',
@@ -36,6 +40,7 @@ class StylesExample extends StatelessWidget {
                       '17:00',
                       '18:00',
                     ],
+                    selectedButton: 4,
                     selectedShadow: const [],
                     unselectedShadow: const [],
                     unselectedColor: Colors.grey[300],
@@ -46,9 +51,17 @@ class StylesExample extends StatelessWidget {
                     onSelected: (i, selected) {},
                   ),
                 ),
+                TextButton(
+                  onPressed: () {
+                    controller.setSelectedIndex(6);
+                  },
+                  child: const Text('Select Button'),
+                ),
                 ScrollIjector(
                   groupingType: GroupingType.wrap,
                   child: GroupButton(
+                    controller: controller2,
+                    spacing: 10,
                     buttons: const [
                       '12:00',
                       '13:00',
@@ -69,6 +82,12 @@ class StylesExample extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4),
                     onSelected: (i, selected) {},
                   ),
+                ),
+                TextButton(
+                  onPressed: () {
+                    controller2.setSelectedIndexes([1, 2, 5]);
+                  },
+                  child: const Text('Select Buttons'),
                 ),
                 ScrollIjector(
                   groupingType: GroupingType.wrap,
