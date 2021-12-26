@@ -30,7 +30,7 @@ class CommonExample extends StatelessWidget {
             controller: controller,
             buttons: List.generate(40, (i) => '$i'),
             onSelected: (i, selected) => debugPrint('Button #$i $selected'),
-            selectedButtons: const [11, 12, 33, 24, 25, 36],
+            selectedButtons: const [5, 6, 7, 8, 9, 37, 38],
           ),
         ),
         bottomNavigationBar: Container(
@@ -49,20 +49,19 @@ class CommonExample extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
-                    onPressed: () =>
-                        controller.toggleSelectedIndexes([0, 1, 2, 3, 4]),
+                    onPressed: () => controller.selectIndexes([0, 1, 2, 3, 4]),
                     child: const Text('Select line'),
                   ),
                   const SizedBox(width: 10),
                   ElevatedButton(
                     onPressed: () =>
-                        controller.toggleSelectedIndexes([0, 1, 2, 3, 4]),
+                        controller.toggleIndexes([10, 11, 12, 13, 14]),
                     child: const Text('Toggle line'),
                   ),
                   const SizedBox(width: 10),
                   ElevatedButton(
                     onPressed: () =>
-                        controller.toggleSelectedIndexes([0, 1, 2, 3, 4]),
+                        controller.unselectIndexes([5, 6, 7, 8, 9]),
                     child: const Text('Uelect line'),
                   ),
                 ],

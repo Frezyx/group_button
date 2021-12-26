@@ -78,7 +78,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
     super.initState();
 
     if (!widget.isRadio) {
-      widget.controller.toggleSelectedIndexes(widget.selectedButtons ?? []);
+      widget.controller.toggleIndexes(widget.selectedButtons ?? []);
     }
 
     if (widget.isRadio) {
@@ -189,7 +189,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
     if (widget.isRadio) {
       widget.controller.setSelectedIndex(i);
     } else {
-      widget.controller.toggleSelectedIndexes([i]);
+      widget.controller.toggleIndexes([i]);
     }
   }
 }

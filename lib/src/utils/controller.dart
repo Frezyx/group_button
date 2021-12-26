@@ -12,7 +12,7 @@ class GroupButtonController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void toggleSelectedIndexes(List<int> indexes) {
+  void toggleIndexes(List<int> indexes) {
     for (final i in indexes) {
       if (_selectedIndexes.contains(i)) {
         _selectedIndexes.remove(i);
@@ -20,6 +20,16 @@ class GroupButtonController extends ChangeNotifier {
         _selectedIndexes.add(i);
       }
     }
+    notifyListeners();
+  }
+
+  void selectIndexes(List<int> indexes) {
+    _selectedIndexes.addAll(indexes);
+    notifyListeners();
+  }
+
+  void unselectIndexes(List<int> indexes) {
+    _selectedIndexes.removeAll(indexes);
     notifyListeners();
   }
 }

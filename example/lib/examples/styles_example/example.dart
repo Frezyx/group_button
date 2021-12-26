@@ -84,7 +84,7 @@ class StylesExample extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    controller2.toggleSelectedIndexes([1, 2, 5]);
+                    controller2.toggleIndexes([1, 2, 5]);
                   },
                   child: const Text('Select Buttons'),
                 ),
