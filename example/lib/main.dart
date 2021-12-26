@@ -18,6 +18,8 @@ void main() {
 }
 
 class CommonExample extends StatelessWidget {
+  final controller = GroupButtonController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,6 +45,7 @@ class CommonExample extends StatelessWidget {
                 ),
                 Center(
                   child: GroupButton(
+                    controller: controller,
                     spacing: 10,
                     buttons: const [
                       '12:00',
@@ -63,6 +66,9 @@ class CommonExample extends StatelessWidget {
               ],
             ),
           ),
+          floatingActionButton: FloatingActionButton(onPressed: () {
+            controller.setSelectedIndexes([1, 2]);
+          }),
         ),
       ),
     );

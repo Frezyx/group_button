@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
 class GroupButtonController extends ChangeNotifier {
-  int selectedIndex = 0;
-  List<int> selectedIndexes = [0];
+  int _selectedIndex = 0;
+  List<int> _selectedIndexes = [0];
+
+  int get selectedIndex => _selectedIndex;
+  List<int> get selectedIndexes => _selectedIndexes;
 
   void setSelectedIndex(int i) {
-    selectedIndex = i;
+    _selectedIndex = i;
     notifyListeners();
   }
 
   void setSelectedIndexes(List<int> i) {
-    selectedIndexes = i;
+    _selectedIndexes = i;
     notifyListeners();
   }
 }

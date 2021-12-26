@@ -89,12 +89,12 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
       });
       setState(() {});
       if (widget.controller != null) {
-        widget.controller!.selectedIndexes = widget.selectedButtons!;
+        widget.controller?.setSelectedIndexes(widget.selectedButtons!);
       }
     }
     if (widget.selectedButton != null) {
       if (widget.controller != null) {
-        widget.controller!.selectedIndex = widget.selectedButton!;
+        widget.controller?.setSelectedIndex(widget.selectedButton!);
       }
       setState(() => _selectedIndex = widget.selectedButton);
     }
@@ -158,7 +158,9 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   }
 
   bool _getCond(int i) {
-    return widget.isRadio ? i == _selectedIndex : _selectedIndexes.containsKey(i) && _selectedIndexes[i] == true;
+    return widget.isRadio
+        ? i == _selectedIndex
+        : _selectedIndexes.containsKey(i) && _selectedIndexes[i] == true;
   }
 
   List<Widget> _buildButtonsList(
@@ -217,7 +219,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
     if (widget.isRadio) {
       setState(() => _selectedIndex = i);
       if (widget.controller != null) {
-        widget.controller!.selectedIndex = i;
+        widget.controller?.setSelectedIndex(i);
       }
     } else {
       if (widget.controller != null) {
