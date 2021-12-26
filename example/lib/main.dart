@@ -27,8 +27,43 @@ class CommonExample extends StatelessWidget {
       home: Scaffold(
         body: Center(
           child: GroupButton.radio(
+            controller: controller,
             buttons: List.generate(40, (i) => '$i'),
             onSelected: (i) => debugPrint('Button #$i selected'),
+          ),
+        ),
+        floatingActionButton: Container(
+          height: 100,
+          decoration: BoxDecoration(
+            color: Theme.of(context).cardColor,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                'Managed by controller',
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () => controller.setSelectedIndex(0),
+                    child: const Text('Choise 0'),
+                  ),
+                  const SizedBox(width: 10),
+                  ElevatedButton(
+                    onPressed: () => controller.setSelectedIndex(1),
+                    child: const Text('Choise 1'),
+                  ),
+                  const SizedBox(width: 10),
+                  ElevatedButton(
+                    onPressed: () => controller.setSelectedIndex(3),
+                    child: const Text('Choise 3'),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
