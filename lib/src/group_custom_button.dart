@@ -69,7 +69,7 @@ class GroupCustomButton extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-        borderRadius: borderRadius ?? BorderRadius.circular(30),
+        borderRadius: borderRadius,
         boxShadow: _boxShadow,
       ),
       child: ElevatedButton(
