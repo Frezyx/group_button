@@ -2,8 +2,8 @@ library group_button;
 
 import 'package:flutter/material.dart';
 
-import 'src/group_button_body.dart';
-import 'src/utils/utils.dart';
+import 'package:group_button/src/group_button_body.dart';
+import 'package:group_button/src/utils/utils.dart';
 
 export 'src/utils/utils.dart';
 

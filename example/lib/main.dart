@@ -32,15 +32,16 @@ class CommonExample extends StatelessWidget {
                 Row(
                   children: [
                     TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => StylesExample(),
-                            ),
-                          );
-                        },
-                        child: const Text('Styles Example')),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => StylesExample(),
+                          ),
+                        );
+                      },
+                      child: const Text('Styles Example'),
+                    ),
                   ],
                 ),
                 Center(
@@ -66,9 +67,11 @@ class CommonExample extends StatelessWidget {
               ],
             ),
           ),
-          floatingActionButton: FloatingActionButton(onPressed: () {
-            controller.setSelectedIndexes([1, 2]);
-          }),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              controller.setSelectedIndexes([1, 2]);
+            },
+          ),
         ),
       ),
     );
