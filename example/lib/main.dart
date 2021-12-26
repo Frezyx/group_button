@@ -69,7 +69,7 @@ class CommonExample extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              controller.setSelectedIndexes([1, 2]);
+              controller.setSelectedIndex(1);
             },
           ),
         ),
