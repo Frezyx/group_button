@@ -36,7 +36,6 @@ class GroupButtonBody extends StatefulWidget {
     this.elevation,
   }) : super(key: key);
 
-  final GroupButtonController? controller;
   final List<String> buttons;
   final List<int>? disabledButtons;
   final List<int>? selectedButtons;
@@ -67,6 +66,7 @@ class GroupButtonBody extends StatefulWidget {
   final EdgeInsets textPadding;
   final AlignmentGeometry? alignment;
   final double? elevation;
+  final GroupButtonController? controller;
 
   @override
   _GroupButtonBodyState createState() => _GroupButtonBodyState();

@@ -32,6 +32,7 @@ class GroupButton extends StatelessWidget {
     this.textPadding = EdgeInsets.zero,
     this.alignment,
     this.elevation,
+    this.controller,
   })  : assert(
           (isRadio && selectedButtons == null) ||
               (!isRadio && selectedButton == null),
@@ -70,6 +71,7 @@ class GroupButton extends StatelessWidget {
     CrossGroupAlignment crossGroupAlignment = CrossGroupAlignment.center,
     GroupRunAlignment groupRunAlignment = GroupRunAlignment.center,
     GroupingType groupingType = GroupingType.wrap,
+    GroupButtonController? controller,
   }) =>
       GroupButton(
         buttons: buttons,
@@ -98,6 +100,7 @@ class GroupButton extends StatelessWidget {
         textPadding: textPadding,
         alignment: alignment,
         elevation: elevation,
+        controller: controller,
       );
 
   /// Build group button for choising several
@@ -132,6 +135,7 @@ class GroupButton extends StatelessWidget {
     CrossGroupAlignment crossGroupAlignment = CrossGroupAlignment.center,
     GroupRunAlignment groupRunAlignment = GroupRunAlignment.center,
     GroupingType groupingType = GroupingType.wrap,
+    GroupButtonController? controller,
   }) =>
       GroupButton(
         isRadio: false,
@@ -161,6 +165,7 @@ class GroupButton extends StatelessWidget {
         textPadding: textPadding,
         alignment: alignment,
         elevation: elevation,
+        controller: controller,
       );
 
   /// [EdgeInsets] The inner padding of buttons [GroupButton]
@@ -256,6 +261,8 @@ class GroupButton extends StatelessWidget {
   /// The field is responsible for how the buttons will be grouped
   final GroupingType groupingType;
 
+  final GroupButtonController? controller;
+
   @override
   Widget build(BuildContext context) {
     return GroupButtonBody(
@@ -287,6 +294,7 @@ class GroupButton extends StatelessWidget {
       textPadding: textPadding,
       alignment: alignment,
       elevation: elevation,
+      controller: controller,
     );
   }
 
