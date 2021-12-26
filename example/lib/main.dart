@@ -30,6 +30,7 @@ class CommonExample extends StatelessWidget {
             controller: controller,
             buttons: List.generate(40, (i) => '$i'),
             onSelected: (i) => debugPrint('Button #$i selected'),
+            selectedButton: 1,
           ),
         ),
         floatingActionButton: Container(

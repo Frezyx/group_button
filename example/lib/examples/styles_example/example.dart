@@ -61,7 +61,6 @@ class StylesExample extends StatelessWidget {
                   groupingType: GroupingType.wrap,
                   child: GroupButton(
                     controller: controller2,
-                    spacing: 10,
                     buttons: const [
                       '12:00',
                       '13:00',
@@ -85,7 +84,7 @@ class StylesExample extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    controller2.setSelectedIndexes([1, 2, 5]);
+                    controller2.toggleSelectedIndexes([1, 2, 5]);
                   },
                   child: const Text('Select Buttons'),
                 ),
