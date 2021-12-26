@@ -18,27 +18,59 @@ void main() {
 }
 
 class CommonExample extends StatelessWidget {
+  final controller = GroupButtonController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: GroupButton(
-            spacing: 10,
-            buttons: const [
-              '12:00',
-              '13:00',
-              '14:00',
-              '15:00',
-              '16:00',
-              '17:00',
-              '18:00',
-              '19:00',
-              '20:00'
-            ],
-            borderRadius: BorderRadius.circular(30),
-            onSelected: (i, selected) => debugPrint('Button #$i selected'),
+      home: Builder(
+        builder: (context) => Scaffold(
+          body: SafeArea(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => StylesExample(),
+                          ),
+                        );
+                      },
+                      child: const Text('Styles Example'),
+                    ),
+                  ],
+                ),
+                Center(
+                  child: GroupButton(
+                    controller: controller,
+                    spacing: 10,
+                    buttons: const [
+                      '12:00',
+                      '13:00',
+                      '14:00',
+                      '15:00',
+                      '16:00',
+                      '17:00',
+                      '18:00',
+                      '19:00',
+                      '20:00'
+                    ],
+                    borderRadius: BorderRadius.circular(30),
+                    onSelected: (i, selected) =>
+                        debugPrint('Button #$i selected'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              controller.setSelectedIndex(1);
+            },
           ),
         ),
       ),

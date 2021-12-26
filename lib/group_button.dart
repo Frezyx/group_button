@@ -2,8 +2,8 @@ library group_button;
 
 import 'package:flutter/material.dart';
 
-import 'src/group_button_body.dart';
-import 'src/utils/utils.dart';
+import 'package:group_button/src/group_button_body.dart';
+import 'package:group_button/src/utils/utils.dart';
 
 export 'src/utils/utils.dart';
 
@@ -12,6 +12,7 @@ class GroupButton extends StatelessWidget {
     Key? key,
     required this.buttons,
     required this.onSelected,
+    this.controller,
     this.disabledButtons,
     this.selectedButtons,
     this.isRadio = true,
@@ -44,6 +45,9 @@ class GroupButton extends StatelessWidget {
           "You can use selectedButton field for isRadio [true] and selectedButtons field with isRadio [false]",
         ),
         super(key: key);
+
+  /// Group Button Controller
+  final GroupButtonController? controller;
 
   /// [EdgeInsets] The inner padding of buttons [GroupButton]
   final EdgeInsets textPadding;
@@ -142,6 +146,7 @@ class GroupButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GroupButtonBody(
       buttons: buttons,
+      controller: controller,
       disabledButtons: disabledButtons,
       selectedButtons: selectedButtons,
       selectedButton: selectedButton,
