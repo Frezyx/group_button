@@ -36,6 +36,37 @@ void main() {
         WrapAlignment.spaceEvenly,
       );
     });
+
+    group('Test_CrossGroupAlignments', () {
+      _testCrossGroupAlignment(
+        CrossGroupAlignment.center,
+        CrossAxisAlignment.center,
+        WrapCrossAlignment.center,
+      );
+      _testCrossGroupAlignment(
+        CrossGroupAlignment.start,
+        CrossAxisAlignment.start,
+        WrapCrossAlignment.start,
+      );
+      _testCrossGroupAlignment(
+        CrossGroupAlignment.end,
+        CrossAxisAlignment.end,
+        WrapCrossAlignment.end,
+      );
+    });
+  });
+}
+
+void _testCrossGroupAlignment(
+  CrossGroupAlignment group,
+  CrossAxisAlignment axis,
+  WrapCrossAlignment wrap,
+) {
+  test(group.toString(), () async {
+    final mainAxisAlignemnt = group.toAxis();
+    final mainWrapAlignment = group.toWrap();
+    expect(mainAxisAlignemnt, axis);
+    expect(mainWrapAlignment, wrap);
   });
 }
 
