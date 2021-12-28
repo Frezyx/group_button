@@ -18,7 +18,7 @@ import 'package:group_button/group_button.dart';
 /// to check package power
 
 void main() {
-  runApp(CustomizableExample());
+  runApp(GroupButtonExtendedExample());
 }
 
 class CommonExample extends StatelessWidget {
@@ -29,14 +29,6 @@ class CommonExample extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          shadowColor: Colors.grey[100].withOpacity(0.1),
-          backgroundColor: Colors.white,
-          title: Text(
-            'GroupButton 4.0.0',
-            style: Theme.of(context).textTheme.headline6,
-          ),
-        ),
         body: Center(
           child: GroupButton.checkbox(
             controller: controller,

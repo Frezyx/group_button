@@ -1,4 +1,5 @@
 import 'package:example/examples/extended_example/helper_widgets/helper_widgets.dart';
+import 'package:example/examples/extended_example/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
@@ -33,23 +34,32 @@ class _Example extends StatefulWidget {
 
 class _ExampleState extends State<_Example> {
   Axis direction = Axis.horizontal;
-  var _selectedGroupingType = 0;
 
+  final _extendedExampleController = ExtendedExampleController();
   final _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        shadowColor: Colors.grey[100].withOpacity(0.1),
+        backgroundColor: Colors.white,
+        title: Text(
+          'GroupButton 4.0.0',
+          style: Theme.of(context).textTheme.headline6,
+        ),
+      ),
       body: SafeArea(
         child: Column(
           children: [
-            _buildTitle(),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
+                const SizedBox(height: 10),
                 GroupButton(
                   spacing: 7.5,
+                  controller: GroupButtonController(),
                   mainGroupAlignment: MainGroupAlignment.start,
                   groupingType: GroupingType.row,
                   buttons: const [
@@ -58,11 +68,12 @@ class _ExampleState extends State<_Example> {
                     "Row",
                   ],
                   onSelected: (i, selected) {
-                    setState(() => _selectedGroupingType = i);
+                    _extendedExampleController.selectedGroupingType = i;
                   },
                 ),
                 GroupButton(
                   spacing: 7.5,
+                  controller: GroupButtonController(),
                   mainGroupAlignment: MainGroupAlignment.start,
                   groupingType: GroupingType.row,
                   buttons: const [
@@ -80,16 +91,21 @@ class _ExampleState extends State<_Example> {
                 ),
               ],
             ),
-            Expanded(
-              child: PageView(
-                controller: _pageController,
-                children: _getSelectedPagesGroup(),
-              ),
+            AnimatedBuilder(
+              animation: _extendedExampleController,
+              builder: (context, child) {
+                return Expanded(
+                  child: PageView(
+                    controller: _pageController,
+                    children: _getSelectedPagesGroup(),
+                  ),
+                );
+              },
             ),
           ],
         ),
       ),
-      floatingActionButton: _selectedGroupingType == 0
+      floatingActionButton: _extendedExampleController.selectedGroupingType == 0
           ? FloatingActionButton(
               onPressed: () => setState(() {
                 direction = direction == Axis.horizontal
@@ -102,25 +118,8 @@ class _ExampleState extends State<_Example> {
     );
   }
 
-  GroupButton _buildTitle() {
-    return GroupButton(
-      spacing: 7.5,
-      mainGroupAlignment: MainGroupAlignment.start,
-      groupingType: GroupingType.row,
-      buttons: const [
-        "group_button: 3.3.1",
-      ],
-      selectedTextStyle: const TextStyle(
-        color: Colors.white,
-        fontSize: 20.0,
-        fontWeight: FontWeight.w600,
-      ),
-      onSelected: (_, __) {},
-    );
-  }
-
   List<Widget> _getSelectedPagesGroup() {
-    switch (_selectedGroupingType) {
+    switch (_extendedExampleController.selectedGroupingType) {
       case 1:
         return [
           _buildRadioExample(GroupingType.column),
