@@ -31,7 +31,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^3.3.1 #latest version
+  group_button: ^4.0.0 #latest version
 ```
 
 ### Add import package
