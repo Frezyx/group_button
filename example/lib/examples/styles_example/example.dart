@@ -30,7 +30,6 @@ class StylesExample extends StatelessWidget {
                   groupingType: GroupingType.wrap,
                   child: GroupButton(
                     controller: controller,
-                    spacing: 10,
                     buttons: const [
                       '12:00',
                       '13:00',
