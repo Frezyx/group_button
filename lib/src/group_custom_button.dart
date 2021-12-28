@@ -69,14 +69,14 @@ class GroupCustomButton extends StatelessWidget {
       height: height,
       width: width,
       decoration: BoxDecoration(
-        borderRadius: borderRadius ?? BorderRadius.circular(30),
+        borderRadius: borderRadius,
         boxShadow: _boxShadow,
       ),
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           elevation: elevation ?? 0.0,
-          primary: _getBackGroundColor(theme),
+          primary: _getBackgroundColor(theme),
           shape: _buildShape(),
           padding: (width != null || height != null) ? EdgeInsets.zero : null,
           alignment: (width != null || height != null) ? alignment : null,
@@ -93,18 +93,15 @@ class GroupCustomButton extends StatelessWidget {
     );
   }
 
-  Color? _getBackGroundColor(ThemeData theme) {
+  Color? _getBackgroundColor(ThemeData theme) {
     final themePrimaryColor = theme.buttonTheme.colorScheme?.primary;
-    //TODO: implement
-    // final themeSecondaryColor = theme.buttonTheme.colorScheme?.secondary;
+    final themeSecondaryColor = theme.canvasColor;
 
     Color? selectedColorBuffer = selectedColor;
     Color? unselectedColorBuffer = unselectedColor;
 
     selectedColorBuffer ??= themePrimaryColor;
-    selectedColorBuffer ??= Colors.black;
-
-    unselectedColorBuffer ??= Colors.white;
+    unselectedColorBuffer ??= themeSecondaryColor;
 
     final color = isSelected
         ? selectedColorBuffer

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
-class GroupButtonWrapper extends StatefulWidget {
-  const GroupButtonWrapper();
+class GroupButtonTestWidget extends StatefulWidget {
+  const GroupButtonTestWidget();
   @override
-  _GroupButtonWrapperState createState() => _GroupButtonWrapperState();
+  _GroupButtonTestWidgetState createState() => _GroupButtonTestWidgetState();
 }
 
-class _GroupButtonWrapperState extends State<GroupButtonWrapper> {
+class _GroupButtonTestWidgetState extends State<GroupButtonTestWidget> {
   List<String> buttons = ['12:00', '13:00'];
 
   @override

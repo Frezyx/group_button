@@ -3,21 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
 class StylesExample extends StatelessWidget {
-  final GroupButtonController controller = GroupButtonController();
-  final GroupButtonController controller2 = GroupButtonController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'group_button: 3.3.1',
-            style: TextStyle(
-              color: Colors.black,
-            ),
-          ),
+          shadowColor: Colors.grey[100].withOpacity(0.1),
           backgroundColor: Colors.white,
+          title: Text(
+            'GroupButton 4.0.0',
+            style: Theme.of(context).textTheme.headline6,
+          ),
         ),
         backgroundColor: Colors.grey[100],
         body: SafeArea(
@@ -29,8 +26,6 @@ class StylesExample extends StatelessWidget {
                 ScrollIjector(
                   groupingType: GroupingType.wrap,
                   child: GroupButton(
-                    controller: controller,
-                    spacing: 10,
                     buttons: const [
                       '12:00',
                       '13:00',
@@ -51,17 +46,9 @@ class StylesExample extends StatelessWidget {
                     onSelected: (i, selected) {},
                   ),
                 ),
-                TextButton(
-                  onPressed: () {
-                    controller.setSelectedIndex(6);
-                  },
-                  child: const Text('Select Button'),
-                ),
                 ScrollIjector(
                   groupingType: GroupingType.wrap,
                   child: GroupButton(
-                    controller: controller2,
-                    spacing: 10,
                     buttons: const [
                       '12:00',
                       '13:00',
@@ -82,12 +69,6 @@ class StylesExample extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4),
                     onSelected: (i, selected) {},
                   ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    controller2.setSelectedIndexes([1, 2, 5]);
-                  },
-                  child: const Text('Select Buttons'),
                 ),
                 ScrollIjector(
                   groupingType: GroupingType.wrap,
@@ -125,7 +106,6 @@ class StylesExample extends StatelessWidget {
                   child: ScrollIjector(
                     groupingType: GroupingType.wrap,
                     child: GroupButton(
-                      spacing: 10,
                       buttons: const [
                         '12:00',
                         '13:00',

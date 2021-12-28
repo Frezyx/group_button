@@ -7,10 +7,10 @@ class GroupButtonBody extends StatefulWidget {
     Key? key,
     required this.buttons,
     required this.onSelected,
-    this.controller,
+    required this.controller,
+    required this.groupingType,
     this.selectedBorderColor,
     this.unselectedBorderColor,
-    required this.groupingType,
     this.disabledButtons,
     this.selectedButtons,
     this.selectedButton,
@@ -36,7 +36,6 @@ class GroupButtonBody extends StatefulWidget {
     this.elevation,
   }) : super(key: key);
 
-  final GroupButtonController? controller;
   final List<String> buttons;
   final List<int>? disabledButtons;
   final List<int>? selectedButtons;
@@ -57,74 +56,44 @@ class GroupButtonBody extends StatefulWidget {
   final List<BoxShadow> unselectedShadow;
   final double? buttonWidth;
   final double? buttonHeigth;
-
   final GroupingType groupingType;
   final MainGroupAlignment mainGroupAlignment;
   final CrossGroupAlignment crossGroupAlignment;
   final GroupRunAlignment groupRunAlignment;
-
   final TextAlign textAlign;
   final EdgeInsets textPadding;
   final AlignmentGeometry? alignment;
   final double? elevation;
+  final GroupButtonController controller;
 
   @override
   _GroupButtonBodyState createState() => _GroupButtonBodyState();
 }
 
 class _GroupButtonBodyState extends State<GroupButtonBody> {
-  int? _selectedIndex;
-  final Map<int, bool> _selectedIndexes = {};
-
   @override
   void initState() {
     super.initState();
-    if (widget.selectedButtons != null && widget.selectedButtons!.isNotEmpty) {
-      // ignore: avoid_function_literals_in_foreach_calls
-      widget.selectedButtons!.forEach((e) {
-        if (!(widget.disabledButtons?.contains(e) ?? false)) {
-          _selectedIndexes[e] = true;
-        }
-      });
-      setState(() {});
-      if (widget.controller != null) {
-        widget.controller?.setSelectedIndexes(widget.selectedButtons!);
-      }
+
+    if (!widget.isRadio) {
+      widget.controller.toggleIndexes(widget.selectedButtons ?? []);
     }
-    if (widget.selectedButton != null) {
-      if (widget.controller != null) {
-        widget.controller?.setSelectedIndex(widget.selectedButton!);
-      }
-      setState(() => _selectedIndex = widget.selectedButton);
-    }
-    if (widget.controller != null) {
-      widget.controller!.addListener(() {
-        if (widget.controller!.selectedIndex != _selectedIndex) {
-          setState(() {
-            _selectedIndex = widget.controller!.selectedIndex;
-          });
-        }
-        final Map<int, bool> cacheMap = {};
-        // ignore: avoid_function_literals_in_foreach_calls
-        widget.controller!.selectedIndexes.forEach((i) {
-          cacheMap[i] = true;
-        });
-        _selectedIndexes.clear();
-        setState(() {
-          _selectedIndexes.addAll(cacheMap);
-        });
-      });
-    }
-    if (widget.selectedButton != null) {
-      if (!(widget.disabledButtons?.contains(widget.selectedButton) ?? false)) {
-        _selectedIndex = widget.selectedButton;
+
+    if (widget.isRadio) {
+      if (widget.selectedButton != null) {
+        widget.controller.selectIndex(widget.selectedButton!);
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return _buildBodyByGroupingType();
+    return AnimatedBuilder(
+      animation: widget.controller,
+      builder: (context, child) {
+        return _buildBodyByGroupingType();
+      },
+    );
   }
 
   Widget _buildBodyByGroupingType() {
@@ -158,8 +127,8 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
 
   bool _getCond(int i) {
     return widget.isRadio
-        ? i == _selectedIndex
-        : _selectedIndexes.containsKey(i) && _selectedIndexes[i] == true;
+        ? widget.controller.selectedIndex == i
+        : widget.controller.selectedIndexes.contains(i);
   }
 
   List<Widget> _buildButtonsList(
@@ -216,23 +185,9 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
 
   void _selectButton(int i) {
     if (widget.isRadio) {
-      setState(() => _selectedIndex = i);
-      if (widget.controller != null) {
-        widget.controller?.setSelectedIndex(i);
-      }
+      widget.controller.selectIndex(i);
     } else {
-      if (widget.controller != null) {
-        if (widget.controller!.selectedIndexes.contains(i)) {
-          widget.controller!.selectedIndexes.remove(i);
-        } else {
-          widget.controller!.selectedIndexes.add(i);
-        }
-      }
-      if (_selectedIndexes.containsKey(i)) {
-        setState(() => _selectedIndexes[i] = !_selectedIndexes[i]!);
-      } else {
-        setState(() => _selectedIndexes[i] = true);
-      }
+      widget.controller.toggleIndexes([i]);
     }
   }
 }
