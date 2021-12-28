@@ -21,7 +21,7 @@
   <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/pub%20points" alt="Pub points"></a>
 </p>
 
-| ![Image](example/rep_files/example_v4.gif) | ![Image](example/rep_files/styled_example_v4.gif) | ![Image](example/rep_files/ex3.jpg) | 
+| ![Image](example/rep_files/example_v4.gif) | ![Image](example/rep_files/styled_example_v4.gif) | ![Image](example/rep_files/extended_example_v4.gif) | 
 | :------------: | :------------: | :------------: |
 
 ## Getting Started
