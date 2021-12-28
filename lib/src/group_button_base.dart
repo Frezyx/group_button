@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
+import 'package:group_button/src/group_button_body.dart';
+import 'package:group_button/src/utils/utils.dart';
 
 class GroupButton extends StatelessWidget {
   const GroupButton({
