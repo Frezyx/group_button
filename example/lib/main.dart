@@ -28,13 +28,13 @@ class CommonExample extends StatelessWidget {
         body: Center(
           child: GroupButton.checkbox(
             controller: controller,
-            buttons: List.generate(40, (i) => '$i'),
+            buttons: List.generate(25, (i) => '$i'),
             onSelected: (i, selected) => debugPrint('Button #$i $selected'),
-            selectedButtons: const [5, 6, 7, 8, 9, 37, 38],
+            selectedButtons: const [5, 6, 7, 8, 9],
           ),
         ),
         bottomNavigationBar: Container(
-          height: 100,
+          height: 150,
           decoration: BoxDecoration(
             color: Theme.of(context).cardColor,
           ),
@@ -45,24 +45,32 @@ class CommonExample extends StatelessWidget {
                 'Managed by controller',
                 style: Theme.of(context).textTheme.headline6,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              Wrap(
+                spacing: 10,
                 children: [
                   ElevatedButton(
                     onPressed: () => controller.selectIndexes([0, 1, 2, 3, 4]),
                     child: const Text('Select line'),
                   ),
-                  const SizedBox(width: 10),
                   ElevatedButton(
                     onPressed: () =>
-                        controller.toggleIndexes([10, 11, 12, 13, 14]),
+                        controller.unselectIndexes([0, 1, 2, 3, 4]),
+                    child: const Text('Uelect line'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () => controller.toggleIndexes([0, 1, 2, 3, 4]),
                     child: const Text('Toggle line'),
                   ),
-                  const SizedBox(width: 10),
                   ElevatedButton(
-                    onPressed: () =>
-                        controller.unselectIndexes([5, 6, 7, 8, 9]),
-                    child: const Text('Uelect line'),
+                    onPressed: () => controller.unselectAll(),
+                    child: const Text('Unselect all'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () => controller
+                      ..unselectAll()
+                      ..selectIndexes([2, 7, 12, 17, 22])
+                      ..selectIndexes([10, 11, 12, 13, 14]),
+                    child: const Text('Make +'),
                   ),
                 ],
               ),

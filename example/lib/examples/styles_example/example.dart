@@ -53,7 +53,7 @@ class StylesExample extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    controller.setSelectedIndex(6);
+                    controller.selectIndex(6);
                   },
                   child: const Text('Select Button'),
                 ),

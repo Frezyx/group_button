@@ -7,8 +7,13 @@ class GroupButtonController extends ChangeNotifier {
   int get selectedIndex => _selectedIndex;
   Set<int> get selectedIndexes => _selectedIndexes;
 
-  void setSelectedIndex(int i) {
+  void selectIndex(int i) {
     _selectedIndex = i;
+    notifyListeners();
+  }
+
+  void unselectAll() {
+    _selectedIndexes.clear();
     notifyListeners();
   }
 

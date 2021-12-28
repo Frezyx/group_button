@@ -83,7 +83,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
 
     if (widget.isRadio) {
       if (widget.selectedButton != null) {
-        widget.controller.setSelectedIndex(widget.selectedButton!);
+        widget.controller.selectIndex(widget.selectedButton!);
       }
     }
   }
@@ -187,7 +187,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
 
   void _selectButton(int i) {
     if (widget.isRadio) {
-      widget.controller.setSelectedIndex(i);
+      widget.controller.selectIndex(i);
     } else {
       widget.controller.toggleIndexes([i]);
     }
