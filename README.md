@@ -1,25 +1,28 @@
-<div align="center">
-  <img src="https://github.com/Frezyx/group_button/blob/master/example/rep_files/logo.png?raw=true" width="500px">
-</div>
-<h2 align="center">Flutter widget to create a group of buttons fast 🚀</h2>
-<p align="center">
-   Included Radio and CheckBox buttons models with custom groping types 🤤
+<span>
+  <img src="https://github.com/Frezyx/group_button/blob/dev/example/rep_files/logo.png?raw=true" width="200px">
+</span>
+
+## Flutter widget to create a group of buttons fast 🚀
+
+
+Included Radio and CheckBox buttons models with custom groping types 🤤
    <br>
    <span style="font-size: 0.9em"> Show some ❤️ and <a href="https://github.com/Frezyx/group_button">star the repo</a> to support the project! </span>
-</p>
-<br>
 
-<p align="center">
-<!--   <a href="https://travis-ci.com/Frezyx/group_button"><img src="https://travis-ci.com/Frezyx/group_button.svg?branch=master" alt="Build info"></a> -->
+
+<p>
   <a href="https://pub.dev/packages/group_button"><img src="https://img.shields.io/pub/v/group_button.svg" alt="Pub"></a>
   <a href="https://github.com/Frezyx/group_button"><img src="https://img.shields.io/github/stars/Frezyx/group_button.svg?style=flat&logo=github&label=stars" alt="Star on Github"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+
 </p>
-<p align="center">
+<p>
   <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/likes" alt="Pub likes"></a>
   <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/popularity" alt="Pub popularity"></a>
   <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/pub%20points" alt="Pub points"></a>
 </p>
+
+<br>
 
 | ![Image](example/rep_files/example_v4.gif) | ![Image](example/rep_files/styled_example_v4.gif) | ![Image](example/rep_files/extended_example_v4.gif) | 
 | :------------: | :------------: | :------------: |
