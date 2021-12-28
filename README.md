@@ -1,22 +1,22 @@
-<span>
-  <img src="https://github.com/Frezyx/group_button/blob/dev/example/rep_files/logo.png?raw=true" width="200px">
-</span>
+<div align="center">
+  <img src="https://github.com/Frezyx/group_button/blob/master/example/rep_files/logo.png?raw=true" width="200px">
+</div>
 
-## Flutter widget to create a group of buttons fast 🚀
+<h2 align="center"> Flutter widget to create a group of buttons fast 🚀 </h2>
 
-
+<p align="center">
 Included Radio and CheckBox buttons models with custom groping types 🤤
    <br>
    <span style="font-size: 0.9em"> Show some ❤️ and <a href="https://github.com/Frezyx/group_button">star the repo</a> to support the project! </span>
+</p>
 
-
-<p>
+<p align="center">
   <a href="https://pub.dev/packages/group_button"><img src="https://img.shields.io/pub/v/group_button.svg" alt="Pub"></a>
   <a href="https://github.com/Frezyx/group_button"><img src="https://img.shields.io/github/stars/Frezyx/group_button.svg?style=flat&logo=github&label=stars" alt="Star on Github"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
 
 </p>
-<p>
+<p align="center">
   <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/likes" alt="Pub likes"></a>
   <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/popularity" alt="Pub popularity"></a>
   <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/pub%20points" alt="Pub points"></a>
