@@ -45,7 +45,7 @@ class _ExampleState extends State<_Example> {
         shadowColor: Colors.grey[100].withOpacity(0.1),
         backgroundColor: Colors.white,
         title: Text(
-          'GroupButton 4.0.0',
+          'GroupButton 4.0.0+1',
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
