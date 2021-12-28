@@ -34,7 +34,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^4.0.0+1 #latest version
+  group_button: ^4.0.0 #latest version
 ```
 
 ### Add import package
@@ -75,7 +75,7 @@ GroupButton.checkbox(
 ```
 
 ### Controller
-**Starting from version 4.0.0+1** <br>
+**Starting from version 4.0.0** <br>
 You can control your Group Button using the controller
 
 ```dart
