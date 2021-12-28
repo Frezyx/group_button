@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// GroupButton Controller
+/// for working with GroupButton from the outside
 class GroupButtonController extends ChangeNotifier {
   int? _selectedIndex;
   final _selectedIndexes = <int>{};

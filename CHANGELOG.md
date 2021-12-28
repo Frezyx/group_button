@@ -1,3 +1,10 @@
+## 4.0.0
+ - **FEAT**: [GroupButtonController](https://github.com/Frezyx/group_button/blob/master/lib/src/utils/controller.dart) for working with GroupButton from the outside
+ - **FEAT**: New GroupButton factory constructors [GroupButton.checkbox](https://github.com/Frezyx/group_button/blob/master/lib/src/group_button_base.dart#:~:text=///%20Build%20group%20button,button%20is%20seletced) and [GroupButton.checkbox](https://github.com/Frezyx/group_button/blob/master/lib/src/group_button_base.dart#:~:text=///%20Build%20group%20button%20for%20choising%20several,or%20unselected%20with%20%5Bbool%20selected%5D%20field) for faster buttons group creation
+- **FIX**: Common issues
+
+ Thanks for [bookyo](https://github.com/bookyo) and [mwm0022](https://github.com/mwm0022)
+
 ## 3.3.1
  - **FIX**: fix static analysis issues
 
