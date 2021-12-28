@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class GroupButtonController extends ChangeNotifier {
-  int _selectedIndex = 0;
+  int? _selectedIndex;
   final _selectedIndexes = <int>{};
 
   /// Selected button index in case when you using radio type
-  int get selectedIndex => _selectedIndex;
+  int? get selectedIndex => _selectedIndex;
 
   /// Selected buttons indexes in case when you using checkbox type
   Set<int> get selectedIndexes => _selectedIndexes;
@@ -17,8 +17,17 @@ class GroupButtonController extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Unselect button by index in checkbox and radio type
+  void unselectIndex(int i) {
+    _selectedIndex = null;
+    _selectedIndexes.remove(i);
+    notifyListeners();
+  }
+
   /// Unselect all buttons in checkbox type
+  /// and only one selected button in radio type
   void unselectAll() {
+    _selectedIndex = null;
     _selectedIndexes.clear();
     notifyListeners();
   }

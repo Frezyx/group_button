@@ -23,6 +23,20 @@ void main() {
       });
     });
 
+    group('UnselectIndex', () {
+      test('Radio', () async {
+        _controller.selectIndex(10);
+        _controller.unselectIndex(10);
+        expect(_controller.selectedIndex, isNull);
+      });
+
+      test('Checkbox', () async {
+        _controller.selectIndex(10);
+        _controller.unselectIndex(10);
+        expect(_controller.selectedIndexes, isEmpty);
+      });
+    });
+
     test('SelectIndexes', () async {
       _controller.selectIndexes(selectingList);
       expect(_controller.selectedIndexes, isNotEmpty);
