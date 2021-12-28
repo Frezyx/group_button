@@ -54,6 +54,24 @@ GroupButton(
 )
 ```
 
+### Can't easier to use
+Now you can use even simpler constructors to build your button groups.
+Example for a group with a single value selection
+```dart
+GroupButton.radio(
+  buttons: ['12:00', '13:00', '14:00'],
+  onSelected: (i) => debugPrint('Button $i selected'),
+)
+```
+
+Example for a group with a choice of multiple values
+```dart
+GroupButton.checkbox(
+  buttons: ['12:00', '13:00', '14:00'],
+  onSelected: (i, selected) => debugPrint('Button $i selected: $selected'),
+)
+```
+
 ### Customize
 
 In order to customize your buttons inside *GroupButton* you can use code below</br>
@@ -90,7 +108,7 @@ GroupButton(
 
 ### Examples
 
-You can check more examples of using this package [here](https://github.com/Frezyx/group_button/tree/create-provider-example/example/lib)
+You can check more examples of using this package [here](example/lib)
 
 <br>
 
