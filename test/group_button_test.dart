@@ -7,7 +7,9 @@ void main() {
     testWidgets(
       'Tap group button test',
       (WidgetTester tester) async {
-        await tester.pumpWidget(const MaterialApp(home: GroupButtonWrapper()));
+        await tester.pumpWidget(
+          const MaterialApp(home: GroupButtonTestWidget()),
+        );
         final button = find.text('12:00');
 
         await tester.tap(button);
