@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/Frezyx/group_button/blob/master/example/rep_files/logo.png?raw=true" width="200px">
+  <img src="https://github.com/Frezyx/group_button/blob/master/example/rep_files/l.png?raw=true" width="200px">
 </div>
 
 <h2 align="center"> Flutter widget to create a group of buttons fast 🚀 </h2>
@@ -24,7 +24,7 @@ Included Radio and CheckBox buttons models with custom groping types 🤤
 
 <br>
 
-| ![Image](example/rep_files/example_v4.gif) | ![Image](example/rep_files/styled_example_v4.gif) | ![Image](example/rep_files/extended_example_v4.gif) | 
+| ![Image](https://github.com/Frezyx/group_button/blob/master/example/rep_files/example_v4.gif?raw=true) | ![Image](https://github.com/Frezyx/group_button/blob/master/example/rep_files/styled_example_v4.gif?raw=true) | ![Image](https://github.com/Frezyx/group_button/blob/master/example/rep_files/extended_example_v4.gif?raw=true) | 
 | :------------: | :------------: | :------------: |
 
 ## Getting Started
