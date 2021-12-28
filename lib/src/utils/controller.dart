@@ -13,6 +13,7 @@ class GroupButtonController extends ChangeNotifier {
   /// Select button by index in radio type
   void selectIndex(int i) {
     _selectedIndex = i;
+    _selectedIndexes.add(i);
     notifyListeners();
   }
 
