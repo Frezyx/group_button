@@ -6,6 +6,7 @@ Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
     child: Padding(
       padding: const EdgeInsets.all(10.0),
       child: GroupButton(
+        controller: GroupButtonController(),
         spacing: 5,
         isRadio: false,
         groupingType: groupingType,
@@ -25,6 +26,7 @@ Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
           "C",
           "C++"
         ],
+        selectedButtons: const [1, 2, 3],
         selectedTextStyle: const TextStyle(
           fontWeight: FontWeight.w600,
           fontSize: 16,

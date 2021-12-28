@@ -101,69 +101,52 @@ This code includes *all* the fields used in *GroupButton*
 
 ```dart
 GroupButton(
-    spacing: 5,
-    isRadio: false,
-    direction: Axis.horizontal,
-    onSelected: (index, isSelected) =>
-          print('$index button is ${isSelected ? 'selected' : 'unselected'}'),
-    buttons: ["Dart","Kotlin","Java","Swift","Objective-C","Python","JS"],
-    selectedButtons: [0, 1], /// [List<int>] after 2.2.1 version 
-    selectedTextStyle: TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: 16,
-        color: Colors.red,
-    ),
-    unselectedTextStyle: TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: 14,
-        color: Colors.grey[600],
-    ),
-    selectedColor: Colors.white,
-    unselectedColor: Colors.grey[300],
-    selectedBorderColor: Colors.red,
-    unselectedBorderColor: Colors.grey[500],
-    borderRadius: BorderRadius.circular(5.0),
-    selectedShadow: <BoxShadow>[BoxShadow(color: Colors.transparent)],
-    unselectedShadow: <BoxShadow>[BoxShadow(color: Colors.transparent)],
-)
+  controller: GroupButtonController(),
+  spacing: 5,
+  isRadio: false,
+  groupingType: GroupingType.wrap,
+  direction: Axis.horizontal,
+  onSelected: (index, isSelected) => debugPrint(
+    '$index button is ${isSelected ? 'selected' : 'unselected'}',
+  ),
+  buttons: const [
+    "Dart",
+    "Kotlin",
+    "Java",
+    "Swift",
+    "Objective-C",
+    "Python",
+    "JS",
+    "C#",
+    "C",
+    "C++"
+  ],
+  selectedButtons: const [1, 2, 3],
+  selectedTextStyle: const TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 16,
+    color: Colors.red,
+  ),
+  unselectedTextStyle: TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 14,
+    color: Colors.grey[600],
+  ),
+  selectedColor: Colors.white,
+  unselectedColor: Colors.grey[300],
+  selectedBorderColor: Colors.red,
+  unselectedBorderColor: Colors.grey[500],
+  borderRadius: BorderRadius.circular(5.0),
+  selectedShadow: const <BoxShadow>[BoxShadow(color: Colors.transparent)],
+  unselectedShadow: const <BoxShadow>[BoxShadow(color: Colors.transparent)],
+  buttonHeight: 30,
+  buttonWidth: 115,
+);
 ```
 
 ### Examples
 
 You can check more examples of using this package [here](example/lib)
-
-<br>
-
-### Attributes
-
-| Attribute  | Annotation |
-| ------------- | ------------- |
-| buttons | [String] list that will be displayed on buttons in the [GroupButton] |
-| selectedButtons | [List<int>] that will be set initial selected buttons in the [GroupButton] when [isRadio] is false|
-| selectedButton | [int] that will be set initial selected button in the [GroupButton] when [isRadio] is true|
-| onSelected  | Callback [Function] works by clicking on a group element <br> Return int [index] of selected button and [isSelected] if [isRadio] = false |
-| isRadio | bool variable for switching between modes [ChackBox] and [Radio]<br>if the [isRadio] = true, only one button can be selected<br>if the [isRadio] = false, you can select several at once |
-| direction | The direction of arrangement of the buttons in [GroupButton] |
-| spacing | The spacing between buttons inside [GroupButton] |
-| runSpacing | When [groupingType] is [GroupingType.wrap] this field sets Wrap [runSpacing] |
-| selectedTextStyle | [TextStyle] of text of selected button(s) |
-| unselectedTextStyle | [TextStyle] of text of unselected buttons |
-| selectedColor | background [Color] of selected button(s) |
-| unselectedColor | background [Color] of  unselected buttons |
-| selectedBorderColor | border [Color] of selected button(s) |
-| unselectedBorderColor | border [Color] of  unselected buttons |
-| borderRadius | [BorderRadius] of  buttons<br>How much the button will be rounded |
-| selectedShadow | list of selected button(s) [BoxShadow] |
-| unselectedShadow| list of unselected buttons [BoxShadow] |
-| groupingType| The field is responsible for how the buttons will be grouped [GroupingType] |
-| mainGroupAlignment| How the buttons should be placed in the main axis in a layout [MainGroupAlignment] |
-| crossGroupAlignment| How the buttons should be placed along the cross axis in a layout [CrossGroupAlignment] |
-| groupRunAlignment| How the button runs themselves should be placed the cross axis in a layout [GroupRunAlignment] |
-| textAlign| The buttons text alignment [GroupButton] |
-| textPadding| The inner padding of buttons [GroupButton] |
-| alignment| [AlignmentGeometry] Text position inside the buttons in case [buttonWidth] or [buttonHeight] defined |
-| elevation| [double] The buttons' elevation |
-| disabledButtons| [int] button ids that are disabled |
 
 <br>
 <div align="center" >
