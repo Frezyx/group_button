@@ -15,11 +15,11 @@ class GroupButtonBottomPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 400,
+      height: 300,
       child: Column(
         children: [
           Container(
-            height: 200,
+            height: 100,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               color: Theme.of(context).cardColor,
@@ -32,11 +32,20 @@ class GroupButtonBottomPanel extends StatelessWidget {
               ],
             ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30.0),
+                  child: Text(
+                    'Buttons count ${customizableController.buttonsCount}',
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                ),
                 Slider(
                   value: customizableController.buttonsCount.toDouble(),
-                  max: 70,
-                  divisions: 70,
+                  max: 45,
+                  divisions: 45,
                   label: customizableController.buttonsCount.toString(),
                   onChanged: (double value) {
                     customizableController.buttonsCount = value.ceil();
