@@ -55,7 +55,7 @@ GroupButton(
 ```
 
 ### Can't easier to use
-Now you can use even simpler constructors to build your button groups.
+Now you can use even simpler constructors to build your button groups. <br>
 Example for a group with a single value selection
 ```dart
 GroupButton.radio(
@@ -70,6 +70,28 @@ GroupButton.checkbox(
   buttons: ['12:00', '13:00', '14:00'],
   onSelected: (i, selected) => debugPrint('Button $i selected: $selected'),
 )
+```
+
+### Controller
+**Starting from version 4.0.0** <br>
+You can control your Group Button using the controller
+
+```dart
+final controller = GroupButtonController();
+
+Column(
+  children: [
+    GroupButton.checkbox(
+      controller: controller,
+      buttons: ['12:00', '13:00', '14:00'],
+      onSelected: (i, selected) => debugPrint('Button #$i $selected'),
+    ),
+    TextButton(
+      onPressed: () => controller.selectIndex(1),
+      child: const Text('Select 1 button'),
+    )
+  ],
+),
 ```
 
 ### Customize
