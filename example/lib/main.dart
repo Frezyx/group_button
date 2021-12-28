@@ -26,10 +26,18 @@ class CommonExample extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          shadowColor: Colors.grey[100].withOpacity(0.1),
+          backgroundColor: Colors.white,
+          title: Text(
+            'GroupButton 4.0.0',
+            style: Theme.of(context).textTheme.headline6,
+          ),
+        ),
         body: Center(
           child: GroupButton.checkbox(
             controller: controller,
-            buttons: List.generate(25, (i) => '$i'),
+            buttons: List.generate(25, (i) => '${i + 1}'),
             onSelected: (i, selected) => debugPrint('Button #$i $selected'),
           ),
         ),

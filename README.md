@@ -95,7 +95,6 @@ Column(
 ```
 
 ### Customize
-
 In order to customize your buttons inside *GroupButton* you can use code below</br>
 This code includes *all* the fields used in *GroupButton*
 
