@@ -82,7 +82,7 @@ class GroupButton extends StatelessWidget {
         disabledButtons: disabledButtons,
         selectedButton: selectedButton,
         onSelected: (index, _) => onSelected(index),
-        onDisablePressed: (index,) => onDisablePressed(index),
+        onDisablePressed: (index) => onDisablePressed(index),
         direction: direction,
         spacing: spacing,
         runSpacing: runSpacing,
