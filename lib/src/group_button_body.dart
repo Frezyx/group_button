@@ -147,6 +147,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
                 widget.onSelected(i, _getCond(i));
               },
         isSelected: _getCond(i),
+        isDisable: widget.disabledButtons!.contains(i),
         selectedTextStyle: widget.selectedTextStyle,
         unselectedTextStyle: widget.unselectedTextStyle,
         selectedColor: widget.selectedColor,
