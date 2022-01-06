@@ -8,6 +8,7 @@ class GroupButton extends StatelessWidget {
     Key? key,
     required this.buttons,
     required this.onSelected,
+    required this.onDisablePressed,
     this.disabledButtons,
     this.selectedButtons,
     this.isRadio = true,
@@ -49,6 +50,7 @@ class GroupButton extends StatelessWidget {
   factory GroupButton.radio({
     required List<String> buttons,
     required Function(int index) onSelected,
+    required Function(int index) onDisableSelected,
     EdgeInsets textPadding = EdgeInsets.zero,
     TextAlign textAlign = TextAlign.left,
     AlignmentGeometry? alignment,
@@ -80,6 +82,7 @@ class GroupButton extends StatelessWidget {
         disabledButtons: disabledButtons,
         selectedButton: selectedButton,
         onSelected: (index, _) => onSelected(index),
+        onDisablePressed: (index,) => onDisableSelected(index),
         direction: direction,
         spacing: spacing,
         runSpacing: runSpacing,
@@ -113,6 +116,7 @@ class GroupButton extends StatelessWidget {
   factory GroupButton.checkbox({
     required List<String> buttons,
     required Function(int index, bool selected) onSelected,
+    required Function(int index) onDisableSelected,
     EdgeInsets textPadding = EdgeInsets.zero,
     TextAlign textAlign = TextAlign.left,
     AlignmentGeometry? alignment,
@@ -145,6 +149,7 @@ class GroupButton extends StatelessWidget {
         disabledButtons: disabledButtons,
         selectedButtons: selectedButtons,
         onSelected: onSelected,
+        onDisablePressed: onDisableSelected,
         direction: direction,
         spacing: spacing,
         runSpacing: runSpacing,
@@ -200,6 +205,11 @@ class GroupButton extends StatelessWidget {
   ///
   /// Return int [index] of selected button and [isSelected] if [isRadio] = false
   final Function(int index, bool isSelected) onSelected;
+
+  /// Callback [Function] works by clicking on a disabled group element
+  ///
+  /// Return int [index] of selected button
+  final Function(int index) onDisablePressed;
 
   /// bool variable for switching between modes [ChackBox] and [Radio]
   ///
@@ -273,6 +283,7 @@ class GroupButton extends StatelessWidget {
       selectedButtons: selectedButtons,
       selectedButton: selectedButton,
       onSelected: onSelected,
+      onDisablePressed: onDisablePressed,
       isRadio: isRadio,
       direction: direction,
       spacing: spacing,
