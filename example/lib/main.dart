@@ -34,6 +34,7 @@ class CommonExample extends StatelessWidget {
             controller: controller,
             buttons: List.generate(25, (i) => '${i + 1}'),
             onSelected: (i, selected) => debugPrint('Button #$i $selected'),
+            onDisablePressed: (i) => debugPrint('Disable Button #$i pressed'),
           ),
         ),
       ),

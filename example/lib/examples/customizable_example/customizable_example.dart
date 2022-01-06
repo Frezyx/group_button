@@ -31,6 +31,7 @@ class CustomizableExample extends StatelessWidget {
                     .map((i) => '${i + 1}')
                     .toList(),
                 onSelected: (i, selected) => debugPrint('Button #$i $selected'),
+                onDisablePressed: (i) => debugPrint('Disable Button #$i pressed'),
               ),
             ),
             bottomNavigationBar: GroupButtonBottomPanel(
