@@ -44,6 +44,7 @@ class StylesExample extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.circular(30),
                     onSelected: (i, selected) {},
+                    onDisablePressed: (i) {},
                   ),
                 ),
                 ScrollIjector(
@@ -68,6 +69,7 @@ class StylesExample extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.circular(4),
                     onSelected: (i, selected) {},
+                    onDisablePressed: (i) {},
                   ),
                 ),
                 ScrollIjector(
@@ -99,6 +101,7 @@ class StylesExample extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.circular(8),
                     onSelected: (i, selected) {},
+                    onDisablePressed: (i) {},
                   ),
                 ),
                 Padding(
@@ -136,6 +139,7 @@ class StylesExample extends StatelessWidget {
                       ),
                       selectedColor: Colors.pink,
                       onSelected: (i, selected) {},
+                      onDisablePressed: (i) {},
                     ),
                   ),
                 ),

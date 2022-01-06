@@ -9,9 +9,10 @@ class GroupButtonBody extends StatefulWidget {
     required this.onSelected,
     required this.controller,
     required this.groupingType,
+    this.onDisablePressed,
     this.selectedBorderColor,
     this.unselectedBorderColor,
-    this.disabledButtons,
+    this.disabledButtons = const [],
     this.selectedButtons,
     this.selectedButton,
     this.isRadio = false,
@@ -37,10 +38,11 @@ class GroupButtonBody extends StatefulWidget {
   }) : super(key: key);
 
   final List<String> buttons;
-  final List<int>? disabledButtons;
+  final List<int> disabledButtons;
   final List<int>? selectedButtons;
   final int? selectedButton;
   final Function(int, bool) onSelected;
+  final Function(int)? onDisablePressed;
   final bool isRadio;
   final Axis? direction;
   final double spacing;
@@ -138,13 +140,14 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
     for (var i = 0; i < buttons.length; i++) {
       Widget rebuidedButton = GroupCustomButton(
         text: buttons[i],
-        onPressed: (widget.disabledButtons?.contains(i) ?? false)
-            ? null
+        onPressed: widget.disabledButtons.contains(i)
+            ? () => widget.onDisablePressed?.call(i)
             : () {
                 _selectButton(i);
                 widget.onSelected(i, _getCond(i));
               },
         isSelected: _getCond(i),
+        isDisable: widget.disabledButtons.contains(i),
         selectedTextStyle: widget.selectedTextStyle,
         unselectedTextStyle: widget.unselectedTextStyle,
         selectedColor: widget.selectedColor,

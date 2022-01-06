@@ -20,6 +20,7 @@ Widget _buildCheckboxExample(GroupingType groupingType, {Axis direction}) {
           onSelected: (index, isSelected) => debugPrint(
             '$index button is ${isSelected ? 'selected' : 'unselected'}',
           ),
+          onDisablePressed: (i) => debugPrint('Disable Button #$i pressed'),
           buttons: const [
             "Burger",
             "Sandwiches",

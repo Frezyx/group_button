@@ -8,7 +8,8 @@ class GroupButton extends StatelessWidget {
     Key? key,
     required this.buttons,
     required this.onSelected,
-    this.disabledButtons,
+    this.onDisablePressed,
+    this.disabledButtons = const [],
     this.selectedButtons,
     this.isRadio = true,
     this.groupingType = GroupingType.wrap,
@@ -49,11 +50,12 @@ class GroupButton extends StatelessWidget {
   factory GroupButton.radio({
     required List<String> buttons,
     required Function(int index) onSelected,
+    Function(int index)? onDisablePressed,
     EdgeInsets textPadding = EdgeInsets.zero,
     TextAlign textAlign = TextAlign.left,
     AlignmentGeometry? alignment,
     double? elevation,
-    List<int>? disabledButtons,
+    List<int> disabledButtons = const [],
     int? selectedButton,
     Axis? direction,
     double spacing = 10,
@@ -80,6 +82,7 @@ class GroupButton extends StatelessWidget {
         disabledButtons: disabledButtons,
         selectedButton: selectedButton,
         onSelected: (index, _) => onSelected(index),
+        onDisablePressed: onDisablePressed,
         direction: direction,
         spacing: spacing,
         runSpacing: runSpacing,
@@ -113,11 +116,12 @@ class GroupButton extends StatelessWidget {
   factory GroupButton.checkbox({
     required List<String> buttons,
     required Function(int index, bool selected) onSelected,
+    Function(int index)? onDisablePressed,
     EdgeInsets textPadding = EdgeInsets.zero,
     TextAlign textAlign = TextAlign.left,
     AlignmentGeometry? alignment,
     double? elevation,
-    List<int>? disabledButtons,
+    List<int> disabledButtons = const [],
     List<int>? selectedButtons,
     Axis? direction,
     double spacing = 10,
@@ -145,6 +149,7 @@ class GroupButton extends StatelessWidget {
         disabledButtons: disabledButtons,
         selectedButtons: selectedButtons,
         onSelected: onSelected,
+        onDisablePressed: onDisablePressed,
         direction: direction,
         spacing: spacing,
         runSpacing: runSpacing,
@@ -186,7 +191,7 @@ class GroupButton extends StatelessWidget {
   final List<String> buttons;
 
   /// [int] button ids that are disabled.
-  final List<int>? disabledButtons;
+  final List<int> disabledButtons;
 
   /// [int] button ids that is selected initially.
   /// /// Using when [isRadio] is false
@@ -200,6 +205,11 @@ class GroupButton extends StatelessWidget {
   ///
   /// Return int [index] of selected button and [isSelected] if [isRadio] = false
   final Function(int index, bool isSelected) onSelected;
+
+  /// Callback [Function] works by clicking on a disabled group element
+  ///
+  /// Return int [index] of selected button
+  final Function(int index)? onDisablePressed;
 
   /// bool variable for switching between modes [ChackBox] and [Radio]
   ///
@@ -273,6 +283,7 @@ class GroupButton extends StatelessWidget {
       selectedButtons: selectedButtons,
       selectedButton: selectedButton,
       onSelected: onSelected,
+      onDisablePressed: onDisablePressed,
       isRadio: isRadio,
       direction: direction,
       spacing: spacing,

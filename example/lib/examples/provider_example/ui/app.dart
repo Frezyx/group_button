@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage>
                           );
                           _eProvider.updateAnswer(index, value: isSelected);
                         },
+                        onDisablePressed: (i) => debugPrint('Disable Button #$i pressed'),
                         selectedColor: Colors.blue,
                         buttons: q.answerTitles,
                         selectedButtons: q.selectedIndexes,

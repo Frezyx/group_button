@@ -70,6 +70,7 @@ class _ExampleState extends State<_Example> {
                   onSelected: (i, selected) {
                     _extendedExampleController.selectedGroupingType = i;
                   },
+                  onDisablePressed: (i) => debugPrint('Disable Button #$i pressed'),
                 ),
                 GroupButton(
                   spacing: 7.5,
@@ -88,6 +89,7 @@ class _ExampleState extends State<_Example> {
                       curve: Curves.easeIn,
                     );
                   },
+                  onDisablePressed: (i) => debugPrint('Disable Button #$i pressed'),
                 ),
               ],
             ),
