@@ -66,7 +66,6 @@ class GroupCustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Container(
       height: height,
       width: width,
@@ -75,49 +74,33 @@ class GroupCustomButton extends StatelessWidget {
         boxShadow: _boxShadow,
       ),
       child: !isDisable
-          ? ElevatedButton(
-              onPressed: onPressed,
-              style: ElevatedButton.styleFrom(
-                elevation: elevation ?? 0.0,
-                primary: _getBackgroundColor(theme),
-                shape: _buildShape(),
-                padding:
-                    (width != null || height != null) ? EdgeInsets.zero : null,
-                alignment: (width != null || height != null) ? alignment : null,
-              ),
-              child: Padding(
-                padding: textPadding,
-                child: Text(
-                  text,
-                  textAlign: textAlign,
-                  style: _textStyle,
-                ),
-              ),
-            )
+          ? _customButton(context, onPressed)
           : GestureDetector(
               onTap: onPressed,
-              child: ElevatedButton(
-                onPressed: null,
-                style: ElevatedButton.styleFrom(
-                  elevation: elevation ?? 0.0,
-                  primary: _getBackgroundColor(theme),
-                  shape: _buildShape(),
-                  padding: (width != null || height != null)
-                      ? EdgeInsets.zero
-                      : null,
-                  alignment:
-                      (width != null || height != null) ? alignment : null,
-                ),
-                child: Padding(
-                  padding: textPadding,
-                  child: Text(
-                    text,
-                    textAlign: textAlign,
-                    style: _textStyle,
-                  ),
-                ),
-              ),
+              child: _customButton(context, null),
             ),
+    );
+  }
+
+  Widget _customButton(BuildContext context, void Function()? onPressed) {
+    final theme = Theme.of(context);
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        elevation: elevation ?? 0.0,
+        primary: _getBackgroundColor(theme),
+        shape: _buildShape(),
+        padding: (width != null || height != null) ? EdgeInsets.zero : null,
+        alignment: (width != null || height != null) ? alignment : null,
+      ),
+      child: Padding(
+        padding: textPadding,
+        child: Text(
+          text,
+          textAlign: textAlign,
+          style: _textStyle,
+        ),
+      ),
     );
   }
 
