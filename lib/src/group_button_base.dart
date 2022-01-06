@@ -9,7 +9,7 @@ class GroupButton extends StatelessWidget {
     required this.buttons,
     required this.onSelected,
     this.onDisablePressed,
-    this.disabledButtons,
+    this.disabledButtons = const [],
     this.selectedButtons,
     this.isRadio = true,
     this.groupingType = GroupingType.wrap,
@@ -55,7 +55,7 @@ class GroupButton extends StatelessWidget {
     TextAlign textAlign = TextAlign.left,
     AlignmentGeometry? alignment,
     double? elevation,
-    List<int>? disabledButtons,
+    List<int> disabledButtons = const [],
     int? selectedButton,
     Axis? direction,
     double spacing = 10,
@@ -121,7 +121,7 @@ class GroupButton extends StatelessWidget {
     TextAlign textAlign = TextAlign.left,
     AlignmentGeometry? alignment,
     double? elevation,
-    List<int>? disabledButtons,
+    List<int> disabledButtons = const [],
     List<int>? selectedButtons,
     Axis? direction,
     double spacing = 10,
@@ -191,7 +191,7 @@ class GroupButton extends StatelessWidget {
   final List<String> buttons;
 
   /// [int] button ids that are disabled.
-  final List<int>? disabledButtons;
+  final List<int> disabledButtons;
 
   /// [int] button ids that is selected initially.
   /// /// Using when [isRadio] is false
