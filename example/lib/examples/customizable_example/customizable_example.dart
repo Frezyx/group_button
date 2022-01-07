@@ -20,7 +20,7 @@ class CustomizableExample extends StatelessWidget {
               shadowColor: Colors.grey[100].withOpacity(0.1),
               backgroundColor: Colors.white,
               title: Text(
-                'GroupButton 4.0.0',
+                'GroupButton 4.1.0',
                 style: Theme.of(context).textTheme.headline6,
               ),
             ),
@@ -31,7 +31,8 @@ class CustomizableExample extends StatelessWidget {
                     .map((i) => '${i + 1}')
                     .toList(),
                 onSelected: (i, selected) => debugPrint('Button #$i $selected'),
-                onDisablePressed: (i) => debugPrint('Disable Button #$i pressed'),
+                onDisablePressed: (i) =>
+                    debugPrint('Disable Button #$i pressed'),
               ),
             ),
             bottomNavigationBar: GroupButtonBottomPanel(
