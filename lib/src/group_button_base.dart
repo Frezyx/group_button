@@ -296,7 +296,7 @@ class GroupButton extends StatelessWidget {
       textPadding: textPadding,
       alignment: alignment,
       elevation: elevation,
-      controller: controller ?? GroupButtonController(),
+      controller: controller,
     );
   }
 
