@@ -1,3 +1,6 @@
+## 4.1.0
+ - **FEAT**: [onDisablePressed](https://github.com/Frezyx/group_button/blob/master/lib/src/group_button_base.dart#:~:text=Function(int%20index)%3F-,onDisablePressed,-%3B) calback method for handle taps on disabled buttons
+
 ## 4.0.0
  - **FEAT**: [GroupButtonController](https://github.com/Frezyx/group_button/blob/master/lib/src/utils/controller.dart) for working with GroupButton from the outside
  - **FEAT**: New GroupButton factory constructors [GroupButton.checkbox](https://github.com/Frezyx/group_button/blob/master/lib/src/group_button_base.dart#:~:text=///%20Build%20group%20button,button%20is%20seletced) and [GroupButton.checkbox](https://github.com/Frezyx/group_button/blob/master/lib/src/group_button_base.dart#:~:text=///%20Build%20group%20button%20for%20choising%20several,or%20unselected%20with%20%5Bbool%20selected%5D%20field) for faster buttons group creation

@@ -8,13 +8,14 @@ class GroupButtonTestWidget extends StatefulWidget {
 }
 
 class _GroupButtonTestWidgetState extends State<GroupButtonTestWidget> {
-  List<String> buttons = ['12:00', '13:00'];
+  List<String> buttons = ['12:00', '13:00', '14:00'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GroupButton(
         buttons: buttons,
+        disabledButtons: const [2],
         onSelected: (index, _) {
           setState(() => buttons.removeAt(index));
         },

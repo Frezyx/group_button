@@ -45,7 +45,7 @@ class _ExampleState extends State<_Example> {
         shadowColor: Colors.grey[100].withOpacity(0.1),
         backgroundColor: Colors.white,
         title: Text(
-          'GroupButton 4.0.0',
+          'GroupButton 4.1.0',
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
@@ -70,6 +70,8 @@ class _ExampleState extends State<_Example> {
                   onSelected: (i, selected) {
                     _extendedExampleController.selectedGroupingType = i;
                   },
+                  onDisablePressed: (i) =>
+                      debugPrint('Disable Button #$i pressed'),
                 ),
                 GroupButton(
                   spacing: 7.5,
@@ -88,6 +90,8 @@ class _ExampleState extends State<_Example> {
                       curve: Curves.easeIn,
                     );
                   },
+                  onDisablePressed: (i) =>
+                      debugPrint('Disable Button #$i pressed'),
                 ),
               ],
             ),

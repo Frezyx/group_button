@@ -12,7 +12,7 @@ class StylesExample extends StatelessWidget {
           shadowColor: Colors.grey[100].withOpacity(0.1),
           backgroundColor: Colors.white,
           title: Text(
-            'GroupButton 4.0.0',
+            'GroupButton 4.1.0',
             style: Theme.of(context).textTheme.headline6,
           ),
         ),
@@ -44,6 +44,7 @@ class StylesExample extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.circular(30),
                     onSelected: (i, selected) {},
+                    onDisablePressed: (i) {},
                   ),
                 ),
                 ScrollIjector(
@@ -68,6 +69,7 @@ class StylesExample extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.circular(4),
                     onSelected: (i, selected) {},
+                    onDisablePressed: (i) {},
                   ),
                 ),
                 ScrollIjector(
@@ -99,6 +101,7 @@ class StylesExample extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.circular(8),
                     onSelected: (i, selected) {},
+                    onDisablePressed: (i) {},
                   ),
                 ),
                 Padding(
@@ -136,6 +139,7 @@ class StylesExample extends StatelessWidget {
                       ),
                       selectedColor: Colors.pink,
                       onSelected: (i, selected) {},
+                      onDisablePressed: (i) {},
                     ),
                   ),
                 ),

@@ -6,6 +6,7 @@ class GroupCustomButton extends StatelessWidget {
     required this.onPressed,
     required this.text,
     required this.isSelected,
+    required this.isDisable,
     this.selectedBorderColor,
     this.unselectedBorderColor,
     this.selectedTextStyle,
@@ -26,6 +27,7 @@ class GroupCustomButton extends StatelessWidget {
   final String text;
   final void Function()? onPressed;
   final bool isSelected;
+  final bool isDisable;
   final TextStyle? selectedTextStyle;
   final TextStyle? unselectedTextStyle;
   final Color? selectedColor;
@@ -42,7 +44,7 @@ class GroupCustomButton extends StatelessWidget {
   final AlignmentGeometry? alignment;
   final double? elevation;
 
-  bool get isEnabled => onPressed != null;
+  bool get isEnabled => !isDisable;
 
   List<BoxShadow>? get _boxShadow => isSelected
       ? selectedShadow
@@ -64,7 +66,6 @@ class GroupCustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Container(
       height: height,
       width: width,
@@ -72,22 +73,32 @@ class GroupCustomButton extends StatelessWidget {
         borderRadius: borderRadius,
         boxShadow: _boxShadow,
       ),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          elevation: elevation ?? 0.0,
-          primary: _getBackgroundColor(theme),
-          shape: _buildShape(),
-          padding: (width != null || height != null) ? EdgeInsets.zero : null,
-          alignment: (width != null || height != null) ? alignment : null,
-        ),
-        child: Padding(
-          padding: textPadding,
-          child: Text(
-            text,
-            textAlign: textAlign,
-            style: _textStyle,
-          ),
+      child: !isDisable
+          ? _customButton(context, onPressed)
+          : GestureDetector(
+              onTap: onPressed,
+              child: _customButton(context, null),
+            ),
+    );
+  }
+
+  Widget _customButton(BuildContext context, void Function()? onPressed) {
+    final theme = Theme.of(context);
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        elevation: elevation ?? 0.0,
+        primary: _getBackgroundColor(theme),
+        shape: _buildShape(),
+        padding: (width != null || height != null) ? EdgeInsets.zero : null,
+        alignment: (width != null || height != null) ? alignment : null,
+      ),
+      child: Padding(
+        padding: textPadding,
+        child: Text(
+          text,
+          textAlign: textAlign,
+          style: _textStyle,
         ),
       ),
     );
