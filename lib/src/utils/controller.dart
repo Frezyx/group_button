@@ -3,44 +3,56 @@ import 'package:flutter/material.dart';
 /// GroupButton Controller
 /// for working with GroupButton from the outside
 class GroupButtonController extends ChangeNotifier {
-  int? _selectedIndex;
-  final _selectedIndexes = <int>{};
+  GroupButtonController({
+    int? selectedIndex,
+    List<int> selectedIndexes = const <int>[],
+    List<int> disabledIndexes = const <int>[],
+  })  : _selectedButton = selectedIndex,
+        _selectedButtons = selectedIndexes.toSet(),
+        _disabledIndexes = disabledIndexes.toSet();
+
+  int? _selectedButton;
+  final Set<int> _selectedButtons;
+  final Set<int> _disabledIndexes;
 
   /// Selected button index in case when you using radio type
-  int? get selectedIndex => _selectedIndex;
+  int? get selectedIndex => _selectedButton;
 
   /// Selected buttons indexes in case when you using checkbox type
-  Set<int> get selectedIndexes => _selectedIndexes;
+  Set<int> get selectedIndexes => _selectedButtons;
+
+  /// Disabled buttons indexes
+  Set<int> get disabledIndexes => _disabledIndexes;
 
   /// Select button by index in radio type
   void selectIndex(int i) {
-    _selectedIndex = i;
-    _selectedIndexes.add(i);
+    _selectedButton = i;
+    _selectedButtons.add(i);
     notifyListeners();
   }
 
   /// Unselect button by index in checkbox and radio type
   void unselectIndex(int i) {
-    _selectedIndex = null;
-    _selectedIndexes.remove(i);
+    _selectedButton = null;
+    _selectedButtons.remove(i);
     notifyListeners();
   }
 
   /// Unselect all buttons in checkbox type
   /// and only one selected button in radio type
   void unselectAll() {
-    _selectedIndex = null;
-    _selectedIndexes.clear();
+    _selectedButton = null;
+    _selectedButtons.clear();
     notifyListeners();
   }
 
   /// Toggle buttons by indexes in checkbox type
   void toggleIndexes(List<int> indexes) {
     for (final i in indexes) {
-      if (_selectedIndexes.contains(i)) {
-        _selectedIndexes.remove(i);
+      if (_selectedButtons.contains(i)) {
+        _selectedButtons.remove(i);
       } else {
-        _selectedIndexes.add(i);
+        _selectedButtons.add(i);
       }
     }
     notifyListeners();
@@ -48,13 +60,13 @@ class GroupButtonController extends ChangeNotifier {
 
   /// Select buttons by indexes in checkbox type
   void selectIndexes(List<int> indexes) {
-    _selectedIndexes.addAll(indexes);
+    _selectedButtons.addAll(indexes);
     notifyListeners();
   }
 
   /// Unselect buttons by indexes in checkbox type
   void unselectIndexes(List<int> indexes) {
-    _selectedIndexes.removeAll(indexes);
+    _selectedButtons.removeAll(indexes);
     notifyListeners();
   }
 }

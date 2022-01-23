@@ -22,7 +22,11 @@ void main() {
 }
 
 class CommonExample extends StatelessWidget {
-  final controller = GroupButtonController();
+  final controller = GroupButtonController(
+    selectedIndex: 20,
+    selectedIndexes: [1, 2, 3, 4, 5],
+    disabledIndexes: [10, 12, 13, 14, 15],
+  );
 
   @override
   Widget build(BuildContext context) {

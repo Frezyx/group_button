@@ -38,8 +38,23 @@ class GroupButtonBody extends StatefulWidget {
   }) : super(key: key);
 
   final List<String> buttons;
+  @Deprecated(
+    'Use GroupButtonController disabledIndexes field '
+    'This feature was deprecated after v4.2.0 '
+    'Field will be removed after version 5.0.0 of package',
+  )
   final List<int> disabledButtons;
+  @Deprecated(
+    'Use GroupButtonController selectedIndexes field '
+    'This feature was deprecated after v4.2.0 '
+    'Field will be removed after version 5.0.0 of package',
+  )
   final List<int>? selectedButtons;
+  @Deprecated(
+    'Use GroupButtonController selectedIndex field '
+    'This feature was deprecated after v4.2.0 '
+    'Field will be removed after version 5.0.0 of package',
+  )
   final int? selectedButton;
   final Function(int, bool) onSelected;
   final Function(int)? onDisablePressed;
@@ -79,25 +94,20 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   void didUpdateWidget(covariant GroupButtonBody oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.controller != widget.controller) {
-      _controller = widget.controller ?? GroupButtonController();
+      _controller = widget.controller ?? _buidController();
     }
   }
+
+  GroupButtonController _buidController() => GroupButtonController(
+        selectedIndex: widget.isRadio ? widget.selectedButton : null,
+        selectedIndexes: widget.selectedButtons ?? [],
+        disabledIndexes: widget.disabledButtons,
+      );
 
   @override
   void initState() {
     super.initState();
-
-    _controller = widget.controller ?? GroupButtonController();
-
-    if (!widget.isRadio) {
-      _controller.toggleIndexes(widget.selectedButtons ?? []);
-    }
-
-    if (widget.isRadio) {
-      if (widget.selectedButton != null) {
-        _controller.selectIndex(widget.selectedButton!);
-      }
-    }
+    _controller = widget.controller ?? _buidController();
   }
 
   @override
@@ -139,7 +149,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
     }
   }
 
-  bool _getCond(int i) {
+  bool _getSelectedCond(int i) {
     return widget.isRadio
         ? _controller.selectedIndex == i
         : _controller.selectedIndexes.contains(i);
@@ -150,16 +160,16 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   ) {
     final rebuildedButtons = <Widget>[];
     for (var i = 0; i < buttons.length; i++) {
-      Widget rebuidedButton = GroupCustomButton(
+      Widget rebuildedButton = GroupCustomButton(
         text: buttons[i],
-        onPressed: widget.disabledButtons.contains(i)
+        onPressed: _controller.disabledIndexes.contains(i)
             ? () => widget.onDisablePressed?.call(i)
             : () {
                 _selectButton(i);
-                widget.onSelected(i, _getCond(i));
+                widget.onSelected(i, _getSelectedCond(i));
               },
-        isSelected: _getCond(i),
-        isDisable: widget.disabledButtons.contains(i),
+        isSelected: _getSelectedCond(i),
+        isDisable: _controller.disabledIndexes.contains(i),
         selectedTextStyle: widget.selectedTextStyle,
         unselectedTextStyle: widget.unselectedTextStyle,
         selectedColor: widget.selectedColor,
@@ -181,19 +191,19 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
       /// when groupingType is row or column
       if (widget.spacing != 0.0) {
         if (widget.groupingType == GroupingType.row) {
-          rebuidedButton = Padding(
+          rebuildedButton = Padding(
             padding: EdgeInsets.symmetric(horizontal: widget.spacing),
-            child: rebuidedButton,
+            child: rebuildedButton,
           );
         } else if (widget.groupingType == GroupingType.column) {
-          rebuidedButton = Padding(
+          rebuildedButton = Padding(
             padding: EdgeInsets.symmetric(vertical: widget.spacing),
-            child: rebuidedButton,
+            child: rebuildedButton,
           );
         }
       }
 
-      rebuildedButtons.add(rebuidedButton);
+      rebuildedButtons.add(rebuildedButton);
     }
     return rebuildedButtons;
   }
