@@ -7,7 +7,7 @@ class GroupButtonBody extends StatefulWidget {
     Key? key,
     required this.buttons,
     required this.onSelected,
-    required this.controller,
+    this.controller,
     required this.groupingType,
     this.onDisablePressed,
     this.selectedBorderColor,
@@ -66,32 +66,39 @@ class GroupButtonBody extends StatefulWidget {
   final EdgeInsets textPadding;
   final AlignmentGeometry? alignment;
   final double? elevation;
-  final GroupButtonController controller;
+  final GroupButtonController? controller;
 
   @override
   _GroupButtonBodyState createState() => _GroupButtonBodyState();
 }
 
 class _GroupButtonBodyState extends State<GroupButtonBody> {
+  late GroupButtonController _controller;
+
+  @override
+  void didUpdateWidget(covariant GroupButtonBody oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.controller != widget.controller) {
+      _controller = widget.controller ?? _buidController();
+    }
+  }
+
+  GroupButtonController _buidController() => GroupButtonController(
+        selectedIndex: widget.isRadio ? widget.selectedButton : null,
+        selectedIndexes: widget.selectedButtons ?? [],
+        disabledIndexes: widget.disabledButtons,
+      );
+
   @override
   void initState() {
     super.initState();
-
-    if (!widget.isRadio) {
-      widget.controller.toggleIndexes(widget.selectedButtons ?? []);
-    }
-
-    if (widget.isRadio) {
-      if (widget.selectedButton != null) {
-        widget.controller.selectIndex(widget.selectedButton!);
-      }
-    }
+    _controller = widget.controller ?? _buidController();
   }
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      animation: widget.controller,
+      animation: _controller,
       builder: (context, child) {
         return _buildBodyByGroupingType();
       },
@@ -127,10 +134,10 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
     }
   }
 
-  bool _getCond(int i) {
+  bool _getSelectedCond(int i) {
     return widget.isRadio
-        ? widget.controller.selectedIndex == i
-        : widget.controller.selectedIndexes.contains(i);
+        ? _controller.selectedIndex == i
+        : _controller.selectedIndexes.contains(i);
   }
 
   List<Widget> _buildButtonsList(
@@ -138,16 +145,16 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   ) {
     final rebuildedButtons = <Widget>[];
     for (var i = 0; i < buttons.length; i++) {
-      Widget rebuidedButton = GroupCustomButton(
+      Widget rebuildedButton = GroupCustomButton(
         text: buttons[i],
-        onPressed: widget.disabledButtons.contains(i)
+        onPressed: _controller.disabledIndexes.contains(i)
             ? () => widget.onDisablePressed?.call(i)
             : () {
                 _selectButton(i);
-                widget.onSelected(i, _getCond(i));
+                widget.onSelected(i, _getSelectedCond(i));
               },
-        isSelected: _getCond(i),
-        isDisable: widget.disabledButtons.contains(i),
+        isSelected: _getSelectedCond(i),
+        isDisable: _controller.disabledIndexes.contains(i),
         selectedTextStyle: widget.selectedTextStyle,
         unselectedTextStyle: widget.unselectedTextStyle,
         selectedColor: widget.selectedColor,
@@ -169,28 +176,28 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
       /// when groupingType is row or column
       if (widget.spacing != 0.0) {
         if (widget.groupingType == GroupingType.row) {
-          rebuidedButton = Padding(
+          rebuildedButton = Padding(
             padding: EdgeInsets.symmetric(horizontal: widget.spacing),
-            child: rebuidedButton,
+            child: rebuildedButton,
           );
         } else if (widget.groupingType == GroupingType.column) {
-          rebuidedButton = Padding(
+          rebuildedButton = Padding(
             padding: EdgeInsets.symmetric(vertical: widget.spacing),
-            child: rebuidedButton,
+            child: rebuildedButton,
           );
         }
       }
 
-      rebuildedButtons.add(rebuidedButton);
+      rebuildedButtons.add(rebuildedButton);
     }
     return rebuildedButtons;
   }
 
   void _selectButton(int i) {
     if (widget.isRadio) {
-      widget.controller.selectIndex(i);
+      _controller.selectIndex(i);
     } else {
-      widget.controller.toggleIndexes([i]);
+      _controller.toggleIndexes([i]);
     }
   }
 }

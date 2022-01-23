@@ -6,7 +6,7 @@ Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
     child: Padding(
       padding: const EdgeInsets.all(10.0),
       child: GroupButton(
-        controller: GroupButtonController(),
+        controller: GroupButtonController(selectedIndexes: const [1, 2, 3]),
         spacing: 5,
         isRadio: false,
         groupingType: groupingType,
@@ -16,18 +16,17 @@ Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
         ),
         onDisablePressed: (i) => debugPrint('Disable Button #$i pressed'),
         buttons: const [
-          "Dart",
-          "Kotlin",
-          "Java",
-          "Swift",
-          "Objective-C",
-          "Python",
-          "JS",
-          "C#",
-          "C",
-          "C++"
+          'Dart',
+          'Kotlin',
+          'Java',
+          'Swift',
+          'Objective-C',
+          'Python',
+          'JS',
+          'C#',
+          'C',
+          'C++'
         ],
-        selectedButtons: const [1, 2, 3],
         selectedTextStyle: const TextStyle(
           fontWeight: FontWeight.w600,
           fontSize: 16,

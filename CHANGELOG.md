@@ -1,3 +1,10 @@
+## 4.2.0
+ - **FEAT**: Add disabled buttons to controller
+ - **FEAT**: Add controller fields initialization in controller constructor
+ - **INFO**: Add deprecatd annotation for selectedButton, selectedButtons and disabledButtons
+
+## 4.1.1
+ - **FIX**: GroupbuttonController initialization
 ## 4.1.0
  - **FEAT**: [onDisablePressed](https://github.com/Frezyx/group_button/blob/master/lib/src/group_button_base.dart#:~:text=Function(int%20index)%3F-,onDisablePressed,-%3B) calback method for handle taps on disabled buttons
 

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
 class CustomizableExample extends StatelessWidget {
+  CustomizableExample({Key key}) : super(key: key);
   final controller = GroupButtonController();
   final customizableController = CustomizableExampleController();
 

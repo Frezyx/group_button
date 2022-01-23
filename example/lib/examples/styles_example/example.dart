@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
 class StylesExample extends StatelessWidget {
+  StylesExample({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,7 +37,7 @@ class StylesExample extends StatelessWidget {
                       '17:00',
                       '18:00',
                     ],
-                    selectedButton: 4,
+                    controller: GroupButtonController(selectedIndex: 4),
                     selectedShadow: const [],
                     unselectedShadow: const [],
                     unselectedColor: Colors.grey[300],
@@ -62,7 +64,9 @@ class StylesExample extends StatelessWidget {
                     selectedShadow: const [],
                     unselectedShadow: const [],
                     isRadio: false,
-                    selectedButtons: const [1, 3, 4],
+                    controller: GroupButtonController(
+                      selectedIndexes: const [1, 3, 4],
+                    ),
                     selectedColor: Colors.black,
                     selectedTextStyle: const TextStyle(
                       fontWeight: FontWeight.w900,
@@ -86,7 +90,9 @@ class StylesExample extends StatelessWidget {
                       '18:00',
                     ],
                     isRadio: false,
-                    selectedButtons: const [0, 4, 6],
+                    controller: GroupButtonController(
+                      selectedIndexes: const [0, 4, 6],
+                    ),
                     selectedShadow: const [],
                     unselectedShadow: const [],
                     selectedTextStyle: TextStyle(
@@ -131,7 +137,9 @@ class StylesExample extends StatelessWidget {
                         )
                       ],
                       isRadio: false,
-                      selectedButtons: const [1, 3, 4],
+                      controller: GroupButtonController(
+                        selectedIndexes: const [1, 3, 4],
+                      ),
                       unselectedBorderColor: Colors.grey[400],
                       selectedBorderColor: Colors.pink,
                       unselectedTextStyle: const TextStyle(
