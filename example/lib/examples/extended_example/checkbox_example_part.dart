@@ -8,6 +8,7 @@ Widget _buildCheckboxExample(GroupingType groupingType, {Axis direction}) {
       child: Center(
         child: GroupButton(
           isRadio: false,
+          controller: GroupButtonController(selectedIndexes: const [2, 3]),
           groupingType: groupingType,
           direction: direction,
           selectedShadow: const [],
@@ -30,7 +31,6 @@ Widget _buildCheckboxExample(GroupingType groupingType, {Axis direction}) {
             "French fries",
             "Carbonated beverage"
           ],
-          selectedButtons: const [2, 3],
         ),
       ),
     ),

@@ -223,11 +223,6 @@ class GroupButton extends StatelessWidget {
   final double? elevation;
 
   /// [String] list that will be displayed on buttons in the [GroupButton]
-  @Deprecated(
-    'Use GroupButtonController disabledIndexes field '
-    'This feature was deprecated after v4.2.0 '
-    'Field will be removed after version 5.0.0 of package',
-  )
   final List<String> buttons;
 
   /// [int] button ids that are disabled.

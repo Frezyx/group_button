@@ -7,6 +7,7 @@ Widget _buildRadioExample(GroupingType groupingType, {Axis direction}) {
       padding: const EdgeInsets.all(10.0),
       child: Center(
         child: GroupButton(
+          controller: GroupButtonController(selectedIndex: 1),
           direction: direction,
           groupingType: groupingType,
           onSelected: (index, isSelected) =>
@@ -20,7 +21,6 @@ Widget _buildRadioExample(GroupingType groupingType, {Axis direction}) {
             "19:00",
             "21:40",
           ],
-          selectedButton: 5,
         ),
       ),
     ),

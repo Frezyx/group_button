@@ -15,7 +15,7 @@ class _GroupButtonTestWidgetState extends State<GroupButtonTestWidget> {
     return Scaffold(
       body: GroupButton(
         buttons: buttons,
-        disabledButtons: const [2],
+        controller: GroupButtonController(disabledIndexes: const [2]),
         onSelected: (index, _) {
           setState(() => buttons.removeAt(index));
         },

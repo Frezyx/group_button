@@ -68,16 +68,19 @@ class _HomePageState extends State<HomePage>
                       GroupButton(
                         spacing: 15,
                         isRadio: false,
+                        controller: GroupButtonController(
+                          selectedIndexes: q.selectedIndexes,
+                        ),
                         onSelected: (index, isSelected) {
                           debugPrint(
                             '$index button is ${isSelected ? 'selected' : 'unselected'}',
                           );
                           _eProvider.updateAnswer(index, value: isSelected);
                         },
-                        onDisablePressed: (i) => debugPrint('Disable Button #$i pressed'),
+                        onDisablePressed: (i) =>
+                            debugPrint('Disable Button #$i pressed'),
                         selectedColor: Colors.blue,
                         buttons: q.answerTitles,
-                        selectedButtons: q.selectedIndexes,
                       ),
                     ],
                   ),
