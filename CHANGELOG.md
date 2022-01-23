@@ -1,3 +1,6 @@
+## 4.2.1
+ - **FIX**: deprecated fields
+
 ## 4.2.0
  - **FEAT**: Add disabled buttons to controller
  - **FEAT**: Add controller fields initialization in controller constructor
