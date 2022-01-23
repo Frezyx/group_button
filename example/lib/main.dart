@@ -22,6 +22,8 @@ void main() {
 }
 
 class CommonExample extends StatelessWidget {
+  CommonExample({Key key}) : super(key: key);
+
   final controller = GroupButtonController(
     selectedIndex: 20,
     selectedIndexes: [1, 2, 3, 4, 5],

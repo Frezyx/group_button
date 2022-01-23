@@ -8,6 +8,8 @@ part 'checkbox_example_part.dart';
 part 'custom_example_part.dart';
 
 class GroupButtonExtendedExample extends StatelessWidget {
+  GroupButtonExtendedExample({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -62,11 +64,7 @@ class _ExampleState extends State<_Example> {
                   controller: GroupButtonController(),
                   mainGroupAlignment: MainGroupAlignment.start,
                   groupingType: GroupingType.row,
-                  buttons: const [
-                    "Wrap",
-                    "Column",
-                    "Row",
-                  ],
+                  buttons: const ['Wrap', 'Column', 'Row'],
                   onSelected: (i, selected) {
                     _extendedExampleController.selectedGroupingType = i;
                   },
@@ -78,11 +76,7 @@ class _ExampleState extends State<_Example> {
                   controller: GroupButtonController(),
                   mainGroupAlignment: MainGroupAlignment.start,
                   groupingType: GroupingType.row,
-                  buttons: const [
-                    "Radio",
-                    "CheckBox",
-                    "Custom",
-                  ],
+                  buttons: const ['Radio', 'CheckBox', 'Custom'],
                   onSelected: (i, selected) {
                     _pageController.animateToPage(
                       i,

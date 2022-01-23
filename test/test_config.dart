@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
 class GroupButtonTestWidget extends StatefulWidget {
-  const GroupButtonTestWidget();
+  const GroupButtonTestWidget({Key? key}) : super(key: key);
   @override
   _GroupButtonTestWidgetState createState() => _GroupButtonTestWidgetState();
 }

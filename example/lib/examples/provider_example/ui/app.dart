@@ -4,6 +4,8 @@ import 'package:group_button/group_button.dart';
 import 'package:provider/provider.dart';
 
 class GroupButtonProviderExample extends StatelessWidget {
+  GroupButtonProviderExample({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -23,11 +25,13 @@ class GroupButtonProviderExample extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
+
   @override
-  _HomePageState createState() => _HomePageState();
+  HomePageState createState() => HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
+class HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   Axis direction = Axis.horizontal;
 
@@ -39,7 +43,7 @@ class _HomePageState extends State<HomePage>
       length: _eProvider.exercise.questions.length,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("GroupButton & Provider"),
+          title: const Text('GroupButton & Provider'),
           bottom: _buildTabBar(_eProvider),
         ),
         body: _buildTabBarView(_eProvider, size),

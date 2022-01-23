@@ -108,8 +108,8 @@ class GroupCustomButton extends StatelessWidget {
     final themePrimaryColor = theme.buttonTheme.colorScheme?.primary;
     final themeSecondaryColor = theme.canvasColor;
 
-    Color? selectedColorBuffer = selectedColor;
-    Color? unselectedColorBuffer = unselectedColor;
+    var selectedColorBuffer = selectedColor;
+    var unselectedColorBuffer = unselectedColor;
 
     selectedColorBuffer ??= themePrimaryColor;
     unselectedColorBuffer ??= themeSecondaryColor;

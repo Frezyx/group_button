@@ -16,16 +16,16 @@ Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
         ),
         onDisablePressed: (i) => debugPrint('Disable Button #$i pressed'),
         buttons: const [
-          "Dart",
-          "Kotlin",
-          "Java",
-          "Swift",
-          "Objective-C",
-          "Python",
-          "JS",
-          "C#",
-          "C",
-          "C++"
+          'Dart',
+          'Kotlin',
+          'Java',
+          'Swift',
+          'Objective-C',
+          'Python',
+          'JS',
+          'C#',
+          'C',
+          'C++'
         ],
         selectedTextStyle: const TextStyle(
           fontWeight: FontWeight.w600,

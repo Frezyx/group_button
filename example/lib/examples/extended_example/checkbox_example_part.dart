@@ -23,13 +23,13 @@ Widget _buildCheckboxExample(GroupingType groupingType, {Axis direction}) {
           ),
           onDisablePressed: (i) => debugPrint('Disable Button #$i pressed'),
           buttons: const [
-            "Burger",
-            "Sandwiches",
-            "Salad",
-            "Carbonara",
-            "Meat",
-            "French fries",
-            "Carbonated beverage"
+            'Burger',
+            'Sandwiches',
+            'Salad',
+            'Carbonara',
+            'Meat',
+            'French fries',
+            'Carbonated beverage'
           ],
         ),
       ),
