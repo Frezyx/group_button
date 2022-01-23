@@ -38,23 +38,8 @@ class GroupButtonBody extends StatefulWidget {
   }) : super(key: key);
 
   final List<String> buttons;
-  @Deprecated(
-    'Use GroupButtonController disabledIndexes field '
-    'This feature was deprecated after v4.2.0 '
-    'Field will be removed after version 5.0.0 of package',
-  )
   final List<int> disabledButtons;
-  @Deprecated(
-    'Use GroupButtonController selectedIndexes field '
-    'This feature was deprecated after v4.2.0 '
-    'Field will be removed after version 5.0.0 of package',
-  )
   final List<int>? selectedButtons;
-  @Deprecated(
-    'Use GroupButtonController selectedIndex field '
-    'This feature was deprecated after v4.2.0 '
-    'Field will be removed after version 5.0.0 of package',
-  )
   final int? selectedButton;
   final Function(int, bool) onSelected;
   final Function(int)? onDisablePressed;

@@ -9,8 +9,18 @@ class GroupButton extends StatelessWidget {
     required this.buttons,
     required this.onSelected,
     this.onDisablePressed,
-    this.disabledButtons = const [],
-    this.selectedButtons,
+    @Deprecated(
+      'Use GroupButtonController disabledIndexes field '
+      'This feature was deprecated after v4.2.0 '
+      'Field will be removed after version 5.0.0 of package',
+    )
+        this.disabledButtons = const [],
+    @Deprecated(
+      'Use GroupButtonController selectedIndexes field '
+      'This feature was deprecated after v4.2.0 '
+      'Field will be removed after version 5.0.0 of package',
+    )
+        this.selectedButtons,
     this.isRadio = true,
     this.groupingType = GroupingType.wrap,
     this.direction,
@@ -27,7 +37,12 @@ class GroupButton extends StatelessWidget {
     this.unselectedShadow = _kDefaultShadow,
     this.buttonHeight,
     this.buttonWidth,
-    this.selectedButton,
+    @Deprecated(
+      'Use GroupButtonController selectedIndex field '
+      'This feature was deprecated after v4.2.0 '
+      'Field will be removed after version 5.0.0 of package',
+    )
+        this.selectedButton,
     this.mainGroupAlignment = MainGroupAlignment.center,
     this.crossGroupAlignment = CrossGroupAlignment.center,
     this.groupRunAlignment = GroupRunAlignment.center,
@@ -55,8 +70,18 @@ class GroupButton extends StatelessWidget {
     TextAlign textAlign = TextAlign.left,
     AlignmentGeometry? alignment,
     double? elevation,
-    List<int> disabledButtons = const [],
-    int? selectedButton,
+    @Deprecated(
+      'Use GroupButtonController disabledIndexes field '
+      'This feature was deprecated after v4.2.0 '
+      'Field will be removed after version 5.0.0 of package',
+    )
+        List<int> disabledButtons = const [],
+    @Deprecated(
+      'Use GroupButtonController selectedIndex field '
+      'This feature was deprecated after v4.2.0 '
+      'Field will be removed after version 5.0.0 of package',
+    )
+        int? selectedButton,
     Axis? direction,
     double spacing = 10,
     double runSpacing = 0,
@@ -121,8 +146,18 @@ class GroupButton extends StatelessWidget {
     TextAlign textAlign = TextAlign.left,
     AlignmentGeometry? alignment,
     double? elevation,
-    List<int> disabledButtons = const [],
-    List<int>? selectedButtons,
+    @Deprecated(
+      'Use GroupButtonController disabledIndexes field '
+      'This feature was deprecated after v4.2.0 '
+      'Field will be removed after version 5.0.0 of package',
+    )
+        List<int> disabledButtons = const [],
+    @Deprecated(
+      'Use GroupButtonController selectedIndexes field '
+      'This feature was deprecated after v4.2.0 '
+      'Field will be removed after version 5.0.0 of package',
+    )
+        List<int>? selectedButtons,
     Axis? direction,
     double spacing = 10,
     double runSpacing = 0,
@@ -188,17 +223,37 @@ class GroupButton extends StatelessWidget {
   final double? elevation;
 
   /// [String] list that will be displayed on buttons in the [GroupButton]
+  @Deprecated(
+    'Use GroupButtonController disabledIndexes field '
+    'This feature was deprecated after v4.2.0 '
+    'Field will be removed after version 5.0.0 of package',
+  )
   final List<String> buttons;
 
   /// [int] button ids that are disabled.
+  @Deprecated(
+    'Use GroupButtonController selectedIndex field '
+    'This feature was deprecated after v4.2.0 '
+    'Field will be removed after version 5.0.0 of package',
+  )
   final List<int> disabledButtons;
 
   /// [int] button ids that is selected initially.
   /// /// Using when [isRadio] is false
+  @Deprecated(
+    'Use GroupButtonController selectedIndexes field '
+    'This feature was deprecated after v4.2.0 '
+    'Field will be removed after version 5.0.0 of package',
+  )
   final List<int>? selectedButtons;
 
   /// [int] button initially selected id
   /// Using when [isRadio] is true
+  @Deprecated(
+    'Use GroupButtonController selectedIndex field '
+    'This feature was deprecated after v4.2.0 '
+    'Field will be removed after version 5.0.0 of package',
+  )
   final int? selectedButton;
 
   /// Callback [Function] works by clicking on a group element
