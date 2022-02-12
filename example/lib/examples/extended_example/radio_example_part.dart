@@ -8,8 +8,10 @@ Widget _buildRadioExample(GroupingType groupingType, {Axis direction}) {
       child: Center(
         child: GroupButton(
           controller: GroupButtonController(selectedIndex: 1),
-          direction: direction,
-          groupingType: groupingType,
+          options: GroupButtonOptions(
+            direction: direction,
+            groupingType: groupingType,
+          ),
           onSelected: (index, isSelected) =>
               debugPrint('$index button is selected'),
           onDisablePressed: (i) => debugPrint('Disable Button #$i pressed'),

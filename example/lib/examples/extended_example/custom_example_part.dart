@@ -7,10 +7,35 @@ Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
       padding: const EdgeInsets.all(10.0),
       child: GroupButton(
         controller: GroupButtonController(selectedIndexes: const [1, 2, 3]),
-        spacing: 5,
         isRadio: false,
-        groupingType: groupingType,
-        direction: direction,
+        options: GroupButtonOptions(
+          spacing: 5,
+          groupingType: groupingType,
+          direction: direction,
+          selectedTextStyle: const TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 16,
+            color: Colors.red,
+          ),
+          unselectedTextStyle: TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: 14,
+            color: Colors.grey[600],
+          ),
+          selectedColor: Colors.white,
+          unselectedColor: Colors.grey[300],
+          selectedBorderColor: Colors.red,
+          unselectedBorderColor: Colors.grey[500],
+          borderRadius: BorderRadius.circular(5.0),
+          selectedShadow: const <BoxShadow>[
+            BoxShadow(color: Colors.transparent)
+          ],
+          unselectedShadow: const <BoxShadow>[
+            BoxShadow(color: Colors.transparent)
+          ],
+          buttonHeight: 30,
+          buttonWidth: 115,
+        ),
         onSelected: (index, isSelected) => debugPrint(
           '$index button is ${isSelected ? 'selected' : 'unselected'}',
         ),
@@ -27,27 +52,6 @@ Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
           'C',
           'C++'
         ],
-        selectedTextStyle: const TextStyle(
-          fontWeight: FontWeight.w600,
-          fontSize: 16,
-          color: Colors.red,
-        ),
-        unselectedTextStyle: TextStyle(
-          fontWeight: FontWeight.w600,
-          fontSize: 14,
-          color: Colors.grey[600],
-        ),
-        selectedColor: Colors.white,
-        unselectedColor: Colors.grey[300],
-        selectedBorderColor: Colors.red,
-        unselectedBorderColor: Colors.grey[500],
-        borderRadius: BorderRadius.circular(5.0),
-        selectedShadow: const <BoxShadow>[BoxShadow(color: Colors.transparent)],
-        unselectedShadow: const <BoxShadow>[
-          BoxShadow(color: Colors.transparent)
-        ],
-        buttonHeight: 30,
-        buttonWidth: 115,
       ),
     ),
   );

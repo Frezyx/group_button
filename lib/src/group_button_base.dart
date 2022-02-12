@@ -3,14 +3,90 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 import 'package:group_button/src/group_button_body.dart';
-import 'package:group_button/src/utils/utils.dart';
+import 'package:group_button/src/options/defaults.dart';
 
 class GroupButton extends StatelessWidget {
   const GroupButton({
     Key? key,
     required this.buttons,
     required this.onSelected,
+    this.controller,
+    this.options,
+    this.isRadio = true,
     this.onDisablePressed,
+////////////////
+    @Deprecated('Use GroupButtonOptions groupingType field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.groupingType = GroupingType.wrap,
+    @Deprecated('Use GroupButtonOptions direction field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.direction,
+    @Deprecated('Use GroupButtonOptions spacing field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.spacing = 10,
+    @Deprecated('Use GroupButtonOptions runSpacing field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.runSpacing = 0,
+    @Deprecated('Use GroupButtonOptions selectedTextStyle field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.selectedTextStyle = defaultSelectedTextStyle,
+    @Deprecated('Use GroupButtonOptions unselectedTextStyle field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.unselectedTextStyle = defaultUnselectedTextStyle,
+    @Deprecated('Use GroupButtonOptions selectedColor field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.selectedColor,
+    @Deprecated('Use GroupButtonOptions unselectedColor field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.unselectedColor,
+    @Deprecated('Use GroupButtonOptions selectedBorderColor field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.selectedBorderColor,
+    @Deprecated('Use GroupButtonOptions unselectedBorderColor field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.unselectedBorderColor,
+    @Deprecated('Use GroupButtonOptions borderRadius field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.borderRadius,
+    @Deprecated('Use GroupButtonOptions selectedShadow field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.selectedShadow = defaultShadow,
+    @Deprecated('Use GroupButtonOptions unselectedShadow field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.unselectedShadow = defaultShadow,
+    @Deprecated('Use GroupButtonOptions buttonHeight field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.buttonHeight,
+    @Deprecated('Use GroupButtonOptions buttonWidth field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.buttonWidth,
+    @Deprecated('Use GroupButtonOptions mainGroupAlignment field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.mainGroupAlignment = MainGroupAlignment.center,
+    @Deprecated('Use GroupButtonOptions crossGroupAlignment field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.crossGroupAlignment = CrossGroupAlignment.center,
+    @Deprecated('Use GroupButtonOptions groupRunAlignment field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.groupRunAlignment = GroupRunAlignment.center,
+    @Deprecated('Use GroupButtonOptions textAlign field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.textAlign = TextAlign.left,
+    @Deprecated('Use GroupButtonOptions textPadding field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.textPadding = EdgeInsets.zero,
+    @Deprecated('Use GroupButtonOptions alignment field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.alignment,
+    @Deprecated('Use GroupButtonOptions elevation field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.elevation,
+    @Deprecated(
+      'Use GroupButtonController selectedIndex field '
+      'This feature was deprecated after v4.2.0 '
+      'Field will be removed after version 5.0.0 of package',
+    )
+        this.selectedButton,
     @Deprecated(
       'Use GroupButtonController disabledIndexes field '
       'This feature was deprecated after v4.2.0 '
@@ -23,36 +99,6 @@ class GroupButton extends StatelessWidget {
       'Field will be removed after version 5.0.0 of package',
     )
         this.selectedButtons,
-    this.isRadio = true,
-    this.groupingType = GroupingType.wrap,
-    this.direction,
-    this.spacing = 10,
-    this.runSpacing = 0,
-    this.selectedTextStyle = _kDefaultSelectedTextStyle,
-    this.unselectedTextStyle = _kDefaultUnselectedTextStyle,
-    this.selectedColor,
-    this.unselectedColor,
-    this.selectedBorderColor,
-    this.unselectedBorderColor,
-    this.borderRadius,
-    this.selectedShadow = _kDefaultShadow,
-    this.unselectedShadow = _kDefaultShadow,
-    this.buttonHeight,
-    this.buttonWidth,
-    @Deprecated(
-      'Use GroupButtonController selectedIndex field '
-      'This feature was deprecated after v4.2.0 '
-      'Field will be removed after version 5.0.0 of package',
-    )
-        this.selectedButton,
-    this.mainGroupAlignment = MainGroupAlignment.center,
-    this.crossGroupAlignment = CrossGroupAlignment.center,
-    this.groupRunAlignment = GroupRunAlignment.center,
-    this.textAlign = TextAlign.left,
-    this.textPadding = EdgeInsets.zero,
-    this.alignment,
-    this.elevation,
-    this.controller,
   })  : assert(
           (isRadio && selectedButtons == null) ||
               (!isRadio && selectedButton == null),
@@ -65,6 +111,8 @@ class GroupButton extends StatelessWidget {
   /// Selection callback [Function(int index) onSelected]
   /// calling only when button is seletced
   factory GroupButton.radio({
+    GroupButtonController? controller,
+    GroupButtonOptions? options,
     required List<String> buttons,
     required Function(int index) onSelected,
     Function(int index)? onDisablePressed,
@@ -87,25 +135,25 @@ class GroupButton extends StatelessWidget {
     Axis? direction,
     double spacing = 10,
     double runSpacing = 0,
-    TextStyle? selectedTextStyle = _kDefaultSelectedTextStyle,
-    TextStyle? unselectedTextStyle = _kDefaultUnselectedTextStyle,
+    TextStyle? selectedTextStyle = defaultSelectedTextStyle,
+    TextStyle? unselectedTextStyle = defaultUnselectedTextStyle,
     Color? selectedColor,
     Color? unselectedColor,
     Color? selectedBorderColor,
     Color? unselectedBorderColor,
     BorderRadius? borderRadius,
-    List<BoxShadow> selectedShadow = _kDefaultShadow,
-    List<BoxShadow> unselectedShadow = _kDefaultShadow,
+    List<BoxShadow> selectedShadow = defaultShadow,
+    List<BoxShadow> unselectedShadow = defaultShadow,
     double? buttonWidth,
     double? buttonHeight,
     MainGroupAlignment mainGroupAlignment = MainGroupAlignment.center,
     CrossGroupAlignment crossGroupAlignment = CrossGroupAlignment.center,
     GroupRunAlignment groupRunAlignment = GroupRunAlignment.center,
     GroupingType groupingType = GroupingType.wrap,
-    GroupButtonController? controller,
   }) =>
       GroupButton(
         buttons: buttons,
+        options: options,
         disabledButtons: disabledButtons,
         selectedButton: selectedButton,
         onSelected: (index, _) => onSelected(index),
@@ -141,6 +189,8 @@ class GroupButton extends StatelessWidget {
   /// calling when button
   /// is seletced or unselected with [bool selected] field
   factory GroupButton.checkbox({
+    GroupButtonController? controller,
+    GroupButtonOptions? options,
     required List<String> buttons,
     required Function(int index, bool selected) onSelected,
     Function(int index)? onDisablePressed,
@@ -163,22 +213,21 @@ class GroupButton extends StatelessWidget {
     Axis? direction,
     double spacing = 10,
     double runSpacing = 0,
-    TextStyle? selectedTextStyle = _kDefaultSelectedTextStyle,
-    TextStyle? unselectedTextStyle = _kDefaultUnselectedTextStyle,
+    TextStyle? selectedTextStyle = defaultSelectedTextStyle,
+    TextStyle? unselectedTextStyle = defaultUnselectedTextStyle,
     Color? selectedColor,
     Color? unselectedColor,
     Color? selectedBorderColor,
     Color? unselectedBorderColor,
     BorderRadius? borderRadius,
-    List<BoxShadow> selectedShadow = _kDefaultShadow,
-    List<BoxShadow> unselectedShadow = _kDefaultShadow,
+    List<BoxShadow> selectedShadow = defaultShadow,
+    List<BoxShadow> unselectedShadow = defaultShadow,
     double? buttonWidth,
     double? buttonHeight,
     MainGroupAlignment mainGroupAlignment = MainGroupAlignment.center,
     CrossGroupAlignment crossGroupAlignment = CrossGroupAlignment.center,
     GroupRunAlignment groupRunAlignment = GroupRunAlignment.center,
     GroupingType groupingType = GroupingType.wrap,
-    GroupButtonController? controller,
   }) =>
       GroupButton(
         isRadio: false,
@@ -211,18 +260,6 @@ class GroupButton extends StatelessWidget {
         elevation: elevation,
         controller: controller,
       );
-
-  /// [EdgeInsets] The inner padding of buttons [GroupButton]
-  final EdgeInsets textPadding;
-
-  /// [TextAlign] The buttons text alignment [GroupButton]
-  final TextAlign textAlign;
-
-  /// [Alignment] Text position inside the buttons in case [buttonWidth] or [buttonHeight] defined.
-  final AlignmentGeometry? alignment;
-
-  /// [double] The buttons' elevation.
-  final double? elevation;
 
   /// [String] list that will be displayed on buttons in the [GroupButton]
   final List<String> buttons;
@@ -269,67 +306,172 @@ class GroupButton extends StatelessWidget {
   /// if the [isRadio] = false, you can select several at once
   final bool isRadio;
 
+  /// [EdgeInsets] The inner padding of buttons [GroupButton]
+  @Deprecated(
+    'Use GroupButtonOptions textPadding field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
+  final EdgeInsets textPadding;
+
+  /// [TextAlign] The buttons text alignment [GroupButton]
+  @Deprecated(
+    'Use GroupButtonOptions textAlign field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
+  final TextAlign textAlign;
+
+  /// [Alignment] Text position inside the buttons in case [buttonWidth] or [buttonHeight] defined.
+  @Deprecated(
+    'Use GroupButtonOptions alignment field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
+  final AlignmentGeometry? alignment;
+
+  /// [double] The buttons' elevation.
+  @Deprecated(
+    'Use GroupButtonOptions elevation field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
+  final double? elevation;
+
   /// The direction of arrangement of the buttons in [GroupButton]
+  @Deprecated(
+    'Use GroupButtonOptions direction field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final Axis? direction;
 
   /// The spacing between buttons inside [GroupButton]
+  @Deprecated(
+    'Use GroupButtonOptions spacing field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final double spacing;
 
   /// When [groupingType] is [GroupingType.wrap]
   /// this field sets Wrap [runSpacing]
+  @Deprecated(
+    'Use GroupButtonOptions runSpacing field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final double runSpacing;
 
   /// [TextStyle] of text of selected button(s)
+  @Deprecated(
+    'Use GroupButtonOptions selectedTextStyle field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final TextStyle? selectedTextStyle;
 
   /// [TextStyle] of text of unselected buttons
+  @Deprecated(
+    'Use GroupButtonOptions unselectedTextStyle field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final TextStyle? unselectedTextStyle;
 
   /// background [Color] of selected button(s)
+  @Deprecated(
+    'Use GroupButtonOptions selectedColor field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final Color? selectedColor;
 
   /// background [Color] of  unselected buttons
+  @Deprecated(
+    'Use GroupButtonOptions unselectedColor field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final Color? unselectedColor;
 
   /// border [Color] of selected button(s)
+  @Deprecated(
+    'Use GroupButtonOptions selectedBorderColor field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final Color? selectedBorderColor;
 
   /// border [Color] of  unselected buttons
+  @Deprecated(
+    'Use GroupButtonOptions unselectedBorderColor field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final Color? unselectedBorderColor;
 
   /// [BorderRadius] of  buttons
   /// How much the button will be rounded
+  @Deprecated(
+    'Use GroupButtonOptions borderRadius field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final BorderRadius? borderRadius;
 
   /// list of selected button(s) [BoxShadow]
+  @Deprecated(
+    'Use GroupButtonOptions selectedShadow field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final List<BoxShadow> selectedShadow;
 
   /// list of unselected buttons [BoxShadow]
+  @Deprecated(
+    'Use GroupButtonOptions unselectedShadow field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final List<BoxShadow> unselectedShadow;
 
   /// Height of Group button
+  @Deprecated(
+    'Use GroupButtonOptions buttonHeight field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final double? buttonHeight;
 
   /// Width of group button
+  @Deprecated(
+    'Use GroupButtonOptions buttonWidth field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final double? buttonWidth;
 
   /// How the buttons should be placed in the main axis in a layout
+  @Deprecated(
+    'Use GroupButtonOptions mainGroupAlignment field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final MainGroupAlignment mainGroupAlignment;
 
   /// How the buttons should be placed along the cross axis in a layout
+  @Deprecated(
+    'Use GroupButtonOptions crossGroupAlignment field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final CrossGroupAlignment crossGroupAlignment;
 
   /// How the button runs themselves should be placed along the cross axis in a layout
+  @Deprecated(
+    'Use GroupButtonOptions groupRunAlignment field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final GroupRunAlignment groupRunAlignment;
 
   /// The field is responsible for how the buttons will be grouped
+  @Deprecated(
+    'Use GroupButtonOptions groupingType field '
+    'This feature was deprecated after version 4.3.0 ',
+  )
   final GroupingType groupingType;
 
+  /// Controller to making widget logic
   final GroupButtonController? controller;
+
+  /// UI settings of package
+  final GroupButtonOptions? options;
 
   @override
   Widget build(BuildContext context) {
     return GroupButtonBody(
+      controller: controller,
       buttons: buttons,
       disabledButtons: disabledButtons,
       selectedButtons: selectedButtons,
@@ -337,46 +479,31 @@ class GroupButton extends StatelessWidget {
       onSelected: onSelected,
       onDisablePressed: onDisablePressed,
       isRadio: isRadio,
-      direction: direction,
-      spacing: spacing,
-      runSpacing: runSpacing,
-      selectedTextStyle: selectedTextStyle,
-      unselectedTextStyle: unselectedTextStyle,
-      selectedColor: selectedColor,
-      unselectedColor: unselectedColor,
-      selectedBorderColor: selectedBorderColor,
-      unselectedBorderColor: unselectedBorderColor,
-      borderRadius: borderRadius,
-      selectedShadow: selectedShadow,
-      unselectedShadow: unselectedShadow,
-      buttonWidth: buttonWidth,
-      buttonHeigth: buttonHeight,
-      mainGroupAlignment: mainGroupAlignment,
-      crossGroupAlignment: crossGroupAlignment,
-      groupRunAlignment: groupRunAlignment,
-      groupingType: groupingType,
-      textAlign: textAlign,
-      textPadding: textPadding,
-      alignment: alignment,
-      elevation: elevation,
-      controller: controller,
+
+      /// Options
+      direction: options?.direction ?? direction,
+      spacing: options?.spacing ?? spacing,
+      runSpacing: options?.runSpacing ?? runSpacing,
+      selectedTextStyle: options?.selectedTextStyle ?? selectedTextStyle,
+      unselectedTextStyle: options?.unselectedTextStyle ?? unselectedTextStyle,
+      selectedColor: options?.selectedColor ?? selectedColor,
+      unselectedColor: options?.unselectedColor ?? unselectedColor,
+      selectedBorderColor: options?.selectedBorderColor ?? selectedBorderColor,
+      unselectedBorderColor:
+          options?.unselectedBorderColor ?? unselectedBorderColor,
+      borderRadius: options?.borderRadius ?? borderRadius,
+      selectedShadow: options?.selectedShadow ?? selectedShadow,
+      unselectedShadow: options?.unselectedShadow ?? unselectedShadow,
+      buttonWidth: options?.buttonWidth ?? buttonWidth,
+      buttonHeigth: options?.buttonHeight ?? buttonHeight,
+      mainGroupAlignment: options?.mainGroupAlignment ?? mainGroupAlignment,
+      crossGroupAlignment: options?.crossGroupAlignment ?? crossGroupAlignment,
+      groupRunAlignment: options?.groupRunAlignment ?? groupRunAlignment,
+      groupingType: options?.groupingType ?? groupingType,
+      textAlign: options?.textAlign ?? textAlign,
+      textPadding: options?.textPadding ?? textPadding,
+      alignment: options?.alignment ?? alignment,
+      elevation: options?.elevation ?? elevation,
     );
   }
-
-  static const _kDefaultShadow = <BoxShadow>[
-    BoxShadow(
-      color: Color.fromARGB(18, 18, 18, 20),
-      blurRadius: 25.0,
-      spreadRadius: 1.0,
-      offset: Offset(
-        0.0,
-        2.0,
-      ),
-    )
-  ];
-
-  static const _kDefaultSelectedTextStyle =
-      TextStyle(fontSize: 14, color: Colors.white);
-  static const _kDefaultUnselectedTextStyle =
-      TextStyle(fontSize: 14, color: Colors.black);
 }
