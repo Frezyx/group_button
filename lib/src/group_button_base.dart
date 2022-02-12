@@ -12,30 +12,75 @@ class GroupButton extends StatelessWidget {
     required this.onSelected,
     this.controller,
     this.options,
-    this.onDisablePressed,
     this.isRadio = true,
-    this.groupingType = GroupingType.wrap,
-    this.direction,
-    this.spacing = 10,
-    this.runSpacing = 0,
-    this.selectedTextStyle = defaultSelectedTextStyle,
-    this.unselectedTextStyle = defaultUnselectedTextStyle,
-    this.selectedColor,
-    this.unselectedColor,
-    this.selectedBorderColor,
-    this.unselectedBorderColor,
-    this.borderRadius,
-    this.selectedShadow = defaultShadow,
-    this.unselectedShadow = defaultShadow,
-    this.buttonHeight,
-    this.buttonWidth,
-    this.mainGroupAlignment = MainGroupAlignment.center,
-    this.crossGroupAlignment = CrossGroupAlignment.center,
-    this.groupRunAlignment = GroupRunAlignment.center,
-    this.textAlign = TextAlign.left,
-    this.textPadding = EdgeInsets.zero,
-    this.alignment,
-    this.elevation,
+    this.onDisablePressed,
+////////////////
+    @Deprecated('Use GroupButtonOptions groupingType field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.groupingType = GroupingType.wrap,
+    @Deprecated('Use GroupButtonOptions direction field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.direction,
+    @Deprecated('Use GroupButtonOptions spacing field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.spacing = 10,
+    @Deprecated('Use GroupButtonOptions runSpacing field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.runSpacing = 0,
+    @Deprecated('Use GroupButtonOptions selectedTextStyle field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.selectedTextStyle = defaultSelectedTextStyle,
+    @Deprecated('Use GroupButtonOptions unselectedTextStyle field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.unselectedTextStyle = defaultUnselectedTextStyle,
+    @Deprecated('Use GroupButtonOptions selectedColor field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.selectedColor,
+    @Deprecated('Use GroupButtonOptions unselectedColor field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.unselectedColor,
+    @Deprecated('Use GroupButtonOptions selectedBorderColor field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.selectedBorderColor,
+    @Deprecated('Use GroupButtonOptions unselectedBorderColor field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.unselectedBorderColor,
+    @Deprecated('Use GroupButtonOptions borderRadius field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.borderRadius,
+    @Deprecated('Use GroupButtonOptions selectedShadow field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.selectedShadow = defaultShadow,
+    @Deprecated('Use GroupButtonOptions unselectedShadow field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.unselectedShadow = defaultShadow,
+    @Deprecated('Use GroupButtonOptions buttonHeight field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.buttonHeight,
+    @Deprecated('Use GroupButtonOptions buttonWidth field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.buttonWidth,
+    @Deprecated('Use GroupButtonOptions mainGroupAlignment field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.mainGroupAlignment = MainGroupAlignment.center,
+    @Deprecated('Use GroupButtonOptions crossGroupAlignment field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.crossGroupAlignment = CrossGroupAlignment.center,
+    @Deprecated('Use GroupButtonOptions groupRunAlignment field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.groupRunAlignment = GroupRunAlignment.center,
+    @Deprecated('Use GroupButtonOptions textAlign field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.textAlign = TextAlign.left,
+    @Deprecated('Use GroupButtonOptions textPadding field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.textPadding = EdgeInsets.zero,
+    @Deprecated('Use GroupButtonOptions alignment field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.alignment,
+    @Deprecated('Use GroupButtonOptions elevation field '
+        'This feature was deprecated after version 4.3.0 ')
+        this.elevation,
     @Deprecated(
       'Use GroupButtonController selectedIndex field '
       'This feature was deprecated after v4.2.0 '
