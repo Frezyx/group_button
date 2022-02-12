@@ -1,3 +1,6 @@
+## 4.4.0
+ - **BREAKING**: remove GroupButton.checkbox() and GroupButton.radio() constructors from 4.0.0 updates
+
 ## 4.2.1
  - **FIX**: deprecated fields
 
