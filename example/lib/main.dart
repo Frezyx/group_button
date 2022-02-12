@@ -36,8 +36,9 @@ class CommonExample extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: GroupButton.checkbox(
+          child: GroupButton(
             controller: controller,
+            isRadio: false,
             buttons: List.generate(25, (i) => '${i + 1}'),
             onSelected: (i, selected) => debugPrint('Button #$i $selected'),
           ),
