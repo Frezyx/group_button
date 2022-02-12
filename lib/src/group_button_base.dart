@@ -66,6 +66,8 @@ class GroupButton extends StatelessWidget {
   /// Selection callback [Function(int index) onSelected]
   /// calling only when button is seletced
   factory GroupButton.radio({
+    GroupButtonController? controller,
+    GroupButtonOptions? options,
     required List<String> buttons,
     required Function(int index) onSelected,
     Function(int index)? onDisablePressed,
@@ -103,10 +105,10 @@ class GroupButton extends StatelessWidget {
     CrossGroupAlignment crossGroupAlignment = CrossGroupAlignment.center,
     GroupRunAlignment groupRunAlignment = GroupRunAlignment.center,
     GroupingType groupingType = GroupingType.wrap,
-    GroupButtonController? controller,
   }) =>
       GroupButton(
         buttons: buttons,
+        options: options,
         disabledButtons: disabledButtons,
         selectedButton: selectedButton,
         onSelected: (index, _) => onSelected(index),
@@ -142,6 +144,8 @@ class GroupButton extends StatelessWidget {
   /// calling when button
   /// is seletced or unselected with [bool selected] field
   factory GroupButton.checkbox({
+    GroupButtonController? controller,
+    GroupButtonOptions? options,
     required List<String> buttons,
     required Function(int index, bool selected) onSelected,
     Function(int index)? onDisablePressed,
@@ -179,7 +183,6 @@ class GroupButton extends StatelessWidget {
     CrossGroupAlignment crossGroupAlignment = CrossGroupAlignment.center,
     GroupRunAlignment groupRunAlignment = GroupRunAlignment.center,
     GroupingType groupingType = GroupingType.wrap,
-    GroupButtonController? controller,
   }) =>
       GroupButton(
         isRadio: false,
@@ -212,18 +215,6 @@ class GroupButton extends StatelessWidget {
         elevation: elevation,
         controller: controller,
       );
-
-  /// [EdgeInsets] The inner padding of buttons [GroupButton]
-  final EdgeInsets textPadding;
-
-  /// [TextAlign] The buttons text alignment [GroupButton]
-  final TextAlign textAlign;
-
-  /// [Alignment] Text position inside the buttons in case [buttonWidth] or [buttonHeight] defined.
-  final AlignmentGeometry? alignment;
-
-  /// [double] The buttons' elevation.
-  final double? elevation;
 
   /// [String] list that will be displayed on buttons in the [GroupButton]
   final List<String> buttons;
@@ -270,60 +261,160 @@ class GroupButton extends StatelessWidget {
   /// if the [isRadio] = false, you can select several at once
   final bool isRadio;
 
+  /// [EdgeInsets] The inner padding of buttons [GroupButton]
+  @Deprecated(
+    'Use GroupButtonOptions textPadding field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
+  final EdgeInsets textPadding;
+
+  /// [TextAlign] The buttons text alignment [GroupButton]
+  @Deprecated(
+    'Use GroupButtonOptions textAlign field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
+  final TextAlign textAlign;
+
+  /// [Alignment] Text position inside the buttons in case [buttonWidth] or [buttonHeight] defined.
+  @Deprecated(
+    'Use GroupButtonOptions alignment field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
+  final AlignmentGeometry? alignment;
+
+  /// [double] The buttons' elevation.
+  @Deprecated(
+    'Use GroupButtonOptions elevation field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
+  final double? elevation;
+
   /// The direction of arrangement of the buttons in [GroupButton]
+  @Deprecated(
+    'Use GroupButtonOptions direction field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final Axis? direction;
 
   /// The spacing between buttons inside [GroupButton]
+  @Deprecated(
+    'Use GroupButtonOptions spacing field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final double spacing;
 
   /// When [groupingType] is [GroupingType.wrap]
   /// this field sets Wrap [runSpacing]
+  @Deprecated(
+    'Use GroupButtonOptions runSpacing field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final double runSpacing;
 
   /// [TextStyle] of text of selected button(s)
+  @Deprecated(
+    'Use GroupButtonOptions selectedTextStyle field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final TextStyle? selectedTextStyle;
 
   /// [TextStyle] of text of unselected buttons
+  @Deprecated(
+    'Use GroupButtonOptions unselectedTextStyle field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final TextStyle? unselectedTextStyle;
 
   /// background [Color] of selected button(s)
+  @Deprecated(
+    'Use GroupButtonOptions selectedColor field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final Color? selectedColor;
 
   /// background [Color] of  unselected buttons
+  @Deprecated(
+    'Use GroupButtonOptions unselectedColor field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final Color? unselectedColor;
 
   /// border [Color] of selected button(s)
+  @Deprecated(
+    'Use GroupButtonOptions selectedBorderColor field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final Color? selectedBorderColor;
 
   /// border [Color] of  unselected buttons
+  @Deprecated(
+    'Use GroupButtonOptions unselectedBorderColor field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final Color? unselectedBorderColor;
 
   /// [BorderRadius] of  buttons
   /// How much the button will be rounded
+  @Deprecated(
+    'Use GroupButtonOptions borderRadius field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final BorderRadius? borderRadius;
 
   /// list of selected button(s) [BoxShadow]
+  @Deprecated(
+    'Use GroupButtonOptions selectedShadow field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final List<BoxShadow> selectedShadow;
 
   /// list of unselected buttons [BoxShadow]
+  @Deprecated(
+    'Use GroupButtonOptions unselectedShadow field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final List<BoxShadow> unselectedShadow;
 
   /// Height of Group button
+  @Deprecated(
+    'Use GroupButtonOptions buttonHeight field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final double? buttonHeight;
 
   /// Width of group button
+  @Deprecated(
+    'Use GroupButtonOptions buttonWidth field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final double? buttonWidth;
 
   /// How the buttons should be placed in the main axis in a layout
+  @Deprecated(
+    'Use GroupButtonOptions mainGroupAlignment field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final MainGroupAlignment mainGroupAlignment;
 
   /// How the buttons should be placed along the cross axis in a layout
+  @Deprecated(
+    'Use GroupButtonOptions crossGroupAlignment field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final CrossGroupAlignment crossGroupAlignment;
 
   /// How the button runs themselves should be placed along the cross axis in a layout
+  @Deprecated(
+    'Use GroupButtonOptions groupRunAlignment field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final GroupRunAlignment groupRunAlignment;
 
   /// The field is responsible for how the buttons will be grouped
+  @Deprecated(
+    'Use GroupButtonOptions groupingType field '
+    'This feature was deprecated after version 5.0.0 ',
+  )
   final GroupingType groupingType;
 
   /// Controller to making widget logic
