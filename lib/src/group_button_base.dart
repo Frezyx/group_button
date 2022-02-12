@@ -24,6 +24,7 @@ class GroupButton extends StatelessWidget {
     )
         this.selectedButtons,
     this.isRadio = true,
+    this.isCanBeDeselect = false,
     this.groupingType = GroupingType.wrap,
     this.direction,
     this.spacing = 10,
@@ -84,6 +85,7 @@ class GroupButton extends StatelessWidget {
       'Field will be removed after version 5.0.0 of package',
     )
         int? selectedButton,
+    bool? isCanBeDeselect = false,
     Axis? direction,
     double spacing = 10,
     double runSpacing = 0,
@@ -110,6 +112,7 @@ class GroupButton extends StatelessWidget {
         selectedButton: selectedButton,
         onSelected: (index, _) => onSelected(index),
         onDisablePressed: onDisablePressed,
+        isCanBeDeselect: isCanBeDeselect,
         direction: direction,
         spacing: spacing,
         runSpacing: runSpacing,
@@ -263,11 +266,21 @@ class GroupButton extends StatelessWidget {
   /// Return int [index] of selected button
   final Function(int index)? onDisablePressed;
 
-  /// bool variable for switching between modes [ChackBox] and [Radio]
+  /// bool variable for switching between modes [CheckBox] and [Radio]
   ///
   /// if the [isRadio] = true, only one button can be selected
   /// if the [isRadio] = false, you can select several at once
   final bool isRadio;
+
+  /// bool variable for enable radio button to be deselected
+  ///
+  /// * if the [isRadio] = true :
+  /// - if the [isCanBeDeselect] = true , the selected radio button can be deselected
+  /// - if the [isCanBeDeselect] = false , the selected radio button can't be deselected
+  ///
+  /// * if the [isRadio] = false:
+  /// - [isCanBeDeselect] have no effect
+  final bool? isCanBeDeselect;
 
   /// The direction of arrangement of the buttons in [GroupButton]
   final Axis? direction;
@@ -337,6 +350,7 @@ class GroupButton extends StatelessWidget {
       onSelected: onSelected,
       onDisablePressed: onDisablePressed,
       isRadio: isRadio,
+      isCanBeDeselect : isCanBeDeselect,
       direction: direction,
       spacing: spacing,
       runSpacing: runSpacing,

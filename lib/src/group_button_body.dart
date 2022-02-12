@@ -16,6 +16,7 @@ class GroupButtonBody extends StatefulWidget {
     this.selectedButtons,
     this.selectedButton,
     this.isRadio = false,
+    this.isCanBeDeselect = false,
     this.direction,
     this.spacing = 0.0,
     this.runSpacing = 0.0,
@@ -44,6 +45,7 @@ class GroupButtonBody extends StatefulWidget {
   final Function(int, bool) onSelected;
   final Function(int)? onDisablePressed;
   final bool isRadio;
+  final bool? isCanBeDeselect;
   final Axis? direction;
   final double spacing;
   final double runSpacing;
@@ -136,7 +138,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
 
   bool _getSelectedCond(int i) {
     return widget.isRadio
-        ? _controller.selectedIndex == i
+        ? (_controller.selectedIndex ?? i + 1) == i
         : _controller.selectedIndexes.contains(i);
   }
 
@@ -195,7 +197,11 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
 
   void _selectButton(int i) {
     if (widget.isRadio) {
-      _controller.selectIndex(i);
+      if (widget.isCanBeDeselect! && _controller.selectedIndex == i) {
+        _controller.unselectIndex(i);
+      } else {
+        _controller.selectIndex(i);
+      }
     } else {
       _controller.toggleIndexes([i]);
     }
