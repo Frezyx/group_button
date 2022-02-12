@@ -70,7 +70,10 @@ class HomePageState extends State<HomePage>
                       ),
                       const SizedBox(height: 20),
                       GroupButton(
-                        spacing: 15,
+                        options: GroupButtonOptions(
+                          spacing: 15,
+                          selectedColor: Colors.blue,
+                        ),
                         isRadio: false,
                         controller: GroupButtonController(
                           selectedIndexes: q.selectedIndexes,
@@ -83,7 +86,6 @@ class HomePageState extends State<HomePage>
                         },
                         onDisablePressed: (i) =>
                             debugPrint('Disable Button #$i pressed'),
-                        selectedColor: Colors.blue,
                         buttons: q.answerTitles,
                       ),
                     ],

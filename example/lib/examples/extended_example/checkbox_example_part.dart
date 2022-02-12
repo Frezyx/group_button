@@ -9,15 +9,17 @@ Widget _buildCheckboxExample(GroupingType groupingType, {Axis direction}) {
         child: GroupButton(
           isRadio: false,
           controller: GroupButtonController(selectedIndexes: const [2, 3]),
-          groupingType: groupingType,
-          direction: direction,
-          selectedShadow: const [],
-          unselectedShadow: const [],
-          unselectedBorderColor: Colors.green,
-          unselectedTextStyle: const TextStyle(
-            color: Colors.green,
+          options: GroupButtonOptions(
+            groupingType: groupingType,
+            direction: direction,
+            selectedShadow: const [],
+            unselectedShadow: const [],
+            unselectedBorderColor: Colors.green,
+            unselectedTextStyle: const TextStyle(
+              color: Colors.green,
+            ),
+            borderRadius: BorderRadius.circular(30),
           ),
-          borderRadius: BorderRadius.circular(30),
           onSelected: (index, isSelected) => debugPrint(
             '$index button is ${isSelected ? 'selected' : 'unselected'}',
           ),

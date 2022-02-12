@@ -47,7 +47,7 @@ class _ExampleState extends State<_Example> {
         shadowColor: Colors.grey[100].withOpacity(0.1),
         backgroundColor: Colors.white,
         title: Text(
-          'GroupButton 4.1.0',
+          'GroupButton 4.4.0',
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
@@ -60,10 +60,12 @@ class _ExampleState extends State<_Example> {
               children: [
                 const SizedBox(height: 10),
                 GroupButton(
-                  spacing: 7.5,
                   controller: GroupButtonController(),
-                  mainGroupAlignment: MainGroupAlignment.start,
-                  groupingType: GroupingType.row,
+                  options: GroupButtonOptions(
+                    spacing: 7.5,
+                    mainGroupAlignment: MainGroupAlignment.start,
+                    groupingType: GroupingType.row,
+                  ),
                   buttons: const ['Wrap', 'Column', 'Row'],
                   onSelected: (i, selected) {
                     _extendedExampleController.selectedGroupingType = i;
@@ -72,10 +74,12 @@ class _ExampleState extends State<_Example> {
                       debugPrint('Disable Button #$i pressed'),
                 ),
                 GroupButton(
-                  spacing: 7.5,
                   controller: GroupButtonController(),
-                  mainGroupAlignment: MainGroupAlignment.start,
-                  groupingType: GroupingType.row,
+                  options: GroupButtonOptions(
+                    mainGroupAlignment: MainGroupAlignment.start,
+                    groupingType: GroupingType.row,
+                    spacing: 7.5,
+                  ),
                   buttons: const ['Radio', 'CheckBox', 'Custom'],
                   onSelected: (i, selected) {
                     _pageController.animateToPage(

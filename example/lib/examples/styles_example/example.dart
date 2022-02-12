@@ -14,7 +14,7 @@ class StylesExample extends StatelessWidget {
           shadowColor: Colors.grey[100].withOpacity(0.1),
           backgroundColor: Colors.white,
           title: Text(
-            'GroupButton 4.1.0',
+            'GroupButton 4.4.0',
             style: Theme.of(context).textTheme.headline6,
           ),
         ),
@@ -38,13 +38,15 @@ class StylesExample extends StatelessWidget {
                       '18:00',
                     ],
                     controller: GroupButtonController(selectedIndex: 4),
-                    selectedShadow: const [],
-                    unselectedShadow: const [],
-                    unselectedColor: Colors.grey[300],
-                    unselectedTextStyle: TextStyle(
-                      color: Colors.grey[600],
+                    options: GroupButtonOptions(
+                      selectedShadow: const [],
+                      unselectedShadow: const [],
+                      unselectedColor: Colors.grey[300],
+                      unselectedTextStyle: TextStyle(
+                        color: Colors.grey[600],
+                      ),
+                      borderRadius: BorderRadius.circular(30),
                     ),
-                    borderRadius: BorderRadius.circular(30),
                     onSelected: (i, selected) {},
                     onDisablePressed: (i) {},
                   ),
@@ -61,17 +63,19 @@ class StylesExample extends StatelessWidget {
                       '17:00',
                       '18:00',
                     ],
-                    selectedShadow: const [],
-                    unselectedShadow: const [],
+                    options: GroupButtonOptions(
+                      selectedShadow: const [],
+                      unselectedShadow: const [],
+                      selectedColor: Colors.black,
+                      selectedTextStyle: const TextStyle(
+                        fontWeight: FontWeight.w900,
+                      ),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
                     isRadio: false,
                     controller: GroupButtonController(
                       selectedIndexes: const [1, 3, 4],
                     ),
-                    selectedColor: Colors.black,
-                    selectedTextStyle: const TextStyle(
-                      fontWeight: FontWeight.w900,
-                    ),
-                    borderRadius: BorderRadius.circular(4),
                     onSelected: (i, selected) {},
                     onDisablePressed: (i) {},
                   ),
@@ -79,7 +83,6 @@ class StylesExample extends StatelessWidget {
                 ScrollIjector(
                   groupingType: GroupingType.wrap,
                   child: GroupButton(
-                    spacing: 5,
                     buttons: const [
                       '12:00',
                       '13:00',
@@ -89,23 +92,26 @@ class StylesExample extends StatelessWidget {
                       '17:00',
                       '18:00',
                     ],
+                    options: GroupButtonOptions(
+                      selectedShadow: const [],
+                      unselectedShadow: const [],
+                      selectedTextStyle: TextStyle(
+                        fontSize: 20,
+                        color: Colors.pink[900],
+                      ),
+                      selectedColor: Colors.pink[100],
+                      unselectedColor: Colors.amber[100],
+                      unselectedTextStyle: TextStyle(
+                        fontSize: 20,
+                        color: Colors.amber[900],
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                      spacing: 5,
+                    ),
                     isRadio: false,
                     controller: GroupButtonController(
                       selectedIndexes: const [0, 4, 6],
                     ),
-                    selectedShadow: const [],
-                    unselectedShadow: const [],
-                    selectedTextStyle: TextStyle(
-                      fontSize: 20,
-                      color: Colors.pink[900],
-                    ),
-                    selectedColor: Colors.pink[100],
-                    unselectedColor: Colors.amber[100],
-                    unselectedTextStyle: TextStyle(
-                      fontSize: 20,
-                      color: Colors.amber[900],
-                    ),
-                    borderRadius: BorderRadius.circular(8),
                     onSelected: (i, selected) {},
                     onDisablePressed: (i) {},
                   ),
@@ -124,28 +130,30 @@ class StylesExample extends StatelessWidget {
                         '17:00',
                         '18:00',
                       ],
-                      selectedShadow: [
-                        BoxShadow(
-                          color: Colors.pink.withOpacity(0.2),
-                          blurRadius: 20,
-                        )
-                      ],
-                      unselectedShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.1),
-                          blurRadius: 20,
-                        )
-                      ],
+                      options: GroupButtonOptions(
+                        unselectedBorderColor: Colors.grey[400],
+                        selectedBorderColor: Colors.pink,
+                        unselectedTextStyle: const TextStyle(
+                          color: Colors.grey,
+                        ),
+                        selectedColor: Colors.pink,
+                        selectedShadow: [
+                          BoxShadow(
+                            color: Colors.pink.withOpacity(0.2),
+                            blurRadius: 20,
+                          )
+                        ],
+                        unselectedShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.1),
+                            blurRadius: 20,
+                          )
+                        ],
+                      ),
                       isRadio: false,
                       controller: GroupButtonController(
                         selectedIndexes: const [1, 3, 4],
                       ),
-                      unselectedBorderColor: Colors.grey[400],
-                      selectedBorderColor: Colors.pink,
-                      unselectedTextStyle: const TextStyle(
-                        color: Colors.grey,
-                      ),
-                      selectedColor: Colors.pink,
                       onSelected: (i, selected) {},
                       onDisablePressed: (i) {},
                     ),
