@@ -314,7 +314,7 @@ class GroupButton extends StatelessWidget {
   final GroupButtonOptions? options;
 
   final Widget Function(
-    String button,
+    bool selected,
     int index,
     BuildContext context,
   )? buttonBuilder;
@@ -330,6 +330,7 @@ class GroupButton extends StatelessWidget {
       onSelected: onSelected,
       onDisablePressed: onDisablePressed,
       isRadio: isRadio,
+      buttonBuilder: buttonBuilder,
 
       /// Options
       direction: options?.direction ?? direction,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
-import 'package:group_button/src/group_custom_button.dart';
+import 'package:group_button/src/group_button_item.dart';
 
 class GroupButtonBody extends StatefulWidget {
   const GroupButtonBody({
@@ -156,13 +156,23 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
       late Widget button;
       if (builder != null) {
         button = GestureDetector(
-          onTap: () => _onTap(i),
+          onTap: _controller.disabledIndexes.contains(i)
+              ? () => widget.onDisablePressed?.call(i)
+              : () {
+                  _selectButton(i);
+                  widget.onSelected(i, _isSelected(i));
+                },
           child: builder(_isSelected(i), i, context),
         );
       } else {
         button = GroupButtonItem(
           text: buttons[i],
-          onPressed: () => _onTap(i),
+          onPressed: _controller.disabledIndexes.contains(i)
+              ? () => widget.onDisablePressed?.call(i)
+              : () {
+                  _selectButton(i);
+                  widget.onSelected(i, _isSelected(i));
+                },
           isSelected: _isSelected(i),
           isDisable: _controller.disabledIndexes.contains(i),
           selectedTextStyle: widget.selectedTextStyle,
@@ -202,15 +212,6 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
       rebuildedButtons.add(button);
     }
     return rebuildedButtons;
-  }
-
-  _onTap(int i) {
-    _controller.disabledIndexes.contains(i)
-        ? () => widget.onDisablePressed?.call(i)
-        : () {
-            _selectButton(i);
-            widget.onSelected(i, _isSelected(i));
-          };
   }
 
   void _selectButton(int i) {
