@@ -14,7 +14,7 @@ class GroupButton extends StatelessWidget {
     this.options,
     this.isRadio = true,
     this.onDisablePressed,
-    this.isCanBeDeselect = false,
+    this.enableDeselect = false,
     @Deprecated('Use GroupButtonOptions groupingType field '
         'This feature was deprecated after version 4.3.0 ')
         this.groupingType = GroupingType.wrap,
@@ -154,12 +154,12 @@ class GroupButton extends StatelessWidget {
   /// bool variable for enable radio button to be deselected
   ///
   /// * if the [isRadio] = true :
-  /// - if the [isCanBeDeselect] = true , the selected radio button can be deselected
-  /// - if the [isCanBeDeselect] = false , the selected radio button can't be deselected
+  /// - if the [enableDeselect] = true , the selected radio button can be deselected
+  /// - if the [enableDeselect] = false , the selected radio button can't be deselected
   ///
   /// * if the [isRadio] = false:
-  /// - [isCanBeDeselect] have no effect
-  final bool? isCanBeDeselect;
+  /// - [enableDeselect] have no effect
+  final bool? enableDeselect;
 
   /// [EdgeInsets] The inner padding of buttons [GroupButton]
   @Deprecated(
@@ -334,7 +334,7 @@ class GroupButton extends StatelessWidget {
       onSelected: onSelected,
       onDisablePressed: onDisablePressed,
       isRadio: isRadio,
-      isCanBeDeselect: isCanBeDeselect,
+      enableDeselect: enableDeselect,
 
       /// Options
       direction: options?.direction ?? direction,
