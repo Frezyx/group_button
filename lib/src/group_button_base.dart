@@ -3,14 +3,45 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 import 'package:group_button/src/group_button_body.dart';
-import 'package:group_button/src/utils/utils.dart';
+import 'package:group_button/src/options/defaults.dart';
 
 class GroupButton extends StatelessWidget {
   const GroupButton({
     Key? key,
     required this.buttons,
     required this.onSelected,
+    this.controller,
+    this.options,
     this.onDisablePressed,
+    this.isRadio = true,
+    this.groupingType = GroupingType.wrap,
+    this.direction,
+    this.spacing = 10,
+    this.runSpacing = 0,
+    this.selectedTextStyle = defaultSelectedTextStyle,
+    this.unselectedTextStyle = defaultUnselectedTextStyle,
+    this.selectedColor,
+    this.unselectedColor,
+    this.selectedBorderColor,
+    this.unselectedBorderColor,
+    this.borderRadius,
+    this.selectedShadow = defaultShadow,
+    this.unselectedShadow = defaultShadow,
+    this.buttonHeight,
+    this.buttonWidth,
+    this.mainGroupAlignment = MainGroupAlignment.center,
+    this.crossGroupAlignment = CrossGroupAlignment.center,
+    this.groupRunAlignment = GroupRunAlignment.center,
+    this.textAlign = TextAlign.left,
+    this.textPadding = EdgeInsets.zero,
+    this.alignment,
+    this.elevation,
+    @Deprecated(
+      'Use GroupButtonController selectedIndex field '
+      'This feature was deprecated after v4.2.0 '
+      'Field will be removed after version 5.0.0 of package',
+    )
+        this.selectedButton,
     @Deprecated(
       'Use GroupButtonController disabledIndexes field '
       'This feature was deprecated after v4.2.0 '
@@ -23,36 +54,6 @@ class GroupButton extends StatelessWidget {
       'Field will be removed after version 5.0.0 of package',
     )
         this.selectedButtons,
-    this.isRadio = true,
-    this.groupingType = GroupingType.wrap,
-    this.direction,
-    this.spacing = 10,
-    this.runSpacing = 0,
-    this.selectedTextStyle = _kDefaultSelectedTextStyle,
-    this.unselectedTextStyle = _kDefaultUnselectedTextStyle,
-    this.selectedColor,
-    this.unselectedColor,
-    this.selectedBorderColor,
-    this.unselectedBorderColor,
-    this.borderRadius,
-    this.selectedShadow = _kDefaultShadow,
-    this.unselectedShadow = _kDefaultShadow,
-    this.buttonHeight,
-    this.buttonWidth,
-    @Deprecated(
-      'Use GroupButtonController selectedIndex field '
-      'This feature was deprecated after v4.2.0 '
-      'Field will be removed after version 5.0.0 of package',
-    )
-        this.selectedButton,
-    this.mainGroupAlignment = MainGroupAlignment.center,
-    this.crossGroupAlignment = CrossGroupAlignment.center,
-    this.groupRunAlignment = GroupRunAlignment.center,
-    this.textAlign = TextAlign.left,
-    this.textPadding = EdgeInsets.zero,
-    this.alignment,
-    this.elevation,
-    this.controller,
   })  : assert(
           (isRadio && selectedButtons == null) ||
               (!isRadio && selectedButton == null),
@@ -87,15 +88,15 @@ class GroupButton extends StatelessWidget {
     Axis? direction,
     double spacing = 10,
     double runSpacing = 0,
-    TextStyle? selectedTextStyle = _kDefaultSelectedTextStyle,
-    TextStyle? unselectedTextStyle = _kDefaultUnselectedTextStyle,
+    TextStyle? selectedTextStyle = defaultSelectedTextStyle,
+    TextStyle? unselectedTextStyle = defaultUnselectedTextStyle,
     Color? selectedColor,
     Color? unselectedColor,
     Color? selectedBorderColor,
     Color? unselectedBorderColor,
     BorderRadius? borderRadius,
-    List<BoxShadow> selectedShadow = _kDefaultShadow,
-    List<BoxShadow> unselectedShadow = _kDefaultShadow,
+    List<BoxShadow> selectedShadow = defaultShadow,
+    List<BoxShadow> unselectedShadow = defaultShadow,
     double? buttonWidth,
     double? buttonHeight,
     MainGroupAlignment mainGroupAlignment = MainGroupAlignment.center,
@@ -163,15 +164,15 @@ class GroupButton extends StatelessWidget {
     Axis? direction,
     double spacing = 10,
     double runSpacing = 0,
-    TextStyle? selectedTextStyle = _kDefaultSelectedTextStyle,
-    TextStyle? unselectedTextStyle = _kDefaultUnselectedTextStyle,
+    TextStyle? selectedTextStyle = defaultSelectedTextStyle,
+    TextStyle? unselectedTextStyle = defaultUnselectedTextStyle,
     Color? selectedColor,
     Color? unselectedColor,
     Color? selectedBorderColor,
     Color? unselectedBorderColor,
     BorderRadius? borderRadius,
-    List<BoxShadow> selectedShadow = _kDefaultShadow,
-    List<BoxShadow> unselectedShadow = _kDefaultShadow,
+    List<BoxShadow> selectedShadow = defaultShadow,
+    List<BoxShadow> unselectedShadow = defaultShadow,
     double? buttonWidth,
     double? buttonHeight,
     MainGroupAlignment mainGroupAlignment = MainGroupAlignment.center,
@@ -325,11 +326,16 @@ class GroupButton extends StatelessWidget {
   /// The field is responsible for how the buttons will be grouped
   final GroupingType groupingType;
 
+  /// Controller to making widget logic
   final GroupButtonController? controller;
+
+  /// UI settings of package
+  final GroupButtonOptions? options;
 
   @override
   Widget build(BuildContext context) {
     return GroupButtonBody(
+      controller: controller,
       buttons: buttons,
       disabledButtons: disabledButtons,
       selectedButtons: selectedButtons,
@@ -337,46 +343,29 @@ class GroupButton extends StatelessWidget {
       onSelected: onSelected,
       onDisablePressed: onDisablePressed,
       isRadio: isRadio,
-      direction: direction,
-      spacing: spacing,
-      runSpacing: runSpacing,
-      selectedTextStyle: selectedTextStyle,
-      unselectedTextStyle: unselectedTextStyle,
-      selectedColor: selectedColor,
-      unselectedColor: unselectedColor,
-      selectedBorderColor: selectedBorderColor,
-      unselectedBorderColor: unselectedBorderColor,
-      borderRadius: borderRadius,
-      selectedShadow: selectedShadow,
-      unselectedShadow: unselectedShadow,
-      buttonWidth: buttonWidth,
-      buttonHeigth: buttonHeight,
-      mainGroupAlignment: mainGroupAlignment,
-      crossGroupAlignment: crossGroupAlignment,
-      groupRunAlignment: groupRunAlignment,
-      groupingType: groupingType,
-      textAlign: textAlign,
-      textPadding: textPadding,
-      alignment: alignment,
-      elevation: elevation,
-      controller: controller,
+      direction: options?.direction ?? direction,
+      spacing: options?.spacing ?? spacing,
+      runSpacing: options?.runSpacing ?? runSpacing,
+      selectedTextStyle: options?.selectedTextStyle ?? selectedTextStyle,
+      unselectedTextStyle: options?.unselectedTextStyle ?? unselectedTextStyle,
+      selectedColor: options?.selectedColor ?? selectedColor,
+      unselectedColor: options?.unselectedColor ?? unselectedColor,
+      selectedBorderColor: options?.selectedBorderColor ?? selectedBorderColor,
+      unselectedBorderColor:
+          options?.unselectedBorderColor ?? unselectedBorderColor,
+      borderRadius: options?.borderRadius ?? borderRadius,
+      selectedShadow: options?.selectedShadow ?? selectedShadow,
+      unselectedShadow: options?.unselectedShadow ?? unselectedShadow,
+      buttonWidth: options?.buttonWidth ?? buttonWidth,
+      buttonHeigth: options?.buttonHeight ?? buttonHeight,
+      mainGroupAlignment: options?.mainGroupAlignment ?? mainGroupAlignment,
+      crossGroupAlignment: options?.crossGroupAlignment ?? crossGroupAlignment,
+      groupRunAlignment: options?.groupRunAlignment ?? groupRunAlignment,
+      groupingType: options?.groupingType ?? groupingType,
+      textAlign: options?.textAlign ?? textAlign,
+      textPadding: options?.textPadding ?? textPadding,
+      alignment: options?.alignment ?? alignment,
+      elevation: options?.elevation ?? elevation,
     );
   }
-
-  static const _kDefaultShadow = <BoxShadow>[
-    BoxShadow(
-      color: Color.fromARGB(18, 18, 18, 20),
-      blurRadius: 25.0,
-      spreadRadius: 1.0,
-      offset: Offset(
-        0.0,
-        2.0,
-      ),
-    )
-  ];
-
-  static const _kDefaultSelectedTextStyle =
-      TextStyle(fontSize: 14, color: Colors.white);
-  static const _kDefaultUnselectedTextStyle =
-      TextStyle(fontSize: 14, color: Colors.black);
 }
