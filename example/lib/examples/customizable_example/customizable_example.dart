@@ -26,8 +26,9 @@ class CustomizableExample extends StatelessWidget {
               ),
             ),
             body: Center(
-              child: GroupButton.checkbox(
+              child: GroupButton(
                 controller: controller,
+                isRadio: false,
                 buttons: customizableController.buttons
                     .map((i) => '${i + 1}')
                     .toList(),
