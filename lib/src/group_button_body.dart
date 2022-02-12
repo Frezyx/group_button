@@ -138,7 +138,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
 
   bool _getSelectedCond(int i) {
     return widget.isRadio
-        ? (_controller.selectedIndex ?? i + 1) == i
+        ? _controller.selectedIndex == i
         : _controller.selectedIndexes.contains(i);
   }
 
