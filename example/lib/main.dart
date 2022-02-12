@@ -18,7 +18,7 @@ import 'package:group_button/group_button.dart';
 /// to check package power
 
 void main() {
-  runApp(CommonExample());
+  runApp(CustomizableExample());
 }
 
 class CommonExample extends StatelessWidget {
