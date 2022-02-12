@@ -1,6 +1,34 @@
 ## 4.4.0
  - **BREAKING**: remove GroupButton.checkbox() and GroupButton.radio() constructors from 4.0.0 updates
 
+## 4.3.0
+ - **FEAT**: Implment **GroupButtonOptions** model to pass all styles of widget via one field
+ - **DEPRECATED**: All styles fields in default GroupButton constructor now deprecated. 
+<br>In new version of package send it via **GroupButtonOptions**
+--------------------
+List of fields:
+- groupingType
+- direction
+- spacing
+- runSpacing
+- selectedTextStyle
+- unselectedTextStyle
+- selectedColor
+- unselectedColor
+- selectedBorderColor
+- unselectedBorderColor
+- borderRadius
+- selectedShadow
+- unselectedShadow
+- buttonHeight
+- buttonWidth
+- mainGroupAlignment
+- crossGroupAlignment
+- groupRunAlignment
+- textAlign
+- textPadding
+- alignment
+- elevation
 ## 4.2.1
  - **FIX**: deprecated fields
 
