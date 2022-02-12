@@ -35,6 +35,7 @@ class GroupButtonBody extends StatefulWidget {
     required this.textPadding,
     this.alignment,
     this.elevation,
+    this.buttonBuilder,
   }) : super(key: key);
 
   final List<String> buttons;
@@ -67,6 +68,11 @@ class GroupButtonBody extends StatefulWidget {
   final AlignmentGeometry? alignment;
   final double? elevation;
   final GroupButtonController? controller;
+  final Widget Function(
+    bool selected,
+    int index,
+    BuildContext context,
+  )? buttonBuilder;
 
   @override
   _GroupButtonBodyState createState() => _GroupButtonBodyState();
@@ -106,18 +112,19 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   }
 
   Widget _buildBodyByGroupingType() {
+    final buttons = _generateButtonsList(widget.buttons);
     switch (widget.groupingType) {
       case GroupingType.row:
         return Row(
           mainAxisAlignment: widget.mainGroupAlignment.toAxis(),
           crossAxisAlignment: widget.crossGroupAlignment.toAxis(),
-          children: _buildButtonsList(widget.buttons),
+          children: buttons,
         );
       case GroupingType.column:
         return Column(
           mainAxisAlignment: widget.mainGroupAlignment.toAxis(),
           crossAxisAlignment: widget.crossGroupAlignment.toAxis(),
-          children: _buildButtonsList(widget.buttons),
+          children: buttons,
         );
 
       case GroupingType.wrap:
@@ -129,68 +136,81 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
           crossAxisAlignment: widget.crossGroupAlignment.toWrap(),
           runAlignment: widget.groupRunAlignment.toWrap(),
           alignment: widget.mainGroupAlignment.toWrap(),
-          children: _buildButtonsList(widget.buttons),
+          children: buttons,
         );
     }
   }
 
-  bool _getSelectedCond(int i) {
+  bool _isSelected(int i) {
     return widget.isRadio
         ? _controller.selectedIndex == i
         : _controller.selectedIndexes.contains(i);
   }
 
-  List<Widget> _buildButtonsList(
+  List<Widget> _generateButtonsList(
     List<String> buttons,
   ) {
     final rebuildedButtons = <Widget>[];
     for (var i = 0; i < buttons.length; i++) {
-      Widget rebuildedButton = GroupCustomButton(
-        text: buttons[i],
-        onPressed: _controller.disabledIndexes.contains(i)
-            ? () => widget.onDisablePressed?.call(i)
-            : () {
-                _selectButton(i);
-                widget.onSelected(i, _getSelectedCond(i));
-              },
-        isSelected: _getSelectedCond(i),
-        isDisable: _controller.disabledIndexes.contains(i),
-        selectedTextStyle: widget.selectedTextStyle,
-        unselectedTextStyle: widget.unselectedTextStyle,
-        selectedColor: widget.selectedColor,
-        unselectedColor: widget.unselectedColor,
-        selectedBorderColor: widget.selectedBorderColor,
-        unselectedBorderColor: widget.unselectedBorderColor,
-        borderRadius: widget.borderRadius,
-        selectedShadow: widget.selectedShadow,
-        unselectedShadow: widget.unselectedShadow,
-        height: widget.buttonHeigth,
-        width: widget.buttonWidth,
-        textAlign: widget.textAlign,
-        textPadding: widget.textPadding,
-        alignment: widget.alignment,
-        elevation: widget.elevation,
-      );
+      final builder = widget.buttonBuilder;
+      late Widget button;
+      if (builder != null) {
+        button = GestureDetector(
+          onTap: () => _onTap(i),
+          child: builder(_isSelected(i), i, context),
+        );
+      } else {
+        button = GroupButtonItem(
+          text: buttons[i],
+          onPressed: () => _onTap(i),
+          isSelected: _isSelected(i),
+          isDisable: _controller.disabledIndexes.contains(i),
+          selectedTextStyle: widget.selectedTextStyle,
+          unselectedTextStyle: widget.unselectedTextStyle,
+          selectedColor: widget.selectedColor,
+          unselectedColor: widget.unselectedColor,
+          selectedBorderColor: widget.selectedBorderColor,
+          unselectedBorderColor: widget.unselectedBorderColor,
+          borderRadius: widget.borderRadius,
+          selectedShadow: widget.selectedShadow,
+          unselectedShadow: widget.unselectedShadow,
+          height: widget.buttonHeigth,
+          width: widget.buttonWidth,
+          textAlign: widget.textAlign,
+          textPadding: widget.textPadding,
+          alignment: widget.alignment,
+          elevation: widget.elevation,
+        );
+      }
 
       /// Padding adding
       /// when groupingType is row or column
-      if (widget.spacing != 0.0) {
+      if (widget.spacing != 0.0 && widget.buttonBuilder == null) {
         if (widget.groupingType == GroupingType.row) {
-          rebuildedButton = Padding(
+          button = Padding(
             padding: EdgeInsets.symmetric(horizontal: widget.spacing),
-            child: rebuildedButton,
+            child: button,
           );
         } else if (widget.groupingType == GroupingType.column) {
-          rebuildedButton = Padding(
+          button = Padding(
             padding: EdgeInsets.symmetric(vertical: widget.spacing),
-            child: rebuildedButton,
+            child: button,
           );
         }
       }
 
-      rebuildedButtons.add(rebuildedButton);
+      rebuildedButtons.add(button);
     }
     return rebuildedButtons;
+  }
+
+  _onTap(int i) {
+    _controller.disabledIndexes.contains(i)
+        ? () => widget.onDisablePressed?.call(i)
+        : () {
+            _selectButton(i);
+            widget.onSelected(i, _isSelected(i));
+          };
   }
 
   void _selectButton(int i) {

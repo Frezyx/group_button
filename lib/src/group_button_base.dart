@@ -14,7 +14,7 @@ class GroupButton extends StatelessWidget {
     this.options,
     this.isRadio = true,
     this.onDisablePressed,
-////////////////
+    this.buttonBuilder,
     @Deprecated('Use GroupButtonOptions groupingType field '
         'This feature was deprecated after version 4.3.0 ')
         this.groupingType = GroupingType.wrap,
@@ -312,6 +312,12 @@ class GroupButton extends StatelessWidget {
 
   /// UI settings of package
   final GroupButtonOptions? options;
+
+  final Widget Function(
+    String button,
+    int index,
+    BuildContext context,
+  )? buttonBuilder;
 
   @override
   Widget build(BuildContext context) {
