@@ -7,7 +7,7 @@ class GroupButtonOptions {
     this.groupingType = GroupingType.wrap,
     this.direction,
     this.spacing = 10,
-    this.runSpacing = 0,
+    this.runSpacing = 10,
     this.selectedTextStyle = defaultSelectedTextStyle,
     this.unselectedTextStyle = defaultUnselectedTextStyle,
     this.selectedColor,

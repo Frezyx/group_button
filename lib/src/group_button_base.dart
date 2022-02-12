@@ -479,6 +479,8 @@ class GroupButton extends StatelessWidget {
       onSelected: onSelected,
       onDisablePressed: onDisablePressed,
       isRadio: isRadio,
+
+      /// Options
       direction: options?.direction ?? direction,
       spacing: options?.spacing ?? spacing,
       runSpacing: options?.runSpacing ?? runSpacing,
