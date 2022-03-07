@@ -10,15 +10,21 @@ class ButtonBuilderExample extends StatefulWidget {
 
 class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
   late GroupButtonController _controller;
-  final _buttons = List.generate(25, (i) => '${i + 1}');
+  final _buttons = [
+    'Michael Jordan',
+    'Magic Johnson',
+    'LeBron James',
+    'Kareem Abdul-Jabbar',
+    'Wilt Chamberlain',
+    'Larry Bird',
+  ];
   final _messangerKey = GlobalKey<ScaffoldMessengerState>();
 
   @override
   void initState() {
     _controller = GroupButtonController(
-      selectedIndex: 20,
-      selectedIndexes: [1, 2, 3, 4, 5],
-      disabledIndexes: [10, 12, 13, 14, 15],
+      selectedIndexes: [2],
+      disabledIndexes: [4],
       onDisabledButtonPressed: (index) =>
           _messangerKey.currentState?.showSnackBar(
         SnackBar(content: Text('Disabled button pressed')),
