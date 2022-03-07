@@ -4,7 +4,7 @@ import 'package:group_button/group_button.dart';
 import 'package:provider/provider.dart';
 
 class GroupButtonProviderExample extends StatelessWidget {
-  GroupButtonProviderExample({Key key}) : super(key: key);
+  GroupButtonProviderExample({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class GroupButtonProviderExample extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   HomePageState createState() => HomePageState();

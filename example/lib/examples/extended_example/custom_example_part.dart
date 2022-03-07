@@ -1,6 +1,6 @@
 part of 'example.dart';
 
-Widget _buildCustomExample(GroupingType groupingType, {Axis direction}) {
+Widget _buildCustomExample(GroupingType groupingType, {Axis? direction}) {
   return ScrollIjector(
     groupingType: groupingType,
     child: Padding(

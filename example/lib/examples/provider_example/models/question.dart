@@ -8,7 +8,7 @@ class Question {
   final List<bool> answers;
   final List<bool> userAnswers;
 
-  void updateAnsver(int index, {bool value}) {
+  void updateAnsver(int index, {required bool value}) {
     userAnswers[index] = value;
   }
 

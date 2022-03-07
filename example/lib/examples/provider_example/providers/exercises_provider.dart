@@ -34,7 +34,7 @@ class ExarcisesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void updateAnswer(int index, {bool value}) {
+  void updateAnswer(int index, {required bool value}) {
     _exercise.updateAnswer(_selectedIndex, index, value: value);
     notifyListeners();
   }

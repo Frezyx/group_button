@@ -5,6 +5,8 @@ import 'package:example/examples/styles_example/example.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
+import 'examples/button_builder_example/example.dart';
+
 /// You can use [GroupButtonExtendedExample]
 /// to check all package [GroupingType]'s in one place
 
@@ -18,11 +20,11 @@ import 'package:group_button/group_button.dart';
 /// to check package power
 
 void main() {
-  runApp(CommonExample());
+  runApp(ButtonBuilderExample());
 }
 
 class CommonExample extends StatelessWidget {
-  CommonExample({Key key}) : super(key: key);
+  CommonExample({Key? key}) : super(key: key);
 
   final controller = GroupButtonController(
     selectedIndex: 20,

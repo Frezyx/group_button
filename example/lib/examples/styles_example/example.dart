@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
 class StylesExample extends StatelessWidget {
-  StylesExample({Key key}) : super(key: key);
+  StylesExample({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class StylesExample extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          shadowColor: Colors.grey[100].withOpacity(0.1),
+          shadowColor: Colors.grey[100]?.withOpacity(0.1),
           backgroundColor: Colors.white,
           title: Text(
             'GroupButton 4.5.0',
