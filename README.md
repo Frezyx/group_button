@@ -27,7 +27,7 @@ Included Radio and CheckBox buttons models with custom groping types 🤤
 | Controller | GroupButtonBuilder | Styles | GroupingTypes |
 | :------------: | :------------: | :------------: | :------------: |
 | ![Image](example/rep_files/new/e1.gif) | ![Image](example/rep_files/new/e2.gif) | ![Image](example/rep_files/new/e3.gif) | ![Image](example/rep_files/new/e4.gif) | 
-
+| <div style="width:200px"></div> | <div style="width:200px"></div> | <div style="width:200px"></div> | <div style="width:200px"></div> |
 
 ## Getting Started
 Follow these steps to use this package
