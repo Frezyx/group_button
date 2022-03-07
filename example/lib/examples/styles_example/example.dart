@@ -14,7 +14,7 @@ class StylesExample extends StatelessWidget {
           shadowColor: Colors.grey[100].withOpacity(0.1),
           backgroundColor: Colors.white,
           title: Text(
-            'GroupButton 4.4.0',
+            'GroupButton 4.5.0',
             style: Theme.of(context).textTheme.headline6,
           ),
         ),

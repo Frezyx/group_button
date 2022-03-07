@@ -15,6 +15,7 @@ class GroupButton extends StatelessWidget {
     this.isRadio = true,
     this.onDisablePressed,
     this.buttonBuilder,
+    this.enableDeselect = false,
     @Deprecated('Use GroupButtonOptions groupingType field '
         'This feature was deprecated after version 4.3.0 ')
         this.groupingType = GroupingType.wrap,
@@ -145,11 +146,21 @@ class GroupButton extends StatelessWidget {
   /// Return int [index] of selected button
   final Function(int index)? onDisablePressed;
 
-  /// bool variable for switching between modes [ChackBox] and [Radio]
+  /// bool variable for switching between modes [CheckBox] and [Radio]
   ///
   /// if the [isRadio] = true, only one button can be selected
   /// if the [isRadio] = false, you can select several at once
   final bool isRadio;
+
+  /// bool variable for enable radio button to be deselected
+  ///
+  /// * if the [isRadio] = true :
+  /// - if the [enableDeselect] = true , the selected radio button can be deselected
+  /// - if the [enableDeselect] = false , the selected radio button can't be deselected
+  ///
+  /// * if the [isRadio] = false:
+  /// - [enableDeselect] have no effect
+  final bool? enableDeselect;
 
   /// [EdgeInsets] The inner padding of buttons [GroupButton]
   @Deprecated(
@@ -331,6 +342,7 @@ class GroupButton extends StatelessWidget {
       onDisablePressed: onDisablePressed,
       isRadio: isRadio,
       buttonBuilder: buttonBuilder,
+      enableDeselect: enableDeselect,
 
       /// Options
       direction: options?.direction ?? direction,

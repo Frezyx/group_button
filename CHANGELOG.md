@@ -1,3 +1,7 @@
+## 4.5.0
+ - **FEAT**: [enableDeselect](https://github.com/Frezyx/group_button/blob/master/lib/src/group_button_base.dart#:~:text=final%20bool%3F-,enableDeselect,-%3B) 
+ field for enable radio button deselect
+
 ## 4.4.0
  - **BREAKING**: remove GroupButton.checkbox() and GroupButton.radio() constructors from 4.0.0 updates
 
