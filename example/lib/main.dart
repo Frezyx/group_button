@@ -1,6 +1,5 @@
 import 'package:example/examples/customizable_example/customizable_example.dart';
 import 'package:example/examples/extended_example/example.dart';
-import 'package:example/examples/provider_example/ui/app.dart';
 import 'package:example/examples/styles_example/example.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
@@ -13,9 +12,6 @@ import 'examples/button_builder_example/example.dart';
 /// /// You can use [StylesExample]
 /// to check all package style's configuration
 
-/// You can use [GroupButtonProviderExample]
-/// using this package with state - managment package like provider
-
 /// You can use [CustomizableExample]
 /// to check package power
 
@@ -26,7 +22,7 @@ import 'examples/button_builder_example/example.dart';
 /// common flutter [Checkbox] and [Radio] buttons
 
 void main() {
-  runApp(GroupButtonProviderExample());
+  runApp(CommonExample());
 }
 
 class CommonExample extends StatelessWidget {
@@ -34,7 +30,7 @@ class CommonExample extends StatelessWidget {
 
   final controller = GroupButtonController(
     selectedIndex: 20,
-    selectedIndexes: [1, 2, 3, 4, 5],
+    selectedIndexes: [0, 1, 2, 3, 4],
     disabledIndexes: [10, 12, 13, 14, 15],
   );
 

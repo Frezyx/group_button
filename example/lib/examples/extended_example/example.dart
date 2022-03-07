@@ -5,7 +5,6 @@ import 'package:group_button/group_button.dart';
 
 part 'radio_example_part.dart';
 part 'checkbox_example_part.dart';
-part 'custom_example_part.dart';
 
 class GroupButtonExtendedExample extends StatelessWidget {
   GroupButtonExtendedExample({Key? key}) : super(key: key);
@@ -60,7 +59,7 @@ class _ExampleState extends State<_Example> {
               children: [
                 const SizedBox(height: 10),
                 GroupButton(
-                  controller: GroupButtonController(),
+                  controller: GroupButtonController(selectedIndex: 0),
                   options: GroupButtonOptions(
                     spacing: 7.5,
                     mainGroupAlignment: MainGroupAlignment.start,
@@ -74,13 +73,13 @@ class _ExampleState extends State<_Example> {
                       debugPrint('Disable Button #$i pressed'),
                 ),
                 GroupButton(
-                  controller: GroupButtonController(),
+                  controller: GroupButtonController(selectedIndex: 0),
                   options: GroupButtonOptions(
                     mainGroupAlignment: MainGroupAlignment.start,
                     groupingType: GroupingType.row,
                     spacing: 7.5,
                   ),
-                  buttons: const ['Radio', 'CheckBox', 'Custom'],
+                  buttons: const ['Radio', 'CheckBox'],
                   onSelected: (i, selected) {
                     _pageController.animateToPage(
                       i,
@@ -107,16 +106,6 @@ class _ExampleState extends State<_Example> {
           ],
         ),
       ),
-      floatingActionButton: _extendedExampleController.selectedGroupingType == 0
-          ? FloatingActionButton(
-              onPressed: () => setState(() {
-                direction = direction == Axis.horizontal
-                    ? Axis.vertical
-                    : Axis.horizontal;
-              }),
-              child: const Icon(Icons.refresh),
-            )
-          : null,
     );
   }
 
@@ -126,20 +115,17 @@ class _ExampleState extends State<_Example> {
         return [
           _buildRadioExample(GroupingType.column),
           _buildCheckboxExample(GroupingType.column),
-          _buildCustomExample(GroupingType.column),
         ];
       case 2:
         return [
           _buildRadioExample(GroupingType.row),
           _buildCheckboxExample(GroupingType.row),
-          _buildCustomExample(GroupingType.row),
         ];
       case 0:
       default:
         return [
           _buildRadioExample(GroupingType.wrap, direction: direction),
           _buildCheckboxExample(GroupingType.wrap, direction: direction),
-          _buildCustomExample(GroupingType.wrap, direction: direction),
         ];
     }
   }
