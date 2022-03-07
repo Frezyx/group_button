@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/Frezyx/group_button/blob/master/example/rep_files/new/logo.png?raw=true" width="400px">
+  <img src="https://github.com/Frezyx/group_button/blob/master/example/rep_files/new/logo.svg?raw=true" width="400px">
 </div>
 
 <h2 align="center"> Flutter widget to create a group of buttons fast 🚀 </h2>
