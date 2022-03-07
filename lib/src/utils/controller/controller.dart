@@ -20,7 +20,7 @@ class GroupButtonController extends ChangeNotifier {
   /// Callback [Function] works by clicking on a disabled group element
   ///
   /// Return int [index] of selected button
-  final Function(int idnex)? onDisabledButtonPressed;
+  Function(int idnex)? onDisabledButtonPressed;
 
   /// Selected button index in case when you using radio type
   int? get selectedIndex => _selectedButton;

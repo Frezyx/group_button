@@ -88,6 +88,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.controller != widget.controller) {
       _controller = widget.controller ?? _buidController();
+      _controller.onDisabledButtonPressed ??= widget.onDisablePressed;
     }
   }
 
@@ -95,6 +96,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         selectedIndex: widget.isRadio ? widget.selectedButton : null,
         selectedIndexes: widget.selectedButtons ?? [],
         disabledIndexes: widget.disabledButtons,
+        onDisabledButtonPressed: widget.onDisablePressed,
       );
 
   @override
