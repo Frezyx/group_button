@@ -7,13 +7,16 @@ class GroupButtonController extends ChangeNotifier {
     int? selectedIndex,
     List<int> selectedIndexes = const <int>[],
     List<int> disabledIndexes = const <int>[],
+    Function(int idnex)? onDisabledButtonPressed,
   })  : _selectedButton = selectedIndex,
         _selectedButtons = selectedIndexes.toSet(),
-        _disabledIndexes = disabledIndexes.toSet();
+        _disabledIndexes = disabledIndexes.toSet(),
+        _onDisabledButtonPressed = onDisabledButtonPressed;
 
   int? _selectedButton;
   final Set<int> _selectedButtons;
   final Set<int> _disabledIndexes;
+  final Function(int idnex)? _onDisabledButtonPressed;
 
   /// Selected button index in case when you using radio type
   int? get selectedIndex => _selectedButton;
@@ -26,6 +29,9 @@ class GroupButtonController extends ChangeNotifier {
 
   /// Select button by index in radio type
   void selectIndex(int i) {
+    if (_isDisabled(i, withCallBack: true)) {
+      return;
+    }
     _selectedButton = i;
     _selectedButtons.add(i);
     notifyListeners();
@@ -33,6 +39,9 @@ class GroupButtonController extends ChangeNotifier {
 
   /// Unselect button by index in checkbox and radio type
   void unselectIndex(int i) {
+    if (_isDisabled(i, withCallBack: true)) {
+      return;
+    }
     _selectedButton = null;
     _selectedButtons.remove(i);
     notifyListeners();
@@ -48,7 +57,8 @@ class GroupButtonController extends ChangeNotifier {
 
   /// Toggle buttons by indexes in checkbox type
   void toggleIndexes(List<int> indexes) {
-    for (final i in indexes) {
+    final enabledIndexes = _removeDisabledIndexes(indexes);
+    for (final i in enabledIndexes) {
       if (_selectedButtons.contains(i)) {
         _selectedButtons.remove(i);
       } else {
@@ -60,13 +70,27 @@ class GroupButtonController extends ChangeNotifier {
 
   /// Select buttons by indexes in checkbox type
   void selectIndexes(List<int> indexes) {
-    _selectedButtons.addAll(indexes);
+    final enabledIndexes = _removeDisabledIndexes(indexes);
+    _selectedButtons.addAll(enabledIndexes);
     notifyListeners();
   }
 
   /// Unselect buttons by indexes in checkbox type
   void unselectIndexes(List<int> indexes) {
-    _selectedButtons.removeAll(indexes);
+    final enabledIndexes = _removeDisabledIndexes(indexes);
+    _selectedButtons.removeAll(enabledIndexes);
     notifyListeners();
+  }
+
+  List<int> _removeDisabledIndexes(List<int> indexes) {
+    return indexes.where((e) => !disabledIndexes.contains(e)).toList();
+  }
+
+  bool _isDisabled(int i, {bool withCallBack = false}) {
+    final isDisabled = _disabledIndexes.contains(i);
+    if (isDisabled && withCallBack) {
+      _onDisabledButtonPressed?.call(i);
+    }
+    return isDisabled;
   }
 }
