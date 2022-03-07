@@ -9,8 +9,9 @@ class ButtonBuilderExample extends StatefulWidget {
 }
 
 class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
-  late GroupButtonController _controller;
-  final _buttons = [
+  late GroupButtonController _checkboxesController;
+  late GroupButtonController _radioController;
+  final _checkboxButtons = [
     'Michael Jordan',
     'Magic Johnson',
     'LeBron James',
@@ -18,13 +19,22 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
     'Wilt Chamberlain',
     'Larry Bird',
   ];
+
   final _messangerKey = GlobalKey<ScaffoldMessengerState>();
 
   @override
   void initState() {
-    _controller = GroupButtonController(
+    _checkboxesController = GroupButtonController(
       selectedIndexes: [2],
       disabledIndexes: [4],
+      onDisabledButtonPressed: (index) =>
+          _messangerKey.currentState?.showSnackBar(
+        SnackBar(content: Text('Disabled button pressed')),
+      ),
+    );
+    _radioController = GroupButtonController(
+      selectedIndexes: [1],
+      disabledIndexes: [2, 3],
       onDisabledButtonPressed: (index) =>
           _messangerKey.currentState?.showSnackBar(
         SnackBar(content: Text('Disabled button pressed')),
@@ -42,22 +52,40 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
         body: ListView(
           children: [
             GroupButton(
-              controller: _controller,
+              controller: _checkboxesController,
               isRadio: false,
               options: GroupButtonOptions(
                 groupingType: GroupingType.column,
               ),
-              buttons: _buttons,
+              buttons: _checkboxButtons,
               buttonBuilder: (selected, index, context) {
                 return CheckBoxTile(
-                  title: _buttons[index],
+                  title: _checkboxButtons[index],
                   selected: selected,
                   onTap: () {
                     if (!selected) {
-                      _controller.selectIndex(index);
+                      _checkboxesController.selectIndex(index);
                       return;
                     }
-                    _controller.unselectIndex(index);
+                    _checkboxesController.unselectIndex(index);
+                  },
+                );
+              },
+              onSelected: (i, selected) => debugPrint('Button #$i $selected'),
+            ),
+            const SizedBox(height: 20),
+            GroupButton(
+              controller: _radioController,
+              isRadio: true,
+              options: GroupButtonOptions(groupingType: GroupingType.column),
+              buttons: _checkboxButtons,
+              buttonBuilder: (selected, index, context) {
+                return RadioTile(
+                  title: _checkboxButtons[index],
+                  selected: _radioController.selectedIndex,
+                  index: index,
+                  onTap: () {
+                    _radioController.selectIndex(index);
                   },
                 );
               },
@@ -65,6 +93,36 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class RadioTile extends StatelessWidget {
+  const RadioTile({
+    Key? key,
+    required this.selected,
+    required this.onTap,
+    required this.index,
+    required this.title,
+  }) : super(key: key);
+
+  final String title;
+  final int index;
+  final int? selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(title),
+      onTap: onTap,
+      leading: Radio<int>(
+        groupValue: selected,
+        value: index,
+        onChanged: (val) {
+          onTap();
+        },
       ),
     );
   }
