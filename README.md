@@ -24,8 +24,10 @@ Included Radio and CheckBox buttons models with custom groping types 🤤
 
 <br>
 
-| ![Image](https://github.com/Frezyx/group_button/blob/master/example/rep_files/example_v4.gif?raw=true) | ![Image](https://github.com/Frezyx/group_button/blob/master/example/rep_files/styled_example_v4.gif?raw=true) | ![Image](https://github.com/Frezyx/group_button/blob/master/example/rep_files/extended_example_v4.gif?raw=true) | 
-| :------------: | :------------: | :------------: |
+| Controller | GroupButtonBuilder | Styles | GroupingTypes |
+| :------------: | :------------: | :------------: | :------------: |
+| ![Image](example/rep_files/new/e1.gif) | ![Image](example/rep_files/new/e2.gif) | ![Image](example/rep_files/new/e3.gif) | ![Image](example/rep_files/new/e4.gif) | 
+
 
 ## Getting Started
 Follow these steps to use this package
