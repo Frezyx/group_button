@@ -88,7 +88,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.controller != widget.controller) {
       _controller = widget.controller ?? _buidController();
-      _controller.onDisabledButtonPressed ??= widget.onDisablePressed;
+      _controller.onDisablePressed ??= widget.onDisablePressed;
     }
   }
 
@@ -96,7 +96,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         selectedIndex: widget.isRadio ? widget.selectedButton : null,
         selectedIndexes: widget.selectedButtons ?? [],
         disabledIndexes: widget.disabledButtons,
-        onDisabledButtonPressed: widget.onDisablePressed,
+        onDisablePressed: widget.onDisablePressed,
       );
 
   @override
@@ -161,7 +161,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
       if (builder != null) {
         button = GestureDetector(
           onTap: _controller.disabledIndexes.contains(i)
-              ? () => _controller.onDisabledButtonPressed?.call(i)
+              ? () => _controller.onDisablePressed?.call(i)
               : () {
                   _selectButton(i);
                   widget.onSelected(i, _isSelected(i));
@@ -172,7 +172,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         button = GroupButtonItem(
           text: buttons[i],
           onPressed: _controller.disabledIndexes.contains(i)
-              ? () => _controller.onDisabledButtonPressed?.call(i)
+              ? () => _controller.onDisablePressed?.call(i)
               : () {
                   _selectButton(i);
                   widget.onSelected(i, _isSelected(i));

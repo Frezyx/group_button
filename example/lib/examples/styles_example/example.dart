@@ -48,7 +48,6 @@ class StylesExample extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                     ),
                     onSelected: (i, selected) {},
-                    onDisablePressed: (i) {},
                   ),
                 ),
                 ScrollIjector(
@@ -77,7 +76,6 @@ class StylesExample extends StatelessWidget {
                       selectedIndexes: const [1, 3, 4],
                     ),
                     onSelected: (i, selected) {},
-                    onDisablePressed: (i) {},
                   ),
                 ),
                 ScrollIjector(
@@ -113,7 +111,6 @@ class StylesExample extends StatelessWidget {
                       selectedIndexes: const [0, 4, 6],
                     ),
                     onSelected: (i, selected) {},
-                    onDisablePressed: (i) {},
                   ),
                 ),
                 Padding(
@@ -155,7 +152,6 @@ class StylesExample extends StatelessWidget {
                         selectedIndexes: const [1, 3, 4],
                       ),
                       onSelected: (i, selected) {},
-                      onDisablePressed: (i) {},
                     ),
                   ),
                 ),

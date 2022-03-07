@@ -59,7 +59,11 @@ class _ExampleState extends State<_Example> {
               children: [
                 const SizedBox(height: 10),
                 GroupButton(
-                  controller: GroupButtonController(selectedIndex: 0),
+                  controller: GroupButtonController(
+                    selectedIndex: 0,
+                    onDisablePressed: (i) =>
+                        debugPrint('Disable Button #$i pressed'),
+                  ),
                   options: GroupButtonOptions(
                     spacing: 7.5,
                     mainGroupAlignment: MainGroupAlignment.start,
@@ -69,11 +73,13 @@ class _ExampleState extends State<_Example> {
                   onSelected: (i, selected) {
                     _extendedExampleController.selectedGroupingType = i;
                   },
-                  onDisablePressed: (i) =>
-                      debugPrint('Disable Button #$i pressed'),
                 ),
                 GroupButton(
-                  controller: GroupButtonController(selectedIndex: 0),
+                  controller: GroupButtonController(
+                    selectedIndex: 0,
+                    onDisablePressed: (i) =>
+                        debugPrint('Disable Button #$i pressed'),
+                  ),
                   options: GroupButtonOptions(
                     mainGroupAlignment: MainGroupAlignment.start,
                     groupingType: GroupingType.row,
@@ -87,8 +93,6 @@ class _ExampleState extends State<_Example> {
                       curve: Curves.easeIn,
                     );
                   },
-                  onDisablePressed: (i) =>
-                      debugPrint('Disable Button #$i pressed'),
                 ),
               ],
             ),

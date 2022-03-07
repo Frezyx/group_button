@@ -34,8 +34,7 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
     _checkboxesController = GroupButtonController(
       selectedIndexes: [2],
       disabledIndexes: [4],
-      onDisabledButtonPressed: (index) =>
-          _messangerKey.currentState?.showSnackBar(
+      onDisablePressed: (index) => _messangerKey.currentState?.showSnackBar(
         SnackBar(content: Text('${_checkboxButtons[index]} is disabled')),
       ),
     );
@@ -43,8 +42,7 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
     _radioController = GroupButtonController(
       selectedIndexes: [1],
       disabledIndexes: [2, 3],
-      onDisabledButtonPressed: (index) =>
-          _messangerKey.currentState?.showSnackBar(
+      onDisablePressed: (index) => _messangerKey.currentState?.showSnackBar(
         SnackBar(content: Text('${_radioButtons[index]} is disabled')),
       ),
     );

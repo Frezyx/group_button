@@ -6,7 +6,9 @@ import 'package:group_button/group_button.dart';
 
 class CustomizableExample extends StatelessWidget {
   CustomizableExample({Key? key}) : super(key: key);
-  final controller = GroupButtonController();
+  final controller = GroupButtonController(
+    onDisablePressed: (i) => debugPrint('Disable Button #$i pressed'),
+  );
   final customizableController = CustomizableExampleController();
 
   @override
@@ -33,8 +35,6 @@ class CustomizableExample extends StatelessWidget {
                     .map((i) => '${i + 1}')
                     .toList(),
                 onSelected: (i, selected) => debugPrint('Button #$i $selected'),
-                onDisablePressed: (i) =>
-                    debugPrint('Disable Button #$i pressed'),
               ),
             ),
             bottomNavigationBar: GroupButtonBottomPanel(

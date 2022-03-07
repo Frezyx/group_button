@@ -32,7 +32,7 @@ class CommonExample extends StatelessWidget {
     selectedIndex: 20,
     selectedIndexes: [0, 1, 2, 3, 4],
     disabledIndexes: [10, 12, 13, 14, 15, 23],
-    onDisabledButtonPressed: (i) => print('Button #$i is disabled'),
+    onDisablePressed: (i) => print('Button #$i is disabled'),
   );
 
   @override

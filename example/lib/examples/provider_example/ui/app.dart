@@ -96,8 +96,6 @@ class HomePageState extends State<HomePage>
                           );
                           _eProvider.updateAnswer(index, value: isSelected);
                         },
-                        onDisablePressed: (i) =>
-                            debugPrint('Disable Button #$i pressed'),
                         buttons: q.answerTitles,
                       ),
                     ],
