@@ -26,7 +26,7 @@ import 'examples/button_builder_example/example.dart';
 /// common flutter [Checkbox] and [Radio] buttons
 
 void main() {
-  runApp(ButtonBuilderExample());
+  runApp(GroupButtonProviderExample());
 }
 
 class CommonExample extends StatelessWidget {
