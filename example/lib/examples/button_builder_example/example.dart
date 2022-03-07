@@ -11,7 +11,7 @@ class ButtonBuilderExample extends StatefulWidget {
 class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
   late GroupButtonController _controller;
   final _buttons = List.generate(25, (i) => '${i + 1}');
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _messangerKey = GlobalKey<ScaffoldMessengerState>();
 
   @override
   void initState() {
@@ -20,10 +20,8 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
       selectedIndexes: [1, 2, 3, 4, 5],
       disabledIndexes: [10, 12, 13, 14, 15],
       onDisabledButtonPressed: (index) =>
-          _scaffoldKey.currentState!.showSnackBar(
-        SnackBar(
-          content: Text('Disabled button pressed'),
-        ),
+          _messangerKey.currentState?.showSnackBar(
+        SnackBar(content: Text('Disabled button pressed')),
       ),
     );
     super.initState();
@@ -32,9 +30,9 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scaffoldMessengerKey: _messangerKey,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        key: _scaffoldKey,
         body: ListView(
           children: [
             GroupButton(
