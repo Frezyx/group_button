@@ -324,11 +324,8 @@ class GroupButton extends StatelessWidget {
   /// UI settings of package
   final GroupButtonOptions? options;
 
-  final Widget Function(
-    bool selected,
-    int index,
-    BuildContext context,
-  )? buttonBuilder;
+  /// Custom builder method to create your own custom buttons
+  final GroupButtonBuilder? buttonBuilder;
 
   @override
   Widget build(BuildContext context) {
