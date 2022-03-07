@@ -3,6 +3,7 @@
  implementing your own custom buttons 
 - **FEAT**: Add ButtonBuilderExample with 
 Flutter default radio and chackbox buttons via buttonBuilder
+- **INFO**: Update examples & README
 
 
 ## 4.5.0
