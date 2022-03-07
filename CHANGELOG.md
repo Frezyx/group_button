@@ -1,9 +1,9 @@
 ## 4.6.0
-- **FEAT**: Add buttonBuilder field for 
+- **FEAT**: Added buttonBuilder field for 
  implementing your own custom buttons 
-- **FEAT**: Add ButtonBuilderExample with 
+- **FEAT**: Added ButtonBuilderExample with 
 Flutter default radio and chackbox buttons via buttonBuilder
-- **INFO**: Update examples & README
+- **INFO**: Updated examples & README
 
 
 ## 4.5.0
