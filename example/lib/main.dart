@@ -19,8 +19,14 @@ import 'examples/button_builder_example/example.dart';
 /// You can use [CustomizableExample]
 /// to check package power
 
+/// You can use [ButtonBuilderExample]
+/// to check how button builder works
+///
+/// In this example GroupButton work as
+/// common flutter [Checkbox] and [Radio] buttons
+
 void main() {
-  runApp(ButtonBuilderExample());
+  runApp(CommonExample());
 }
 
 class CommonExample extends StatelessWidget {
