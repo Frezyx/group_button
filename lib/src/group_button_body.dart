@@ -159,7 +159,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
       if (builder != null) {
         button = GestureDetector(
           onTap: _controller.disabledIndexes.contains(i)
-              ? null
+              ? () => _controller.onDisabledButtonPressed?.call(i)
               : () {
                   _selectButton(i);
                   widget.onSelected(i, _isSelected(i));
@@ -170,7 +170,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         button = GroupButtonItem(
           text: buttons[i],
           onPressed: _controller.disabledIndexes.contains(i)
-              ? null
+              ? () => _controller.onDisabledButtonPressed?.call(i)
               : () {
                   _selectButton(i);
                   widget.onSelected(i, _isSelected(i));

@@ -11,12 +11,16 @@ class GroupButtonController extends ChangeNotifier {
   })  : _selectedButton = selectedIndex,
         _selectedButtons = selectedIndexes.toSet(),
         _disabledIndexes = disabledIndexes.toSet(),
-        _onDisabledButtonPressed = onDisabledButtonPressed;
+        onDisabledButtonPressed = onDisabledButtonPressed;
 
   int? _selectedButton;
   final Set<int> _selectedButtons;
   final Set<int> _disabledIndexes;
-  final Function(int idnex)? _onDisabledButtonPressed;
+
+  /// Callback [Function] works by clicking on a disabled group element
+  ///
+  /// Return int [index] of selected button
+  final Function(int idnex)? onDisabledButtonPressed;
 
   /// Selected button index in case when you using radio type
   int? get selectedIndex => _selectedButton;
@@ -89,7 +93,7 @@ class GroupButtonController extends ChangeNotifier {
   bool _isDisabled(int i, {bool withCallBack = false}) {
     final isDisabled = _disabledIndexes.contains(i);
     if (isDisabled && withCallBack) {
-      _onDisabledButtonPressed?.call(i);
+      onDisabledButtonPressed?.call(i);
     }
     return isDisabled;
   }

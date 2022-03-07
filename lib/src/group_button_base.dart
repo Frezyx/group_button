@@ -13,7 +13,11 @@ class GroupButton extends StatelessWidget {
     this.controller,
     this.options,
     this.isRadio = true,
-    this.onDisablePressed,
+    @Deprecated(
+      'Use GroupButtonController onDisabledButtonPressed field '
+      'This feature was deprecated after version 4.6.0 ',
+    )
+        this.onDisablePressed,
     this.buttonBuilder,
     this.enableDeselect = false,
     @Deprecated('Use GroupButtonOptions groupingType field '
@@ -144,6 +148,10 @@ class GroupButton extends StatelessWidget {
   /// Callback [Function] works by clicking on a disabled group element
   ///
   /// Return int [index] of selected button
+  @Deprecated(
+    'Use GroupButtonController onDisabledButtonPressed field '
+    'This feature was deprecated after version 4.6.0 ',
+  )
   final Function(int index)? onDisablePressed;
 
   /// bool variable for switching between modes [CheckBox] and [Radio]
