@@ -11,6 +11,7 @@ class ButtonBuilderExample extends StatefulWidget {
 class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
   late GroupButtonController _checkboxesController;
   late GroupButtonController _radioController;
+
   final _checkboxButtons = [
     'Michael Jordan',
     'Magic Johnson',
@@ -18,6 +19,12 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
     'Kareem Abdul-Jabbar',
     'Wilt Chamberlain',
     'Larry Bird',
+  ];
+
+  final _radioButtons = [
+    'Cola',
+    'Potato chips',
+    'Pudding',
   ];
 
   final _messangerKey = GlobalKey<ScaffoldMessengerState>();
@@ -29,15 +36,16 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
       disabledIndexes: [4],
       onDisabledButtonPressed: (index) =>
           _messangerKey.currentState?.showSnackBar(
-        SnackBar(content: Text('Disabled button pressed')),
+        SnackBar(content: Text('${_checkboxButtons[index]} is disabled')),
       ),
     );
+
     _radioController = GroupButtonController(
       selectedIndexes: [1],
       disabledIndexes: [2, 3],
       onDisabledButtonPressed: (index) =>
           _messangerKey.currentState?.showSnackBar(
-        SnackBar(content: Text('Disabled button pressed')),
+        SnackBar(content: Text('${_radioButtons[index]} is disabled')),
       ),
     );
     super.initState();
@@ -50,6 +58,14 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
       scaffoldMessengerKey: _messangerKey,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          shadowColor: Colors.grey[100]?.withOpacity(0.1),
+          backgroundColor: Colors.white,
+          title: Text(
+            'GroupButton 4.6.0',
+            style: Theme.of(context).textTheme.headline6,
+          ),
+        ),
         body: ListView(
           children: [
             Padding(
@@ -93,10 +109,10 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
               controller: _radioController,
               isRadio: true,
               options: GroupButtonOptions(groupingType: GroupingType.column),
-              buttons: _checkboxButtons,
+              buttons: _radioButtons,
               buttonBuilder: (selected, index, context) {
                 return RadioTile(
-                  title: _checkboxButtons[index],
+                  title: _radioButtons[index],
                   selected: _radioController.selectedIndex,
                   index: index,
                   onTap: () {
