@@ -1,3 +1,11 @@
+## 4.6.0
+- **FEAT**: Added buttonBuilder field for 
+ implementing your own custom buttons 
+- **FEAT**: Added ButtonBuilderExample with 
+Flutter default radio and chackbox buttons via buttonBuilder
+- **INFO**: Updated examples & README
+
+
 ## 4.5.0
  - **FEAT**: [enableDeselect](https://github.com/Frezyx/group_button/blob/master/lib/src/group_button_base.dart#:~:text=final%20bool%3F-,enableDeselect,-%3B) 
  field for enable radio button deselect

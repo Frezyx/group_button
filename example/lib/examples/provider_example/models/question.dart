@@ -1,14 +1,19 @@
 import 'package:flutter/foundation.dart';
 
 class Question {
-  const Question(this.title, this.answers, this.userAnswers, this.answerTitles);
+  Question(
+    this.title,
+    this.answers,
+    this.userAnswers,
+    this.answerTitles,
+  );
 
-  final String title;
-  final List<String> answerTitles;
-  final List<bool> answers;
-  final List<bool> userAnswers;
+  String title;
+  List<String> answerTitles;
+  List<bool> answers;
+  List<bool> userAnswers;
 
-  void updateAnsver(int index, {bool value}) {
+  void updateAnsver(int index, {required bool value}) {
     userAnswers[index] = value;
   }
 

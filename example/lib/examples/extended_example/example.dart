@@ -5,10 +5,9 @@ import 'package:group_button/group_button.dart';
 
 part 'radio_example_part.dart';
 part 'checkbox_example_part.dart';
-part 'custom_example_part.dart';
 
 class GroupButtonExtendedExample extends StatelessWidget {
-  GroupButtonExtendedExample({Key key}) : super(key: key);
+  GroupButtonExtendedExample({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class GroupButtonExtendedExample extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
         buttonTheme: ButtonThemeData(
-          colorScheme: Theme.of(context).buttonTheme.colorScheme.copyWith(
+          colorScheme: Theme.of(context).buttonTheme.colorScheme?.copyWith(
                 primary: Colors.green,
                 secondary: Colors.white,
               ),
@@ -44,10 +43,10 @@ class _ExampleState extends State<_Example> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        shadowColor: Colors.grey[100].withOpacity(0.1),
+        shadowColor: Colors.grey[100]?.withOpacity(0.1),
         backgroundColor: Colors.white,
         title: Text(
-          'GroupButton 4.5.0',
+          'GroupButton 4.6.0',
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
@@ -60,7 +59,11 @@ class _ExampleState extends State<_Example> {
               children: [
                 const SizedBox(height: 10),
                 GroupButton(
-                  controller: GroupButtonController(),
+                  controller: GroupButtonController(
+                    selectedIndex: 0,
+                    onDisablePressed: (i) =>
+                        debugPrint('Disable Button #$i pressed'),
+                  ),
                   options: GroupButtonOptions(
                     spacing: 7.5,
                     mainGroupAlignment: MainGroupAlignment.start,
@@ -70,17 +73,19 @@ class _ExampleState extends State<_Example> {
                   onSelected: (i, selected) {
                     _extendedExampleController.selectedGroupingType = i;
                   },
-                  onDisablePressed: (i) =>
-                      debugPrint('Disable Button #$i pressed'),
                 ),
                 GroupButton(
-                  controller: GroupButtonController(),
+                  controller: GroupButtonController(
+                    selectedIndex: 0,
+                    onDisablePressed: (i) =>
+                        debugPrint('Disable Button #$i pressed'),
+                  ),
                   options: GroupButtonOptions(
                     mainGroupAlignment: MainGroupAlignment.start,
                     groupingType: GroupingType.row,
                     spacing: 7.5,
                   ),
-                  buttons: const ['Radio', 'CheckBox', 'Custom'],
+                  buttons: const ['Radio', 'CheckBox'],
                   onSelected: (i, selected) {
                     _pageController.animateToPage(
                       i,
@@ -88,8 +93,6 @@ class _ExampleState extends State<_Example> {
                       curve: Curves.easeIn,
                     );
                   },
-                  onDisablePressed: (i) =>
-                      debugPrint('Disable Button #$i pressed'),
                 ),
               ],
             ),
@@ -107,16 +110,6 @@ class _ExampleState extends State<_Example> {
           ],
         ),
       ),
-      floatingActionButton: _extendedExampleController.selectedGroupingType == 0
-          ? FloatingActionButton(
-              onPressed: () => setState(() {
-                direction = direction == Axis.horizontal
-                    ? Axis.vertical
-                    : Axis.horizontal;
-              }),
-              child: const Icon(Icons.refresh),
-            )
-          : null,
     );
   }
 
@@ -126,20 +119,17 @@ class _ExampleState extends State<_Example> {
         return [
           _buildRadioExample(GroupingType.column),
           _buildCheckboxExample(GroupingType.column),
-          _buildCustomExample(GroupingType.column),
         ];
       case 2:
         return [
           _buildRadioExample(GroupingType.row),
           _buildCheckboxExample(GroupingType.row),
-          _buildCustomExample(GroupingType.row),
         ];
       case 0:
       default:
         return [
           _buildRadioExample(GroupingType.wrap, direction: direction),
           _buildCheckboxExample(GroupingType.wrap, direction: direction),
-          _buildCustomExample(GroupingType.wrap, direction: direction),
         ];
     }
   }

@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 import 'package:provider/provider.dart';
 
+const primaryColor = Colors.purple;
+
+/// !!!!!!!!!!!!!!!!!!! DON`T WROK NOW !!!!!!!!!!!!!!!!!!!
 class GroupButtonProviderExample extends StatelessWidget {
-  GroupButtonProviderExample({Key key}) : super(key: key);
+  GroupButtonProviderExample({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +20,10 @@ class GroupButtonProviderExample extends StatelessWidget {
       builder: (ctx, _) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            primaryColor: primaryColor,
+            primarySwatch: primaryColor,
+          ),
           home: HomePage(),
         );
       },
@@ -25,7 +32,7 @@ class GroupButtonProviderExample extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   HomePageState createState() => HomePageState();
@@ -44,7 +51,15 @@ class HomePageState extends State<HomePage>
       child: Scaffold(
         appBar: AppBar(
           title: const Text('GroupButton & Provider'),
-          bottom: _buildTabBar(_eProvider),
+          bottom: TabBar(
+            onTap: (value) {
+              _eProvider.selectedIndex = value;
+            },
+            tabs: List.generate(
+              _eProvider.exercise.questions.length,
+              (index) => index + 1,
+            ).map((e) => Tab(icon: Text('$e'))).toList(),
+          ),
         ),
         body: _buildTabBarView(_eProvider, size),
       ),
@@ -72,20 +87,15 @@ class HomePageState extends State<HomePage>
                       GroupButton(
                         options: GroupButtonOptions(
                           spacing: 15,
-                          selectedColor: Colors.blue,
+                          selectedColor: primaryColor,
                         ),
                         isRadio: false,
-                        controller: GroupButtonController(
-                          selectedIndexes: q.selectedIndexes,
-                        ),
                         onSelected: (index, isSelected) {
                           debugPrint(
                             '$index button is ${isSelected ? 'selected' : 'unselected'}',
                           );
                           _eProvider.updateAnswer(index, value: isSelected);
                         },
-                        onDisablePressed: (i) =>
-                            debugPrint('Disable Button #$i pressed'),
                         buttons: q.answerTitles,
                       ),
                     ],
@@ -112,24 +122,6 @@ class HomePageState extends State<HomePage>
                   ),
                 ],
               ),
-            ),
-          )
-          .toList(),
-    );
-  }
-
-  TabBar _buildTabBar(ExarcisesProvider _eProvider) {
-    return TabBar(
-      onTap: (value) {
-        _eProvider.selectedIndex = value;
-      },
-      tabs: List.generate(
-        _eProvider.exercise.questions.length,
-        (index) => index + 1,
-      )
-          .map(
-            (e) => Tab(
-              icon: Text('$e'),
             ),
           )
           .toList(),

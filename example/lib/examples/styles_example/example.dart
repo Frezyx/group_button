@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
 class StylesExample extends StatelessWidget {
-  StylesExample({Key key}) : super(key: key);
+  StylesExample({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,10 +11,10 @@ class StylesExample extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          shadowColor: Colors.grey[100].withOpacity(0.1),
+          shadowColor: Colors.grey[100]?.withOpacity(0.1),
           backgroundColor: Colors.white,
           title: Text(
-            'GroupButton 4.5.0',
+            'GroupButton 4.6.0',
             style: Theme.of(context).textTheme.headline6,
           ),
         ),
@@ -48,7 +48,6 @@ class StylesExample extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                     ),
                     onSelected: (i, selected) {},
-                    onDisablePressed: (i) {},
                   ),
                 ),
                 ScrollIjector(
@@ -77,7 +76,6 @@ class StylesExample extends StatelessWidget {
                       selectedIndexes: const [1, 3, 4],
                     ),
                     onSelected: (i, selected) {},
-                    onDisablePressed: (i) {},
                   ),
                 ),
                 ScrollIjector(
@@ -113,7 +111,6 @@ class StylesExample extends StatelessWidget {
                       selectedIndexes: const [0, 4, 6],
                     ),
                     onSelected: (i, selected) {},
-                    onDisablePressed: (i) {},
                   ),
                 ),
                 Padding(
@@ -155,7 +152,6 @@ class StylesExample extends StatelessWidget {
                         selectedIndexes: const [1, 3, 4],
                       ),
                       onSelected: (i, selected) {},
-                      onDisablePressed: (i) {},
                     ),
                   ),
                 ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class GroupCustomButton extends StatelessWidget {
-  const GroupCustomButton({
+class GroupButtonItem extends StatelessWidget {
+  const GroupButtonItem({
     Key? key,
     required this.onPressed,
     required this.text,
