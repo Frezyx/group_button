@@ -1,13 +1,11 @@
 import 'package:example/examples/provider_example/models/question.dart';
 
 class Exercise {
-  const Exercise({
-    this.questions,
-  });
+  const Exercise({required this.questions});
 
   final List<Question> questions;
 
-  void updateAnswer(int questionIndex, int index, {bool value}) =>
+  void updateAnswer(int questionIndex, int index, {required bool value}) =>
       questions[questionIndex].updateAnsver(index, value: value);
 
   @override

@@ -5,6 +5,8 @@ import 'package:example/examples/styles_example/example.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
+import 'examples/button_builder_example/example.dart';
+
 /// You can use [GroupButtonExtendedExample]
 /// to check all package [GroupingType]'s in one place
 
@@ -17,12 +19,18 @@ import 'package:group_button/group_button.dart';
 /// You can use [CustomizableExample]
 /// to check package power
 
+/// You can use [ButtonBuilderExample]
+/// to check how button builder works
+///
+/// In this example GroupButton work as
+/// common flutter [Checkbox] and [Radio] buttons
+
 void main() {
   runApp(CommonExample());
 }
 
 class CommonExample extends StatelessWidget {
-  CommonExample({Key key}) : super(key: key);
+  CommonExample({Key? key}) : super(key: key);
 
   final controller = GroupButtonController(
     selectedIndex: 20,

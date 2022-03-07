@@ -4,9 +4,9 @@ import 'package:group_button/group_button.dart';
 
 class GroupButtonBottomPanel extends StatelessWidget {
   const GroupButtonBottomPanel({
-    Key key,
-    @required this.controller,
-    @required this.customizableController,
+    Key? key,
+    required this.controller,
+    required this.customizableController,
   }) : super(key: key);
 
   final CustomizableExampleController customizableController;
@@ -25,7 +25,7 @@ class GroupButtonBottomPanel extends StatelessWidget {
               color: Theme.of(context).cardColor,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey[100],
+                  color: Colors.grey[100]!,
                   blurRadius: 10,
                   offset: const Offset(0, -10),
                 )
@@ -61,7 +61,7 @@ class GroupButtonBottomPanel extends StatelessWidget {
               color: Theme.of(context).cardColor,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey[100],
+                  color: Colors.grey[100]!,
                   blurRadius: 10,
                   offset: const Offset(0, -10),
                 )
