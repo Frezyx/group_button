@@ -45,12 +45,20 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return MaterialApp(
       scaffoldMessengerKey: _messangerKey,
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: ListView(
           children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: Text(
+                'Checkbox buttons',
+                style: theme.textTheme.headline5,
+              ),
+            ),
             GroupButton(
               controller: _checkboxesController,
               isRadio: false,
@@ -73,7 +81,14 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
               },
               onSelected: (i, selected) => debugPrint('Button #$i $selected'),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              child: Text(
+                'Radio buttons',
+                style: theme.textTheme.headline5,
+              ),
+            ),
             GroupButton(
               controller: _radioController,
               isRadio: true,
