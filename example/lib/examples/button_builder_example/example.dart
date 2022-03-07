@@ -1,22 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
-class ButtonBuilderExample extends StatelessWidget {
+class ButtonBuilderExample extends StatefulWidget {
   ButtonBuilderExample({Key? key}) : super(key: key);
 
-  final _controller = GroupButtonController(
-    selectedIndex: 20,
-    selectedIndexes: [1, 2, 3, 4, 5],
-    disabledIndexes: [10, 12, 13, 14, 15],
-  );
+  @override
+  State<ButtonBuilderExample> createState() => _ButtonBuilderExampleState();
+}
 
+class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
+  late GroupButtonController _controller;
   final _buttons = List.generate(25, (i) => '${i + 1}');
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    _controller = GroupButtonController(
+      selectedIndex: 20,
+      selectedIndexes: [1, 2, 3, 4, 5],
+      disabledIndexes: [10, 12, 13, 14, 15],
+      onDisabledButtonPressed: (index) =>
+          _scaffoldKey.currentState!.showSnackBar(
+        SnackBar(
+          content: Text('Disabled button pressed'),
+        ),
+      ),
+    );
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        key: _scaffoldKey,
         body: ListView(
           children: [
             GroupButton(
