@@ -148,6 +148,7 @@ GroupButton(
   unselectedShadow: const <BoxShadow>[BoxShadow(color: Colors.transparent)],
   buttonHeight: 30,
   buttonWidth: 115,
+  enableDeselect: false,
 );
 ```
 
