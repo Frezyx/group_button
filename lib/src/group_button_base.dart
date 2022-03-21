@@ -20,6 +20,7 @@ class GroupButton extends StatelessWidget {
         this.onDisablePressed,
     this.buttonBuilder,
     this.enableDeselect = false,
+    this.maxSelected,
     @Deprecated('Use GroupButtonOptions groupingType field '
         'This feature was deprecated after version 4.3.0 ')
         this.groupingType = GroupingType.wrap,
@@ -169,6 +170,11 @@ class GroupButton extends StatelessWidget {
   /// * if the [isRadio] = false:
   /// - [enableDeselect] have no effect
   final bool? enableDeselect;
+
+  /// int variable for setting max selected buttons for [CheckBox]
+  ///
+  /// [maxSelected] must not be negative.
+  final int? maxSelected;
 
   /// [EdgeInsets] The inner padding of buttons [GroupButton]
   @Deprecated(
@@ -348,6 +354,7 @@ class GroupButton extends StatelessWidget {
       isRadio: isRadio,
       buttonBuilder: buttonBuilder,
       enableDeselect: enableDeselect,
+      maxSelected: maxSelected,
 
       /// Options
       direction: options?.direction ?? direction,

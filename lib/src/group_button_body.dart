@@ -17,6 +17,7 @@ class GroupButtonBody extends StatefulWidget {
     this.selectedButton,
     this.isRadio = false,
     this.enableDeselect = false,
+    this.maxSelected,
     this.direction,
     this.spacing = 0.0,
     this.runSpacing = 0.0,
@@ -47,6 +48,7 @@ class GroupButtonBody extends StatefulWidget {
   final Function(int)? onDisablePressed;
   final bool isRadio;
   final bool? enableDeselect;
+  final int? maxSelected;
   final Axis? direction;
   final double spacing;
   final double runSpacing;
@@ -103,6 +105,12 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   void initState() {
     super.initState();
     _controller = widget.controller ?? _buidController();
+
+    if (!widget.isRadio &&
+        widget.maxSelected != null &&
+        widget.maxSelected! < 0) {
+      throw 'maxSelected must not be negative';
+    }
   }
 
   @override
@@ -226,7 +234,11 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         _controller.selectIndex(i);
       }
     } else {
-      _controller.toggleIndexes([i]);
+      if (widget.maxSelected == null ||
+          !(!_controller.selectedIndexes.contains(i) &&
+              _controller.selectedIndexes.length >= widget.maxSelected!)) {
+        _controller.toggleIndexes([i]);
+      }
     }
   }
 }
