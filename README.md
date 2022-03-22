@@ -149,6 +149,7 @@ GroupButton(
   buttonHeight: 30,
   buttonWidth: 115,
   enableDeselect: false,
+  maxSelected: 5
 );
 ```
 
