@@ -106,12 +106,6 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   void initState() {
     super.initState();
     _controller = widget.controller ?? _buidController();
-
-    if (!widget.isRadio &&
-        widget.maxSelected != null &&
-        widget.maxSelected! < 0) {
-      throw 'maxSelected must not be negative';
-    }
   }
 
   @override
