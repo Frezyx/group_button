@@ -38,7 +38,7 @@ class GroupButtonBody extends StatefulWidget {
     this.alignment,
     this.elevation,
     this.buttonBuilder,
-  })  : assert(maxSelected != null ? maxSelected >= 0 : true),
+  })  : assert(maxSelected != null ? maxSelected >= 0 : true, 'maxSelected must not be negative'),
         super(key: key);
 
   final List<String> buttons;
