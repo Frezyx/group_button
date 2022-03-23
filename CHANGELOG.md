@@ -1,3 +1,9 @@
+## 4.7.0
+ - **FEAT**: added maxSelected field for setting max selected 
+ buttons in checkbox mode
+
+ Thanks for [gnassro](https://github.com/gnassro)
+
 ## 4.6.0
 - **FEAT**: Added buttonBuilder field for 
  implementing your own custom buttons 
