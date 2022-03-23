@@ -7,8 +7,10 @@ class GroupButtonBody extends StatefulWidget {
     Key? key,
     required this.buttons,
     required this.onSelected,
-    this.controller,
     required this.groupingType,
+    required this.textAlign,
+    required this.textPadding,
+    this.controller,
     this.onDisablePressed,
     this.selectedBorderColor,
     this.unselectedBorderColor,
@@ -17,6 +19,7 @@ class GroupButtonBody extends StatefulWidget {
     this.selectedButton,
     this.isRadio = false,
     this.enableDeselect = false,
+    this.maxSelected,
     this.direction,
     this.spacing = 0.0,
     this.runSpacing = 0.0,
@@ -32,8 +35,6 @@ class GroupButtonBody extends StatefulWidget {
     this.mainGroupAlignment = MainGroupAlignment.center,
     this.crossGroupAlignment = CrossGroupAlignment.center,
     this.groupRunAlignment = GroupRunAlignment.center,
-    required this.textAlign,
-    required this.textPadding,
     this.alignment,
     this.elevation,
     this.buttonBuilder,
@@ -47,6 +48,7 @@ class GroupButtonBody extends StatefulWidget {
   final Function(int)? onDisablePressed;
   final bool isRadio;
   final bool? enableDeselect;
+  final int? maxSelected;
   final Axis? direction;
   final double spacing;
   final double runSpacing;
@@ -226,6 +228,13 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         _controller.selectIndex(i);
       }
     } else {
+      final maxSelected = widget.maxSelected;
+      final selectedIndexesCount = _controller.selectedIndexes.length;
+      if (maxSelected != null &&
+          selectedIndexesCount >= maxSelected &&
+          !_controller.selectedIndexes.contains(i)) {
+        return;
+      }
       _controller.toggleIndexes([i]);
     }
   }
