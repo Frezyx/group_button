@@ -7,8 +7,10 @@ class GroupButtonBody extends StatefulWidget {
     Key? key,
     required this.buttons,
     required this.onSelected,
-    this.controller,
     required this.groupingType,
+    required this.textAlign,
+    required this.textPadding,
+    this.controller,
     this.onDisablePressed,
     this.selectedBorderColor,
     this.unselectedBorderColor,
@@ -33,13 +35,10 @@ class GroupButtonBody extends StatefulWidget {
     this.mainGroupAlignment = MainGroupAlignment.center,
     this.crossGroupAlignment = CrossGroupAlignment.center,
     this.groupRunAlignment = GroupRunAlignment.center,
-    required this.textAlign,
-    required this.textPadding,
     this.alignment,
     this.elevation,
     this.buttonBuilder,
-  })  : assert(maxSelected != null ? maxSelected >= 0 : true, 'maxSelected must not be negative'),
-        super(key: key);
+  }) : super(key: key);
 
   final List<String> buttons;
   final List<int> disabledButtons;
@@ -229,11 +228,14 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         _controller.selectIndex(i);
       }
     } else {
-      if (widget.maxSelected == null ||
-          !(!_controller.selectedIndexes.contains(i) &&
-              _controller.selectedIndexes.length >= widget.maxSelected!)) {
-        _controller.toggleIndexes([i]);
+      final maxSelected = widget.maxSelected;
+      final selectedIndexesCount = _controller.selectedIndexes.length;
+      if (maxSelected != null &&
+          selectedIndexesCount >= maxSelected &&
+          !_controller.selectedIndexes.contains(i)) {
+        return;
       }
+      _controller.toggleIndexes([i]);
     }
   }
 }

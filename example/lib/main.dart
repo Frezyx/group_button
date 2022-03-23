@@ -45,6 +45,7 @@ class CommonExample extends StatelessWidget {
             controller: controller,
             isRadio: false,
             buttons: List.generate(25, (i) => '${i + 1}'),
+            maxSelected: 10,
             onSelected: (i, selected) => debugPrint('Button #$i $selected'),
           ),
         ),

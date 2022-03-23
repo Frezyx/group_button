@@ -110,6 +110,10 @@ class GroupButton extends StatelessWidget {
               (!isRadio && selectedButton == null),
           'You can use selectedButton field for isRadio [true] and selectedButtons field with isRadio [false]',
         ),
+        assert(
+          maxSelected != null ? maxSelected >= 0 : true,
+          'maxSelected must not be negative',
+        ),
         super(key: key);
 
   /// [String] list that will be displayed on buttons in the [GroupButton]
