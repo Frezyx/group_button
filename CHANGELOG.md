@@ -1,5 +1,10 @@
+## 4.8.0
+ - **FEAT**: Added enableIndexes abd disableIndexes methods for controller
+
+ Thanks for [minhdanh](https://github.com/minhdanh)
+
 ## 4.7.0
- - **FEAT**: added maxSelected field for setting max selected 
+ - **FEAT**: Added maxSelected field for setting max selected 
  buttons in checkbox mode
 
  Thanks for [gnassro](https://github.com/gnassro)
