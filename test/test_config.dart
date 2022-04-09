@@ -8,7 +8,7 @@ class GroupButtonTestWidget extends StatefulWidget {
 }
 
 class _GroupButtonTestWidgetState extends State<GroupButtonTestWidget> {
-  List<String> buttons = ['12:00', '13:00', '14:00'];
+  final buttons = ['12:00', '13:00', '14:00'];
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class _GroupButtonTestWidgetState extends State<GroupButtonTestWidget> {
       body: GroupButton(
         buttons: buttons,
         controller: GroupButtonController(disabledIndexes: const [2]),
-        onSelected: (index, _) {
+        onSelected: (value, index, _) {
           setState(() => buttons.removeAt(index));
         },
       ),

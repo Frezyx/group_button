@@ -18,8 +18,8 @@ class GroupButtonItem extends StatelessWidget {
     this.unselectedShadow,
     this.height,
     this.width,
-    required this.textAlign,
-    required this.textPadding,
+    this.textAlign,
+    this.textPadding,
     this.alignment,
     this.elevation,
   }) : super(key: key);
@@ -39,8 +39,8 @@ class GroupButtonItem extends StatelessWidget {
   final List<BoxShadow>? unselectedShadow;
   final double? height;
   final double? width;
-  final TextAlign textAlign;
-  final EdgeInsets textPadding;
+  final TextAlign? textAlign;
+  final EdgeInsets? textPadding;
   final AlignmentGeometry? alignment;
   final double? elevation;
 
@@ -94,7 +94,7 @@ class GroupButtonItem extends StatelessWidget {
         alignment: (width != null || height != null) ? alignment : null,
       ),
       child: Padding(
-        padding: textPadding,
+        padding: textPadding ?? EdgeInsets.zero,
         child: Text(
           text,
           textAlign: textAlign,
@@ -130,17 +130,13 @@ class GroupButtonItem extends StatelessWidget {
         side: buildBorderSide(color),
       );
     } else {
-      return RoundedRectangleBorder(
-        side: buildBorderSide(color),
-      );
+      return RoundedRectangleBorder(side: buildBorderSide(color));
     }
   }
 
   BorderSide buildBorderSide(Color? color) {
     if (color != null) {
-      return BorderSide(
-        color: color,
-      );
+      return BorderSide(color: color);
     }
     return BorderSide.none;
   }

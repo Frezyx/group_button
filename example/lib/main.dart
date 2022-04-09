@@ -1,28 +1,36 @@
 import 'package:example/examples/customizable_example/customizable_example.dart';
 import 'package:example/examples/extended_example/example.dart';
+import 'package:example/examples/full_options_example/full_options_example.dart';
+import 'package:example/examples/generics_example/generics_example.dart';
 import 'package:example/examples/styles_example/example.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
 import 'examples/button_builder_example/example.dart';
 
-/// You can use [GroupButtonExtendedExample]
+/// Use [GroupButtonExtendedExample]
 /// to check all package [GroupingType]'s in one place
 
-/// /// You can use [StylesExample]
+/// Use [StylesExample]
 /// to check all package style's configuration
 
-/// You can use [CustomizableExample]
+/// Use [CustomizableExample]
 /// to check package power
 
-/// You can use [ButtonBuilderExample]
+/// Use [ButtonBuilderExample]
 /// to check how button builder works
 ///
 /// In this example GroupButton work as
 /// common flutter [Checkbox] and [Radio] buttons
 
+/// Use [FullOptionsSelectedExample]
+/// to check all [GroupButtonOptions]
+
+/// Use [GenericsExample]
+/// to checl how works generic button values
+
 void main() {
-  runApp(CommonExample());
+  runApp(FullOptionsSelectedExample());
 }
 
 class CommonExample extends StatelessWidget {
@@ -46,7 +54,8 @@ class CommonExample extends StatelessWidget {
             isRadio: false,
             buttons: List.generate(25, (i) => '${i + 1}'),
             maxSelected: 10,
-            onSelected: (i, selected) => debugPrint('Button #$i $selected'),
+            onSelected: (val, i, selected) =>
+                debugPrint('Button: $val index: $i selected: $selected'),
           ),
         ),
       ),

@@ -1,3 +1,15 @@
+## 5.0.0
+ - **MAIN FEAT**: GroupButton\<T> now is generic class.<br>
+ Now you can create int, DateTime, double or YourCustomClass typed buttons List for default GroupButton constructor.<br> **More** [here](https://github.com/Frezyx/group_button/blob/master/example/lib/examples/generics_example/generics_example.dart)
+
+ - **BREAKING**: All deprecated by *4.3.0* and *4.6.0* fields was removed from package.<br> 
+**More** [here](https://github.com/Frezyx/group_button#customize)
+
+ - **BREAKING**: buttonBuilder from *4.6.0* now build buttons by value <br> 
+The buttonIndexedBuilder took over the past functionality of the buttonBuilder
+
+- **INFO**: Updated examples & README
+
 ## 4.8.0
  - **FEAT**: Added enableIndexes abd disableIndexes methods for controller
 

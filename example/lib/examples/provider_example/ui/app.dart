@@ -90,7 +90,7 @@ class HomePageState extends State<HomePage>
                           selectedColor: primaryColor,
                         ),
                         isRadio: false,
-                        onSelected: (index, isSelected) {
+                        onSelected: (_, index, isSelected) {
                           debugPrint(
                             '$index button is ${isSelected ? 'selected' : 'unselected'}',
                           );
