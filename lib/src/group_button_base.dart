@@ -12,15 +12,15 @@ class GroupButton<T> extends StatelessWidget {
     this.controller,
     this.options = const GroupButtonOptions(),
     this.isRadio = true,
+    this.buttonIndexedBuilder,
+    this.buttonBuilder,
+    this.enableDeselect = false,
+    this.maxSelected,
     @Deprecated(
       'Use GroupButtonController onDisabledButtonPressed field '
       'This feature was deprecated after version 4.6.0 ',
     )
         this.onDisablePressed,
-    this.buttonIndexedBuilder,
-    this.buttonBuilder,
-    this.enableDeselect = false,
-    this.maxSelected,
     @Deprecated(
       'Use GroupButtonController selectedIndex field '
       'This feature was deprecated after v4.2.0 '
