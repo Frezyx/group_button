@@ -80,7 +80,7 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
                 groupingType: GroupingType.column,
               ),
               buttons: _checkboxButtons,
-              buttonBuilder: (selected, index, context) {
+              buttonIndexedBuilder: (selected, index, context) {
                 return CheckBoxTile(
                   title: _checkboxButtons[index],
                   selected: selected,
@@ -109,7 +109,7 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
               isRadio: true,
               options: GroupButtonOptions(groupingType: GroupingType.column),
               buttons: _radioButtons,
-              buttonBuilder: (selected, index, context) {
+              buttonIndexedBuilder: (selected, index, context) {
                 return RadioTile(
                   title: _radioButtons[index],
                   selected: _radioController.selectedIndex,

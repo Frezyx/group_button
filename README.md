@@ -40,7 +40,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^4.8.0 #latest version
+  group_button: ^4.8.0
 ```
 
 ### Add import package
@@ -59,24 +59,6 @@ GroupButton(
     spacing: 10,
     onSelected: (index, isSelected) => print('$index button is selected'),
     buttons: ["12:00", "13:00", "14:30", "18:00", "19:00", "21:40"],
-)
-```
-
-### Can't easier to use
-Now you can use even simpler constructors to build your button groups. <br>
-Example for a group with a single value selection
-```dart
-GroupButton.radio(
-  buttons: ['12:00', '13:00', '14:00'],
-  onSelected: (i) => debugPrint('Button $i selected'),
-)
-```
-
-Example for a group with a choice of multiple values
-```dart
-GroupButton.checkbox(
-  buttons: ['12:00', '13:00', '14:00'],
-  onSelected: (i, selected) => debugPrint('Button $i selected: $selected'),
 )
 ```
 
@@ -99,6 +81,27 @@ Column(
       child: const Text('Select 1 button'),
     )
   ],
+),
+```
+
+### Generic button value
+In new 5.0.0 version you can set custom buttons value type <br>
+It can be int, DateTime, double or YourCustomClass <br>
+Button text will be result of .toString() model method in common button display case <br>
+```dart
+GroupButton<DateTime>(
+  buttons: [DateTime(2022, 4, 9), DateTime(2022, 4, 10)],
+)
+```
+
+Also you can use generic button values with cutsom buttonBuilder <br>
+In order to turn values into any widget
+```dart
+GroupButton<DateTime>(
+  buttons: [DateTime(2022, 4, 9), DateTime(2022, 4, 10)],
+  buttonBuilder: (selected, date, context) {
+    return Text('${date.year}-${date.month}-${date.day}');
+  },
 ),
 ```
 

@@ -6,7 +6,7 @@ class GroupButtonBody<T> extends StatefulWidget {
   const GroupButtonBody({
     Key? key,
     required this.buttons,
-    required this.onSelected,
+    this.onSelected,
     required this.groupingType,
     required this.textAlign,
     required this.textPadding,
@@ -37,6 +37,7 @@ class GroupButtonBody<T> extends StatefulWidget {
     this.groupRunAlignment = GroupRunAlignment.center,
     this.alignment,
     this.elevation,
+    this.buttonIndexedBuilder,
     this.buttonBuilder,
   }) : super(key: key);
 
@@ -44,7 +45,7 @@ class GroupButtonBody<T> extends StatefulWidget {
   final List<int> disabledButtons;
   final List<int>? selectedButtons;
   final int? selectedButton;
-  final Function(T, int, bool) onSelected;
+  final void Function(T, int, bool)? onSelected;
   final Function(int)? onDisablePressed;
   final bool isRadio;
   final bool? enableDeselect;
@@ -72,17 +73,14 @@ class GroupButtonBody<T> extends StatefulWidget {
   final AlignmentGeometry? alignment;
   final double? elevation;
   final GroupButtonController? controller;
-  final Widget Function(
-    bool selected,
-    int index,
-    BuildContext context,
-  )? buttonBuilder;
+  final GroupButtonIndexedBuilder? buttonIndexedBuilder;
+  final GroupButtonValueBuilder<T>? buttonBuilder;
 
   @override
-  _GroupButtonBodyState createState() => _GroupButtonBodyState();
+  _GroupButtonBodyState createState() => _GroupButtonBodyState<T>();
 }
 
-class _GroupButtonBodyState extends State<GroupButtonBody> {
+class _GroupButtonBodyState<T> extends State<GroupButtonBody> {
   late GroupButtonController _controller;
 
   @override
@@ -147,26 +145,31 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
     }
   }
 
-  bool _isSelected(int i) {
-    return widget.isRadio
-        ? _controller.selectedIndex == i
-        : _controller.selectedIndexes.contains(i);
-  }
-
   List<Widget> _generateButtonsList() {
     final rebuildedButtons = <Widget>[];
     for (var i = 0; i < widget.buttons.length; i++) {
-      final builder = widget.buttonBuilder;
       late Widget button;
-      if (builder != null) {
+      final buttonBuilder = widget.buttonBuilder as GroupButtonValueBuilder<T>?;
+
+      if (buttonBuilder != null || widget.buttonIndexedBuilder != null) {
         button = GestureDetector(
           onTap: _controller.disabledIndexes.contains(i)
               ? () => _controller.onDisablePressed?.call(i)
               : () {
                   _selectButton(i);
-                  widget.onSelected(widget.buttons[i], i, _isSelected(i));
+                  widget.onSelected?.call(widget.buttons[i], i, _isSelected(i));
                 },
-          child: builder(_isSelected(i), i, context),
+          child: buttonBuilder != null
+              ? buttonBuilder(
+                  _isSelected(i),
+                  widget.buttons[i],
+                  context,
+                )
+              : widget.buttonIndexedBuilder!(
+                  _isSelected(i),
+                  i,
+                  context,
+                ),
         );
       } else {
         button = GroupButtonItem(
@@ -175,7 +178,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
               ? () => _controller.onDisablePressed?.call(i)
               : () {
                   _selectButton(i);
-                  widget.onSelected(widget.buttons[i], i, _isSelected(i));
+                  widget.onSelected?.call(widget.buttons[i], i, _isSelected(i));
                 },
           isSelected: _isSelected(i),
           isDisable: _controller.disabledIndexes.contains(i),
@@ -199,7 +202,9 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
 
       /// Padding adding
       /// when groupingType is row or column
-      if (widget.spacing != 0.0 && widget.buttonBuilder == null) {
+      if (widget.spacing != 0.0 &&
+          widget.buttonIndexedBuilder == null &&
+          widget.buttonBuilder == null) {
         if (widget.groupingType == GroupingType.row) {
           button = Padding(
             padding: EdgeInsets.symmetric(horizontal: widget.spacing),
@@ -235,5 +240,11 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
       }
       _controller.toggleIndexes([i]);
     }
+  }
+
+  bool _isSelected(int i) {
+    return widget.isRadio
+        ? _controller.selectedIndex == i
+        : _controller.selectedIndexes.contains(i);
   }
 }
