@@ -40,7 +40,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^4.8.0
+  group_button: ^5.0.0
 ```
 
 ### Add import package
