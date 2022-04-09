@@ -16,8 +16,6 @@ class GroupButtonBody<T> extends StatefulWidget {
     this.selectedBorderColor,
     this.unselectedBorderColor,
     this.disabledButtons = const [],
-    this.selectedButtons,
-    this.selectedButton,
     this.isRadio = false,
     this.enableDeselect = false,
     this.maxSelected,
@@ -44,8 +42,6 @@ class GroupButtonBody<T> extends StatefulWidget {
 
   final List<T> buttons;
   final List<int> disabledButtons;
-  final List<int>? selectedButtons;
-  final int? selectedButton;
   final void Function(T, int, bool)? onSelected;
   final Function(int)? onDisablePressed;
   final bool isRadio;
@@ -94,8 +90,6 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
   }
 
   GroupButtonController _buidController() => GroupButtonController(
-        selectedIndex: widget.isRadio ? widget.selectedButton : null,
-        selectedIndexes: widget.selectedButtons ?? [],
         disabledIndexes: widget.disabledButtons,
         onDisablePressed: widget.onDisablePressed,
       );
@@ -150,9 +144,10 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
     final rebuildedButtons = <Widget>[];
     for (var i = 0; i < widget.buttons.length; i++) {
       late Widget button;
-      final buttonBuilder = widget.buttonBuilder as GroupButtonValueBuilder<T>?;
+      final buttonBuilder = widget.buttonBuilder;
+      final buttonIndexedBuilder = widget.buttonIndexedBuilder;
 
-      if (buttonBuilder != null || widget.buttonIndexedBuilder != null) {
+      if (buttonBuilder != null || buttonIndexedBuilder != null) {
         button = GestureDetector(
           onTap: _controller.disabledIndexes.contains(i)
               ? () => _controller.onDisablePressed?.call(i)
@@ -161,16 +156,8 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
                   widget.onSelected?.call(widget.buttons[i], i, _isSelected(i));
                 },
           child: buttonBuilder != null
-              ? buttonBuilder(
-                  _isSelected(i),
-                  widget.buttons[i],
-                  context,
-                )
-              : widget.buttonIndexedBuilder!(
-                  _isSelected(i),
-                  i,
-                  context,
-                ),
+              ? buttonBuilder(_isSelected(i), widget.buttons[i], context)
+              : buttonIndexedBuilder!(_isSelected(i), i, context),
         );
       } else {
         button = GroupButtonItem(

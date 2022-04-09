@@ -21,24 +21,7 @@ class GroupButton<T> extends StatelessWidget {
       'This feature was deprecated after version 4.6.0 ',
     )
         this.onDisablePressed,
-    @Deprecated(
-      'Use GroupButtonController selectedIndex field '
-      'This feature was deprecated after v4.2.0 '
-      'Field will be removed after version 5.0.0 of package',
-    )
-        this.selectedButton,
-    @Deprecated(
-      'Use GroupButtonController selectedIndexes field '
-      'This feature was deprecated after v4.2.0 '
-      'Field will be removed after version 5.0.0 of package',
-    )
-        this.selectedButtons,
   })  : assert(
-          (isRadio && selectedButtons == null) ||
-              (!isRadio && selectedButton == null),
-          'You can use selectedButton field for isRadio [true] and selectedButtons field with isRadio [false]',
-        ),
-        assert(
           maxSelected != null ? maxSelected >= 0 : true,
           'maxSelected must not be negative',
         ),
@@ -48,24 +31,6 @@ class GroupButton<T> extends StatelessWidget {
 
   /// [String] list that will be displayed on buttons in the [GroupButton]
   final List<T> buttons;
-
-  /// [int] button ids that is selected initially.
-  /// /// Using when [isRadio] is false
-  @Deprecated(
-    'Use GroupButtonController selectedIndexes field '
-    'This feature was deprecated after v4.2.0 '
-    'Field will be removed after version 5.0.0 of package',
-  )
-  final List<int>? selectedButtons;
-
-  /// [int] button initially selected id
-  /// Using when [isRadio] is true
-  @Deprecated(
-    'Use GroupButtonController selectedIndex field '
-    'This feature was deprecated after v4.2.0 '
-    'Field will be removed after version 5.0.0 of package',
-  )
-  final int? selectedButton;
 
   /// Callback [Function] works by clicking on a group element
   ///
@@ -121,8 +86,6 @@ class GroupButton<T> extends StatelessWidget {
     return GroupButtonBody<T>(
       controller: controller,
       buttons: buttons,
-      selectedButtons: selectedButtons,
-      selectedButton: selectedButton,
       onSelected: onSelected,
       onDisablePressed: onDisablePressed,
       isRadio: isRadio,
