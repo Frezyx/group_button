@@ -7,7 +7,7 @@ class GroupButtonBody<T> extends StatefulWidget {
     Key? key,
     required this.buttons,
     this.onSelected,
-    required this.groupingType,
+    this.groupingType,
     required this.textAlign,
     required this.textPadding,
     this.controller,
@@ -64,7 +64,7 @@ class GroupButtonBody<T> extends StatefulWidget {
   final List<BoxShadow> unselectedShadow;
   final double? buttonWidth;
   final double? buttonHeigth;
-  final GroupingType groupingType;
+  final GroupingType? groupingType;
   final MainGroupAlignment mainGroupAlignment;
   final CrossGroupAlignment crossGroupAlignment;
   final GroupRunAlignment groupRunAlignment;
@@ -77,14 +77,14 @@ class GroupButtonBody<T> extends StatefulWidget {
   final GroupButtonValueBuilder<T>? buttonBuilder;
 
   @override
-  _GroupButtonBodyState createState() => _GroupButtonBodyState<T>();
+  State<GroupButtonBody<T>> createState() => _GroupButtonBodyState<T>();
 }
 
-class _GroupButtonBodyState<T> extends State<GroupButtonBody> {
+class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
   late GroupButtonController _controller;
 
   @override
-  void didUpdateWidget(covariant GroupButtonBody oldWidget) {
+  void didUpdateWidget(covariant GroupButtonBody<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.controller != widget.controller) {
       _controller = widget.controller ?? _buidController();

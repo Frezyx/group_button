@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:group_button/group_button.dart';
 import 'package:group_button/src/options/defaults.dart';
 
+/// UI settings of package
 class GroupButtonOptions {
   const GroupButtonOptions({
     this.groupingType = GroupingType.wrap,
