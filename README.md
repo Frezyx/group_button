@@ -56,7 +56,6 @@ Put this code in your project at an screen and learn how it works 😊
 ```dart
 GroupButton(
     isRadio: false,
-    spacing: 10,
     onSelected: (index, isSelected) => print('$index button is selected'),
     buttons: ["12:00", "13:00", "14:30", "18:00", "19:00", "21:40"],
 )
@@ -106,58 +105,44 @@ GroupButton<DateTime>(
 ```
 
 ### Customize
-In order to customize your buttons inside *GroupButton* you can use code below</br>
-This code includes *all* the fields used in *GroupButton*
+In order to customize your buttons inside *GroupButton* you can use *GroupButtonOptions*
 
 ```dart
-GroupButton(
-  controller: GroupButtonController(),
-  spacing: 5,
-  isRadio: false,
+GroupButtonOptions(
+  selectedShadow: const [],
+  selectedTextStyle: TextStyle(
+    fontSize: 20,
+    color: Colors.pink[900],
+  ),
+  selectedColor: Colors.pink[100],
+  unselectedShadow: const [],
+  unselectedColor: Colors.amber[100],
+  unselectedTextStyle: TextStyle(
+    fontSize: 20,
+    color: Colors.amber[900],
+  ),
+  selectedBorderColor: Colors.pink[900],
+  unselectedBorderColor: Colors.amber[900],
+  borderRadius: BorderRadius.circular(100),
+  spacing: 10,
+  runSpacing: 10,
   groupingType: GroupingType.wrap,
   direction: Axis.horizontal,
-  onSelected: (index, isSelected) => debugPrint(
-    '$index button is ${isSelected ? 'selected' : 'unselected'}',
-  ),
-  buttons: const [
-    "Dart",
-    "Kotlin",
-    "Java",
-    "Swift",
-    "Objective-C",
-    "Python",
-    "JS",
-    "C#",
-    "C",
-    "C++"
-  ],
-  selectedButtons: const [1, 2, 3],
-  selectedTextStyle: const TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: 16,
-    color: Colors.red,
-  ),
-  unselectedTextStyle: TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: 14,
-    color: Colors.grey[600],
-  ),
-  selectedColor: Colors.white,
-  unselectedColor: Colors.grey[300],
-  selectedBorderColor: Colors.red,
-  unselectedBorderColor: Colors.grey[500],
-  borderRadius: BorderRadius.circular(5.0),
-  selectedShadow: const <BoxShadow>[BoxShadow(color: Colors.transparent)],
-  unselectedShadow: const <BoxShadow>[BoxShadow(color: Colors.transparent)],
-  buttonHeight: 30,
-  buttonWidth: 115,
-  enableDeselect: false,
-  maxSelected: 5
-);
+  buttonHeight: 60,
+  buttonWidth: 60,
+  mainGroupAlignment: MainGroupAlignment.start,
+  crossGroupAlignment: CrossGroupAlignment.start,
+  groupRunAlignment: GroupRunAlignment.start,
+  textAlign: TextAlign.center,
+  textPadding: EdgeInsets.zero,
+  alignment: Alignment.center,
+  elevation: 0,
+),
 ```
 
-### Examples
+![](https://github.com/Frezyx/group_button/blob/master/example/rep_files/options_example.png?raw=true) 
 
+### Examples
 You can check more examples of using this package [here](example/lib)
 
 <br>
