@@ -46,7 +46,7 @@ class _ExampleState extends State<_Example> {
         shadowColor: Colors.grey[100]?.withOpacity(0.1),
         backgroundColor: Colors.white,
         title: Text(
-          'GroupButton 4.8.0',
+          'GroupButton 5.0.0',
           style: Theme.of(context).textTheme.headline6,
         ),
       ),
@@ -70,7 +70,7 @@ class _ExampleState extends State<_Example> {
                     groupingType: GroupingType.row,
                   ),
                   buttons: const ['Wrap', 'Column', 'Row'],
-                  onSelected: (i, selected) {
+                  onSelected: (val, i, selected) {
                     _extendedExampleController.selectedGroupingType = i;
                   },
                 ),
@@ -86,7 +86,7 @@ class _ExampleState extends State<_Example> {
                     spacing: 7.5,
                   ),
                   buttons: const ['Radio', 'CheckBox'],
-                  onSelected: (i, selected) {
+                  onSelected: (_, i, selected) {
                     _pageController.animateToPage(
                       i,
                       duration: const Duration(milliseconds: 200),

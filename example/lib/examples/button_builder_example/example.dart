@@ -60,7 +60,7 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
           shadowColor: Colors.grey[100]?.withOpacity(0.1),
           backgroundColor: Colors.white,
           title: Text(
-            'GroupButton 4.8.0',
+            'GroupButton 5.0.0',
             style: Theme.of(context).textTheme.headline6,
           ),
         ),
@@ -80,7 +80,7 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
                 groupingType: GroupingType.column,
               ),
               buttons: _checkboxButtons,
-              buttonBuilder: (selected, index, context) {
+              buttonIndexedBuilder: (selected, index, context) {
                 return CheckBoxTile(
                   title: _checkboxButtons[index],
                   selected: selected,
@@ -93,7 +93,8 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
                   },
                 );
               },
-              onSelected: (i, selected) => debugPrint('Button #$i $selected'),
+              onSelected: (val, i, selected) =>
+                  debugPrint('Button: $val index: $i $selected'),
             ),
             const SizedBox(height: 10),
             Padding(
@@ -108,7 +109,7 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
               isRadio: true,
               options: GroupButtonOptions(groupingType: GroupingType.column),
               buttons: _radioButtons,
-              buttonBuilder: (selected, index, context) {
+              buttonIndexedBuilder: (selected, index, context) {
                 return RadioTile(
                   title: _radioButtons[index],
                   selected: _radioController.selectedIndex,
@@ -118,7 +119,8 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
                   },
                 );
               },
-              onSelected: (i, selected) => debugPrint('Button #$i $selected'),
+              onSelected: (val, i, selected) =>
+                  debugPrint('Button: $val index: $i $selected'),
             ),
           ],
         ),

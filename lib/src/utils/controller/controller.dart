@@ -8,13 +8,13 @@ class GroupButtonController extends ChangeNotifier {
     List<int> selectedIndexes = const <int>[],
     List<int> disabledIndexes = const <int>[],
     Function(int index)? onDisablePressed,
-  })  : _selectedButton = selectedIndex,
-        _selectedButtons = selectedIndexes.toSet(),
+  })  : _selectedIndex = selectedIndex,
+        _selectedIndexes = selectedIndexes.toSet(),
         _disabledIndexes = disabledIndexes.toSet(),
         onDisablePressed = onDisablePressed;
 
-  int? _selectedButton;
-  final Set<int> _selectedButtons;
+  int? _selectedIndex;
+  final Set<int> _selectedIndexes;
   final Set<int> _disabledIndexes;
 
   /// Callback [Function] works by clicking on a disabled group element
@@ -23,10 +23,10 @@ class GroupButtonController extends ChangeNotifier {
   Function(int idnex)? onDisablePressed;
 
   /// Selected button index in case when you using radio type
-  int? get selectedIndex => _selectedButton;
+  int? get selectedIndex => _selectedIndex;
 
   /// Selected buttons indexes in case when you using checkbox type
-  Set<int> get selectedIndexes => _selectedButtons;
+  Set<int> get selectedIndexes => _selectedIndexes;
 
   /// Disabled buttons indexes
   Set<int> get disabledIndexes => _disabledIndexes;
@@ -36,8 +36,8 @@ class GroupButtonController extends ChangeNotifier {
     if (_isDisabled(i, withCallBack: true)) {
       return;
     }
-    _selectedButton = i;
-    _selectedButtons.add(i);
+    _selectedIndex = i;
+    _selectedIndexes.add(i);
     notifyListeners();
   }
 
@@ -46,16 +46,16 @@ class GroupButtonController extends ChangeNotifier {
     if (_isDisabled(i, withCallBack: true)) {
       return;
     }
-    _selectedButton = null;
-    _selectedButtons.remove(i);
+    _selectedIndex = null;
+    _selectedIndexes.remove(i);
     notifyListeners();
   }
 
   /// Unselect all buttons in checkbox type
   /// and only one selected button in radio type
   void unselectAll() {
-    _selectedButton = null;
-    _selectedButtons.clear();
+    _selectedIndex = null;
+    _selectedIndexes.clear();
     notifyListeners();
   }
 
@@ -63,10 +63,10 @@ class GroupButtonController extends ChangeNotifier {
   void toggleIndexes(List<int> indexes) {
     final enabledIndexes = _removeDisabledIndexes(indexes);
     for (final i in enabledIndexes) {
-      if (_selectedButtons.contains(i)) {
-        _selectedButtons.remove(i);
+      if (_selectedIndexes.contains(i)) {
+        _selectedIndexes.remove(i);
       } else {
-        _selectedButtons.add(i);
+        _selectedIndexes.add(i);
       }
     }
     notifyListeners();
@@ -75,14 +75,14 @@ class GroupButtonController extends ChangeNotifier {
   /// Select buttons by indexes in checkbox type
   void selectIndexes(List<int> indexes) {
     final enabledIndexes = _removeDisabledIndexes(indexes);
-    _selectedButtons.addAll(enabledIndexes);
+    _selectedIndexes.addAll(enabledIndexes);
     notifyListeners();
   }
 
   /// Unselect buttons by indexes in checkbox type
   void unselectIndexes(List<int> indexes) {
     final enabledIndexes = _removeDisabledIndexes(indexes);
-    _selectedButtons.removeAll(enabledIndexes);
+    _selectedIndexes.removeAll(enabledIndexes);
     notifyListeners();
   }
 
