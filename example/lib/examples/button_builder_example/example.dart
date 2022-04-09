@@ -93,7 +93,8 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
                   },
                 );
               },
-              onSelected: (i, selected) => debugPrint('Button #$i $selected'),
+              onSelected: (val, i, selected) =>
+                  debugPrint('Button: $val index: $i $selected'),
             ),
             const SizedBox(height: 10),
             Padding(
@@ -118,7 +119,8 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
                   },
                 );
               },
-              onSelected: (i, selected) => debugPrint('Button #$i $selected'),
+              onSelected: (val, i, selected) =>
+                  debugPrint('Button: $val index: $i $selected'),
             ),
           ],
         ),

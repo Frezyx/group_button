@@ -5,7 +5,7 @@ import 'package:group_button/group_button.dart';
 import 'package:group_button/src/group_button_body.dart';
 import 'package:group_button/src/options/defaults.dart';
 
-class GroupButton extends StatelessWidget {
+class GroupButton<T> extends StatelessWidget {
   const GroupButton({
     Key? key,
     required this.buttons,
@@ -117,7 +117,7 @@ class GroupButton extends StatelessWidget {
         super(key: key);
 
   /// [String] list that will be displayed on buttons in the [GroupButton]
-  final List<String> buttons;
+  final List<T> buttons;
 
   /// [int] button ids that are disabled.
   @Deprecated(
@@ -148,7 +148,7 @@ class GroupButton extends StatelessWidget {
   /// Callback [Function] works by clicking on a group element
   ///
   /// Return int [index] of selected button and [isSelected] if [isRadio] = false
-  final Function(int index, bool isSelected) onSelected;
+  final Function(T value, int index, bool isSelected) onSelected;
 
   /// Callback [Function] works by clicking on a disabled group element
   ///

@@ -47,7 +47,8 @@ class StylesExample extends StatelessWidget {
                       ),
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    onSelected: (i, selected) {},
+                    onSelected: (val, i, selected) =>
+                        debugPrint('Button: $val index: $i $selected'),
                   ),
                 ),
                 ScrollIjector(
@@ -75,7 +76,8 @@ class StylesExample extends StatelessWidget {
                     controller: GroupButtonController(
                       selectedIndexes: const [1, 3, 4],
                     ),
-                    onSelected: (i, selected) {},
+                    onSelected: (val, i, selected) =>
+                        debugPrint('Button: $val index: $i $selected'),
                   ),
                 ),
                 ScrollIjector(
@@ -110,7 +112,8 @@ class StylesExample extends StatelessWidget {
                     controller: GroupButtonController(
                       selectedIndexes: const [0, 4, 6],
                     ),
-                    onSelected: (i, selected) {},
+                    onSelected: (val, i, selected) =>
+                        debugPrint('Button: $val index: $i $selected'),
                   ),
                 ),
                 Padding(
@@ -151,7 +154,8 @@ class StylesExample extends StatelessWidget {
                       controller: GroupButtonController(
                         selectedIndexes: const [1, 3, 4],
                       ),
-                      onSelected: (i, selected) {},
+                      onSelected: (val, i, selected) =>
+                          debugPrint('Button: $val index: $i $selected'),
                     ),
                   ),
                 ),

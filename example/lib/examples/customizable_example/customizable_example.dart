@@ -34,7 +34,8 @@ class CustomizableExample extends StatelessWidget {
                 buttons: customizableController.buttons
                     .map((i) => '${i + 1}')
                     .toList(),
-                onSelected: (i, selected) => debugPrint('Button #$i $selected'),
+                onSelected: (val, i, selected) =>
+                    debugPrint('Button: $val index: $i $selected'),
               ),
             ),
             bottomNavigationBar: GroupButtonBottomPanel(

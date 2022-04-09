@@ -15,8 +15,8 @@ Widget _buildRadioExample(GroupingType groupingType, {Axis? direction}) {
             direction: direction,
             groupingType: groupingType,
           ),
-          onSelected: (index, isSelected) =>
-              debugPrint('$index button is selected'),
+          onSelected: (val, i, selected) =>
+              debugPrint('Button: $val index: $i $selected'),
           buttons: const ['12:00', '13:00', '14:30', '18:00', '19:00', '21:40'],
         ),
       ),

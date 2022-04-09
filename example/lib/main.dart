@@ -44,9 +44,11 @@ class CommonExample extends StatelessWidget {
           child: GroupButton(
             controller: controller,
             isRadio: false,
-            buttons: List.generate(25, (i) => '${i + 1}'),
+            buttons: List.generate(
+                25, (i) => DateTime.now().add(Duration(hours: i + 1))),
             maxSelected: 10,
-            onSelected: (i, selected) => debugPrint('Button #$i $selected'),
+            onSelected: (val, i, selected) =>
+                debugPrint('Button: $val index: $i $selected'),
           ),
         ),
       ),

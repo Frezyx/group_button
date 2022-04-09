@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 import 'package:group_button/src/group_button_item.dart';
 
-class GroupButtonBody extends StatefulWidget {
+class GroupButtonBody<T> extends StatefulWidget {
   const GroupButtonBody({
     Key? key,
     required this.buttons,
@@ -40,11 +40,11 @@ class GroupButtonBody extends StatefulWidget {
     this.buttonBuilder,
   }) : super(key: key);
 
-  final List<String> buttons;
+  final List<T> buttons;
   final List<int> disabledButtons;
   final List<int>? selectedButtons;
   final int? selectedButton;
-  final Function(int, bool) onSelected;
+  final Function(T, int, bool) onSelected;
   final Function(int)? onDisablePressed;
   final bool isRadio;
   final bool? enableDeselect;
@@ -118,7 +118,7 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
   }
 
   Widget _buildBodyByGroupingType() {
-    final buttons = _generateButtonsList(widget.buttons);
+    final buttons = _generateButtonsList();
     switch (widget.groupingType) {
       case GroupingType.row:
         return Row(
@@ -153,11 +153,9 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
         : _controller.selectedIndexes.contains(i);
   }
 
-  List<Widget> _generateButtonsList(
-    List<String> buttons,
-  ) {
+  List<Widget> _generateButtonsList() {
     final rebuildedButtons = <Widget>[];
-    for (var i = 0; i < buttons.length; i++) {
+    for (var i = 0; i < widget.buttons.length; i++) {
       final builder = widget.buttonBuilder;
       late Widget button;
       if (builder != null) {
@@ -166,18 +164,18 @@ class _GroupButtonBodyState extends State<GroupButtonBody> {
               ? () => _controller.onDisablePressed?.call(i)
               : () {
                   _selectButton(i);
-                  widget.onSelected(i, _isSelected(i));
+                  widget.onSelected(widget.buttons[i], i, _isSelected(i));
                 },
           child: builder(_isSelected(i), i, context),
         );
       } else {
         button = GroupButtonItem(
-          text: buttons[i],
+          text: widget.buttons[i].toString(),
           onPressed: _controller.disabledIndexes.contains(i)
               ? () => _controller.onDisablePressed?.call(i)
               : () {
                   _selectButton(i);
-                  widget.onSelected(i, _isSelected(i));
+                  widget.onSelected(widget.buttons[i], i, _isSelected(i));
                 },
           isSelected: _isSelected(i),
           isDisable: _controller.disabledIndexes.contains(i),
