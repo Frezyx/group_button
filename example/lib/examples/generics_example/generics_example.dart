@@ -5,11 +5,11 @@ class GenericsExample extends StatelessWidget {
   GenericsExample({Key? key}) : super(key: key);
 
   final controller = GroupButtonController(
-    selectedIndex: 20,
-    selectedIndexes: [0, 1, 2, 3, 4],
-    disabledIndexes: [10, 12, 13, 14, 15, 23],
+    selectedIndex: 0,
     onDisablePressed: (i) => print('Button #$i is disabled'),
   );
+
+  final day = DateTime(2022, 4, 9);
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +19,22 @@ class GenericsExample extends StatelessWidget {
         body: Center(
           child: GroupButton<DateTime>(
             controller: controller,
-            buttons: [DateTime(2022, 4, 9), DateTime(2022, 4, 10)],
+            buttons: List.generate(18, (i) => day.add(Duration(days: i))),
             onSelected: (date, i, selected) =>
                 debugPrint('Button: $date index: $i selected: $selected'),
             buttonBuilder: (selected, date, context) {
-              return Text('${date.year}-${date.month}-${date.day}');
+              return Card(
+                color: selected ? Colors.amber[900] : Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    '${date.year}-${date.month}-${date.day}',
+                    style: TextStyle(
+                      color: selected ? Colors.white : Colors.black,
+                    ),
+                  ),
+                ),
+              );
             },
           ),
         ),

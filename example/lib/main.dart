@@ -26,7 +26,7 @@ import 'examples/button_builder_example/example.dart';
 /// to checl how works generic button values
 
 void main() {
-  runApp(CommonExample());
+  runApp(GenericsExample());
 }
 
 class CommonExample extends StatelessWidget {

@@ -8,7 +8,7 @@ class GroupButtonTestWidget extends StatefulWidget {
 }
 
 class _GroupButtonTestWidgetState extends State<GroupButtonTestWidget> {
-  List<String> buttons = ['12:00', '13:00', '14:00'];
+  final buttons = ['12:00', '13:00', '14:00'];
 
   @override
   Widget build(BuildContext context) {
