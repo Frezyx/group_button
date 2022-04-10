@@ -5,8 +5,7 @@ import 'package:example/examples/generics_example/generics_example.dart';
 import 'package:example/examples/styles_example/example.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
-
-import 'examples/button_builder_example/example.dart';
+import 'examples/button_builder_example/button_indexed_builder_example.dart';
 
 /// Use [GroupButtonExtendedExample]
 /// to check all package [GroupingType]'s in one place
@@ -30,7 +29,7 @@ import 'examples/button_builder_example/example.dart';
 /// to checl how works generic button values
 
 void main() {
-  runApp(FullOptionsSelectedExample());
+  runApp(CommonExample());
 }
 
 class CommonExample extends StatelessWidget {
@@ -53,7 +52,6 @@ class CommonExample extends StatelessWidget {
             controller: controller,
             isRadio: false,
             buttons: List.generate(25, (i) => '${i + 1}'),
-            maxSelected: 10,
             onSelected: (val, i, selected) =>
                 debugPrint('Button: $val index: $i selected: $selected'),
           ),
