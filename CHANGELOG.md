@@ -1,3 +1,8 @@
+## 5.0.1 
+ - **FEAT**: Added user friendly example
+
+ Thanks for [vasilich6107](https://github.com/vasilich6107)
+
 ## 5.0.0
  - **MAIN FEAT**: GroupButton\<T> now is generic class.<br>
  Now you can create int, DateTime, double or YourCustomClass typed buttons List for default GroupButton constructor.<br> **More** [here](https://github.com/Frezyx/group_button/blob/master/example/lib/examples/generics_example/generics_example.dart)
