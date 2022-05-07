@@ -1,9 +1,11 @@
+import 'package:example/drawer.dart';
 import 'package:example/examples/extended_example/helper_widgets/helper_widgets.dart';
 import 'package:example/examples/extended_example/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
 part 'radio_example_part.dart';
+
 part 'checkbox_example_part.dart';
 
 class GroupButtonExtendedExample extends StatelessWidget {
@@ -11,9 +13,8 @@ class GroupButtonExtendedExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+    return Theme(
+      data: ThemeData(
         primarySwatch: Colors.green,
         buttonTheme: ButtonThemeData(
           colorScheme: Theme.of(context).buttonTheme.colorScheme?.copyWith(
@@ -23,7 +24,7 @@ class GroupButtonExtendedExample extends StatelessWidget {
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: _Example(),
+      child: _Example(),
     );
   }
 }
@@ -42,12 +43,10 @@ class _ExampleState extends State<_Example> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const AppDrawer(),
       appBar: AppBar(
-        shadowColor: Colors.grey[100]?.withOpacity(0.1),
-        backgroundColor: Colors.white,
         title: Text(
           'GroupButton 5.0.0',
-          style: Theme.of(context).textTheme.headline6,
         ),
       ),
       body: SafeArea(

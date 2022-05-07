@@ -18,13 +18,12 @@ class GroupButtonProviderExample extends StatelessWidget {
         ),
       ],
       builder: (ctx, _) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
+        return Theme(
+          data: ThemeData(
             primaryColor: primaryColor,
             primarySwatch: primaryColor,
           ),
-          home: HomePage(),
+          child: HomePage(),
         );
       },
     );
