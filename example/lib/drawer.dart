@@ -14,43 +14,43 @@ class AppDrawer extends StatelessWidget {
             ListTile(
               title: const Text('GroupButtonExtendedExample'),
               onTap: () => Navigator.of(context).pushReplacementNamed(
-                Routes.GroupButtonExtendedExample,
+                Routes.groupButtonExtendedExample,
               ),
             ),
             ListTile(
               title: const Text('StylesExample'),
               onTap: () => Navigator.of(context).pushReplacementNamed(
-                Routes.StylesExample,
+                Routes.stylesExample,
               ),
             ),
             ListTile(
               title: const Text('CustomizableExample'),
               onTap: () => Navigator.of(context).pushReplacementNamed(
-                Routes.CustomizableExample,
+                Routes.customizableExample,
               ),
             ),
             ListTile(
               title: const Text('ButtonBuilderExample'),
               onTap: () => Navigator.of(context).pushReplacementNamed(
-                Routes.ButtonBuilderExample,
+                Routes.buttonBuilderExample,
               ),
             ),
             ListTile(
               title: const Text('FullOptionsSelectedExample'),
               onTap: () => Navigator.of(context).pushReplacementNamed(
-                Routes.FullOptionsSelectedExample,
+                Routes.fullOptionsSelectedExample,
               ),
             ),
             ListTile(
               title: const Text('GenericsExample'),
               onTap: () => Navigator.of(context).pushReplacementNamed(
-                Routes.GenericsExample,
+                Routes.genericsExample,
               ),
             ),
             ListTile(
               title: const Text('CommonExample'),
               onTap: () => Navigator.of(context).pushReplacementNamed(
-                Routes.CommonExample,
+                Routes.commonExample,
               ),
             ),
           ],

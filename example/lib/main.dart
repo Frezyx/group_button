@@ -12,32 +12,32 @@ import 'examples/button_builder_example/example.dart';
 class Routes {
   /// Use [GroupButtonExtendedExample]
   /// to check all package [GroupingType]'s in one place
-  static const GroupButtonExtendedExample = '/GroupButtonExtendedExample';
+  static const groupButtonExtendedExample = '/GroupButtonExtendedExample';
 
   /// Use [StylesExample]
   /// to check all package style's configuration
-  static const StylesExample = '/StylesExample';
+  static const stylesExample = '/StylesExample';
 
   /// Use [CustomizableExample]
   /// to check package power
-  static const CustomizableExample = '/CustomizableExample';
+  static const customizableExample = '/CustomizableExample';
 
   /// Use [ButtonBuilderExample]
   /// to check how button builder works
   ///
   /// In this example GroupButton work as
   /// common flutter [Checkbox] and [Radio] buttons
-  static const ButtonBuilderExample = '/ButtonBuilderExample';
+  static const buttonBuilderExample = '/ButtonBuilderExample';
 
   /// Use [FullOptionsSelectedExample]
   /// to check all [GroupButtonOptions]
-  static const FullOptionsSelectedExample = '/FullOptionsSelectedExample';
+  static const fullOptionsSelectedExample = '/FullOptionsSelectedExample';
 
   /// Use [GenericsExample]
   /// to check how works generic button values
-  static const GenericsExample = '/GenericsExample';
+  static const genericsExample = '/GenericsExample';
 
-  static const CommonExample = '/CommonExample';
+  static const commonExample = '/CommonExample';
 }
 
 void main() {
@@ -50,20 +50,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'GroupButton Example',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routes: <String, WidgetBuilder>{
-        Routes.GroupButtonExtendedExample: (_) => GroupButtonExtendedExample(),
-        Routes.StylesExample: (_) => StylesExample(),
-        Routes.CustomizableExample: (_) => CustomizableExample(),
-        Routes.ButtonBuilderExample: (_) => ButtonBuilderExample(),
-        Routes.FullOptionsSelectedExample: (_) =>
+        Routes.groupButtonExtendedExample: (_) => GroupButtonExtendedExample(),
+        Routes.stylesExample: (_) => StylesExample(),
+        Routes.customizableExample: (_) => CustomizableExample(),
+        Routes.buttonBuilderExample: (_) => ButtonBuilderExample(),
+        Routes.fullOptionsSelectedExample: (_) =>
             const FullOptionsSelectedExample(),
-        Routes.GenericsExample: (_) => GenericsExample(),
-        Routes.CommonExample: (_) => CommonExample(),
+        Routes.genericsExample: (_) => GenericsExample(),
+        Routes.commonExample: (_) => CommonExample(),
       },
       home: CommonExample(),
     );
