@@ -14,7 +14,7 @@ Included Radio and CheckBox buttons models with custom groping types 🤤
   <a href="https://pub.dev/packages/group_button"><img src="https://img.shields.io/pub/v/group_button.svg" alt="Pub"></a>
   <a href="https://github.com/Frezyx/group_button"><img src="https://img.shields.io/github/stars/Frezyx/group_button.svg?style=flat&logo=github&label=stars" alt="Star on Github"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
-  <a href="https://github.com/Frezyx/group_button"><img src="https://hits.dwyl.com/Frezyx/group_button.svg?style=flat" alt="Pub points"></a>
+  <a href="https://github.com/Frezyx/group_button"><img src="https://hits.dwyl.com/Frezyx/group_button.svg?style=flat" alt="Repository views"></a>
 </p>
 <p align="center">
   <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/likes" alt="Pub likes"></a>
