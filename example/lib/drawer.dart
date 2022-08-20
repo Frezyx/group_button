@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'main.dart';
 import 'routes.dart';
 
 class AppDrawer extends StatelessWidget {

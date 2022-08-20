@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
-class ScrollIjector extends StatelessWidget {
-  const ScrollIjector({
+class ScrollInjector extends StatelessWidget {
+  const ScrollInjector({
     Key? key,
     required this.child,
     required this.groupingType,

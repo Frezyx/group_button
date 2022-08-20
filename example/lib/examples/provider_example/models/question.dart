@@ -13,13 +13,13 @@ class Question {
   List<bool> answers;
   List<bool> userAnswers;
 
-  void updateAnsver(int index, {required bool value}) {
+  void updateAnswer(int index, {required bool value}) {
     userAnswers[index] = value;
   }
 
   List<int> get selectedIndexes {
     final indexes = <int>[];
-    for (var i = 0; i < userAnswers.length; i++) {
+    for (int i = 0; i < userAnswers.length; i++) {
       if (userAnswers[i]) {
         indexes.add(i);
       }

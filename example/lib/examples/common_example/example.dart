@@ -5,7 +5,7 @@ import 'package:group_button/group_button.dart';
 class CommonExample extends StatelessWidget {
   CommonExample({Key? key}) : super(key: key);
 
-  final controller = GroupButtonController(
+  final GroupButtonController controller = GroupButtonController(
     selectedIndex: 20,
     selectedIndexes: [0, 1, 2, 3, 4],
     disabledIndexes: [10, 12, 13, 14, 15, 23],

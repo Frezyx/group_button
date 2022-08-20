@@ -5,12 +5,12 @@ import 'package:group_button/group_button.dart';
 class GenericsExample extends StatelessWidget {
   GenericsExample({Key? key}) : super(key: key);
 
-  final controller = GroupButtonController(
+  final GroupButtonController controller = GroupButtonController(
     selectedIndex: 0,
     onDisablePressed: (i) => print('Button #$i is disabled'),
   );
 
-  final day = DateTime(2022, 4, 9);
+  final DateTime day = DateTime(2022, 4, 9);
 
   @override
   Widget build(BuildContext context) {

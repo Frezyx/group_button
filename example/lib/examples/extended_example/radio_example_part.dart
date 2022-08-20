@@ -1,7 +1,7 @@
 part of 'example.dart';
 
 Widget _buildRadioExample(GroupingType groupingType, {Axis? direction}) {
-  return ScrollIjector(
+  return ScrollInjector(
     groupingType: groupingType,
     child: Padding(
       padding: const EdgeInsets.all(10.0),

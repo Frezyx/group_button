@@ -4,7 +4,7 @@ import 'package:group_button/group_button.dart';
 import 'package:group_button/src/utils/extensions/extensions.dart';
 
 void main() {
-  group('Test_Algnments_Convert', () {
+  group('Test_Alignments_Convert', () {
     group('Test_MainGroupAlignments', () {
       _testMainGroupAlignment(
         MainGroupAlignment.center,
@@ -64,9 +64,9 @@ void _testCrossGroupAlignment(
   WrapCrossAlignment wrap,
 ) {
   test(group.toString(), () async {
-    final mainAxisAlignemnt = group.toAxis();
+    final mainAxisAlignment = group.toAxis();
     final mainWrapAlignment = group.toWrap();
-    expect(mainAxisAlignemnt, axis);
+    expect(mainAxisAlignment, axis);
     expect(mainWrapAlignment, wrap);
   });
 }
@@ -77,9 +77,9 @@ void _testMainGroupAlignment(
   WrapAlignment wrap,
 ) {
   test(group.toString(), () async {
-    final mainAxisAlignemnt = group.toAxis();
+    final mainAxisAlignment = group.toAxis();
     final mainWrapAlignment = group.toWrap();
-    expect(mainAxisAlignemnt, axis);
+    expect(mainAxisAlignment, axis);
     expect(mainWrapAlignment, wrap);
   });
 }

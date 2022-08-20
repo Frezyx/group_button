@@ -22,7 +22,7 @@ class StylesExample extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              ScrollIjector(
+              ScrollInjector(
                 groupingType: GroupingType.wrap,
                 child: GroupButton(
                   buttons: const [
@@ -48,7 +48,7 @@ class StylesExample extends StatelessWidget {
                       debugPrint('Button: $val index: $i $selected'),
                 ),
               ),
-              ScrollIjector(
+              ScrollInjector(
                 groupingType: GroupingType.wrap,
                 child: GroupButton(
                   buttons: const [
@@ -77,7 +77,7 @@ class StylesExample extends StatelessWidget {
                       debugPrint('Button: $val index: $i $selected'),
                 ),
               ),
-              ScrollIjector(
+              ScrollInjector(
                 groupingType: GroupingType.wrap,
                 child: GroupButton(
                   buttons: const [
@@ -115,7 +115,7 @@ class StylesExample extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: ScrollIjector(
+                child: ScrollInjector(
                   groupingType: GroupingType.wrap,
                   child: GroupButton(
                     buttons: const [
