@@ -2,7 +2,6 @@ import 'package:example/examples/common_example/example.dart';
 import 'package:flutter/material.dart';
 import 'routes.dart';
 
-
 void main() {
   runApp(MyApp());
 }

@@ -19,7 +19,7 @@ class Question {
 
   List<int> get selectedIndexes {
     final indexes = <int>[];
-    for (int i = 0; i < userAnswers.length; i++) {
+    for (var i = 0; i < userAnswers.length; i++) {
       if (userAnswers[i]) {
         indexes.add(i);
       }

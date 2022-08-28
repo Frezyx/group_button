@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomizableExampleController extends ChangeNotifier {
-  int _buttonsCount = 25;
+  var _buttonsCount = 25;
 
   int get buttonsCount => _buttonsCount;
   set buttonsCount(int count) {

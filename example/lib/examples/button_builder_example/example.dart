@@ -13,7 +13,7 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
   late GroupButtonController _checkboxesController;
   late GroupButtonController _radioController;
 
-  final List<String> _checkboxButtons = [
+  final _checkboxButtons = [
     'Michael Jordan',
     'Magic Johnson',
     'LeBron James',
@@ -22,7 +22,7 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
     'Larry Bird',
   ];
 
-  final List<String> _radioButtons = [
+  final _radioButtons = [
     'Cola',
     'Potato chips',
     'Pudding',
@@ -49,15 +49,8 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
   }
 
   @override
-  void dispose() {
-    _checkboxesController.dispose();
-    _radioController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
+    final theme = Theme.of(context);
 
     return Scaffold(
       drawer: const AppDrawer(),

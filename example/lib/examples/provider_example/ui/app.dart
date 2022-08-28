@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 import 'package:provider/provider.dart';
 
-const MaterialColor primaryColor = Colors.purple;
+const primaryColor = Colors.purple;
 
 /// !!!!!!!!!!!!!!!!!!! DON`T WORK NOW !!!!!!!!!!!!!!!!!!!
 class GroupButtonProviderExample extends StatelessWidget {
@@ -39,7 +39,7 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
-  Axis direction = Axis.horizontal;
+  var direction = Axis.horizontal;
 
   @override
   Widget build(BuildContext context) {

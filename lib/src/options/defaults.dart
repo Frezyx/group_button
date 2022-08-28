@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 @protected
-const List<BoxShadow> defaultShadow = <BoxShadow>[
+const defaultShadow = <BoxShadow>[
   BoxShadow(
     color: Color.fromARGB(18, 18, 18, 20),
     blurRadius: 25.0,
@@ -14,13 +14,13 @@ const List<BoxShadow> defaultShadow = <BoxShadow>[
 ];
 
 @protected
-const TextStyle defaultSelectedTextStyle = TextStyle(
+const defaultSelectedTextStyle = TextStyle(
   fontSize: 14,
   color: Colors.white,
 );
 
 @protected
-const TextStyle defaultUnselectedTextStyle = TextStyle(
+const defaultUnselectedTextStyle = TextStyle(
   fontSize: 14,
   color: Colors.black,
 );
