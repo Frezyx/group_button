@@ -7,11 +7,11 @@ class GroupButtonBody<T> extends StatefulWidget {
   const GroupButtonBody({
     Key? key,
     required this.buttons,
-    this.onSelected,
-    this.groupingType,
     required this.textAlign,
     required this.textPadding,
     this.controller,
+    this.onSelected,
+    this.groupingType,
     this.onDisablePressed,
     this.selectedBorderColor,
     this.unselectedBorderColor,
@@ -30,7 +30,7 @@ class GroupButtonBody<T> extends StatefulWidget {
     this.selectedShadow = const [],
     this.unselectedShadow = const [],
     this.buttonWidth,
-    this.buttonHeigth,
+    this.buttonHeight,
     this.mainGroupAlignment = MainGroupAlignment.center,
     this.crossGroupAlignment = CrossGroupAlignment.center,
     this.groupRunAlignment = GroupRunAlignment.center,
@@ -60,7 +60,7 @@ class GroupButtonBody<T> extends StatefulWidget {
   final List<BoxShadow> selectedShadow;
   final List<BoxShadow> unselectedShadow;
   final double? buttonWidth;
-  final double? buttonHeigth;
+  final double? buttonHeight;
   final GroupingType? groupingType;
   final MainGroupAlignment mainGroupAlignment;
   final CrossGroupAlignment crossGroupAlignment;
@@ -84,12 +84,12 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
   void didUpdateWidget(covariant GroupButtonBody<T> oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.controller != widget.controller) {
-      _controller = widget.controller ?? _buidController();
+      _controller = widget.controller ?? _buildController();
       _controller.onDisablePressed ??= widget.onDisablePressed;
     }
   }
 
-  GroupButtonController _buidController() => GroupButtonController(
+  GroupButtonController _buildController() => GroupButtonController(
         disabledIndexes: widget.disabledButtons,
         onDisablePressed: widget.onDisablePressed,
       );
@@ -97,7 +97,7 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
   @override
   void initState() {
     super.initState();
-    _controller = widget.controller ?? _buidController();
+    _controller = widget.controller ?? _buildController();
   }
 
   @override
@@ -112,6 +112,7 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
 
   Widget _buildBodyByGroupingType() {
     final buttons = _generateButtonsList();
+
     switch (widget.groupingType) {
       case GroupingType.row:
         return Row(
@@ -179,7 +180,7 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
           borderRadius: widget.borderRadius,
           selectedShadow: widget.selectedShadow,
           unselectedShadow: widget.unselectedShadow,
-          height: widget.buttonHeigth,
+          height: widget.buttonHeight,
           width: widget.buttonWidth,
           textAlign: widget.textAlign,
           textPadding: widget.textPadding,
@@ -190,7 +191,7 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
 
       /// Padding adding
       /// when groupingType is row or column
-      if (widget.spacing != 0.0 &&
+      if (widget.spacing > 0.0 &&
           widget.buttonIndexedBuilder == null &&
           widget.buttonBuilder == null) {
         if (widget.groupingType == GroupingType.row) {

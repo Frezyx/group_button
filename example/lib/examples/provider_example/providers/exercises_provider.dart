@@ -2,17 +2,17 @@ import 'package:example/examples/provider_example/models/models.dart';
 import 'package:example/examples/provider_example/models/question.dart';
 import 'package:flutter/material.dart';
 
-class ExarcisesProvider extends ChangeNotifier {
+class ExercisesProvider extends ChangeNotifier {
   var _exercise = Exercise(
     questions: [
       Question(
-        'Wich numbers less then 3?',
+        'Which numbers less then 3?',
         [true, true, false, false],
         [false, false, false, false],
         ['0', '1', '8', '9'],
       ),
       Question(
-        'Wich numbers more then 3?',
+        'Which numbers more then 3?',
         [false, false, true, true],
         [false, false, false, false],
         ['1', '-10', '11', '9'],

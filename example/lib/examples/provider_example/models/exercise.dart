@@ -6,7 +6,7 @@ class Exercise {
   final List<Question> questions;
 
   void updateAnswer(int questionIndex, int index, {required bool value}) =>
-      questions[questionIndex].updateAnsver(index, value: value);
+      questions[questionIndex].updateAnswer(index, value: value);
 
   @override
   String toString() => 'Exercise(questions: $questions)';

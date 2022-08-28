@@ -9,7 +9,7 @@ part 'radio_example_part.dart';
 part 'checkbox_example_part.dart';
 
 class GroupButtonExtendedExample extends StatelessWidget {
-  GroupButtonExtendedExample({Key? key}) : super(key: key);
+  const GroupButtonExtendedExample({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
