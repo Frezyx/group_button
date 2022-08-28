@@ -1,6 +1,6 @@
 ## 5.1.0 
  - **BREAKING**: idnex -> index change typo fix for onDisablePressed callback Function of GroupButtonController
- - **INFO**: Examples and code base refactorin
+ - **INFO**: Examples and code base refactoring
 
  Thanks for [anasfik](https://github.com/anasfik)
 
