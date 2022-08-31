@@ -1,3 +1,7 @@
+## 5.2.0
+ - **INFO**: Make the package compatible with the 3.3.0 Flutter version 
+ - **FIX**: Analyser issues
+
 ## 5.1.0 
  - **BREAKING**: idnex -> index change typo fix for onDisablePressed callback Function of GroupButtonController
  - **INFO**: Examples and code base refactoring
