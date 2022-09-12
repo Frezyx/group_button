@@ -88,7 +88,8 @@ class GroupButtonItem extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         elevation: elevation ?? 0.0,
-        backgroundColor: _getBackgroundColor(theme),
+        // ignore: deprecated_member_use
+        primary: _getBackgroundColor(theme),
         shape: _buildShape(),
         padding: (width != null || height != null) ? EdgeInsets.zero : null,
         alignment: (width != null || height != null) ? alignment : null,

@@ -1,3 +1,6 @@
+## 5.2.1
+- **INFO** Compatibility with flutter version under 3.3.0
+
 ## 5.2.0
  - **INFO**: Make the package compatible with the 3.3.0 Flutter version 
  - **FIX**: Analyser issues
