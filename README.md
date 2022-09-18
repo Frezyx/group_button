@@ -12,14 +12,14 @@ Included Radio and CheckBox buttons models with custom groping types 🤤
 
 <p align="center">
   <a href="https://pub.dev/packages/group_button"><img src="https://img.shields.io/pub/v/group_button.svg" alt="Pub"></a>
-  <a href="https://github.com/Frezyx/group_button"><img src="https://img.shields.io/github/stars/Frezyx/group_button.svg?style=flat&logo=github&label=stars" alt="Star on Github"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
   <a href="https://github.com/Frezyx/group_button"><img src="https://hits.dwyl.com/Frezyx/group_button.svg?style=flat" alt="Repository views"></a>
+  <a href="https://github.com/Frezyx/group_button"><img src="https://img.shields.io/github/stars/Frezyx/group_button?style=social" alt="Pub"></a>
 </p>
 <p align="center">
-  <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/likes" alt="Pub likes"></a>
-  <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/popularity" alt="Pub popularity"></a>
-  <a href="https://pub.dev/packages/group_button/score"><img src="https://badges.bar/group_button/pub%20points" alt="Pub points"></a>
+  <a href="https://pub.dev/packages/group_button/score"><img src="https://img.shields.io/pub/likes/group_button?logo=flutter" alt="Pub likes"></a>
+  <a href="https://pub.dev/packages/group_button/score"><img src="https://img.shields.io/pub/popularity/group_button?logo=flutter" alt="Pub popularity"></a>
+  <a href="https://pub.dev/packages/group_button/score"><img src="https://img.shields.io/pub/points/group_button?logo=flutter" alt="Pub points"></a>
 </p>
 
 <br>
@@ -40,7 +40,7 @@ Follow these steps to use this package
 
 ```yaml
 dependencies:
-  group_button: ^5.2.0
+  group_button: ^5.2.2
 ```
 
 ### Add import package
