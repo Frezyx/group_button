@@ -1,3 +1,5 @@
+## 5.2.2
+- **INFO** Update README badages
 ## 5.2.1
 - **INFO** Compatibility with flutter version under 3.3.0
 
