@@ -38,6 +38,7 @@ class GroupButtonBody<T> extends StatefulWidget {
     this.elevation,
     this.buttonIndexedBuilder,
     this.buttonBuilder,
+    this.buttonIndexedTextBuilder,
   }) : super(key: key);
 
   final List<T> buttons;
@@ -72,6 +73,7 @@ class GroupButtonBody<T> extends StatefulWidget {
   final GroupButtonController? controller;
   final GroupButtonIndexedBuilder? buttonIndexedBuilder;
   final GroupButtonValueBuilder<T>? buttonBuilder;
+  final GroupButtonIndexedTextBuilder? buttonIndexedTextBuilder;
 
   @override
   State<GroupButtonBody<T>> createState() => _GroupButtonBodyState<T>();
@@ -162,7 +164,9 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
         );
       } else {
         button = GroupButtonItem(
-          text: widget.buttons[i].toString(),
+          text: widget.buttonIndexedTextBuilder
+                  ?.call(_isSelected(i), i, context) ??
+              widget.buttons[i].toString(),
           onPressed: _controller.disabledIndexes.contains(i)
               ? () => _controller.onDisablePressed?.call(i)
               : () {
