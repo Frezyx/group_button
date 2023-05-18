@@ -1,3 +1,23 @@
+## 5.2.2
+- **INFO** Update README badages
+## 5.2.1
+- **INFO** Compatibility with flutter version under 3.3.0
+
+## 5.2.0
+ - **INFO**: Make the package compatible with the 3.3.0 Flutter version 
+ - **FIX**: Analyser issues
+
+## 5.1.0 
+ - **BREAKING**: idnex -> index change typo fix for onDisablePressed callback Function of GroupButtonController
+ - **INFO**: Examples and code base refactoring
+
+ Thanks for [anasfik](https://github.com/anasfik)
+
+## 5.0.1 
+ - **FEAT**: Added user friendly example
+
+ Thanks for [vasilich6107](https://github.com/vasilich6107)
+
 ## 5.0.0
  - **MAIN FEAT**: GroupButton\<T> now is generic class.<br>
  Now you can create int, DateTime, double or YourCustomClass typed buttons List for default GroupButton constructor.<br> **More** [here](https://github.com/Frezyx/group_button/blob/master/example/lib/examples/generics_example/generics_example.dart)

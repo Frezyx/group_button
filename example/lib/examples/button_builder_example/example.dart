@@ -1,3 +1,4 @@
+import 'package:example/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:group_button/group_button.dart';
 
@@ -27,14 +28,12 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
     'Pudding',
   ];
 
-  final _messangerKey = GlobalKey<ScaffoldMessengerState>();
-
   @override
   void initState() {
     _checkboxesController = GroupButtonController(
       selectedIndexes: [2],
       disabledIndexes: [4],
-      onDisablePressed: (index) => _messangerKey.currentState?.showSnackBar(
+      onDisablePressed: (index) => ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('${_checkboxButtons[index]} is disabled')),
       ),
     );
@@ -42,7 +41,7 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
     _radioController = GroupButtonController(
       selectedIndexes: [1],
       disabledIndexes: [2, 3],
-      onDisablePressed: (index) => _messangerKey.currentState?.showSnackBar(
+      onDisablePressed: (index) => ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('${_radioButtons[index]} is disabled')),
       ),
     );
@@ -52,78 +51,73 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return MaterialApp(
-      scaffoldMessengerKey: _messangerKey,
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          shadowColor: Colors.grey[100]?.withOpacity(0.1),
-          backgroundColor: Colors.white,
-          title: Text(
-            'GroupButton 5.0.0',
-            style: Theme.of(context).textTheme.headline6,
+
+    return Scaffold(
+      drawer: const AppDrawer(),
+      appBar: AppBar(
+        title: Text(
+          'GroupButton 5.0.0',
+        ),
+      ),
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            child: Text(
+              'Checkbox buttons',
+              style: theme.textTheme.headline5,
+            ),
           ),
-        ),
-        body: ListView(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              child: Text(
-                'Checkbox buttons',
-                style: theme.textTheme.headline5,
-              ),
+          GroupButton(
+            controller: _checkboxesController,
+            isRadio: false,
+            options: GroupButtonOptions(
+              groupingType: GroupingType.column,
             ),
-            GroupButton(
-              controller: _checkboxesController,
-              isRadio: false,
-              options: GroupButtonOptions(
-                groupingType: GroupingType.column,
-              ),
-              buttons: _checkboxButtons,
-              buttonIndexedBuilder: (selected, index, context) {
-                return CheckBoxTile(
-                  title: _checkboxButtons[index],
-                  selected: selected,
-                  onTap: () {
-                    if (!selected) {
-                      _checkboxesController.selectIndex(index);
-                      return;
-                    }
-                    _checkboxesController.unselectIndex(index);
-                  },
-                );
-              },
-              onSelected: (val, i, selected) =>
-                  debugPrint('Button: $val index: $i $selected'),
+            buttons: _checkboxButtons,
+            buttonIndexedBuilder: (selected, index, context) {
+              return CheckBoxTile(
+                title: _checkboxButtons[index],
+                selected: selected,
+                onTap: () {
+                  if (!selected) {
+                    _checkboxesController.selectIndex(index);
+                    return;
+                  }
+                  _checkboxesController.unselectIndex(index);
+                },
+              );
+            },
+            onSelected: (val, i, selected) =>
+                debugPrint('Button: $val index: $i $selected'),
+          ),
+          const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            child: Text(
+              'Radio buttons',
+              style: theme.textTheme.headline5,
             ),
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              child: Text(
-                'Radio buttons',
-                style: theme.textTheme.headline5,
-              ),
-            ),
-            GroupButton(
-              controller: _radioController,
-              isRadio: true,
-              options: GroupButtonOptions(groupingType: GroupingType.column),
-              buttons: _radioButtons,
-              buttonIndexedBuilder: (selected, index, context) {
-                return RadioTile(
-                  title: _radioButtons[index],
-                  selected: _radioController.selectedIndex,
-                  index: index,
-                  onTap: () {
-                    _radioController.selectIndex(index);
-                  },
-                );
-              },
-              onSelected: (val, i, selected) =>
-                  debugPrint('Button: $val index: $i $selected'),
-            ),
-          ],
-        ),
+          ),
+          GroupButton(
+            controller: _radioController,
+            isRadio: true,
+            options: GroupButtonOptions(groupingType: GroupingType.column),
+            buttons: _radioButtons,
+            buttonIndexedBuilder: (selected, index, context) {
+              return RadioTile(
+                title: _radioButtons[index],
+                selected: _radioController.selectedIndex,
+                index: index,
+                onTap: () {
+                  _radioController.selectIndex(index);
+                },
+              );
+            },
+            onSelected: (val, i, selected) =>
+                debugPrint('Button: $val index: $i $selected'),
+          ),
+        ],
       ),
     );
   }

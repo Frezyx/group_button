@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 class GroupButtonController extends ChangeNotifier {
   GroupButtonController({
     int? selectedIndex,
-    List<int> selectedIndexes = const <int>[],
-    List<int> disabledIndexes = const <int>[],
+    List<int> selectedIndexes = const [],
+    List<int> disabledIndexes = const [],
     Function(int index)? onDisablePressed,
   })  : _selectedIndex = selectedIndex,
         _selectedIndexes = selectedIndexes.toSet(),
@@ -14,13 +14,12 @@ class GroupButtonController extends ChangeNotifier {
         onDisablePressed = onDisablePressed;
 
   int? _selectedIndex;
-  final Set<int> _selectedIndexes;
-  final Set<int> _disabledIndexes;
+  final Set<int> _selectedIndexes, _disabledIndexes;
 
   /// Callback [Function] works by clicking on a disabled group element
   ///
-  /// Return int [index] of selected button
-  Function(int idnex)? onDisablePressed;
+  /// Returns int [index] of selected button
+  Function(int index)? onDisablePressed;
 
   /// Selected button index in case when you using radio type
   int? get selectedIndex => _selectedIndex;

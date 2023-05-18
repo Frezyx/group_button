@@ -7,7 +7,7 @@ typedef GroupButtonIndexedBuilder = Widget Function(
   BuildContext context,
 );
 
-/// Custom builder method to create custom buttons by index
+/// Custom builder method to create custom buttons by value
 typedef GroupButtonValueBuilder<T> = Widget Function(
   bool selected,
   T value,

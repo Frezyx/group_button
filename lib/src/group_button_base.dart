@@ -74,11 +74,11 @@ class GroupButton<T> extends StatelessWidget {
   final GroupButtonOptions options;
 
   /// Custom builder method to create
-  /// your own custom buttons by button [int] index
+  /// Your own custom buttons by button [int] index
   final GroupButtonIndexedBuilder? buttonIndexedBuilder;
 
   /// Custom builder method to create
-  /// your own custom buttons by button [T] value
+  /// Your own custom buttons by button [T] value
   final GroupButtonValueBuilder<T>? buttonBuilder;
 
   @override
@@ -108,7 +108,7 @@ class GroupButton<T> extends StatelessWidget {
       selectedShadow: options.selectedShadow,
       unselectedShadow: options.unselectedShadow,
       buttonWidth: options.buttonWidth,
-      buttonHeigth: options.buttonHeight,
+      buttonHeight: options.buttonHeight,
       mainGroupAlignment: options.mainGroupAlignment,
       crossGroupAlignment: options.crossGroupAlignment,
       groupRunAlignment: options.groupRunAlignment,

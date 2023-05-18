@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 const primaryColor = Colors.purple;
 
-/// !!!!!!!!!!!!!!!!!!! DON`T WROK NOW !!!!!!!!!!!!!!!!!!!
+/// !!!!!!!!!!!!!!!!!!! DON`T WORK NOW !!!!!!!!!!!!!!!!!!!
 class GroupButtonProviderExample extends StatelessWidget {
   GroupButtonProviderExample({Key? key}) : super(key: key);
 
@@ -13,18 +13,17 @@ class GroupButtonProviderExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<ExarcisesProvider>(
-          create: (_) => ExarcisesProvider(),
+        ChangeNotifierProvider<ExercisesProvider>(
+          create: (_) => ExercisesProvider(),
         ),
       ],
       builder: (ctx, _) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
+        return Theme(
+          data: ThemeData(
             primaryColor: primaryColor,
             primarySwatch: primaryColor,
           ),
-          home: HomePage(),
+          child: HomePage(),
         );
       },
     );
@@ -40,11 +39,11 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
-  Axis direction = Axis.horizontal;
+  var direction = Axis.horizontal;
 
   @override
   Widget build(BuildContext context) {
-    final _eProvider = Provider.of<ExarcisesProvider>(context);
+    final _eProvider = Provider.of<ExercisesProvider>(context);
     final size = MediaQuery.of(context).size;
     return DefaultTabController(
       length: _eProvider.exercise.questions.length,
@@ -66,7 +65,7 @@ class HomePageState extends State<HomePage>
     );
   }
 
-  TabBarView _buildTabBarView(ExarcisesProvider _eProvider, Size size) {
+  TabBarView _buildTabBarView(ExercisesProvider _eProvider, Size size) {
     return TabBarView(
       children: _eProvider.exercise.questions
           .map(

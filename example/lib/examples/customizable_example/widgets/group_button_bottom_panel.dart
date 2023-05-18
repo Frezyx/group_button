@@ -14,15 +14,17 @@ class GroupButtonBottomPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final size = MediaQuery.of(context).size;
     return SizedBox(
       height: 300,
       child: Column(
         children: [
           Container(
             height: 100,
-            width: MediaQuery.of(context).size.width,
+            width: size.width,
             decoration: BoxDecoration(
-              color: Theme.of(context).cardColor,
+              color: theme.cardColor,
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey[100]!,
@@ -39,7 +41,7 @@ class GroupButtonBottomPanel extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 30.0),
                   child: Text(
                     'Buttons count ${customizableController.buttonsCount}',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: theme.textTheme.headline6,
                   ),
                 ),
                 Slider(
@@ -56,9 +58,9 @@ class GroupButtonBottomPanel extends StatelessWidget {
           ),
           Container(
             height: 200,
-            width: MediaQuery.of(context).size.width,
+            width: size.width,
             decoration: BoxDecoration(
-              color: Theme.of(context).cardColor,
+              color: theme.cardColor,
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey[100]!,
@@ -67,57 +69,55 @@ class GroupButtonBottomPanel extends StatelessWidget {
                 )
               ],
             ),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 30.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Managed by controller',
-                    style: Theme.of(context).textTheme.headline6,
-                  ),
-                  Wrap(
-                    spacing: 10,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () => controller.selectIndex(0),
-                        child: const Text('Select #1'),
-                      ),
-                      ElevatedButton(
-                        onPressed: () => controller.unselectIndex(0),
-                        child: const Text('Unelect #1'),
-                      ),
-                      ElevatedButton(
-                        onPressed: () =>
-                            controller.selectIndexes([0, 1, 2, 3, 4]),
-                        child: const Text('Select line'),
-                      ),
-                      ElevatedButton(
-                        onPressed: () =>
-                            controller.unselectIndexes([0, 1, 2, 3, 4]),
-                        child: const Text('Uelect line'),
-                      ),
-                      ElevatedButton(
-                        onPressed: () =>
-                            controller.toggleIndexes([0, 1, 2, 3, 4]),
-                        child: const Text('Toggle line'),
-                      ),
-                      ElevatedButton(
-                        onPressed: () => controller
-                          ..unselectAll()
-                          ..selectIndexes([2, 7, 12, 17, 22])
-                          ..selectIndexes([10, 11, 12, 13, 14]),
-                        child: const Text('Make +'),
-                      ),
-                      ElevatedButton(
-                        onPressed: () => controller.unselectAll(),
-                        child: const Text('Unselect all'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'Managed by controller',
+                  style: theme.textTheme.headline6,
+                ),
+                Wrap(
+                  spacing: 10,
+                  alignment: WrapAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () => controller.selectIndex(0),
+                      child: const Text('Select #1'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () => controller.unselectIndex(0),
+                      child: const Text('Unselect #1'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () =>
+                          controller.selectIndexes([0, 1, 2, 3, 4]),
+                      child: const Text('Select line'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () =>
+                          controller.unselectIndexes([0, 1, 2, 3, 4]),
+                      child: const Text('Unselect line'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () =>
+                          controller.toggleIndexes([0, 1, 2, 3, 4]),
+                      child: const Text('Toggle line'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () => controller
+                        ..unselectAll()
+                        ..selectIndexes([2, 7, 12, 17, 22])
+                        ..selectIndexes([10, 11, 12, 13, 14]),
+                      child: const Text('Make +'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () => controller.unselectAll(),
+                      child: const Text('Unselect all'),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ],

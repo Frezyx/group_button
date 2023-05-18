@@ -14,7 +14,13 @@ const defaultShadow = <BoxShadow>[
 ];
 
 @protected
-const defaultSelectedTextStyle = TextStyle(fontSize: 14, color: Colors.white);
+const defaultSelectedTextStyle = TextStyle(
+  fontSize: 14,
+  color: Colors.white,
+);
 
 @protected
-const defaultUnselectedTextStyle = TextStyle(fontSize: 14, color: Colors.black);
+const defaultUnselectedTextStyle = TextStyle(
+  fontSize: 14,
+  color: Colors.black,
+);
