@@ -22,7 +22,7 @@ typedef GroupButtonIndexedTextBuilder = String Function(
 );
 
 /// Custom builder method to create custom buttons by value
-typedef GroupButtonValueTextBuilder<T> = String Function(
+typedef GroupbuttonTextBuilder<T> = String Function(
   bool selected,
   T value,
   BuildContext context,

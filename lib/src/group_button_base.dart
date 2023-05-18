@@ -15,7 +15,7 @@ class GroupButton<T> extends StatelessWidget {
     this.buttonIndexedBuilder,
     this.buttonBuilder,
     this.buttonIndexedTextBuilder,
-    this.buttonValueTextBuilder,
+    this.buttonTextBuilder,
     this.enableDeselect = false,
     this.maxSelected,
     @Deprecated(
@@ -95,7 +95,7 @@ class GroupButton<T> extends StatelessWidget {
   ///
   /// If you do not set up [buttonIndexedBuilder] and [buttonBuilder],
   /// the text will be displayed on top of the button.
-  final GroupButtonValueTextBuilder<T>? buttonValueTextBuilder;
+  final GroupbuttonTextBuilder<T>? buttonTextBuilder;
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +108,7 @@ class GroupButton<T> extends StatelessWidget {
       buttonIndexedBuilder: buttonIndexedBuilder,
       buttonBuilder: buttonBuilder,
       buttonIndexedTextBuilder: buttonIndexedTextBuilder,
-      buttonValueTextBuilder: buttonValueTextBuilder,
+      buttonTextBuilder: buttonTextBuilder,
       enableDeselect: enableDeselect,
       maxSelected: maxSelected,
 

@@ -93,6 +93,8 @@ GroupButton<DateTime>(
 )
 ```
 
+### Button builders
+
 Also you can use generic button values with cutsom buttonBuilder <br>
 In order to turn values into any widget
 ```dart
@@ -104,7 +106,14 @@ GroupButton<DateTime>(
 ),
 ```
 
-### Customize
+In this package, there are four different possibilities for customizing your buttons through builders
+
+- 1 **buttonBuilder** It will build a fully custom button based on the value parameter
+- 2 **buttonIndexedBuilder** same as buttonBuilder. But based on button index. 
+- 3 **buttonTextBuilder** It will replace the text of your button, which is constructed based on the style parameters passed in GroupButtonOptions. The appearance of the button remains the same, but the text is changed. Based on button value. 
+- 4 **buttonIndexedTextBuilder** same as buttonTextBuilder. But based on button index. 
+
+### Fully Customize
 In order to customize your buttons inside *GroupButton* you can use *GroupButtonOptions*
 
 ```dart
