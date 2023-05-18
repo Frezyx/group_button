@@ -117,6 +117,24 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
             onSelected: (val, i, selected) =>
                 debugPrint('Button: $val index: $i $selected'),
           ),
+          SizedBox(height: 16),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            child: Text(
+              'Text builder example',
+              style: theme.textTheme.headlineSmall,
+            ),
+          ),
+          GroupButton(
+            controller: _radioController,
+            isRadio: true,
+            options: GroupButtonOptions(groupingType: GroupingType.wrap),
+            buttons: _radioButtons,
+            buttonIndexedTextBuilder: (selected, index, context) =>
+                _radioButtons[index] + ' [built]',
+            onSelected: (val, i, selected) =>
+                debugPrint('Button: $val index: $i $selected'),
+          ),
         ],
       ),
     );
