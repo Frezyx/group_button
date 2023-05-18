@@ -65,7 +65,7 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             child: Text(
               'Checkbox buttons',
-              style: theme.textTheme.headline5,
+              style: theme.textTheme.headlineSmall,
             ),
           ),
           GroupButton(
@@ -96,7 +96,7 @@ class _ButtonBuilderExampleState extends State<ButtonBuilderExample> {
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
             child: Text(
               'Radio buttons',
-              style: theme.textTheme.headline5,
+              style: theme.textTheme.headlineSmall,
             ),
           ),
           GroupButton(
