@@ -1,3 +1,9 @@
+## 5.3.0
+
+- Implement **buttonIndexedTextBuilder** and **buttonTextBuilder** 
+for building only text of buttons. See more in [docs](https://github.com/Frezyx/group_button)
+- Recreate example host folders
+
 ## 5.2.2
 - **INFO** Update README badages
 ## 5.2.1

@@ -14,6 +14,8 @@ class GroupButton<T> extends StatelessWidget {
     this.isRadio = true,
     this.buttonIndexedBuilder,
     this.buttonBuilder,
+    this.buttonIndexedTextBuilder,
+    this.buttonTextBuilder,
     this.enableDeselect = false,
     this.maxSelected,
     @Deprecated(
@@ -81,6 +83,20 @@ class GroupButton<T> extends StatelessWidget {
   /// Your own custom buttons by button [T] value
   final GroupButtonValueBuilder<T>? buttonBuilder;
 
+  /// This is a custom builder method that
+  /// allows you to set your own custom text for buttons based on their [index].
+  ///
+  /// If you do not set up [buttonIndexedBuilder] and [buttonBuilder],
+  /// the text will be displayed on top of the button.
+  final GroupButtonIndexedTextBuilder? buttonIndexedTextBuilder;
+
+  /// This is a custom builder method that
+  /// allows you to set your own custom text for buttons based on their [value].
+  ///
+  /// If you do not set up [buttonIndexedBuilder] and [buttonBuilder],
+  /// the text will be displayed on top of the button.
+  final GroupbuttonTextBuilder<T>? buttonTextBuilder;
+
   @override
   Widget build(BuildContext context) {
     return GroupButtonBody<T>(
@@ -91,6 +107,8 @@ class GroupButton<T> extends StatelessWidget {
       isRadio: isRadio,
       buttonIndexedBuilder: buttonIndexedBuilder,
       buttonBuilder: buttonBuilder,
+      buttonIndexedTextBuilder: buttonIndexedTextBuilder,
+      buttonTextBuilder: buttonTextBuilder,
       enableDeselect: enableDeselect,
       maxSelected: maxSelected,
 

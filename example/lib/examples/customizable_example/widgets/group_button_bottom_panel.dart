@@ -41,7 +41,7 @@ class GroupButtonBottomPanel extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 30.0),
                   child: Text(
                     'Buttons count ${customizableController.buttonsCount}',
-                    style: theme.textTheme.headline6,
+                    style: theme.textTheme.titleLarge,
                   ),
                 ),
                 Slider(
@@ -75,7 +75,7 @@ class GroupButtonBottomPanel extends StatelessWidget {
               children: [
                 Text(
                   'Managed by controller',
-                  style: theme.textTheme.headline6,
+                  style: theme.textTheme.titleLarge,
                 ),
                 Wrap(
                   spacing: 10,
