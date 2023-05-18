@@ -1,6 +1,6 @@
 linter:
   rules:
-    deprecated_member_use_from_same_package: true
+    # deprecated_member_use_from_same_package: true
     # Good for libraries to prevent unnecessary code paths.
     # Dart SDK: >= 2.0.0 • (Linter v0.1.25)
     # https://dart-lang.github.io/linter/lints/literal_only_boolean_expressions.html
