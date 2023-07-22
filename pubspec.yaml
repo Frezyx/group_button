@@ -1,7 +1,16 @@
 name: group_button
 description: Flutter custom widget to make a group buttons. Included Radio and CheckBox buttons.
-version: 5.3.0
+version: 5.3.1
 homepage: https://github.com/Frezyx/group_button
+repository: https://github.com/Frezyx/group_button
+issue_tracker: https://github.com/Frezyx/group_button
+
+topics:
+  - widget
+  - ui
+  - button
+  - chips
+  - selector
 
 environment:
   sdk: '>=2.12.0 <3.0.0'

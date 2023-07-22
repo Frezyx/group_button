@@ -1,3 +1,7 @@
+# 5.3.1
+- Add topics in pubspec.yaml
+- Remove deprecated linter rules
+
 ## 5.3.0
 
 - Implement **buttonIndexedTextBuilder** and **buttonTextBuilder** 

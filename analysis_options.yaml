@@ -22,7 +22,6 @@ linter:
     # https://dart-lang.github.io/linter/lints/use_key_in_widget_constructors.html
     use_key_in_widget_constructors: true
     always_declare_return_types: true
-    always_require_non_null_named_parameters: true
     annotate_overrides: true
     avoid_init_to_null: true
     avoid_null_checks_in_equality_operators: true
