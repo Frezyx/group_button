@@ -1,3 +1,6 @@
+# 5.3.2
+- Update sdk version to **'>=2.15.0 <4.0.0'**
+
 # 5.3.1
 - Add topics in pubspec.yaml
 - Remove deprecated linter rules
