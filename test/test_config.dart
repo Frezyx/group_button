@@ -4,7 +4,7 @@ import 'package:group_button/group_button.dart';
 class GroupButtonTestWidget extends StatefulWidget {
   const GroupButtonTestWidget({Key? key}) : super(key: key);
   @override
-  _GroupButtonTestWidgetState createState() => _GroupButtonTestWidgetState();
+  State<GroupButtonTestWidget> createState() => _GroupButtonTestWidgetState();
 }
 
 class _GroupButtonTestWidgetState extends State<GroupButtonTestWidget> {

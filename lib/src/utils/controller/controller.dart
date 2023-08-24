@@ -7,11 +7,10 @@ class GroupButtonController extends ChangeNotifier {
     int? selectedIndex,
     List<int> selectedIndexes = const [],
     List<int> disabledIndexes = const [],
-    Function(int index)? onDisablePressed,
+    this.onDisablePressed,
   })  : _selectedIndex = selectedIndex,
         _selectedIndexes = selectedIndexes.toSet(),
-        _disabledIndexes = disabledIndexes.toSet(),
-        onDisablePressed = onDisablePressed;
+        _disabledIndexes = disabledIndexes.toSet();
 
   int? _selectedIndex;
   final Set<int> _selectedIndexes, _disabledIndexes;

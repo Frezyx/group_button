@@ -1,3 +1,8 @@
+# 5.3.3
+- Remove self linter with **flutter_lints**
+- Fix linter issues
+- Format files
+
 # 5.3.2
 - Update sdk version to **'>=2.15.0 <4.0.0'**
 

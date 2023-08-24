@@ -22,7 +22,7 @@ class GroupButton<T> extends StatelessWidget {
       'Use GroupButtonController onDisabledButtonPressed field '
       'This feature was deprecated after version 4.6.0 ',
     )
-        this.onDisablePressed,
+    this.onDisablePressed,
   })  : assert(
           maxSelected != null ? maxSelected >= 0 : true,
           'maxSelected must not be negative',

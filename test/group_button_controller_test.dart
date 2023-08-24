@@ -2,66 +2,66 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:group_button/group_button.dart';
 
 void main() {
-  late GroupButtonController _controller;
+  late GroupButtonController controller;
 
   const selectingList = [0, 1, 2, 3, 4, 5, 6];
 
   group('Test_GroupButtonController', () {
     setUp(() {
-      _controller = GroupButtonController();
+      controller = GroupButtonController();
     });
 
     group('SelectIndex', () {
       test('Radio', () async {
-        _controller.selectIndex(10);
-        expect(_controller.selectedIndex, 10);
+        controller.selectIndex(10);
+        expect(controller.selectedIndex, 10);
       });
 
       test('Checkbox', () async {
-        _controller.selectIndex(10);
-        expect(_controller.selectedIndexes, contains(10));
+        controller.selectIndex(10);
+        expect(controller.selectedIndexes, contains(10));
       });
     });
 
     group('UnselectIndex', () {
       test('Radio', () async {
-        _controller.selectIndex(10);
-        _controller.unselectIndex(10);
-        expect(_controller.selectedIndex, isNull);
+        controller.selectIndex(10);
+        controller.unselectIndex(10);
+        expect(controller.selectedIndex, isNull);
       });
 
       test('Checkbox', () async {
-        _controller.selectIndex(10);
-        _controller.unselectIndex(10);
-        expect(_controller.selectedIndexes, isEmpty);
+        controller.selectIndex(10);
+        controller.unselectIndex(10);
+        expect(controller.selectedIndexes, isEmpty);
       });
     });
 
     test('SelectIndexes', () async {
-      _controller.selectIndexes(selectingList);
-      expect(_controller.selectedIndexes, isNotEmpty);
-      expect(_controller.selectedIndexes, selectingList);
+      controller.selectIndexes(selectingList);
+      expect(controller.selectedIndexes, isNotEmpty);
+      expect(controller.selectedIndexes, selectingList);
     });
 
     group('UnselectIndexes', () {
       test('All', () async {
-        _controller.selectIndexes(selectingList);
-        _controller.unselectIndexes(selectingList);
-        expect(_controller.selectedIndexes, isEmpty);
+        controller.selectIndexes(selectingList);
+        controller.unselectIndexes(selectingList);
+        expect(controller.selectedIndexes, isEmpty);
       });
 
       test('Part', () async {
-        _controller.selectIndexes(selectingList);
-        _controller.unselectIndexes(selectingList.getRange(0, 3).toList());
+        controller.selectIndexes(selectingList);
+        controller.unselectIndexes(selectingList.getRange(0, 3).toList());
         final editableList = [...selectingList];
-        expect(_controller.selectedIndexes, editableList..removeRange(0, 3));
+        expect(controller.selectedIndexes, editableList..removeRange(0, 3));
       });
     });
 
     test('UnselectAll', () async {
-      _controller.selectIndexes(selectingList);
-      _controller.unselectAll();
-      expect(_controller.selectedIndexes, isEmpty);
+      controller.selectIndexes(selectingList);
+      controller.unselectAll();
+      expect(controller.selectedIndexes, isEmpty);
     });
   });
 }
