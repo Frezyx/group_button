@@ -14,8 +14,10 @@ class GroupButtonItem extends StatelessWidget {
     this.selectedColor,
     this.unselectedColor,
     this.borderRadius,
+    this.borderWidth,
     this.selectedShadow,
     this.unselectedShadow,
+    this.disableTappingShadow,
     this.height,
     this.width,
     this.textAlign,
@@ -35,8 +37,10 @@ class GroupButtonItem extends StatelessWidget {
   final Color? selectedBorderColor;
   final Color? unselectedBorderColor;
   final BorderRadius? borderRadius;
+  final double? borderWidth;
   final List<BoxShadow>? selectedShadow;
   final List<BoxShadow>? unselectedShadow;
+  final bool? disableTappingShadow;
   final double? height;
   final double? width;
   final TextAlign? textAlign;
@@ -45,6 +49,8 @@ class GroupButtonItem extends StatelessWidget {
   final double? elevation;
 
   bool get isEnabled => !isDisable;
+
+  bool get _isTappingShadowDisabled => disableTappingShadow ?? false;
 
   List<BoxShadow>? get _boxShadow => isSelected
       ? selectedShadow
@@ -63,6 +69,8 @@ class GroupButtonItem extends StatelessWidget {
       : isEnabled
           ? unselectedBorderColor
           : null;
+
+  double get _borderWidth => borderWidth ?? 1.0;
 
   @override
   Widget build(BuildContext context) {
@@ -87,6 +95,7 @@ class GroupButtonItem extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
+        shadowColor: _isTappingShadowDisabled ? Colors.transparent : _getBackgroundColor(theme),
         elevation: elevation ?? 0.0,
         // ignore: deprecated_member_use
         primary: _getBackgroundColor(theme),
@@ -137,7 +146,7 @@ class GroupButtonItem extends StatelessWidget {
 
   BorderSide buildBorderSide(Color? color) {
     if (color != null) {
-      return BorderSide(color: color);
+      return BorderSide(color: color, width: _borderWidth);
     }
     return BorderSide.none;
   }

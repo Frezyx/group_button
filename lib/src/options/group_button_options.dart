@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:group_button/group_button.dart';
 import 'package:group_button/src/options/defaults.dart';
 
@@ -17,8 +16,10 @@ class GroupButtonOptions {
     this.selectedBorderColor,
     this.unselectedBorderColor,
     this.borderRadius,
+    this.borderWidth,
     this.selectedShadow = defaultShadow,
     this.unselectedShadow = defaultShadow,
+    this.disableTappingShadow = false,
     this.buttonHeight,
     this.buttonWidth,
     this.mainGroupAlignment = MainGroupAlignment.center,
@@ -74,11 +75,17 @@ class GroupButtonOptions {
   /// How much the button will be rounded
   final BorderRadius? borderRadius;
 
+  /// The width of the button's border
+  final double? borderWidth;
+
   /// list of selected button(s) [BoxShadow]
   final List<BoxShadow> selectedShadow;
 
   /// list of unselected buttons [BoxShadow]
   final List<BoxShadow> unselectedShadow;
+
+  /// this disables the elevation shadow when performing an onTap()
+  final bool? disableTappingShadow;
 
   /// Height of Group button
   final double? buttonHeight;

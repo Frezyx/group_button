@@ -27,8 +27,10 @@ class GroupButtonBody<T> extends StatefulWidget {
     this.selectedColor,
     this.unselectedColor,
     this.borderRadius = BorderRadius.zero,
+    this.borderWidth,
     this.selectedShadow = const [],
     this.unselectedShadow = const [],
+    this.disableTappingShadow,
     this.buttonWidth,
     this.buttonHeight,
     this.mainGroupAlignment = MainGroupAlignment.center,
@@ -59,8 +61,10 @@ class GroupButtonBody<T> extends StatefulWidget {
   final Color? selectedBorderColor;
   final Color? unselectedBorderColor;
   final BorderRadius? borderRadius;
+  final double? borderWidth;
   final List<BoxShadow> selectedShadow;
   final List<BoxShadow> unselectedShadow;
+  final bool? disableTappingShadow;
   final double? buttonWidth;
   final double? buttonHeight;
   final GroupingType? groupingType;
@@ -166,10 +170,8 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
         );
       } else {
         button = GroupButtonItem(
-          text: widget.buttonIndexedTextBuilder
-                  ?.call(_isSelected(i), i, context) ??
-              widget.buttonTextBuilder
-                  ?.call(_isSelected(i), widget.buttons[i], context) ??
+          text: widget.buttonIndexedTextBuilder?.call(_isSelected(i), i, context) ??
+              widget.buttonTextBuilder?.call(_isSelected(i), widget.buttons[i], context) ??
               widget.buttons[i].toString(),
           onPressed: _controller.disabledIndexes.contains(i)
               ? () => _controller.onDisablePressed?.call(i)
@@ -186,8 +188,10 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
           selectedBorderColor: widget.selectedBorderColor,
           unselectedBorderColor: widget.unselectedBorderColor,
           borderRadius: widget.borderRadius,
+          borderWidth: widget.borderWidth,
           selectedShadow: widget.selectedShadow,
           unselectedShadow: widget.unselectedShadow,
+          disableTappingShadow: widget.disableTappingShadow,
           height: widget.buttonHeight,
           width: widget.buttonWidth,
           textAlign: widget.textAlign,
@@ -199,9 +203,7 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
 
       /// Padding adding
       /// when groupingType is row or column
-      if (widget.spacing > 0.0 &&
-          widget.buttonIndexedBuilder == null &&
-          widget.buttonBuilder == null) {
+      if (widget.spacing > 0.0 && widget.buttonIndexedBuilder == null && widget.buttonBuilder == null) {
         if (widget.groupingType == GroupingType.row) {
           button = Padding(
             padding: EdgeInsets.symmetric(horizontal: widget.spacing),
@@ -230,9 +232,7 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
     } else {
       final maxSelected = widget.maxSelected;
       final selectedIndexesCount = _controller.selectedIndexes.length;
-      if (maxSelected != null &&
-          selectedIndexesCount >= maxSelected &&
-          !_controller.selectedIndexes.contains(i)) {
+      if (maxSelected != null && selectedIndexesCount >= maxSelected && !_controller.selectedIndexes.contains(i)) {
         return;
       }
       _controller.toggleIndexes([i]);
@@ -240,8 +240,6 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
   }
 
   bool _isSelected(int i) {
-    return widget.isRadio
-        ? _controller.selectedIndex == i
-        : _controller.selectedIndexes.contains(i);
+    return widget.isRadio ? _controller.selectedIndex == i : _controller.selectedIndexes.contains(i);
   }
 }
