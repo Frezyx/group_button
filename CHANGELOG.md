@@ -1,3 +1,8 @@
+# 5.3.4
+- Fix deprecated member 'primary'
+
+Thanks to [NeroThroN](https://github.com/NeroThroN)
+
 # 5.3.3
 - Remove self linter with **flutter_lints**
 - Fix linter issues
