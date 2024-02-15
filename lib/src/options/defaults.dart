@@ -24,3 +24,6 @@ const defaultUnselectedTextStyle = TextStyle(
   fontSize: 14,
   color: Colors.black,
 );
+
+@protected
+const defaultTappingShadowColor = Color.fromARGB(18, 18, 18, 20);
