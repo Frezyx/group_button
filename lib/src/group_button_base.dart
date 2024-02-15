@@ -126,7 +126,7 @@ class GroupButton<T> extends StatelessWidget {
       borderWidth: options.borderWidth,
       selectedShadow: options.selectedShadow,
       unselectedShadow: options.unselectedShadow,
-      disableTappingShadow: options.disableTappingShadow,
+      tappingShadowColor: options.tappingShadowColor,
       buttonWidth: options.buttonWidth,
       buttonHeight: options.buttonHeight,
       mainGroupAlignment: options.mainGroupAlignment,

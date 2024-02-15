@@ -30,7 +30,7 @@ class GroupButtonBody<T> extends StatefulWidget {
     this.borderWidth,
     this.selectedShadow = const [],
     this.unselectedShadow = const [],
-    this.disableTappingShadow,
+    this.tappingShadowColor,
     this.buttonWidth,
     this.buttonHeight,
     this.mainGroupAlignment = MainGroupAlignment.center,
@@ -64,7 +64,7 @@ class GroupButtonBody<T> extends StatefulWidget {
   final double? borderWidth;
   final List<BoxShadow> selectedShadow;
   final List<BoxShadow> unselectedShadow;
-  final bool? disableTappingShadow;
+  final Color? tappingShadowColor;
   final double? buttonWidth;
   final double? buttonHeight;
   final GroupingType? groupingType;
@@ -191,7 +191,7 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
           borderWidth: widget.borderWidth,
           selectedShadow: widget.selectedShadow,
           unselectedShadow: widget.unselectedShadow,
-          disableTappingShadow: widget.disableTappingShadow,
+          tappingShadowColor: widget.tappingShadowColor,
           height: widget.buttonHeight,
           width: widget.buttonWidth,
           textAlign: widget.textAlign,

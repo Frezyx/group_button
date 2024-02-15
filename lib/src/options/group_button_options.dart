@@ -19,7 +19,7 @@ class GroupButtonOptions {
     this.borderWidth,
     this.selectedShadow = defaultShadow,
     this.unselectedShadow = defaultShadow,
-    this.disableTappingShadow = false,
+    this.tappingShadowColor = defaultTappingShadowColor,
     this.buttonHeight,
     this.buttonWidth,
     this.mainGroupAlignment = MainGroupAlignment.center,
@@ -84,8 +84,8 @@ class GroupButtonOptions {
   /// list of unselected buttons [BoxShadow]
   final List<BoxShadow> unselectedShadow;
 
-  /// this disables the elevation shadow when performing an onTap()
-  final bool? disableTappingShadow;
+  /// shadow [Color] shown when performing an onTap()
+  final Color? tappingShadowColor;
 
   /// Height of Group button
   final double? buttonHeight;
