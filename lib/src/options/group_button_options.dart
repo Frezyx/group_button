@@ -5,30 +5,31 @@ import 'package:group_button/src/options/defaults.dart';
 
 /// UI settings of package
 class GroupButtonOptions {
-  const GroupButtonOptions({
-    this.groupingType = GroupingType.wrap,
-    this.direction,
-    this.spacing = 10,
-    this.runSpacing = 10,
-    this.selectedTextStyle = defaultSelectedTextStyle,
-    this.unselectedTextStyle = defaultUnselectedTextStyle,
-    this.selectedColor,
-    this.unselectedColor,
-    this.selectedBorderColor,
-    this.unselectedBorderColor,
-    this.borderRadius,
-    this.selectedShadow = defaultShadow,
-    this.unselectedShadow = defaultShadow,
-    this.buttonHeight,
-    this.buttonWidth,
-    this.mainGroupAlignment = MainGroupAlignment.center,
-    this.crossGroupAlignment = CrossGroupAlignment.center,
-    this.groupRunAlignment = GroupRunAlignment.center,
-    this.textAlign = TextAlign.left,
-    this.textPadding = EdgeInsets.zero,
-    this.alignment,
-    this.elevation,
-  });
+  const GroupButtonOptions(
+      {this.groupingType = GroupingType.wrap,
+      this.direction,
+      this.spacing = 10,
+      this.runSpacing = 10,
+      this.selectedTextStyle = defaultSelectedTextStyle,
+      this.unselectedTextStyle = defaultUnselectedTextStyle,
+      this.selectedColor,
+      this.unselectedColor,
+      this.selectedBorderColor,
+      this.unselectedBorderColor,
+      this.borderRadius,
+      this.selectedShadow = defaultShadow,
+      this.unselectedShadow = defaultShadow,
+      this.buttonHeight,
+      this.buttonWidth,
+      this.mainGroupAlignment = MainGroupAlignment.center,
+      this.crossGroupAlignment = CrossGroupAlignment.center,
+      this.groupRunAlignment = GroupRunAlignment.center,
+      this.textAlign = TextAlign.left,
+      this.textPadding = EdgeInsets.zero,
+      this.alignment,
+      this.elevation,
+      this.childAspectRatio = 5,
+      this.maxCrossAxisExtent = 200});
 
   /// [EdgeInsets] The inner padding of buttons [GroupButton]
   final EdgeInsets textPadding;
@@ -47,6 +48,10 @@ class GroupButtonOptions {
 
   /// The spacing between buttons inside [GroupButton]
   final double spacing;
+
+  final double? maxCrossAxisExtent;
+
+  final double? childAspectRatio;
 
   /// When [groupingType] is [GroupingType.wrap]
   /// this field sets Wrap [runSpacing]

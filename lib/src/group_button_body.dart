@@ -1,4 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:group_button/group_button.dart';
 import 'package:group_button/src/group_button_item.dart';
 import 'package:group_button/src/utils/extensions/extensions.dart';
@@ -7,15 +9,9 @@ class GroupButtonBody<T> extends StatefulWidget {
   const GroupButtonBody({
     Key? key,
     required this.buttons,
-    required this.textAlign,
-    required this.textPadding,
-    this.controller,
-    this.onSelected,
-    this.groupingType,
-    this.onDisablePressed,
-    this.selectedBorderColor,
-    this.unselectedBorderColor,
     this.disabledButtons = const [],
+    this.onSelected,
+    this.onDisablePressed,
     this.isRadio = false,
     this.enableDeselect = false,
     this.maxSelected,
@@ -26,20 +22,28 @@ class GroupButtonBody<T> extends StatefulWidget {
     this.unselectedTextStyle,
     this.selectedColor,
     this.unselectedColor,
+    this.selectedBorderColor,
+    this.unselectedBorderColor,
     this.borderRadius = BorderRadius.zero,
     this.selectedShadow = const [],
     this.unselectedShadow = const [],
     this.buttonWidth,
     this.buttonHeight,
+    this.groupingType,
     this.mainGroupAlignment = MainGroupAlignment.center,
     this.crossGroupAlignment = CrossGroupAlignment.center,
     this.groupRunAlignment = GroupRunAlignment.center,
+    required this.textAlign,
+    required this.textPadding,
     this.alignment,
     this.elevation,
+    this.controller,
     this.buttonIndexedBuilder,
     this.buttonBuilder,
     this.buttonIndexedTextBuilder,
     this.buttonTextBuilder,
+    this.maxCrossAxisExtent,
+    this.childAspectRatio,
   }) : super(key: key);
 
   final List<T> buttons;
@@ -76,6 +80,8 @@ class GroupButtonBody<T> extends StatefulWidget {
   final GroupButtonValueBuilder<T>? buttonBuilder;
   final GroupButtonIndexedTextBuilder? buttonIndexedTextBuilder;
   final GroupbuttonTextBuilder<T>? buttonTextBuilder;
+  final double? maxCrossAxisExtent;
+  final double? childAspectRatio;
 
   @override
   State<GroupButtonBody<T>> createState() => _GroupButtonBodyState<T>();
@@ -122,12 +128,21 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
         return Row(
           mainAxisAlignment: widget.mainGroupAlignment.toAxis(),
           crossAxisAlignment: widget.crossGroupAlignment.toAxis(),
+          mainAxisSize: MainAxisSize.min,
           children: buttons,
         );
       case GroupingType.column:
         return Column(
           mainAxisAlignment: widget.mainGroupAlignment.toAxis(),
           crossAxisAlignment: widget.crossGroupAlignment.toAxis(),
+          mainAxisSize: MainAxisSize.min,
+          children: buttons,
+        );
+      case GroupingType.grid:
+        return GridView.extent(
+          maxCrossAxisExtent: widget.maxCrossAxisExtent ?? 200,
+          childAspectRatio: widget.childAspectRatio ?? 5,
+          shrinkWrap: true,
           children: buttons,
         );
 
@@ -166,10 +181,8 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
         );
       } else {
         button = GroupButtonItem(
-          text: widget.buttonIndexedTextBuilder
-                  ?.call(_isSelected(i), i, context) ??
-              widget.buttonTextBuilder
-                  ?.call(_isSelected(i), widget.buttons[i], context) ??
+          text: widget.buttonIndexedTextBuilder?.call(_isSelected(i), i, context) ??
+              widget.buttonTextBuilder?.call(_isSelected(i), widget.buttons[i], context) ??
               widget.buttons[i].toString(),
           onPressed: _controller.disabledIndexes.contains(i)
               ? () => _controller.onDisablePressed?.call(i)
@@ -199,9 +212,7 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
 
       /// Padding adding
       /// when groupingType is row or column
-      if (widget.spacing > 0.0 &&
-          widget.buttonIndexedBuilder == null &&
-          widget.buttonBuilder == null) {
+      if (widget.spacing > 0.0 && widget.buttonIndexedBuilder == null && widget.buttonBuilder == null) {
         if (widget.groupingType == GroupingType.row) {
           button = Padding(
             padding: EdgeInsets.symmetric(horizontal: widget.spacing),
@@ -230,9 +241,7 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
     } else {
       final maxSelected = widget.maxSelected;
       final selectedIndexesCount = _controller.selectedIndexes.length;
-      if (maxSelected != null &&
-          selectedIndexesCount >= maxSelected &&
-          !_controller.selectedIndexes.contains(i)) {
+      if (maxSelected != null && selectedIndexesCount >= maxSelected && !_controller.selectedIndexes.contains(i)) {
         return;
       }
       _controller.toggleIndexes([i]);
@@ -240,8 +249,6 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
   }
 
   bool _isSelected(int i) {
-    return widget.isRadio
-        ? _controller.selectedIndex == i
-        : _controller.selectedIndexes.contains(i);
+    return widget.isRadio ? _controller.selectedIndex == i : _controller.selectedIndexes.contains(i);
   }
 }
