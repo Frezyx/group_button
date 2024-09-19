@@ -1,3 +1,8 @@
+# 5.4.0
+- Added configurable border width and disable flag for the shadow on tapping
+
+Thanks to [JaseElder](https://github.com/JaseElder)
+
 # 5.3.4
 - Fix deprecated member 'primary'
 
