@@ -170,8 +170,10 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
         );
       } else {
         button = GroupButtonItem(
-          text: widget.buttonIndexedTextBuilder?.call(_isSelected(i), i, context) ??
-              widget.buttonTextBuilder?.call(_isSelected(i), widget.buttons[i], context) ??
+          text: widget.buttonIndexedTextBuilder
+                  ?.call(_isSelected(i), i, context) ??
+              widget.buttonTextBuilder
+                  ?.call(_isSelected(i), widget.buttons[i], context) ??
               widget.buttons[i].toString(),
           onPressed: _controller.disabledIndexes.contains(i)
               ? () => _controller.onDisablePressed?.call(i)
@@ -203,7 +205,9 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
 
       /// Padding adding
       /// when groupingType is row or column
-      if (widget.spacing > 0.0 && widget.buttonIndexedBuilder == null && widget.buttonBuilder == null) {
+      if (widget.spacing > 0.0 &&
+          widget.buttonIndexedBuilder == null &&
+          widget.buttonBuilder == null) {
         if (widget.groupingType == GroupingType.row) {
           button = Padding(
             padding: EdgeInsets.symmetric(horizontal: widget.spacing),
@@ -232,7 +236,9 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
     } else {
       final maxSelected = widget.maxSelected;
       final selectedIndexesCount = _controller.selectedIndexes.length;
-      if (maxSelected != null && selectedIndexesCount >= maxSelected && !_controller.selectedIndexes.contains(i)) {
+      if (maxSelected != null &&
+          selectedIndexesCount >= maxSelected &&
+          !_controller.selectedIndexes.contains(i)) {
         return;
       }
       _controller.toggleIndexes([i]);
@@ -240,6 +246,8 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
   }
 
   bool _isSelected(int i) {
-    return widget.isRadio ? _controller.selectedIndex == i : _controller.selectedIndexes.contains(i);
+    return widget.isRadio
+        ? _controller.selectedIndex == i
+        : _controller.selectedIndexes.contains(i);
   }
 }
