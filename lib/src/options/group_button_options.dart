@@ -19,7 +19,7 @@ class GroupButtonOptions {
     this.borderWidth,
     this.selectedShadow = defaultShadow,
     this.unselectedShadow = defaultShadow,
-    this.tappingShadowColor = defaultTappingShadowColor,
+    this.tappingShadowColor,
     this.buttonHeight,
     this.buttonWidth,
     this.mainGroupAlignment = MainGroupAlignment.center,
