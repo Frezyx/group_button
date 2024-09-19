@@ -14,8 +14,10 @@ class GroupButtonItem extends StatelessWidget {
     this.selectedColor,
     this.unselectedColor,
     this.borderRadius,
+    this.borderWidth,
     this.selectedShadow,
     this.unselectedShadow,
+    this.tappingShadowColor,
     this.height,
     this.width,
     this.textAlign,
@@ -35,8 +37,10 @@ class GroupButtonItem extends StatelessWidget {
   final Color? selectedBorderColor;
   final Color? unselectedBorderColor;
   final BorderRadius? borderRadius;
+  final double? borderWidth;
   final List<BoxShadow>? selectedShadow;
   final List<BoxShadow>? unselectedShadow;
+  final Color? tappingShadowColor;
   final double? height;
   final double? width;
   final TextAlign? textAlign;
@@ -64,6 +68,8 @@ class GroupButtonItem extends StatelessWidget {
           ? unselectedBorderColor
           : null;
 
+  double get _borderWidth => borderWidth ?? 1.0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -87,6 +93,7 @@ class GroupButtonItem extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
+        shadowColor: tappingShadowColor ?? _getBackgroundColor(theme),
         elevation: elevation ?? 0.0,
         backgroundColor: _getBackgroundColor(theme),
         shape: _buildShape(),
@@ -136,7 +143,7 @@ class GroupButtonItem extends StatelessWidget {
 
   BorderSide buildBorderSide(Color? color) {
     if (color != null) {
-      return BorderSide(color: color);
+      return BorderSide(color: color, width: _borderWidth);
     }
     return BorderSide.none;
   }

@@ -27,8 +27,10 @@ class GroupButtonBody<T> extends StatefulWidget {
     this.selectedColor,
     this.unselectedColor,
     this.borderRadius = BorderRadius.zero,
+    this.borderWidth,
     this.selectedShadow = const [],
     this.unselectedShadow = const [],
+    this.tappingShadowColor,
     this.buttonWidth,
     this.buttonHeight,
     this.mainGroupAlignment = MainGroupAlignment.center,
@@ -59,8 +61,10 @@ class GroupButtonBody<T> extends StatefulWidget {
   final Color? selectedBorderColor;
   final Color? unselectedBorderColor;
   final BorderRadius? borderRadius;
+  final double? borderWidth;
   final List<BoxShadow> selectedShadow;
   final List<BoxShadow> unselectedShadow;
+  final Color? tappingShadowColor;
   final double? buttonWidth;
   final double? buttonHeight;
   final GroupingType? groupingType;
@@ -186,8 +190,10 @@ class _GroupButtonBodyState<T> extends State<GroupButtonBody<T>> {
           selectedBorderColor: widget.selectedBorderColor,
           unselectedBorderColor: widget.unselectedBorderColor,
           borderRadius: widget.borderRadius,
+          borderWidth: widget.borderWidth,
           selectedShadow: widget.selectedShadow,
           unselectedShadow: widget.unselectedShadow,
+          tappingShadowColor: widget.tappingShadowColor,
           height: widget.buttonHeight,
           width: widget.buttonWidth,
           textAlign: widget.textAlign,
